@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo + GitHub Pages搭建个人免费博客</title>
+    <url>/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>综合了很多种方案，平衡稳定、简洁等因素，最终还是决定使用<a href="https://hexo.io/zh-cn/">Hexo</a>+<a href="https://pages.github.com/">GitHub Pages</a>来搭建博客网站，虽然前期需要折腾一下，权当学习。</p>
+<span id="more"></span>
+
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>需要安装<a href="https://git-scm.com/downloads">Git</a>和<a href="https://nodejs.org/zh-cn/">Node.js</a>，安装完成(包括设置好环境变量后)，打开cmd或PowerShell，输入<code>node -v</code>、<code>npm -v</code>和<code>git --version</code>，如图出现程序版本号即可。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/environment.png" alt="git及node.js环境测试" title="Git及node.js环境">  </p>
+<h1 id="连接GitHub"><a href="#连接GitHub" class="headerlink" title="连接GitHub"></a>连接GitHub</h1><ol>
+<li><p>创建<a href="https://github.com/">GitHub</a>账户，完成邮件验证。</p>
+</li>
+<li><p>任意位置右键 -&gt; Git Bash Here, 设置用户名和邮箱，或者打开C:\Users\用户名\.gitconfig编辑:</p>
+<pre><code> git config --global user.name &quot;Github用户名&quot;  
+ git config --global user.email &quot;Github邮箱&quot;  
+</code></pre>
+</li>
+<li><p>创建SSH密钥：<br>输入<code>ssh-keygen -t rsa -C &quot;Github邮箱&quot;</code>，然后一路回车确认。</p>
+</li>
+<li><p>添加密钥：<br>进入C:\Users\用户名.ssh目录（要勾选显示“隐藏的项目”），用记事本打开公钥id_rsa.pub 文件并完整复制里面的内容。<br>登陆GitHub，进入Settings页面，选择左边栏的SSH and GPG keys，点击New SSH key。Title随便，粘贴复制的id_rsa.pub内容到Key中，点击Add SSH key完成添加。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Github_ssh_1.png" alt="GitHub ssh 1" title="Github添加ssh1"><br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Github_ssh_2.png" alt="GitHub ssh 2" title="Github添加ssh2"></p>
+</li>
+<li><p>验证连接:<br>打开Git Bash, 输入<code>ssh -T git@github.com</code>出现“Are you sure …”, 输入yes回车确认。<br>显示”Hi xxx! You’ve successfully authenticated, but GitHub does not …”即连接成功。后续再次输入此命令时，将不需要输入yes确认，直接显示成功。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Verify_Link_To_Github.png" alt="GitHub Link" title="连接Github">  </p>
+</li>
+</ol>
+<h1 id="创建Github-Pages仓库"><a href="#创建Github-Pages仓库" class="headerlink" title="创建Github Pages仓库"></a>创建Github Pages仓库</h1><p>GitHub主页右上角点加号-&gt;New repository:</p>
+<ul>
+<li>Repository name 中输入 用户名.github.io</li>
+<li>勾选 “Initialize this repository with a README”</li>
+<li>Description 选填</li>
+</ul>
+<p>填好后点击Create repository创建。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/CreateRepo.png" alt="GitHub create repository" title="Github创建一个仓库"></p>
+<p>创建后默认自动启动HTTPS，博客地址为：<code>https://用户名.github.io</code></p>
+<h1 id="本地安装Hexo博客程序"><a href="#本地安装Hexo博客程序" class="headerlink" title="本地安装Hexo博客程序"></a>本地安装Hexo博客程序</h1><p>新建一个文件夹用来存放Hexo的程序文件，如Hexo-Blog。进入该文件夹，右键-&gt;Git Bash Here。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>使用npm一键安装Hexo博客程序：</p>
+<pre><code>npm install -g hexo-cli
+</code></pre>
+<p>耐心等待安装完成后回到输入界面。</p>
+<h2 id="Hexo初始化及预览"><a href="#Hexo初始化及预览" class="headerlink" title="Hexo初始化及预览"></a>Hexo初始化及预览</h2><p>初始化并安装所需组件：</p>
+<pre><code>hexo init   # 初始化
+npm install # 安装组件
+</code></pre>
+<p>完成后依次输入以下命令，启动本地服务器进行预览：</p>
+<pre><code>hexo g      # 生成页面
+hexo s      # 启动预览
+</code></pre>
+<p>访问<code>http://localhost:4000</code>，出现Hexo默认页面，本地博客安装成功！<br><strong>Tips:</strong> 如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行<code>hexo server -p 5000</code>更改端口号后重试。</p>
+<p>Hexo博客文件夹目录结构如下：</p>
+<pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+</code></pre>
+<h2 id="部署Hexo到GitHub-Pages"><a href="#部署Hexo到GitHub-Pages" class="headerlink" title="部署Hexo到GitHub Pages"></a>部署Hexo到GitHub Pages</h2><p>本地博客测试成功后，再就是上传到GitHub进行部署，使其能够在网络上访问。<br>首先<strong>安装hexo-deployer-git:</strong></p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>然后<strong>修改_config.yml</strong>文件末尾的Deployment部分：</p>
+<pre><code>deploy:
+    type: git
+    repository: git@github.com:用户名/用户名.github.io.git
+    branch: main
+</code></pre>
+<p>完成后运行hexo d将网站上传部署到GitHub Pages。<br>这时访问我们的GitHub域名<code>https://用户名.github.io</code>就可以看到上传的Hexo网站了。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://hexo.io/zh-cn/" title="Hexo官网">Hexo - 快速、简洁且高效的博客框架</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/60578464" title="-知乎">使用 Hexo+GitHub 搭建个人免费博客教程（小白向）</a></li>
+<li><a href="https://suyin-blog.club/2020/323EH2Y/" title="苏寅 Blog">Hexo-Next 主题安装并配置教程</a></li>
+<li><a href="https://suyin-blog.club/2019/1YVTX5K/" title="苏寅 Blog">备份Hexo博客源文件</a></li>
+<li><a href="https://blog.csdn.net/Wonz5130/article/details/84666519">解决 Hexo 搭建博客显示不出分类、标签问题</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一、C++简介</title>
+    <url>/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p>开始学习C++之前的一些认知。</p>
+<span id="more"></span>
+
+<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++语言特点"></a>C++语言特点</h1><p>C++融合了3种不同的编程方式：</p>
+<ul>
+<li>C语言代表的过程性语言</li>
+<li>C++在C语言基础上添加的类代表的面向对象（OOP）语言</li>
+<li>C++模板支持的泛型编程</li>
+</ul>
+<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++起源"></a>C++起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong>于20世纪80年代开发出了这种语言。基于C语言。</p>
+<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++标准"></a>C++标准</h1><ul>
+<li>移植时需要对程序重新编译</li>
+<li>C++98, C++11标准</li>
+</ul>
+<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++语言风格"></a>C++语言风格</h1><ul>
+<li>源代码文件扩展名</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>C++实现</th>
+<th>源代码文件的扩展名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UNIX</td>
+<td>C、cc、cxx、c</td>
+</tr>
+<tr>
+<td>GNU C++</td>
+<td>C、cc、cxx、cpp、c++</td>
+</tr>
+<tr>
+<td>Digital Mars</td>
+<td>cpp、cxx</td>
+</tr>
+<tr>
+<td>Borland C++</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>Watcom</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>Microsoft Visual C++</td>
+<td>cpp、cxx、cc</td>
+</tr>
+<tr>
+<td>Freestyle CodeWarrior</td>
+<td>cp、cpp、cc、cxx、c++</td>
+</tr>
+</tbody></table>
+<ul>
+<li>程序创建步骤</li>
+</ul>
+<p><img src="https://cdn.ptpress.cn/pubcloud/5B0A982E/ushu/UB7209840d845c9/online/FBOL7209841948eab/Images/7.png?x-oss-process=image/watermark,image_d2F0ZXJtYXJrL21vYmlsZS8xODkzODYzNjM4NTVCMEE5ODJFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzMw,t_10,g_center"></p>
+<ul>
+<li>常用编译器<ul>
+<li>g++</li>
+<li>gcc</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+</search>
