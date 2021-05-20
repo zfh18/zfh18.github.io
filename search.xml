@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++学习之五、C++循环和关系表达式</title>
+    <url>/2021/05/18/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Hexo + GitHub Pages搭建个人免费博客</title>
     <url>/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>综合了很多种方案，平衡稳定、简洁等因素，最终还是决定使用<a href="https://hexo.io/zh-cn/">Hexo</a>+<a href="https://pages.github.com/">GitHub Pages</a>来搭建博客网站，虽然前期需要折腾一下，权当学习。</p>
@@ -79,6 +84,16 @@ hexo s      # 启动预览
         <tag>Hexo</tag>
         <tag>GitHub Pages</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>C++学习之六、C++分支语句和逻辑运算符</title>
+    <url>/2021/05/18/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81C-%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>C++学习之四、C++复合数据类型</title>
+    <url>/2021/05/18/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>C++学习之一、 C++简介</title>
@@ -328,6 +343,28 @@ hexo s      # 启动预览
 <td>unsigned long long 的最大值</td>
 </tr>
 </tbody></table>
+<h2 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h2><p>C++ 提供了如此多的整型，使用是应该怎么选择呢？</p>
+<ul>
+<li>通常，<code>int</code> 被设置为对目标计算机而言最为“自然”的长度，计算机处理起来效率最高。如果没有其它理由，则应使用 <code>int</code>。</li>
+<li>如果变量表示的值不可能为负，则可以使用无符号类型，这样变量可以表示更大的值。</li>
+<li>如果变量可能表示的整数值大于 16 位整数的最大可能值，则使用 <code>long</code>。即使系统上 <code>int</code> 为32位也应该这样做。这样，将程序移植到 16 位系统时，就不会突然无法正常工作。</li>
+<li>如果要存储的值超过 20 亿，可使用 <code>long long</code>。</li>
+<li>由于 <code>short</code> 比 <code>int</code> 小，使用 <code>short</code> 可以节省内存。通常，仅当有大型整型数组时，才有必要使用 <code>short</code>。如果节省内存很重要，则应使用 <code>short</code> 而不是使用 <code>int</code>。</li>
+</ul>
+<h2 id="整型常量"><a href="#整型常量" class="headerlink" title="整型常量"></a>整型常量</h2><ol>
+<li><p>整型常量，常用为四种不同的计数方式：</p>
+<ul>
+<li>十进制：第一位为 1~9，如 53</li>
+<li>十进制：所有位都以 0 和 1 来表示，如 0101 等于十进制中 6</li>
+<li>八进制：第一位为 0，第二位为 1~7，如 042 等于十进制中的 34</li>
+<li>十六进制：前两位为 0x 或 0X，如 0x42 等于十进制的 66</li>
+</ul>
+<p> 进制计数方式只是为了人方便计数，在计算机中，最终都是以二进制存储。</p>
+<p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为堤进制 42；</span></span><br></pre></td></tr></table></figure></li>
+<li><p>C++ 如何确定常量的类型</p>
+</li>
+</ol>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ol>
 <li><p>变量用来表征：</p>
 <ul>
@@ -364,6 +401,26 @@ hexo s      # 启动预览
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用命令</title>
+    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
+<span id="more"></span>
+
+<h1 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h1><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
+git config --global // 针对当前用户的配置
+git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
+</code></pre>
+]]></content>
+      <categories>
+        <category>Git学习</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>版本控制</tag>
       </tags>
   </entry>
 </search>
