@@ -28,7 +28,7 @@
 <meta property="og:description" content="C++ 内置数据类型分两组：基本数据类型和复合数据类型。本编介绍基本数据类型。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-17T02:21:33.000Z">
-<meta property="article:modified_time" content="2021-05-25T14:43:53.851Z">
+<meta property="article:modified_time" content="2021-05-26T14:23:26.182Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E2%80%93%E6%95%B4%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型–整型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E6%95%B4%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">数值整型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E5%AE%BD%E5%BA%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">整型宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%95%B4%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">选择整型类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.1.3.</span> <span class="nav-text">整型字面值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%95%B4%E5%9E%8B-char-%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">另一种整型- char 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#char-%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.2.1.</span> <span class="nav-text">char 字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%AD%97%E7%AC%A6%E5%90%8D"><span class="nav-number">1.2.2.</span> <span class="nav-text">通用字符名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E2%80%93%E6%95%B4%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型–整型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E6%95%B4%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">数值整型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E5%AE%BD%E5%BA%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">整型宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%95%B4%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">选择整型类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.1.3.</span> <span class="nav-text">整型字面值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%95%B4%E5%9E%8B-char-%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">另一种整型- char 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#char-%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">1.2.1.</span> <span class="nav-text">char 字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%AD%97%E7%AC%A6%E5%90%8D"><span class="nav-number">1.2.2.</span> <span class="nav-text">通用字符名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#char-%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">char 字符类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wchar-t-%E5%AE%BD%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">wchar_t 宽字符类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-11-%E6%96%B0%E5%A2%9E%E7%B1%BB%E5%9E%8B%EF%BC%9Achar16-t-%E5%92%8C-char32-t"><span class="nav-number">1.2.5.</span> <span class="nav-text">C++11 新增类型：char16_t 和 char32_t</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bool-%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">bool 类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -258,7 +258,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 22:43:53" itemprop="dateModified" datetime="2021-05-25T22:43:53+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 22:23:26" itemprop="dateModified" datetime="2021-05-26T22:23:26+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,14 +285,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
+      <span>4.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -523,8 +523,30 @@
 </tbody></table>
 <p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如\n）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
 <p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为26，对应的八进制编码为032，十六进制编码为0x1a。可以用下面的转义序列来表示该字符：\032或\0x1a。将这些编码用单引号括起，可以得到相应的字符常量。</p>
-<h3 id="通用字符名"><a href="#通用字符名" class="headerlink" title="通用字符名"></a>通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
-<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟8个十六进制位 或 <code>\U</code> 后面跟16个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code>是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<h3 id="通用字符名"><a href="#通用字符名" class="headerlink" title="通用字符名"></a>通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
+<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟4个十六进制位 或 <code>\U</code> 后面跟8个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code>是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
+<pre><code>int k\u00F6rper;
+cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
+</code></pre>
+<p><code>ö</code> 的ISO 10646码点为00F6，而 <code>â</code> 的码点00E2。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
+<pre><code>Let them eat gâteau.
+</code></pre>
+<p>如果系统不支持ISO 10646，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
+<h3 id="char-字符类型"><a href="#char-字符类型" class="headerlink" title="char 字符类型"></a>char 字符类型</h3><p><code>char</code> 在默认情况下既不是没有符号，也不是有符号。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能是有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="wchar-t-宽字符类型"><a href="#wchar-t-宽字符类型" class="headerlink" title="wchar_t 宽字符类型"></a>wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
+<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 – <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
+<pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
+wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
+</code></pre>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为16位和32位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两个字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
+<p>char16_t 和 uchar32_t 也有底层类型–一种内置的整型，但底层类型可能随系统而异。</p>
+<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 true 或 false，这两个值都可以通过提升转换为 int 类型，true 被转换为 1，false 被转换为 0。</p>
+<pre><code>bool is_ready = true;
+</code></pre>
+<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 true，而零被转换为 false。</p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ol>
 <li><p>变量用来表征：</p>
 <ul>
@@ -627,13 +649,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">8k</span>
+    <span title="站点总字数">9k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

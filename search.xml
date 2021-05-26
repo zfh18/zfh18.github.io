@@ -1,81 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++学习之一、 C++简介</title>
-    <url>/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<p>开始学习C++之前的一些认知。</p>
-<span id="more"></span>
-
-<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++语言特点"></a>C++语言特点</h1><p>C++融合了3种不同的编程方式：</p>
-<ul>
-<li>C语言代表的过程性语言</li>
-<li>C++在C语言基础上添加的类代表的面向对象（OOP）语言</li>
-<li>C++模板支持的泛型编程</li>
-</ul>
-<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++起源"></a>C++起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong>于20世纪80年代开发出了这种语言。基于C语言。</p>
-<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++标准"></a>C++标准</h1><ul>
-<li>移植时需要对程序重新编译</li>
-<li>C++98, C++11标准</li>
-</ul>
-<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++语言风格"></a>C++语言风格</h1><ul>
-<li>源代码文件扩展名</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>C++实现</th>
-<th>源代码文件的扩展名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UNIX</td>
-<td>C、cc、cxx、c</td>
-</tr>
-<tr>
-<td>GNU C++</td>
-<td>C、cc、cxx、cpp、c++</td>
-</tr>
-<tr>
-<td>Digital Mars</td>
-<td>cpp、cxx</td>
-</tr>
-<tr>
-<td>Borland C++</td>
-<td>cpp</td>
-</tr>
-<tr>
-<td>Watcom</td>
-<td>cpp</td>
-</tr>
-<tr>
-<td>Microsoft Visual C++</td>
-<td>cpp、cxx、cc</td>
-</tr>
-<tr>
-<td>Freestyle CodeWarrior</td>
-<td>cp、cpp、cc、cxx、c++</td>
-</tr>
-</tbody></table>
-<ul>
-<li>程序创建步骤</li>
-</ul>
-<p><img src="https://cdn.ptpress.cn/pubcloud/5B0A982E/ushu/UB7209840d845c9/online/FBOL7209841948eab/Images/7.png?x-oss-process=image/watermark,image_d2F0ZXJtYXJrL21vYmlsZS8xODkzODYzNjM4NTVCMEE5ODJFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzMw,t_10,g_center"></p>
-<ul>
-<li>常用编译器<ul>
-<li>g++</li>
-<li>gcc</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + GitHub Pages搭建个人免费博客</title>
     <url>/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>综合了很多种方案，平衡稳定、简洁等因素，最终还是决定使用<a href="https://hexo.io/zh-cn/">Hexo</a>+<a href="https://pages.github.com/">GitHub Pages</a>来搭建博客网站，虽然前期需要折腾一下，权当学习。</p>
@@ -153,6 +78,81 @@ hexo s      # 启动预览
       <tags>
         <tag>Hexo</tag>
         <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之一、 C++简介</title>
+    <url>/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p>开始学习C++之前的一些认知。</p>
+<span id="more"></span>
+
+<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++语言特点"></a>C++语言特点</h1><p>C++融合了3种不同的编程方式：</p>
+<ul>
+<li>C语言代表的过程性语言</li>
+<li>C++在C语言基础上添加的类代表的面向对象（OOP）语言</li>
+<li>C++模板支持的泛型编程</li>
+</ul>
+<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++起源"></a>C++起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong>于20世纪80年代开发出了这种语言。基于C语言。</p>
+<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++标准"></a>C++标准</h1><ul>
+<li>移植时需要对程序重新编译</li>
+<li>C++98, C++11标准</li>
+</ul>
+<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++语言风格"></a>C++语言风格</h1><ul>
+<li>源代码文件扩展名</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>C++实现</th>
+<th>源代码文件的扩展名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UNIX</td>
+<td>C、cc、cxx、c</td>
+</tr>
+<tr>
+<td>GNU C++</td>
+<td>C、cc、cxx、cpp、c++</td>
+</tr>
+<tr>
+<td>Digital Mars</td>
+<td>cpp、cxx</td>
+</tr>
+<tr>
+<td>Borland C++</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>Watcom</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>Microsoft Visual C++</td>
+<td>cpp、cxx、cc</td>
+</tr>
+<tr>
+<td>Freestyle CodeWarrior</td>
+<td>cp、cpp、cc、cxx、c++</td>
+</tr>
+</tbody></table>
+<ul>
+<li>程序创建步骤</li>
+</ul>
+<p><img src="https://cdn.ptpress.cn/pubcloud/5B0A982E/ushu/UB7209840d845c9/online/FBOL7209841948eab/Images/7.png?x-oss-process=image/watermark,image_d2F0ZXJtYXJrL21vYmlsZS8xODkzODYzNjM4NTVCMEE5ODJFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzMw,t_10,g_center"></p>
+<ul>
+<li>常用编译器<ul>
+<li>g++</li>
+<li>gcc</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -448,8 +448,30 @@ hexo s      # 启动预览
 </tbody></table>
 <p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如\n）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
 <p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为26，对应的八进制编码为032，十六进制编码为0x1a。可以用下面的转义序列来表示该字符：\032或\0x1a。将这些编码用单引号括起，可以得到相应的字符常量。</p>
-<h3 id="通用字符名"><a href="#通用字符名" class="headerlink" title="通用字符名"></a>通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
-<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟8个十六进制位 或 <code>\U</code> 后面跟16个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code>是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<h3 id="通用字符名"><a href="#通用字符名" class="headerlink" title="通用字符名"></a>通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
+<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟4个十六进制位 或 <code>\U</code> 后面跟8个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code>是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
+<pre><code>int k\u00F6rper;
+cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
+</code></pre>
+<p><code>ö</code> 的ISO 10646码点为00F6，而 <code>â</code> 的码点00E2。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
+<pre><code>Let them eat gâteau.
+</code></pre>
+<p>如果系统不支持ISO 10646，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
+<h3 id="char-字符类型"><a href="#char-字符类型" class="headerlink" title="char 字符类型"></a>char 字符类型</h3><p><code>char</code> 在默认情况下既不是没有符号，也不是有符号。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能是有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="wchar-t-宽字符类型"><a href="#wchar-t-宽字符类型" class="headerlink" title="wchar_t 宽字符类型"></a>wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
+<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 – <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
+<pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
+wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
+</code></pre>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为16位和32位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两个字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
+<p>char16_t 和 uchar32_t 也有底层类型–一种内置的整型，但底层类型可能随系统而异。</p>
+<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 true 或 false，这两个值都可以通过提升转换为 int 类型，true 被转换为 1，false 被转换为 0。</p>
+<pre><code>bool is_ready = true;
+</code></pre>
+<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 true，而零被转换为 false。</p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ol>
 <li><p>变量用来表征：</p>
 <ul>
