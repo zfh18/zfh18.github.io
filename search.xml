@@ -472,6 +472,20 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <pre><code>bool is_ready = true;
 </code></pre>
 <p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 true，而零被转换为 false。</p>
+<h1 id="基本数据类型–浮点型"><a href="#基本数据类型–浮点型" class="headerlink" title="基本数据类型–浮点型"></a>基本数据类型–浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示小数值、非常大或非常小的值，它们的内部表示方法与整数有天壤之别。</p>
+<p>有效位（significant figure）是指数字中有意义的位。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
+<h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
+<ul>
+<li><code>float</code> 至少 32 位；</li>
+<li><code>double</code> 至少 48 位，且不少于 <code>float</code>；</li>
+<li><code>long double</code> 至少和 <code>double</code> 一样多；</li>
+<li>以上三种类型的有效位数可以一样多。然而，通常，<code>float</code> 为 32 位，<code>double</code> 为 64 位，<code>long double</code> 为 80、96 或 128 位。</li>
+<li>以上三种类型的指数范围到少是 -37 到 37。</li>
+</ul>
+<p>头文件 <code>cfloat</code> 或 <code>float.h</code> 对系统的限制作了说明（<code>cfloat</code> 是 C 语言的 <code>float.h</code> 文件的 C++ 版本）。下面列出 <code>Borland C++ Builder</code> 的 <code>float.h</code> 文件中一些批注项：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -532,16 +546,13 @@ git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能�
     <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
 <span id="more"></span>
 
-<ol>
-<li><p>变量用来表征：</p>
+<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
 <ul>
 <li>信息将存储在哪里；</li>
 <li>要存储什么值；</li>
 <li>存储何种类型的信息；</li>
 </ul>
-</li>
-<li><p>C++ 变量名命名规则</p>
-<ul>
+<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
 <li>名称中只能使用字母字符、数字和下划线（_）。</li>
 <li>名称中第一个字符不能是数字。</li>
 <li>区分大小写。</li>
@@ -549,19 +560,17 @@ git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能�
 <li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
 <li>C++ 对于名称长度没有限制。</li>
 </ul>
-</li>
-<li><p>变量初始化</p>
-<p> 如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
+<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
 <ul>
 <li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
 </li>
 <li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
 </li>
 <li><p>C++11 新增方式：</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+</code></pre>
 </li>
-</ol>
+</ul>
 ]]></content>
       <categories>
         <category>C++学习</category>
