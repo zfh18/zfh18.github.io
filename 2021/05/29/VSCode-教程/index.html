@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/book-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/book-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/book-16x16.png">
+  <link rel="mask-icon" href="/images/logo2.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode 教程">
+<meta property="og:url" content="https://zfh18.github.io/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="未闻驿站">
+<meta property="og:description" content="工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-29T05:23:18.000Z">
+<meta property="article:modified_time" content="2021-05-30T12:27:46.421Z">
+<meta property="article:author" content="未闻花名">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zfh18.github.io/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;05&#x2F;29&#x2F;VSCode-%E6%95%99%E7%A8%8B&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;29&#x2F;VSCode-教程&#x2F;&quot;,&quot;title&quot;:&quot;VSCode 教程&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>VSCode 教程 | 未闻驿站</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">未闻驿站</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录，学习</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">VS Code 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">VS Code 键盘操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E4%BB%A3%E7%A0%81%E8%A1%8C%E7%BC%96%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">VS Code 代码行编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%92%A4%E9%94%80%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">VS Code 撤销光标移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%A1%8C%E6%8E%92%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">VS Code 行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E8%A1%8C"><span class="nav-number">6.</span> <span class="nav-text">VS Code 合并代码行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%B0%83%E6%95%B4%E5%AD%97%E7%AC%A6%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">7.</span> <span class="nav-text">VS Code 调整字符大小写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%B0%83%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%BD%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">VS Code 调换字符位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E4%BB%A3%E7%A0%81%E7%BC%A9%E8%BF%9B"><span class="nav-number">9.</span> <span class="nav-text">VS Code 代码缩进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">VS Code 代码格式化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A"><span class="nav-number">11.</span> <span class="nav-text">VS Code 添加代码注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">12.</span> <span class="nav-text">VS Code 自动补全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%96%87%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-number">13.</span> <span class="nav-text">VS Code 文本选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88"><span class="nav-number">14.</span> <span class="nav-text">VS Code 快速预览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%8F%82%E6%95%B0%E9%A2%84%E8%A7%88"><span class="nav-number">15.</span> <span class="nav-text">VS Code 参数预览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%BF%AB%E9%80%9F%E4%BF%AE%E5%A4%8D"><span class="nav-number">16.</span> <span class="nav-text">VS Code 快速修复</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E9%87%8D%E6%9E%84"><span class="nav-number">17.</span> <span class="nav-text">VS Code 重构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91"><span class="nav-number">18.</span> <span class="nav-text">VS Code 文本编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%A4%9A%E5%85%89%E6%A0%87"><span class="nav-number">19.</span> <span class="nav-text">VS Code 多光标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%BC%A0%E6%A0%87"><span class="nav-number">19.1.</span> <span class="nav-text">使用鼠标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%94%AE%E7%9B%98"><span class="nav-number">19.2.</span> <span class="nav-text">使用键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">19.3.</span> <span class="nav-text">使用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E4%B8%AD%E9%94%AE"><span class="nav-number">19.4.</span> <span class="nav-text">鼠标中键</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E4%BB%A3%E7%A0%81%E8%B7%B3%E8%BD%AC%E5%92%8C%E9%93%BE%E6%8E%A5"><span class="nav-number">20.</span> <span class="nav-text">VS Code 代码跳转和链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%82%AC%E5%81%9C%E6%8F%90%E7%A4%BA%E7%AA%97%E5%8F%A3"><span class="nav-number">21.</span> <span class="nav-text">VS Code 悬停提示窗口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E6%96%87%E4%BB%B6%E8%B7%B3%E8%BD%AC"><span class="nav-number">22.</span> <span class="nav-text">VS Code 文件跳转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%A1%8C%E8%B7%B3%E8%BD%AC"><span class="nav-number">23.</span> <span class="nav-text">VS Code 行跳转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E7%AC%A6%E5%8F%B7%E8%B7%B3%E8%BD%AC"><span class="nav-number">24.</span> <span class="nav-text">VS Code 符号跳转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0%E9%97%B4%E8%B7%B3%E8%BD%AC"><span class="nav-number">25.</span> <span class="nav-text">VS Code 定义和实现间跳转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%BC%95%E7%94%A8%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">26.</span> <span class="nav-text">VS Code 跳转到引用的地方</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">27.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="未闻花名"
+      src="/images/pic.png">
+  <p class="site-author-name" itemprop="name">未闻花名</p>
+  <div class="site-description" itemprop="description">记录一些学习知识，汽车电子，C++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zfh18" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zfh18" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fenghua.zhou6@outlook.com" title="E-Mail → mailto:fenghua.zhou6@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zfh18.github.io/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.png">
+      <meta itemprop="name" content="未闻花名">
+      <meta itemprop="description" content="记录一些学习知识，汽车电子，C++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未闻驿站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VSCode 教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-29 13:23:18" itemprop="dateCreated datePublished" datetime="2021-05-29T13:23:18+08:00">2021-05-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-30 20:27:46" itemprop="dateModified" datetime="2021-05-30T20:27:46+08:00">2021-05-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
+<span id="more"></span>
+
+<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
+<ul>
+<li>VS Code 命令面板</li>
+</ul>
+<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
+<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
+<li><p>光标移动</p>
+<ul>
+<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
+<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
+<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
+<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
+</ul>
+</li>
+<li><p>文本选择</p>
+<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
+</li>
+<li><p>删除操作</p>
+<ul>
+<li>可以先选中文本，再按删除。</li>
+<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
+<li>删除行。<code>Ctrl + Shift + K</code>。</li>
+<li>剪切行。<code>Ctrl + X</code>。</li>
+<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
+<li>移动代码行。<code>Alt + 上下方向键</code></li>
+<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
+</ul>
+<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
+<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
+<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
+<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
+<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
+<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
+<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
+<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
+<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
+<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
+<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
+<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
+<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
+<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
+<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
+<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
+<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
+<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
+<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
+<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
+<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
+<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
+<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
+<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
+<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
+<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
+<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
+<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
+<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
+<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
+<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
+<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
+<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
+<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
+<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
+<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
+<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
+<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
+<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
+<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
+<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
+<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
+<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
+<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
+<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
+<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
+<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
+<p><code>Shift+ F12</code> 打开函数引用预览。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>未闻花名
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zfh18.github.io/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/" title="VSCode 教程">https://zfh18.github.io/2021/05/29/VSCode-教程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/" rel="prev" title="C++学习之四、C++变量">
+                  <i class="fa fa-chevron-left"></i> C++学习之四、C++变量
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">未闻花名</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">15k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">25 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

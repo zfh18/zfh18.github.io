@@ -83,21 +83,21 @@ hexo s      # 启动预览
   <entry>
     <title>C++学习之一、 C++简介</title>
     <url>/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<p>开始学习C++之前的一些认知。</p>
+    <content><![CDATA[<p>开始学习 C++ 之前的一些认知。</p>
 <span id="more"></span>
 
-<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++语言特点"></a>C++语言特点</h1><p>C++融合了3种不同的编程方式：</p>
+<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++ 语言特点"></a>C++ 语言特点</h1><p>C++ 融合了 3 种不同的编程方式：</p>
 <ul>
-<li>C语言代表的过程性语言</li>
-<li>C++在C语言基础上添加的类代表的面向对象（OOP）语言</li>
-<li>C++模板支持的泛型编程</li>
+<li>C 语言代表的过程性编程。</li>
+<li>C++ 在 C 语言基础上添加的类代表的面向对象（OOP）编程。</li>
+<li>C++ 模板支持的泛型编程。</li>
 </ul>
-<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++起源"></a>C++起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong>于20世纪80年代开发出了这种语言。基于C语言。</p>
-<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++标准"></a>C++标准</h1><ul>
+<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++起源"></a>C++起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong> 于 20 世纪 80 年代开发出了这种语言。基于 C 语言。</p>
+<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++ 标准"></a>C++ 标准</h1><ul>
 <li>移植时需要对程序重新编译</li>
-<li>C++98, C++11标准</li>
+<li>常用的两种标准，C++98, C++11 标准</li>
 </ul>
-<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++语言风格"></a>C++语言风格</h1><ul>
+<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++ 语言风格"></a>C++ 语言风格</h1><ul>
 <li>源代码文件扩展名</li>
 </ul>
 <table>
@@ -141,10 +141,8 @@ hexo s      # 启动预览
 </ul>
 <p><img src="https://cdn.ptpress.cn/pubcloud/5B0A982E/ushu/UB7209840d845c9/online/FBOL7209841948eab/Images/7.png?x-oss-process=image/watermark,image_d2F0ZXJtYXJrL21vYmlsZS8xODkzODYzNjM4NTVCMEE5ODJFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzMw,t_10,g_center"></p>
 <ul>
-<li>常用编译器<ul>
-<li>g++</li>
-<li>gcc</li>
-</ul>
+<li><p>C++ 编译</p>
+<p>  常用编译器有 <code>gcc g++</code>。</p>
 </li>
 </ul>
 ]]></content>
@@ -165,9 +163,9 @@ hexo s      # 启动预览
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Simpmul.cpp <span class="comment">// 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 // 打头，到行尾结束。也可以位于单独的一行上。</p>
-<p>C++ 也支持C风格的注释，C 注释包括在符号 /* 和 */ 之间，如：<code>/* 简易乘法表 */</code></p>
-<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ cin 和 cout ），它们是 <strong>istream</strong> 和 <strong>ostream</strong> 类的实例，这两个类是在 <strong>iostream</strong> 文件中定义的。</p>
-<p>像 <strong>iostream</strong> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 iostream）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
+<p>C++ 也支持 C 风格的注释，C 注释包括在符号 /* 和 */ 之间，如：<code>/* 简易乘法表 */</code></p>
+<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
 <table>
 <thead>
 <tr>
@@ -202,7 +200,7 @@ hexo s      # 启动预览
 <td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace std</td>
 </tr>
 </tbody></table>
-<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分含有相同的名称的函数的不同封装的产品。三种使用情况。</p>
+<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分含有相同名称的函数的不同封装的产品。三种使用情况。</p>
 <h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令，后续使用 std 中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
 <h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>这种情况和上述类似，但指定范围更精确。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要使用完整路径 <code>std::endl</code>。</p>
 <h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
@@ -232,9 +230,9 @@ hexo s      # 启动预览
 <span id="more"></span>
 
 <h1 id="基本数据类型–整型"><a href="#基本数据类型–整型" class="headerlink" title="基本数据类型–整型"></a>基本数据类型–整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语宽度（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
-<p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有符号和无符号版本，因此总共有 10 种类型可供选择。</p>
+<p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
 <h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
-<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现的基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于8 bit，可能为8，16 或 32 bit。</p>
+<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现的基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于8 bit，可能为 8，16 或 32 bit。</p>
 <p>C++ 提供了一种灵活的标准，它确保了最小长度（从 C 语言借鉴而来）：</p>
 <ul>
 <li><code>short</code> 至少 16 位；</li>
@@ -242,7 +240,7 @@ hexo s      # 启动预览
 <li><code>long</code> 至少 32 位，且至少与 <code>int</code> 一样长；</li>
 <li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
 </ul>
-<p><strong>Tips:</strong> 上述4种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
+<p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
 
 <p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度和头文件 <code>limits</code> 确定数据类型的取值范围。</p>
@@ -329,11 +327,11 @@ hexo s      # 启动预览
 <td>unsigned long long 的最大值</td>
 </tr>
 </tbody></table>
-<h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>C++ 提供了如此多的整型，使用是应该怎么选择呢？</p>
+<h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>C++ 提供了如此多的整型，使用时应该怎么去选择呢？</p>
 <ul>
 <li>通常，<code>int</code> 被设置为对目标计算机而言最为“自然”的长度，计算机处理起来效率最高。如果没有其它理由，则应使用 <code>int</code>。</li>
 <li>如果变量表示的值不可能为负，则可以使用无符号类型，这样变量可以表示更大的值。</li>
-<li>如果变量可能表示的整数值大于 16 位整数的最大可能值，则使用 <code>long</code>。即使系统上 <code>int</code> 为32位也应该这样做。这样，将程序移植到 16 位系统时，就不会突然无法正常工作。</li>
+<li>如果变量可能表示的整数值大于 16 位整数的最大可能值，则使用 <code>long</code>。即使系统上 <code>int</code> 为32位也应该这样做。这样，将程序移植到 <code>int</code> 为 16 位的系统时，就不会突然无法正常工作。</li>
 <li>如果要存储的值超过 20 亿，可使用 <code>long long</code>。</li>
 <li>由于 <code>short</code> 比 <code>int</code> 小，使用 <code>short</code> 可以节省内存。通常，仅当有大型整型数组时，才有必要使用 <code>short</code>。如果节省内存很重要，则应使用 <code>short</code> 而不是使用 <code>int</code>。</li>
 </ul>
@@ -358,6 +356,9 @@ hexo s      # 启动预览
 </li>
 </ol>
 <h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。占用 8 bit。</p>
+<h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号类型</span></span><br></pre></td></tr></table></figure>
+
 <p><code>char</code> 类型变量初始化：<code>char c = &#39;M&#39;</code></p>
 <p>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code></p>
 <p>使用 <code>cin</code> 输入时都是输入的字符，然后强转为其它类型存储。</p>
@@ -447,33 +448,30 @@ hexo s      # 启动预览
 </tr>
 </tbody></table>
 <p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如\n）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
-<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为26，对应的八进制编码为032，十六进制编码为0x1a。可以用下面的转义序列来表示该字符：\032或\0x1a。将这些编码用单引号括起，可以得到相应的字符常量。</p>
-<h3 id="通用字符名"><a href="#通用字符名" class="headerlink" title="通用字符名"></a>通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
-<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟4个十六进制位 或 <code>\U</code> 后面跟8个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code>是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：\032或\0x1a。将这些编码用单引号括起，可以得到相应的字符常量。</p>
+<h3 id="char-引申-–-通用字符名"><a href="#char-引申-–-通用字符名" class="headerlink" title="char 引申 – 通用字符名"></a>char 引申 – 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
+<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code> 是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
 <p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
 <pre><code>int k\u00F6rper;
 cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
 </code></pre>
-<p><code>ö</code> 的ISO 10646码点为00F6，而 <code>â</code> 的码点00E2。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
+<p><code>ö</code> 的 ISO 10646 码点为 00F6，而 <code>â</code> 的码点 00E2 。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
 <pre><code>Let them eat gâteau.
 </code></pre>
-<p>如果系统不支持ISO 10646，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
-<h3 id="char-字符类型"><a href="#char-字符类型" class="headerlink" title="char 字符类型"></a>char 字符类型</h3><p><code>char</code> 在默认情况下既不是没有符号，也不是有符号。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能是有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="wchar-t-宽字符类型"><a href="#wchar-t-宽字符类型" class="headerlink" title="wchar_t 宽字符类型"></a>wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
-<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 – <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
+<p>如果系统不支持 ISO 10646，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
+<h3 id="char-引申-–-wchar-t-宽字符类型"><a href="#char-引申-–-wchar-t-宽字符类型" class="headerlink" title="char 引申 – wchar_t 宽字符类型"></a>char 引申 – wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
+<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 - <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
 <pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
 wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 </code></pre>
-<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为16位和32位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两个字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
-<p>char16_t 和 uchar32_t 也有底层类型–一种内置的整型，但底层类型可能随系统而异。</p>
-<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 true 或 false，这两个值都可以通过提升转换为 int 类型，true 被转换为 1，false 被转换为 0。</p>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两个字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
+<p><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
+<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 <code>true</code> 或 <code>false</code>，这两个值都可以通过提升转换为 <code>int</code> 类型，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。</p>
 <pre><code>bool is_ready = true;
 </code></pre>
-<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 true，而零被转换为 false。</p>
-<h1 id="基本数据类型–浮点型"><a href="#基本数据类型–浮点型" class="headerlink" title="基本数据类型–浮点型"></a>基本数据类型–浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示小数值、非常大或非常小的值，它们的内部表示方法与整数有天壤之别。</p>
-<p>有效位（significant figure）是指数字中有意义的位。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 <code>true</code>，而零被转换为 <code>false</code>。</p>
+<h1 id="基本数据类型-–-浮点型"><a href="#基本数据类型-–-浮点型" class="headerlink" title="基本数据类型 – 浮点型"></a>基本数据类型 – 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的值，它们的内部表示方法与整数有天壤之别。</p>
+<p>有效位（significant figure）是指十进制数字中有意义的位。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
 <h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
 <h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
 <ul>
@@ -486,6 +484,15 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p>头文件 <code>cfloat</code> 或 <code>float.h</code> 对系统的限制作了说明（<code>cfloat</code> 是 C 语言的 <code>float.h</code> 文件的 C++ 版本）。下面列出 <code>Borland C++ Builder</code> 的 <code>float.h</code> 文件中一些批注项：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
 
+<h2 id="浮点数字面值"><a href="#浮点数字面值" class="headerlink" title="浮点数字面值"></a>浮点数字面值</h2><p>在程序中书写浮点常量时，程序将把它存储为哪种浮点类型呢？</p>
+<ul>
+<li><p>默认情况下，浮点常量将存储为 <code>double</code> 类型。</p>
+<p>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</p>
+</li>
+<li><p>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -577,6 +584,102 @@ git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能�
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VSCode 教程</title>
+    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
+<span id="more"></span>
+
+<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
+<ul>
+<li>VS Code 命令面板</li>
+</ul>
+<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
+<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
+<li><p>光标移动</p>
+<ul>
+<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
+<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
+<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
+<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
+</ul>
+</li>
+<li><p>文本选择</p>
+<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
+</li>
+<li><p>删除操作</p>
+<ul>
+<li>可以先选中文本，再按删除。</li>
+<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
+<li>删除行。<code>Ctrl + Shift + K</code>。</li>
+<li>剪切行。<code>Ctrl + X</code>。</li>
+<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
+<li>移动代码行。<code>Alt + 上下方向键</code></li>
+<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
+</ul>
+<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
+<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
+<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
+<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
+<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
+<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
+<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
+<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
+<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
+<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
+<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
+<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
+<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
+<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
+<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
+<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
+<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
+<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
+<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
+<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
+<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
+<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
+<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
+<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
+<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
+<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
+<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
+<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
+<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
+<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
+<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
+<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
+<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
+<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
+<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
+<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
+<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
+<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
+<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
+<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
+<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
+<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
+<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
+<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
+<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
+<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
+<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
+<p><code>Shift+ F12</code> 打开函数引用预览。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
 </search>
