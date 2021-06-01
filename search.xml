@@ -73,7 +73,7 @@ hexo s      # 启动预览
 </ol>
 ]]></content>
       <categories>
-        <category>工具使用</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -226,7 +226,7 @@ hexo s      # 启动预览
   <entry>
     <title>C++学习之三、C++基本数据类型</title>
     <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p>C++ 内置数据类型分两组：基本数据类型和复合数据类型。本编介绍基本数据类型。</p>
+    <content><![CDATA[<p>C++ 内置数据类型分两组：基本数据类型和复合数据类型。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
 <span id="more"></span>
 
 <h1 id="基本数据类型–整型"><a href="#基本数据类型–整型" class="headerlink" title="基本数据类型–整型"></a>基本数据类型–整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语宽度（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
@@ -490,7 +490,7 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</p>
 </li>
 <li><p>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
 ]]></content>
@@ -507,9 +507,36 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
     <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
 <span id="more"></span>
 
-<h1 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h1><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
-git config --global // 针对当前用户的配置
+<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有提交过的操作都是可追溯的。</p>
+<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有个性，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
+<blockquote>
+<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
+</blockquote>
+<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
+<blockquote>
+<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
+<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
+<blockquote>
+<p>已修改，指文件被修改，但修改之后还没有暂存</p>
+<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
+<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+</blockquote>
+</blockquote>
+<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
+git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
 git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
+git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
+git config --list   // 查看所有配置
+git config --list --show-origin // 查看所有配置以及它们所在的文件
+git config &lt;key&gt; --show-origin  // 查看某项配置以及它所在的文件
+</code></pre>
+<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
+<pre><code>git help &lt;verb&gt;     // 如 git help config
+git &lt;verb&gt; --help   // 如 git add -h
+man git-&lt;verb&gt;
 </code></pre>
 ]]></content>
       <categories>
