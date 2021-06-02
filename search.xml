@@ -139,7 +139,7 @@ hexo s      # 启动预览
 <ul>
 <li>程序创建步骤</li>
 </ul>
-<p><img src="https://cdn.ptpress.cn/pubcloud/5B0A982E/ushu/UB7209840d845c9/online/FBOL7209841948eab/Images/7.png?x-oss-process=image/watermark,image_d2F0ZXJtYXJrL21vYmlsZS8xODkzODYzNjM4NTVCMEE5ODJFLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSxQXzMw,t_10,g_center"></p>
+<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c2rocm7qq1srh5grt570.png" alt="程序创建步骤" title="程序创建"></p>
 <ul>
 <li><p>C++ 编译</p>
 <p>  常用编译器有 <code>gcc g++</code>。</p>
@@ -232,7 +232,7 @@ hexo s      # 启动预览
 <h1 id="基本数据类型–整型"><a href="#基本数据类型–整型" class="headerlink" title="基本数据类型–整型"></a>基本数据类型–整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语宽度（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
 <p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
 <h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
-<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现的基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于8 bit，可能为 8，16 或 32 bit。</p>
+<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现的基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit。</p>
 <p>C++ 提供了一种灵活的标准，它确保了最小长度（从 C 语言借鉴而来）：</p>
 <ul>
 <li><code>short</code> 至少 16 位；</li>
@@ -331,7 +331,7 @@ hexo s      # 启动预览
 <ul>
 <li>通常，<code>int</code> 被设置为对目标计算机而言最为“自然”的长度，计算机处理起来效率最高。如果没有其它理由，则应使用 <code>int</code>。</li>
 <li>如果变量表示的值不可能为负，则可以使用无符号类型，这样变量可以表示更大的值。</li>
-<li>如果变量可能表示的整数值大于 16 位整数的最大可能值，则使用 <code>long</code>。即使系统上 <code>int</code> 为32位也应该这样做。这样，将程序移植到 <code>int</code> 为 16 位的系统时，就不会突然无法正常工作。</li>
+<li>如果变量表示的整数值可能大于 16 位整数的最大值，则使用 <code>long</code>。即使系统上 <code>int</code> 为 32 位也应该这样做。这样，将程序移植到 <code>int</code> 为 16 位的系统时，就不会突然无法正常工作。</li>
 <li>如果要存储的值超过 20 亿，可使用 <code>long long</code>。</li>
 <li>由于 <code>short</code> 比 <code>int</code> 小，使用 <code>short</code> 可以节省内存。通常，仅当有大型整型数组时，才有必要使用 <code>short</code>。如果节省内存很重要，则应使用 <code>short</code> 而不是使用 <code>int</code>。</li>
 </ul>
@@ -343,7 +343,7 @@ hexo s      # 启动预览
 <li>八进制：第一位为 0，第二位为 1~7，如 042 等于十进制中的 34</li>
 <li>十六进制：前两位为 0x 或 0X，如 0x42 等于十进制的 66</li>
 </ul>
-<p> 进制计数方式只是为了人方便计数，在计算机中，最终都是以二进制存储。</p>
+<p> 进制计数只是为了人为的计数方便，在计算机中，数据最终都是以二进制存储。</p>
 <p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为堤进制 42；</span></span><br></pre></td></tr></table></figure></li>
 <li><p>C++ 如何确定常量的类型</p>
@@ -355,7 +355,7 @@ hexo s      # 启动预览
 </ol>
 </li>
 </ol>
-<h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。占用 8 bit。</p>
+<h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。占用 8 位。</p>
 <h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号类型</span></span><br></pre></td></tr></table></figure>
 
@@ -447,10 +447,10 @@ hexo s      # 启动预览
 <td>0x22</td>
 </tr>
 </tbody></table>
-<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如\n）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
-<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：\032或\0x1a。将这些编码用单引号括起，可以得到相应的字符常量。</p>
+<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
+<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
 <h3 id="char-引申-–-通用字符名"><a href="#char-引申-–-通用字符名" class="headerlink" title="char 引申 – 通用字符名"></a>char 引申 – 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
-<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code> 是一种正在制定的国际标准，为大量的字符提供数值编码）</p>
+<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code> 是一种正在制定的国际标准，为大量的字符提供数值编码）。</p>
 <p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
 <pre><code>int k\u00F6rper;
 cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
@@ -464,7 +464,7 @@ cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
 <pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
 wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 </code></pre>
-<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两个字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，无符号类型。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两种字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
 <p><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
 <h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 <code>true</code> 或 <code>false</code>，这两个值都可以通过提升转换为 <code>int</code> 类型，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。</p>
 <pre><code>bool is_ready = true;
@@ -605,7 +605,7 @@ man git-&lt;verb&gt;
 </code></pre>
 </li>
 </ul>
-]]></content>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1>]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
