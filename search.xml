@@ -345,7 +345,7 @@ hexo s      # 启动预览
 </ul>
 <p> 进制计数只是为了人为的计数方便，在计算机中，数据最终都是以二进制存储。</p>
 <p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
- <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为堤进制 42；</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十进制 42；</span></span><br></pre></td></tr></table></figure></li>
 <li><p>C++ 如何确定常量的类型</p>
 <p> 如程序是如何确定常量 1000 是存储为 <code>int</code>、<code>long</code> 还是其它类型呢？</p>
 <ol>
@@ -605,7 +605,17 @@ man git-&lt;verb&gt;
 </code></pre>
 </li>
 </ul>
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1>]]></content>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
+<ul>
+<li>它能够明确指定数据类型</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
+<li><code>const</code> 可用于更复杂的类型</li>
+</ul>
+<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
+<pre><code>const int MONTH = 12;
+</code></pre>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -707,6 +717,37 @@ man git-&lt;verb&gt;
       <tags>
         <tag>VSCode</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之五、C++ 算术运算符</title>
+    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+<span id="more"></span>
+
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
+<li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
+<li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
+<li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
+<li>除法运算，运算符为 “<code>/</code>“。如 <code>20 / 2</code></li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 “<code>%</code>“。如 <code>19 % 3</code>，结果为 1</li>
+</ul>
+<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
+<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
+<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
+<ul>
+<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
+<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
+<li>将参数传递给函数时，C++ 将对值进行转换。</li>
+</ul>
+<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
 </search>
