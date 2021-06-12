@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/book-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/book-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/book-16x16.png">
+  <link rel="mask-icon" href="/images/logo2.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="C++ 复合类型之数组笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 学习之六、复合类型之数组">
+<meta property="og:url" content="https://zfh18.github.io/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:site_name" content="未闻驿站">
+<meta property="og:description" content="C++ 复合类型之数组笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-09T13:30:13.000Z">
+<meta property="article:modified_time" content="2021-06-12T08:45:46.796Z">
+<meta property="article:author" content="未闻花名">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zfh18.github.io/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;06&#x2F;09&#x2F;C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;06&#x2F;09&#x2F;C-学习之六、复合类型之数组&#x2F;&quot;,&quot;title&quot;:&quot;C++ 学习之六、复合类型之数组&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>C++ 学习之六、复合类型之数组 | 未闻驿站</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">未闻驿站</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录，学习</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">数组简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">数组的声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.</span> <span class="nav-text">特殊的数组 - 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.</span> <span class="nav-text">C 风格字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E7%82%B9%E4%B8%80-%E6%8B%BC%E6%8E%A5%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.1.1.</span> <span class="nav-text">C 风格字符串特点一 - 拼接字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.2.</span> <span class="nav-text">数组中使用字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-String-%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">C++ String 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.2.1.</span> <span class="nav-text">string 字符串初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.2.</span> <span class="nav-text">string 特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">字符串字面值</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="未闻花名"
+      src="/images/pic.png">
+  <p class="site-author-name" itemprop="name">未闻花名</p>
+  <div class="site-description" itemprop="description">记录一些学习知识，汽车电子，C++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zfh18" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zfh18" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fenghua.zhou6@outlook.com" title="E-Mail → mailto:fenghua.zhou6@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zfh18.github.io/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.png">
+      <meta itemprop="name" content="未闻花名">
+      <meta itemprop="description" content="记录一些学习知识，汽车电子，C++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未闻驿站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ 学习之六、复合类型之数组
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-09 21:30:13" itemprop="dateCreated datePublished" datetime="2021-06-09T21:30:13+08:00">2021-06-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-06-12 16:45:46" itemprop="dateModified" datetime="2021-06-12T16:45:46+08:00">2021-06-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">C++学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>C++ 复合类型之数组笔记</p>
+<span id="more"></span>
+
+<h1 id="数组简介"><a href="#数组简介" class="headerlink" title="数组简介"></a>数组简介</h1><p>数组（array）是一种数据格式，能够存储多个同类型的值。</p>
+<h1 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h1><p>声明数组的通用格式如下：</p>
+<p><code>typeName arrayName[arraySize]</code></p>
+<p><strong>Tips:</strong> <code>arraySize</code> 指定元素数目，它必须是整型常数（如 10 ）或 <code>const</code> 值，也可以是常量表达式（如 <code>8*sizeof( int )</code>），即其中所有的值在编译时都是已知的。具体地说，<code>arraySize</code> 不能是变量。然后后面将介绍使用 <code>new</code> 运算符来避开这种限制。</p>
+<p>数组与类型是强关联的，如 <code>float f[20]</code>，f 的类型不是“数组”，而是“float 数组”。</p>
+<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>未初始化的数组的内容是未定义的，只有定义数组时才能初始化，此后就不能使用了，不能将一个数组赋给另一个数组</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int cards[4] = &#123;3, 6, 8, 10&#125;;   // 数组列表初始化</span><br><span class="line">int hand[4];    // 数组声明</span><br><span class="line">hand[4] = &#123;5, 6, 7, 8&#125;  // 错误，只能在上面声明的时候直接初始化，现在的 hand[4] 表示第 5 个元素</span><br><span class="line">hand = cards;   // 错误，不能将一个数组赋给另一个</span><br></pre></td></tr></table></figure>
+
+<p>几种初始化方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">float n_float[3] = &#123;0.1, 0.555, 6.8&#125;;   // 列表初始化，可列出所有元素</span><br><span class="line">long n_long[10] = &#123;5, 7&#125;;   // 只列出一部分元素，编译器将把其它元素设置为 0</span><br><span class="line">short n_short[] = &#123;1, 2, 3, 4, 5&#125;;  // 如果 [] 内元素个数为空，C++ 编译器将根据初始化内容来计算元素个数，这里为有 5 个元素，通常这种做法在非初始化 char 数组时不可取，因为不利于检错</span><br><span class="line">double n_double[3]&#123;1.2e12, 1.3e5, 5.9e9&#125;;   // C++11 方式，可省略等号</span><br><span class="line">int n_int[8] = &#123;&#125;;  // C++11 方式，大括号内不包含任何内容，将把所有元素初始化为 0，同上等号也可以省略</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 上述所有列表初始化同其它列表初始化一样，禁止缩窄操作。</p>
+<h1 id="特殊的数组-字符串"><a href="#特殊的数组-字符串" class="headerlink" title="特殊的数组 - 字符串"></a>特殊的数组 - 字符串</h1><h2 id="C-风格字符串"><a href="#C-风格字符串" class="headerlink" title="C 风格字符串"></a>C 风格字符串</h2><p><code>char</code> 数组中存储多个 <code>char</code> 类型的值，其中有一种特殊情况，如果 <code>char</code> 数组最后一个元素为 <code>\0</code>，即以空字符结尾，这时这个数组就是一个字符串，可以看出，字符串是一种特殊的 <code>char</code> 数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char c_array[5] = &#123;&#x27;z&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;u&#x27;, &#x27;x&#x27;&#125;;    // `char` 数组</span><br><span class="line">char c_string[5] = &#123;&#x27;z&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;u&#x27;, &#x27;\0&#x27;&#125;;  // 字符串</span><br><span class="line">char c_string[5] = &quot;zhou&quot;;  // 一种更好的初始化字符串的方法，用双引号括起的字符串隐式地包含结尾的空字符，所有元素个数要比双引号的字符个数多 1 个</span><br><span class="line">char c_string[] = &quot;zhou&quot;;   // 初始化字符串时，不写元素个数更方便</span><br><span class="line">char c_string[] = &#123;&quot;zhou&quot;&#125;; // 列表初始化方式</span><br></pre></td></tr></table></figure>
+
+<p>空字符 <code>&#39;\0&#39;</code> 对 C 风格字符串有着至关重要的意义。如 <code>cout</code> 打印字符串时，它将逐个打印字符直到遇到空字符才停止。</p>
+<h3 id="C-风格字符串特点一-拼接字面值"><a href="#C-风格字符串特点一-拼接字面值" class="headerlink" title="C 风格字符串特点一 - 拼接字面值"></a>C 风格字符串特点一 - 拼接字面值</h3><p>有时候字符串很长，无法放到一行中。C++ 允许拼接字符串字面值，即将两个用引号括起的字符串合并为一个。任何两个由空白（空格、制表长符和换行符）分隔的字符串常量将自动拼接成一个，如以下两名意义相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; &quot;This is a&quot; &quot; string&quot;;</span><br><span class="line">cout &lt;&lt; &quot;This is a string&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 如上拼接时，前一个字符串中的 “\0” 将被后一个字符串中的第一个代替，两者之间不会自动加上空白。</p>
+<h3 id="数组中使用字符串"><a href="#数组中使用字符串" class="headerlink" title="数组中使用字符串"></a>数组中使用字符串</h3><p>在数组中使用字符串，最常用的有两种方法——将数组初始化为字符串、将键盘或文件输入读入到数组中。</p>
+<p>数组中使用字符串前面已详细介绍。</p>
+<p>而字符串输入，有几种以下方式：</p>
+<ul>
+<li>cin 输入方式。cin 使用空白（空格、制表符和换行符）来确定字符串的结束位置，cin 在获取字符数组输入时只读取一个单词，读取该单词后，cin 将该字符放到数组中，并自动在结尾添加空字符。cin 会将空白保留在输入序列中，但当 cin 将输入转换为整型时，空白不处理也不会有影响。</li>
+<li>cin.getline()。读取一行输入，直到到达换行符，丢弃换行符。它将使用空字符来替换换行符。</li>
+<li>cin.get()。读取一行输入，直到到达换行符，将换行符保留在输入序列中。</li>
+</ul>
+<p><strong>Tips:</strong> <code>strlen()</code> 用于计算可见的字符数量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CinInputArray.cpp 通过控制台输入姓名，年龄，身高，体重，判断是否肥胖</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span>  <span class="comment">// 含有 strlen() 函数原型</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span>, <span class="keyword">float</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> nameSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">float</span> weight, height;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;What is your name? &quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(name, nameSize).<span class="built_in">get</span>();  <span class="comment">//cin.get(name, nameSize) 读入 name，返回 cin 对象，再使用 get() 处理掉换行符</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;How old are you? &quot;</span>;</span><br><span class="line">    cin &gt;&gt; age;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your weight kg: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; weight;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your height m: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; height;</span><br><span class="line">    cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; age &lt;&lt; <span class="string">&quot; years old!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You are &quot;</span> &lt;&lt; weight &lt;&lt; <span class="string">&quot;kg&quot;</span> &lt;&lt; <span class="string">&quot; and &quot;</span> &lt;&lt; height &lt;&lt; <span class="string">&quot;m&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">bMICal</span>(weight, height);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span> weight, <span class="keyword">float</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> bmi = weight / (height * height);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Your BMI is &quot;</span> &lt;&lt; bmi &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">if</span> (bmi &lt; <span class="number">18.5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重过低！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">18.5</span> &amp;&amp; bmi &lt;= <span class="number">23.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重正常！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">24.0</span> &amp;&amp; bmi &lt;= <span class="number">27.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;超重！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">28</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;肥胖！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读取空行和其他问题</p>
+<blockquote>
+<p>当 getline() 或 get() 读取空行时，将发生什么情况？当前的做法是，当 get()（不是 getline()）读取空行后将设置失效位（failbit）。接下来的输入将被阻断，但可以用下面的命令来恢复输入：</p>
+<p><code>cin.clear();</code><br>另一个问题是，输入字符串可能比分配的空间长。如果输入行包含的字符数比指定的多，则 getline() 和 get() 将把余下的字符留在输入队列中，而 getline() 还会设置失效位，并关闭后面的输入。将在后面章节讨论。</p>
+</blockquote>
+<h2 id="C-String-类"><a href="#C-String-类" class="headerlink" title="C++ String 类"></a>C++ String 类</h2><p>ISO/ANSI C++98 标准通过添加 string 类扩展了 C++ 库，只需要包含头文件 string。</p>
+<h3 id="string-字符串初始化"><a href="#string-字符串初始化" class="headerlink" title="string 字符串初始化"></a>string 字符串初始化</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;This is a string!&quot;</span>;  <span class="comment">// C-风格字符串初始化方式</span></span><br><span class="line">string str2 = &#123;<span class="string">&quot;This is a string!&quot;</span>&#125;;    <span class="comment">// 列表初始化方式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="string-特性"><a href="#string-特性" class="headerlink" title="string 特性"></a>string 特性</h3><ul>
+<li><p>不同于 C-风格字符串只能使用 strcpy() 函数将一个字符串复制给另一个，string 直接可将一个 string 赋给另一个。</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;This&quot;</span>;   <span class="comment">// string 对象将根据字符串的长度自动调整自己的大小</span></span><br><span class="line">string str2;    <span class="comment">// 未初始化的 string 对象长度为0</span></span><br><span class="line">str2 = str1;    <span class="comment">// 语法正确</span></span><br></pre></td></tr></table></figure></li>
+<li><p>string 类简化了字符串合并操作。</p>
+<p>  传统 C-风格字符串使用 strcat() 函数拼接字符串，string 字符串，可以使用运算符 <code>+</code> 将两个 string 对象合并起来，还可以使用 <code>+=</code> 将字符串附加到 string 对象的末尾。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str3;</span><br><span class="line">str3 = str1 + str2; // str3 为 str1 和 str2 的拼接</span><br><span class="line">str1 += str2;   // 将 str2 附加到 str1 末尾</span><br></pre></td></tr></table></figure></li>
+<li><p>string 类 I/O</p>
+</li>
+</ul>
+<p>从输入读取字符串到 string 对象时，每次读取一行，而且是使用以下代码方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">getline</span>(charr, charrSize);  <span class="comment">// C-风格字符串读取输入</span></span><br><span class="line"><span class="built_in">getline</span>(cin, str);  <span class="comment">// string 对象读取输入</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h2><ul>
+<li><p>普通类型</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> array[] = <span class="string">&quot;This is array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>wchar_t 类型字符串</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">wchar_t</span> array[] = <span class="string">L&quot;This is array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>char16_t 和 char32_t 类型字符串</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char16_t</span> array[] = <span class="string">u&quot;char16_t style array!&quot;</span>;</span><br><span class="line"><span class="keyword">char32_t</span> array[] = <span class="string">U&quot;char32_t style array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>C++11 新增一种类型是原始（raw）字符串</p>
+<p>  输入原始字符串时，所有的字符以原样显示，字符也不会被转义，按回车键不仅会移动到下一行，还将原始字符串中添加回车符。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char array[] = R&quot;(This is ray array, \&quot; will not be translate to &quot;.)&quot;;  // 以 R&quot;( 开头，以 )&quot; 结束。</span><br><span class="line">char array[] = R&quot;+-(This is ray array, \&quot; will not be translate to &quot;.)+-&quot;;  // 允许在开头 &quot;( 之间添加除空格、左括号、右括号、斜杠和控制字符（如制表符和换行符）以外的任意数量的基本字符，然后以相同的格式结尾。</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>Tips:</strong> 可将前缀 <strong>R</strong> 与其他字符串前缀结合，以标识 <code>wchar_t</code> 等类型的原始字符串。可将 <strong>R</strong> 放在前面，也可将其放在后面，如 <strong>Ru、UR</strong> 等。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>未闻花名
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zfh18.github.io/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/" title="C++ 学习之六、复合类型之数组">https://zfh18.github.io/2021/06/09/C-学习之六、复合类型之数组/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="prev" title="C++ 学习之五、C++ 算术运算符">
+                  <i class="fa fa-chevron-left"></i> C++ 学习之五、C++ 算术运算符
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">未闻花名</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">23k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">39 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

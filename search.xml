@@ -797,4 +797,82 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C++ 学习之六、复合类型之数组</title>
+    <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<p>C++ 复合类型之数组笔记</p>
+<span id="more"></span>
+
+<h1 id="数组简介"><a href="#数组简介" class="headerlink" title="数组简介"></a>数组简介</h1><p>数组（array）是一种数据格式，能够存储多个同类型的值。</p>
+<h1 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h1><p>声明数组的通用格式如下：</p>
+<p><code>typeName arrayName[arraySize]</code></p>
+<p><strong>Tips:</strong> <code>arraySize</code> 指定元素数目，它必须是整型常数（如 10 ）或 <code>const</code> 值，也可以是常量表达式（如 <code>8*sizeof( int )</code>），即其中所有的值在编译时都是已知的。具体地说，<code>arraySize</code> 不能是变量。然后后面将介绍使用 <code>new</code> 运算符来避开这种限制。</p>
+<p>数组与类型是强关联的，如 <code>float f[20]</code>，f 的类型不是“数组”，而是“float 数组”。</p>
+<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>未初始化的数组的内容是未定义的，只有定义数组时才能初始化，此后就不能使用了，不能将一个数组赋给另一个数组</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int cards[4] = &#123;3, 6, 8, 10&#125;;   // 数组列表初始化</span><br><span class="line">int hand[4];    // 数组声明</span><br><span class="line">hand[4] = &#123;5, 6, 7, 8&#125;  // 错误，只能在上面声明的时候直接初始化，现在的 hand[4] 表示第 5 个元素</span><br><span class="line">hand = cards;   // 错误，不能将一个数组赋给另一个</span><br></pre></td></tr></table></figure>
+
+<p>几种初始化方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float n_float[3] = &#123;0.1, 0.555, 6.8&#125;;   // 列表初始化，可列出所有元素</span><br><span class="line">long n_long[10] = &#123;5, 7&#125;;   // 只列出一部分元素，编译器将把其它元素设置为 0</span><br><span class="line">short n_short[] = &#123;1, 2, 3, 4, 5&#125;;  // 如果 [] 内元素个数为空，C++ 编译器将根据初始化内容来计算元素个数，这里为有 5 个元素，通常这种做法在非初始化 char 数组时不可取，因为不利于检错</span><br><span class="line">double n_double[3]&#123;1.2e12, 1.3e5, 5.9e9&#125;;   // C++11 方式，可省略等号</span><br><span class="line">int n_int[8] = &#123;&#125;;  // C++11 方式，大括号内不包含任何内容，将把所有元素初始化为 0，同上等号也可以省略</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 上述所有列表初始化同其它列表初始化一样，禁止缩窄操作。</p>
+<h1 id="特殊的数组-字符串"><a href="#特殊的数组-字符串" class="headerlink" title="特殊的数组 - 字符串"></a>特殊的数组 - 字符串</h1><h2 id="C-风格字符串"><a href="#C-风格字符串" class="headerlink" title="C 风格字符串"></a>C 风格字符串</h2><p><code>char</code> 数组中存储多个 <code>char</code> 类型的值，其中有一种特殊情况，如果 <code>char</code> 数组最后一个元素为 <code>\0</code>，即以空字符结尾，这时这个数组就是一个字符串，可以看出，字符串是一种特殊的 <code>char</code> 数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char c_array[5] = &#123;&#x27;z&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;u&#x27;, &#x27;x&#x27;&#125;;    // `char` 数组</span><br><span class="line">char c_string[5] = &#123;&#x27;z&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;u&#x27;, &#x27;\0&#x27;&#125;;  // 字符串</span><br><span class="line">char c_string[5] = &quot;zhou&quot;;  // 一种更好的初始化字符串的方法，用双引号括起的字符串隐式地包含结尾的空字符，所有元素个数要比双引号的字符个数多 1 个</span><br><span class="line">char c_string[] = &quot;zhou&quot;;   // 初始化字符串时，不写元素个数更方便</span><br><span class="line">char c_string[] = &#123;&quot;zhou&quot;&#125;; // 列表初始化方式</span><br></pre></td></tr></table></figure>
+
+<p>空字符 <code>&#39;\0&#39;</code> 对 C 风格字符串有着至关重要的意义。如 <code>cout</code> 打印字符串时，它将逐个打印字符直到遇到空字符才停止。</p>
+<h3 id="C-风格字符串特点一-拼接字面值"><a href="#C-风格字符串特点一-拼接字面值" class="headerlink" title="C 风格字符串特点一 - 拼接字面值"></a>C 风格字符串特点一 - 拼接字面值</h3><p>有时候字符串很长，无法放到一行中。C++ 允许拼接字符串字面值，即将两个用引号括起的字符串合并为一个。任何两个由空白（空格、制表长符和换行符）分隔的字符串常量将自动拼接成一个，如以下两名意义相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; &quot;This is a&quot; &quot; string&quot;;</span><br><span class="line">cout &lt;&lt; &quot;This is a string&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 如上拼接时，前一个字符串中的 “\0” 将被后一个字符串中的第一个代替，两者之间不会自动加上空白。</p>
+<h3 id="数组中使用字符串"><a href="#数组中使用字符串" class="headerlink" title="数组中使用字符串"></a>数组中使用字符串</h3><p>在数组中使用字符串，最常用的有两种方法——将数组初始化为字符串、将键盘或文件输入读入到数组中。</p>
+<p>数组中使用字符串前面已详细介绍。</p>
+<p>而字符串输入，有几种以下方式：</p>
+<ul>
+<li>cin 输入方式。cin 使用空白（空格、制表符和换行符）来确定字符串的结束位置，cin 在获取字符数组输入时只读取一个单词，读取该单词后，cin 将该字符放到数组中，并自动在结尾添加空字符。cin 会将空白保留在输入序列中，但当 cin 将输入转换为整型时，空白不处理也不会有影响。</li>
+<li>cin.getline()。读取一行输入，直到到达换行符，丢弃换行符。它将使用空字符来替换换行符。</li>
+<li>cin.get()。读取一行输入，直到到达换行符，将换行符保留在输入序列中。</li>
+</ul>
+<p><strong>Tips:</strong> <code>strlen()</code> 用于计算可见的字符数量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// CinInputArray.cpp 通过控制台输入姓名，年龄，身高，体重，判断是否肥胖</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span>  <span class="comment">// 含有 strlen() 函数原型</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span>, <span class="keyword">float</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> nameSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">float</span> weight, height;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;What is your name? &quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(name, nameSize).<span class="built_in">get</span>();  <span class="comment">//cin.get(name, nameSize) 读入 name，返回 cin 对象，再使用 get() 处理掉换行符</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;How old are you? &quot;</span>;</span><br><span class="line">    cin &gt;&gt; age;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your weight kg: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; weight;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your height m: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; height;</span><br><span class="line">    cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; age &lt;&lt; <span class="string">&quot; years old!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You are &quot;</span> &lt;&lt; weight &lt;&lt; <span class="string">&quot;kg&quot;</span> &lt;&lt; <span class="string">&quot; and &quot;</span> &lt;&lt; height &lt;&lt; <span class="string">&quot;m&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">bMICal</span>(weight, height);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span> weight, <span class="keyword">float</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> bmi = weight / (height * height);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Your BMI is &quot;</span> &lt;&lt; bmi &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">if</span> (bmi &lt; <span class="number">18.5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重过低！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">18.5</span> &amp;&amp; bmi &lt;= <span class="number">23.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重正常！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">24.0</span> &amp;&amp; bmi &lt;= <span class="number">27.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;超重！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">28</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;肥胖！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读取空行和其他问题</p>
+<blockquote>
+<p>当 getline() 或 get() 读取空行时，将发生什么情况？当前的做法是，当 get()（不是 getline()）读取空行后将设置失效位（failbit）。接下来的输入将被阻断，但可以用下面的命令来恢复输入：</p>
+<p><code>cin.clear();</code><br>另一个问题是，输入字符串可能比分配的空间长。如果输入行包含的字符数比指定的多，则 getline() 和 get() 将把余下的字符留在输入队列中，而 getline() 还会设置失效位，并关闭后面的输入。将在后面章节讨论。</p>
+</blockquote>
+<h2 id="C-String-类"><a href="#C-String-类" class="headerlink" title="C++ String 类"></a>C++ String 类</h2><p>ISO/ANSI C++98 标准通过添加 string 类扩展了 C++ 库，只需要包含头文件 string。</p>
+<h3 id="string-字符串初始化"><a href="#string-字符串初始化" class="headerlink" title="string 字符串初始化"></a>string 字符串初始化</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;This is a string!&quot;</span>;  <span class="comment">// C-风格字符串初始化方式</span></span><br><span class="line">string str2 = &#123;<span class="string">&quot;This is a string!&quot;</span>&#125;;    <span class="comment">// 列表初始化方式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="string-特性"><a href="#string-特性" class="headerlink" title="string 特性"></a>string 特性</h3><ul>
+<li><p>不同于 C-风格字符串只能使用 strcpy() 函数将一个字符串复制给另一个，string 直接可将一个 string 赋给另一个。</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string str1 = <span class="string">&quot;This&quot;</span>;   <span class="comment">// string 对象将根据字符串的长度自动调整自己的大小</span></span><br><span class="line">string str2;    <span class="comment">// 未初始化的 string 对象长度为0</span></span><br><span class="line">str2 = str1;    <span class="comment">// 语法正确</span></span><br></pre></td></tr></table></figure></li>
+<li><p>string 类简化了字符串合并操作。</p>
+<p>  传统 C-风格字符串使用 strcat() 函数拼接字符串，string 字符串，可以使用运算符 <code>+</code> 将两个 string 对象合并起来，还可以使用 <code>+=</code> 将字符串附加到 string 对象的末尾。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string str3;</span><br><span class="line">str3 = str1 + str2; // str3 为 str1 和 str2 的拼接</span><br><span class="line">str1 += str2;   // 将 str2 附加到 str1 末尾</span><br></pre></td></tr></table></figure></li>
+<li><p>string 类 I/O</p>
+</li>
+</ul>
+<p>从输入读取字符串到 string 对象时，每次读取一行，而且是使用以下代码方式：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin.<span class="built_in">getline</span>(charr, charrSize);  <span class="comment">// C-风格字符串读取输入</span></span><br><span class="line"><span class="built_in">getline</span>(cin, str);  <span class="comment">// string 对象读取输入</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h2><ul>
+<li><p>普通类型</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> array[] = <span class="string">&quot;This is array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>wchar_t 类型字符串</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">wchar_t</span> array[] = <span class="string">L&quot;This is array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>char16_t 和 char32_t 类型字符串</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char16_t</span> array[] = <span class="string">u&quot;char16_t style array!&quot;</span>;</span><br><span class="line"><span class="keyword">char32_t</span> array[] = <span class="string">U&quot;char32_t style array!&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>C++11 新增一种类型是原始（raw）字符串</p>
+<p>  输入原始字符串时，所有的字符以原样显示，字符也不会被转义，按回车键不仅会移动到下一行，还将原始字符串中添加回车符。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char array[] = R&quot;(This is ray array, \&quot; will not be translate to &quot;.)&quot;;  // 以 R&quot;( 开头，以 )&quot; 结束。</span><br><span class="line">char array[] = R&quot;+-(This is ray array, \&quot; will not be translate to &quot;.)+-&quot;;  // 允许在开头 &quot;( 之间添加除空格、左括号、右括号、斜杠和控制字符（如制表符和换行符）以外的任意数量的基本字符，然后以相同的格式结尾。</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>Tips:</strong> 可将前缀 <strong>R</strong> 与其他字符串前缀结合，以标识 <code>wchar_t</code> 等类型的原始字符串。可将 <strong>R</strong> 放在前面，也可将其放在后面，如 <strong>Ru、UR</strong> 等。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
