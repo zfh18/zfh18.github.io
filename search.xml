@@ -154,64 +154,13 @@ hexo s      # 启动预览
       </tags>
   </entry>
   <entry>
-    <title>C++学习之四、C++变量</title>
-    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
-<span id="more"></span>
-
-<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
-<ul>
-<li>信息将存储在哪里；</li>
-<li>要存储什么值；</li>
-<li>存储何种类型的信息；</li>
-</ul>
-<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
-<li>名称中只能使用字母字符、数字和下划线（_）。</li>
-<li>名称中第一个字符不能是数字。</li>
-<li>区分大小写。</li>
-<li>不能将 C++ 关键字用作名称。</li>
-<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制。</li>
-</ul>
-<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
-<ul>
-<li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
-</li>
-<li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
-</li>
-<li><p>C++11 新增方式：</p>
-<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
-<ul>
-<li>它能够明确指定数据类型</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
-<li><code>const</code> 可用于更复杂的类型</li>
-</ul>
-<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
-<pre><code>const int MONTH = 12;
-</code></pre>
-<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
-<p>一般用于处理复杂类型。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习之二、C++程序基本结构概述</title>
     <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
 <span id="more"></span>
 
 <p>示例1：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Simpmul.cpp <span class="comment">// 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Simpmul.cpp <span class="comment">// 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数固定返回0，此语句可省略</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 // 打头，到行尾结束。也可以位于单独的一行上。</p>
 <p>C++ 也支持 C 风格的注释，C 注释包括在符号 /* 和 */ 之间，如：<code>/* 简易乘法表 */</code></p>
@@ -272,53 +221,6 @@ hexo s      # 启动预览
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常用命令</title>
-    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
-<span id="more"></span>
-
-<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有提交过的操作都是可追溯的。</p>
-<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有个性，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
-<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
-<blockquote>
-<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
-<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
-<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
-</blockquote>
-<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
-<blockquote>
-<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
-<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
-<blockquote>
-<p>已修改，指文件被修改，但修改之后还没有暂存</p>
-<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
-<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
-</blockquote>
-</blockquote>
-<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
-git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
-git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
-git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
-git config --list   // 查看所有配置
-git config --list --show-origin // 查看所有配置以及它们所在的文件
-git config &lt;key&gt; --show-origin  // 查看某项配置以及它所在的文件
-</code></pre>
-<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
-<pre><code>git help &lt;verb&gt;     // 如 git help config
-git &lt;verb&gt; --help   // 如 git add -h
-man git-&lt;verb&gt;
-</code></pre>
-]]></content>
-      <categories>
-        <category>Git学习</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>GitHub</tag>
-        <tag>版本控制</tag>
       </tags>
   </entry>
   <entry>
@@ -453,15 +355,15 @@ man git-&lt;verb&gt;
 </ol>
 </li>
 </ol>
-<h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。占用 8 位。</p>
+<h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。一般占用 8 位。</p>
 <h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显示定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显示定义为有符号类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显式定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显式定义为有符号类型</span></span><br></pre></td></tr></table></figure>
 
-<p><code>char</code> 类型变量初始化：<code>char c = &#39;M&#39;</code></p>
+<p><code>char</code> 类型变量初始化使用单引号：<code>char c = &#39;M&#39;</code></p>
 <p>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code></p>
 <p>使用 <code>cin</code> 输入时都是输入的字符，然后强转为其它类型存储。</p>
 <h3 id="char-字面值"><a href="#char-字面值" class="headerlink" title="char 字面值"></a>char 字面值</h3><ul>
-<li>以单引号括号括起来。如 <code>&#39;M&#39;</code>、<code>&#39;N&#39;</code>、<code>&#39;&#39;</code>、<code>&#39;5&#39;</code></li>
+<li>以单引号括起来。如 <code>&#39;M&#39;</code>、<code>&#39;N&#39;</code>、<code>&#39;&#39;</code>、<code>&#39;5&#39;</code></li>
 <li>不能直接通过键盘输入的字符使用转义序列。如<code>&#39;\a&#39;</code>、<code>&#39;\t&#39;</code>、<code>&#39;\n&#39;</code><br>C++ 转义序列的编码</li>
 </ul>
 <table>
@@ -569,7 +471,8 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 </code></pre>
 <p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 <code>true</code>，而零被转换为 <code>false</code>。</p>
 <h1 id="基本数据类型-–-浮点型"><a href="#基本数据类型-–-浮点型" class="headerlink" title="基本数据类型 – 浮点型"></a>基本数据类型 – 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的值，它们的内部表示方法与整数有天壤之别。</p>
-<p>有效位（significant figure）是指十进制数字中有意义的位。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<p>有效位（significant figure）是指十进制数字中有意义的位（从第一个非零数字开始算起）。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<p><strong>Tips:</strong> 0.00000000035 的有效位数为 2。</p>
 <h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
 <h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
 <ul>
@@ -580,7 +483,7 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <li>以上三种类型的指数范围到少是 -37 到 37。</li>
 </ul>
 <p>头文件 <code>cfloat</code> 或 <code>float.h</code> 对系统的限制作了说明（<code>cfloat</code> 是 C 语言的 <code>float.h</code> 文件的 C++ 版本）。下面列出 <code>Borland C++ Builder</code> 的 <code>float.h</code> 文件中一些批注项：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
 
 <h2 id="浮点数字面值"><a href="#浮点数字面值" class="headerlink" title="浮点数字面值"></a>浮点数字面值</h2><p>在程序中书写浮点常量时，程序将把它存储为哪种浮点类型呢？</p>
 <ul>
@@ -591,6 +494,104 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用命令</title>
+    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
+<span id="more"></span>
+
+<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有提交过的操作都是可追溯的。</p>
+<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有个性，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
+<blockquote>
+<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
+</blockquote>
+<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
+<blockquote>
+<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
+<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
+<blockquote>
+<p>已修改，指文件被修改，但修改之后还没有暂存</p>
+<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
+<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+</blockquote>
+</blockquote>
+<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
+git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
+git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
+git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
+git config --list   // 查看所有配置
+git config --list --show-origin // 查看所有配置以及它们所在的文件
+git config &lt;key&gt; --show-origin  // 查看某项配置以及它所在的文件
+</code></pre>
+<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
+<pre><code>git help &lt;verb&gt;     // 如 git help config
+git &lt;verb&gt; --help   // 如 git add -h
+man git-&lt;verb&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>Git学习</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>版本控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之四、C++变量</title>
+    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
+<span id="more"></span>
+
+<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
+<ul>
+<li>信息将存储在哪里；</li>
+<li>要存储什么值；</li>
+<li>存储何种类型的信息；</li>
+</ul>
+<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
+<li>名称中只能使用字母字符、数字和下划线（_）。</li>
+<li>名称中第一个字符不能是数字。</li>
+<li>区分大小写。</li>
+<li>不能将 C++ 关键字用作名称。</li>
+<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
+<li>C++ 对于名称长度没有限制。</li>
+</ul>
+<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
+<ul>
+<li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
+</li>
+<li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
+</li>
+<li><p>C++11 新增方式：</p>
+<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
+<ul>
+<li>它能够明确指定数据类型</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
+<li><code>const</code> 可用于更复杂的类型</li>
+</ul>
+<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
+<pre><code>const int MONTH = 12;
+</code></pre>
+<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
+<p>一般用于处理复杂类型。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -772,32 +773,6 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
-    <title>C++学习之七、C++的编程模块</title>
-    <url>/2021/05/19/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/</url>
-    <content><![CDATA[<p>函数是如何工作的；如何使用函数来处理数组、字符串和结构；递归和函数指针的基本知识。</p>
-<span id="more"></span>
-
-<h1 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h1><ul>
-<li><p>函数大致分两类，无返回值和有返回值。</p>
-<p>  无返回值：</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void functionName(parameterList)</span><br><span class="line">&#123;</span><br><span class="line">    statement(s)</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  有返回值：<br>  ```<br>  typeName functionName(parameterList)<br>  {</p>
-<pre><code>  statements
-  return value;   // 返回值为 value 或转换为 typeName 类型的值
-</code></pre>
-<p>  }</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ 学习之六、复合类型之数组</title>
     <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>C++ 复合类型之数组笔记</p>
@@ -867,6 +842,32 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p>  <strong>Tips:</strong> 可将前缀 <strong>R</strong> 与其他字符串前缀结合，以标识 <code>wchar_t</code> 等类型的原始字符串。可将 <strong>R</strong> 放在前面，也可将其放在后面，如 <strong>Ru、UR</strong> 等。</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
+    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
+<span id="more"></span>
+
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
+<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
+<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
+<p>结构声明放置的位置决定作用范围，使用与基本类型变量基本一致，这在以后将讨论。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 使用 <span class="keyword">struct</span> 关键字，定义 <span class="title">person</span> 类型结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">double</span> height;  <span class="comment">// 成员 height</span></span><br><span class="line">    <span class="keyword">double</span> weight;  <span class="comment">// 成员 weight</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Ming&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Ming&quot;</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何东西时，各个成员都将被设置为零，name 每个字节都将设置为 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以在声明结构的同时定义出该类型的变量</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>C++学习</category>
