@@ -550,6 +550,133 @@ man git-&lt;verb&gt;
       </tags>
   </entry>
   <entry>
+    <title>C++学习之四、C++变量</title>
+    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
+<span id="more"></span>
+
+<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
+<ul>
+<li>信息将存储在哪里；</li>
+<li>要存储什么值；</li>
+<li>存储何种类型的信息；</li>
+</ul>
+<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
+<li>名称中只能使用字母字符、数字和下划线（_）。</li>
+<li>名称中第一个字符不能是数字。</li>
+<li>区分大小写。</li>
+<li>不能将 C++ 关键字用作名称。</li>
+<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
+<li>C++ 对于名称长度没有限制。</li>
+</ul>
+<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
+<ul>
+<li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
+</li>
+<li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
+</li>
+<li><p>C++11 新增方式：</p>
+<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
+<ul>
+<li>它能够明确指定数据类型</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
+<li><code>const</code> 可用于更复杂的类型</li>
+</ul>
+<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
+<pre><code>const int MONTH = 12;
+</code></pre>
+<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
+<p>一般用于处理复杂类型。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之五、C++ 算术运算符</title>
+    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+<span id="more"></span>
+
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
+<li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
+<li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
+<li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
+<li>除法运算，运算符为 “<code>/</code>“。如 <code>20 / 2</code></li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 “<code>%</code>“。如 <code>19 % 3</code>，结果为 1</li>
+</ul>
+<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
+<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
+<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
+<ul>
+<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
+<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
+<li>将参数传递给函数时，C++ 将对值进行转换。</li>
+</ul>
+<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
+
+<p>这种类型的转换在一些情况下可能出现问题</p>
+<table>
+<thead>
+<tr>
+<th>转换</th>
+<th>潜在的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
+<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将浮点型转换为整型</td>
+<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
+<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
+</tr>
+</tbody></table>
+<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
+<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许将值转换为无法表示该值的变量。例如：</p>
+<ul>
+<li>不允许浮点型转换为整型。</li>
+<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 错误，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 无错误，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 无错误，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 错误，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况，此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量能处理 &#123; &#125; 中的变量值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
+
+<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
+<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
+
+<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
+<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
+<p>long double &gt; double &gt; float &gt; 整型提升</p>
+<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
+<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VSCode 教程</title>
     <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
@@ -643,82 +770,6 @@ man git-&lt;verb&gt;
       <tags>
         <tag>VSCode</tag>
         <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之五、C++ 算术运算符</title>
-    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
-<span id="more"></span>
-
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
-<li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
-<li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
-<li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
-<li>除法运算，运算符为 “<code>/</code>“。如 <code>20 / 2</code></li>
-<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 “<code>%</code>“。如 <code>19 % 3</code>，结果为 1</li>
-</ul>
-<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
-<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
-<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
-<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
-<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
-<ul>
-<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
-<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
-<li>将参数传递给函数时，C++ 将对值进行转换。</li>
-</ul>
-<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
-
-<p>这种类型的转换在一些情况下可能出现问题</p>
-<table>
-<thead>
-<tr>
-<th>转换</th>
-<th>潜在的问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
-<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将浮点型转换为整型</td>
-<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
-<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
-</tr>
-</tbody></table>
-<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
-<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许将值转换为无法表示该值的变量。例如：</p>
-<ul>
-<li>不允许浮点型转换为整型。</li>
-<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 错误，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 无错误，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 无错误，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 错误，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况，此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量能处理 &#123; &#125; 中的变量值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
-
-<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
-<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
-
-<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
-<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
-<p>long double &gt; double &gt; float &gt; 整型提升</p>
-<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
-<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -877,7 +928,7 @@ man git-&lt;verb&gt;
 <span id="more"></span>
 
 <h1 id="什么是指针"><a href="#什么是指针" class="headerlink" title="什么是指针"></a>什么是指针</h1><p>指针是用于存储值的地址的变量。</p>
-<p>对于常规变量，值是指定的量，而地址派生量，地址值可通过对变量应用地址运算符（&amp;）取得。</p>
+<p>对于常规变量，值是指定的量，而地址是派生量，地址值可通过对变量应用地址运算符（&amp;）取得。</p>
 <p>对于指针刚好相反，将地址视为指定的量，而将值视为派生量。<code>*</code> 运算符被称为间接值或解除引用运算符，将其应用于指针，可以得到该地址处存储的值。</p>
 <h1 id="指针初始化"><a href="#指针初始化" class="headerlink" title="指针初始化"></a>指针初始化</h1><p>指针与数组一样都是与类型强关联的。如 <code>int *pt</code> 表示 <code>int</code> 类型的指针 <code>pt</code>。</p>
 <p><strong>Tips: 一定要在对指针应用解除引用运算符（*）之前，将指针初始化为一个确定的、适当的地址，这是关于使用指针的金科玉律。</strong></p>
@@ -957,64 +1008,13 @@ man git-&lt;verb&gt;
 <h1 id="自动存储、静态存储和动态存储"><a href="#自动存储、静态存储和动态存储" class="headerlink" title="自动存储、静态存储和动态存储"></a>自动存储、静态存储和动态存储</h1><p>根据用于分配内存的方法，C++ 有 3 种管理数据内存的方式：自动存储、静态存储和动态存储（有时也叫作自由存储空间或堆）。在存在时间的长短方面，以 3 种方式分配的数据对象各不相同。先简要概括这些知识。</p>
 <h2 id="自动存储"><a href="#自动存储" class="headerlink" title="自动存储"></a>自动存储</h2><p>在函数内部定义的常规变量使用自动存储空间，被称为自动变量（automatic variable），这意味着它们在所属的函数被调用时自动产生，在该函数结束时消亡。</p>
 <p>实际上，自动变量是一个局部变量，其作用域为包含它的代码块。</p>
-<p>自动变量通常存储在<strong>栈内存</strong>中。这意味着执行代码块时，其中的变量将依次加入到栈中，而在离开代码块时，将按相反的顺序释放这些变量，这被称为**后进先出（LIFO）。因此，在程序执行过程中，栈将不断地增大和缩小。</p>
+<p>自动变量通常存储在<strong>栈内存</strong>中。这意味着执行代码块时，其中的变量将依次加入到栈中，而在离开代码块时，将按相反的顺序释放这些变量，这被称为<strong>后进先出（LIFO）</strong>。因此，在程序执行过程中，栈将不断地增大和缩小。</p>
 <h2 id="静态存储"><a href="#静态存储" class="headerlink" title="静态存储"></a>静态存储</h2><p>静态存储是整个程序执行期间都存在的存储方式。使变量成为静态的方式有两种：一种是在函数外面定义它；另一种是在声明变量时使用关键字 <code>static</code>:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> fee = <span class="number">56.50</span>;</span><br></pre></td></tr></table></figure>
 
 <p>自动存储和静态存储的关键在于：这些方法严格地限制了变量的寿命。变量可能存在于程序的整个生命周期（静态变量），也可能只是在特定函数被执行时存在（自动变量）。</p>
 <h2 id="动态存储"><a href="#动态存储" class="headerlink" title="动态存储"></a>动态存储</h2><p><code>new</code> 和 <code>delete</code> 运算符提供了一种比自动变量和静态变量更灵活的方法。它们管理了一个内存池，这在 C++ 中被称为自由存储空间（free store）或堆（heap）。该内存池同用于静态变量和自动变量的内存是分开的。new 和 delete 让我们可以自由控制内存的分配和释放，可以在这个函数中分配内存，到另一个函数中再释放，但通常不那么做。因此，数据的生命周期不完全受程序或函数的生存时间控制。与使用常规变量相比，使用 new 和 delete 让程序员对程序如何使用内存有更大的控制权，然而，内存管理也更复杂了。在栈中，自动添加和删除机制使得占用的内存总是连续的，但 new 和 delete 的相互影响可能导致占用的自由存储区不连续，这使得跟踪新分配内存的位置更困难。</p>
 <p><strong>Tips:</strong> 要避免内存泄漏问题，最好养成同时使用 new 和 delete 运算符，在自由存储空间上动态分配内存，随后便释放它。C++ 后续学习智能指针有助于自动完成这种任务。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习之四、C++变量</title>
-    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
-<span id="more"></span>
-
-<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
-<ul>
-<li>信息将存储在哪里；</li>
-<li>要存储什么值；</li>
-<li>存储何种类型的信息；</li>
-</ul>
-<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
-<li>名称中只能使用字母字符、数字和下划线（_）。</li>
-<li>名称中第一个字符不能是数字。</li>
-<li>区分大小写。</li>
-<li>不能将 C++ 关键字用作名称。</li>
-<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制。</li>
-</ul>
-<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
-<ul>
-<li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
-</li>
-<li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
-</li>
-<li><p>C++11 新增方式：</p>
-<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
-<ul>
-<li>它能够明确指定数据类型</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
-<li><code>const</code> 可用于更复杂的类型</li>
-</ul>
-<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
-<pre><code>const int MONTH = 12;
-</code></pre>
-<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
-<p>一般用于处理复杂类型。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
