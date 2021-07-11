@@ -601,82 +601,6 @@ man git-&lt;verb&gt;
       </tags>
   </entry>
   <entry>
-    <title>C++ 学习之五、C++ 算术运算符</title>
-    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
-<span id="more"></span>
-
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
-<li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
-<li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
-<li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
-<li>除法运算，运算符为 “<code>/</code>“。如 <code>20 / 2</code></li>
-<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 “<code>%</code>“。如 <code>19 % 3</code>，结果为 1</li>
-</ul>
-<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
-<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
-<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
-<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
-<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
-<ul>
-<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
-<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
-<li>将参数传递给函数时，C++ 将对值进行转换。</li>
-</ul>
-<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
-
-<p>这种类型的转换在一些情况下可能出现问题</p>
-<table>
-<thead>
-<tr>
-<th>转换</th>
-<th>潜在的问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
-<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将浮点型转换为整型</td>
-<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
-<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
-</tr>
-</tbody></table>
-<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
-<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许将值转换为无法表示该值的变量。例如：</p>
-<ul>
-<li>不允许浮点型转换为整型。</li>
-<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 错误，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 无错误，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 无错误，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 错误，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况，此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量能处理 &#123; &#125; 中的变量值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
-
-<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
-<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
-
-<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
-<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
-<p>long double &gt; double &gt; float &gt; 整型提升</p>
-<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
-<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VSCode 教程</title>
     <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
@@ -770,6 +694,82 @@ man git-&lt;verb&gt;
       <tags>
         <tag>VSCode</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之五、C++ 算术运算符</title>
+    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+<span id="more"></span>
+
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
+<li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
+<li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
+<li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
+<li>除法运算，运算符为 “<code>/</code>“。如 <code>20 / 2</code></li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 “<code>%</code>“。如 <code>19 % 3</code>，结果为 1</li>
+</ul>
+<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
+<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
+<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
+<ul>
+<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
+<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
+<li>将参数传递给函数时，C++ 将对值进行转换。</li>
+</ul>
+<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
+
+<p>这种类型的转换在一些情况下可能出现问题</p>
+<table>
+<thead>
+<tr>
+<th>转换</th>
+<th>潜在的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
+<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将浮点型转换为整型</td>
+<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
+<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
+</tr>
+</tbody></table>
+<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
+<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许将值转换为无法表示该值的变量。例如：</p>
+<ul>
+<li>不允许浮点型转换为整型。</li>
+<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 错误，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 无错误，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 无错误，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 错误，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况，此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量能处理 &#123; &#125; 中的变量值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
+
+<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
+<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
+
+<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
+<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
+<p>long double &gt; double &gt; float &gt; 整型提升</p>
+<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
+<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -1021,6 +1021,68 @@ man git-&lt;verb&gt;
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多的被 OEM 和零部分供应商提及和重视，几乎成为汽车行业的通用标准和准则，那么什么是 <strong>ASPICE</strong> 呢？</p>
+<span id="more"></span>
+
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l7ei93afvpsuhrsgag.png" title="CMMI IDEAL 模型"></p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l73dh3afvpsuhrsfo0.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l7i113afvpsuhrsgeg.jpg" title="SPICE 标准"></p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p><img src="https://p9.douyinpic.com/obj/toutiao.cg.fiji/c3l7kn57mn14c68gkq8g.png" title="ASPICE 模型"></p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l7mtl7mn14c68gkqb0.png" title="ASPICE 过程参考模型"></p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c3l7q6p3afvpsuhrsgog.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
+<blockquote>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
+</blockquote>
+</li>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8let7mn14c68gkrb0.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l8q413afvpsuhrsl0g.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件–“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8t2mo4kba27fnd79g.png" title="ASPICE 插件"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>ASPICE</tag>
       </tags>
   </entry>
 </search>
