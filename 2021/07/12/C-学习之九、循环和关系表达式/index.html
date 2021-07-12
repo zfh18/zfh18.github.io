@@ -20,30 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;gitalk&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:{&quot;gitalk&quot;:{&quot;order&quot;:-2},&quot;disqus&quot;:{&quot;text&quot;:&quot;Load Disqus&quot;,&quot;order&quot;:-1}},&quot;activeClass&quot;:&quot;gitalk&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="开始学习 C++ 之前的一些认知。">
+<meta name="description" content="程序通常使用关系表达式和逻辑表达式来控制其行为。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++学习之一、 C++简介">
-<meta property="og:url" content="https://zfh18.github.io/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:title" content="C++学习之九、循环和关系表达式">
+<meta property="og:url" content="https://zfh18.github.io/2021/07/12/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="未闻驿站">
-<meta property="og:description" content="开始学习 C++ 之前的一些认知。">
+<meta property="og:description" content="程序通常使用关系表达式和逻辑表达式来控制其行为。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c2rocm7qq1srh5grt570.png">
-<meta property="article:published_time" content="2021-05-15T02:39:52.000Z">
-<meta property="article:modified_time" content="2021-07-04T06:08:12.492Z">
+<meta property="article:published_time" content="2021-07-12T12:43:43.000Z">
+<meta property="article:modified_time" content="2021-07-12T13:40:47.953Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c2rocm7qq1srh5grt570.png">
 
 
-<link rel="canonical" href="https://zfh18.github.io/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/">
+<link rel="canonical" href="https://zfh18.github.io/2021/07/12/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;05&#x2F;15&#x2F;%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;15&#x2F;一、C-简介&#x2F;&quot;,&quot;title&quot;:&quot;C++学习之一、 C++简介&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;07&#x2F;12&#x2F;C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;12&#x2F;C-学习之九、循环和关系表达式&#x2F;&quot;,&quot;title&quot;:&quot;C++学习之九、循环和关系表达式&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>C++学习之一、 C++简介 | 未闻驿站</title><script src="/js/config.js"></script>
+<title>C++学习之九、循环和关系表达式 | 未闻驿站</title><script src="/js/config.js"></script>
   
 
 
@@ -149,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E8%AF%AD%E8%A8%80%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">C++ 语言特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E8%B5%B7%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">C++ 起源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E6%A0%87%E5%87%86"><span class="nav-number">3.</span> <span class="nav-text">C++ 标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E8%AF%AD%E8%A8%80%E9%A3%8E%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">C++ 语言风格</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">表达式定义与值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%89%AF%E4%BD%9C%E7%94%A8%EF%BC%88side-effect%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">表达式副作用（side effect）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">表达式语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">非表达式语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.</span> <span class="nav-text">for 循环</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -229,7 +227,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zfh18.github.io/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/">
+    <link itemprop="mainEntityOfPage" href="https://zfh18.github.io/2021/07/12/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/pic.png">
@@ -242,7 +240,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++学习之一、 C++简介
+          C++学习之九、循环和关系表达式
         </h1>
 
         <div class="post-meta-container">
@@ -252,16 +250,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-05-15 10:39:52" itemprop="dateCreated datePublished" datetime="2021-05-15T10:39:52+08:00">2021-05-15</time>
+      <time title="创建时间：2021-07-12 20:43:43 / 修改时间：21:40:47" itemprop="dateCreated datePublished" datetime="2021-07-12T20:43:43+08:00">2021-07-12</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-04 14:08:12" itemprop="dateModified" datetime="2021-07-04T14:08:12+08:00">2021-07-04</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -287,14 +279,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>380</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -305,68 +297,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>开始学习 C++ 之前的一些认知。</p>
+        <p>程序通常使用关系表达式和逻辑表达式来控制其行为。</p>
 <span id="more"></span>
 
-<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++ 语言特点"></a>C++ 语言特点</h1><p>C++ 融合了 3 种不同的编程方式：</p>
-<ul>
-<li>C 语言代表的过程性编程。</li>
-<li>C++ 在 C 语言基础上添加的类代表的面向对象（OOP）编程。</li>
-<li>C++ 模板支持的泛型编程。</li>
-</ul>
-<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++ 起源"></a>C++ 起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong> 于 20 世纪 80 年代开发出了这种语言。基于 C 语言。</p>
-<h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++ 标准"></a>C++ 标准</h1><ul>
-<li>移植时需要对程序重新编译。</li>
-<li>常用的两种标准，C++98, C++11 标准。</li>
-</ul>
-<h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++ 语言风格"></a>C++ 语言风格</h1><ul>
-<li>源代码文件扩展名</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>C++实现</th>
-<th>源代码文件的扩展名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UNIX</td>
-<td>C、cc、cxx、c</td>
-</tr>
-<tr>
-<td>GNU C++</td>
-<td>C、cc、cxx、cpp、c++</td>
-</tr>
-<tr>
-<td>Digital Mars</td>
-<td>cpp、cxx</td>
-</tr>
-<tr>
-<td>Borland C++</td>
-<td>cpp</td>
-</tr>
-<tr>
-<td>Watcom</td>
-<td>cpp</td>
-</tr>
-<tr>
-<td>Microsoft Visual C++</td>
-<td>cpp、cxx、cc</td>
-</tr>
-<tr>
-<td>Freestyle CodeWarrior</td>
-<td>cp、cpp、cc、cxx、c++</td>
-</tr>
-</tbody></table>
-<ul>
-<li>程序创建步骤</li>
-</ul>
-<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c2rocm7qq1srh5grt570.png" alt="程序创建步骤" title="程序创建"></p>
-<ul>
-<li><p>C++ 编译</p>
-<p>  常用编译器有 <code>gcc g++</code>。</p>
-</li>
-</ul>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="表达式定义与值"><a href="#表达式定义与值" class="headerlink" title="表达式定义与值"></a>表达式定义与值</h2><p>任何值或任何有效的值和运算符的组合都是表达式，C++ 中每个表达式都有值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10  // 10 是值为 10 的表达式</span><br><span class="line">28 * 10     // 值为 280 的表达式</span><br><span class="line">x = 20      // 两个值和一个赋值运算符组成的表达式。C++ 将赋值表达式的值定义为左侧成员的值，因此这个表达式的值为 20</span><br><span class="line">x &lt; 30      // 表达式的值为 true 或 false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// express.cpp -- 表达式</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x = 100 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x = <span class="number">100</span>) &lt;&lt; endl;  <span class="comment">// 赋值表达式的值为左侧成员的值，此时 x 的值为 100，所以输出为 100</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Now x = &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 默认情况下，cout 在显示 bool 值之前将它们转换为 int，所以此输出为 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 同上，此时输出为 1</span></span><br><span class="line">    cout.<span class="built_in">setf</span>(ios_base::boolalpha); <span class="comment">// C++ 的一个新功能，此函数设置了一个标记，该标记命令 cout 对判断语句显示 true 和 false，而不是 1 和 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 false</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表达式副作用（side-effect）"><a href="#表达式副作用（side-effect）" class="headerlink" title="表达式副作用（side effect）"></a>表达式副作用（side effect）</h2><p>当表达式的操作改变了内存中数据的值时，我们说表达式有副作用（side effect）。如 <code>x = 100</code> 这个表达式改变了 <code>x</code> 的值，有副作用，而 <code>x + 15</code> 将计算出一个新的值且不会修改 <code>x</code> 的值，没有副作用。</p>
+<h1 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h1><p>从表达式到表达式语句的转变很容易，只要加上分号即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = 100   // 表达式</span><br><span class="line">age = 100;  // 语句，更准确地说，这是一条表达式语句</span><br></pre></td></tr></table></figure>
+
+<h2 id="非表达式语句"><a href="#非表达式语句" class="headerlink" title="非表达式语句"></a>非表达式语句</h2><p>表达式语句去掉分号就是表达式。但不是所有的语句都是这样。很多种情况语句去掉分号并不是表达式，此为非表达式语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a;  // 这是一条语句，但 int a 并不是一条表达式，因此它没有值，不能用于直接运算</span><br></pre></td></tr></table></figure>
+
+<h1 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h1><p>很多情况下都需要程序执行重复的任务，如依次打印数组中所有的元素，从 1 累加到 100 等，for 循环可以轻松完成这样的重复性任务。</p>
 
     </div>
 
@@ -384,7 +329,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zfh18.github.io/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/" title="C++学习之一、 C++简介">https://zfh18.github.io/2021/05/15/一、C-简介/</a>
+      <a href="https://zfh18.github.io/2021/07/12/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="C++学习之九、循环和关系表达式">https://zfh18.github.io/2021/07/12/C-学习之九、循环和关系表达式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -400,14 +345,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/" rel="prev" title="Hexo + GitHub Pages搭建个人免费博客">
-                  <i class="fa fa-chevron-left"></i> Hexo + GitHub Pages搭建个人免费博客
+                <a href="/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/" rel="prev" title="什么是 ASPICE">
+                  <i class="fa fa-chevron-left"></i> 什么是 ASPICE
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/" rel="next" title="C++学习之二、C++程序基本结构概述">
-                  C++学习之二、C++程序基本结构概述 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -491,7 +433,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{&quot;enable&quot;:true,&quot;github_id&quot;:&quot;zfh18&quot;,&quot;repo&quot;:&quot;zfh18.github.io&quot;,&quot;client_id&quot;:&quot;0aa1e30354eff985e323&quot;,&quot;client_secret&quot;:&quot;31b4e31e85764b8b967feccd6a8dbb674fcd756c&quot;,&quot;admin_user&quot;:&quot;zfh18&quot;,&quot;distraction_free_mode&quot;:true,&quot;proxy&quot;:&quot;https:&#x2F;&#x2F;cors-anywhere.azm.workers.dev&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token&quot;,&quot;language&quot;:&quot;zh-CN&quot;,&quot;js&quot;:{&quot;url&quot;:&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1.7.2&#x2F;dist&#x2F;gitalk.min.js&quot;,&quot;integrity&quot;:&quot;sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;&quot;},&quot;path_md5&quot;:&quot;d45966130f4208d40cc5cad277fe49f2&quot;}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{&quot;enable&quot;:true,&quot;github_id&quot;:&quot;zfh18&quot;,&quot;repo&quot;:&quot;zfh18.github.io&quot;,&quot;client_id&quot;:&quot;0aa1e30354eff985e323&quot;,&quot;client_secret&quot;:&quot;31b4e31e85764b8b967feccd6a8dbb674fcd756c&quot;,&quot;admin_user&quot;:&quot;zfh18&quot;,&quot;distraction_free_mode&quot;:true,&quot;proxy&quot;:&quot;https:&#x2F;&#x2F;cors-anywhere.azm.workers.dev&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token&quot;,&quot;language&quot;:&quot;zh-CN&quot;,&quot;js&quot;:{&quot;url&quot;:&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1.7.2&#x2F;dist&#x2F;gitalk.min.js&quot;,&quot;integrity&quot;:&quot;sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;&quot;},&quot;path_md5&quot;:&quot;01419afcd4921c666a45dc3aa52bf741&quot;}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>

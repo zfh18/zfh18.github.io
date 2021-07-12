@@ -224,6 +224,53 @@ hexo s      # 启动预览
       </tags>
   </entry>
   <entry>
+    <title>Git常用命令</title>
+    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
+<span id="more"></span>
+
+<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有提交过的操作都是可追溯的。</p>
+<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有个性，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
+<blockquote>
+<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
+</blockquote>
+<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
+<blockquote>
+<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
+<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
+<blockquote>
+<p>已修改，指文件被修改，但修改之后还没有暂存</p>
+<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
+<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+</blockquote>
+</blockquote>
+<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
+git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
+git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
+git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
+git config --list   // 查看所有配置
+git config --list --show-origin // 查看所有配置以及它们所在的文件
+git config &lt;key&gt; --show-origin  // 查看某项配置以及它所在的文件
+</code></pre>
+<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
+<pre><code>git help &lt;verb&gt;     // 如 git help config
+git &lt;verb&gt; --help   // 如 git add -h
+man git-&lt;verb&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>Git学习</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>版本控制</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习之三、C++基本数据类型</title>
     <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>C++ 内置数据类型分两大类：<strong>基本数据类型</strong>和<strong>复合数据类型</strong>。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
@@ -503,53 +550,6 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
-    <title>Git常用命令</title>
-    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
-<span id="more"></span>
-
-<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有提交过的操作都是可追溯的。</p>
-<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有个性，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
-<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
-<blockquote>
-<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
-<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
-<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p>
-</blockquote>
-<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
-<blockquote>
-<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
-<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
-<blockquote>
-<p>已修改，指文件被修改，但修改之后还没有暂存</p>
-<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
-<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
-</blockquote>
-</blockquote>
-<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
-git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
-git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令
-git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
-git config --list   // 查看所有配置
-git config --list --show-origin // 查看所有配置以及它们所在的文件
-git config &lt;key&gt; --show-origin  // 查看某项配置以及它所在的文件
-</code></pre>
-<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
-<pre><code>git help &lt;verb&gt;     // 如 git help config
-git &lt;verb&gt; --help   // 如 git add -h
-man git-&lt;verb&gt;
-</code></pre>
-]]></content>
-      <categories>
-        <category>Git学习</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>GitHub</tag>
-        <tag>版本控制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习之四、C++变量</title>
     <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
@@ -571,15 +571,12 @@ man git-&lt;verb&gt;
 </ul>
 <h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
 <ul>
-<li><p>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></p>
-</li>
-<li><p>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></p>
-</li>
-<li><p>C++11 新增方式：</p>
-<pre><code>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<li>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></li>
+<li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
+<li>C++11 新增方式：</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
 <p><code>const</code> 与 <code>define</code> 相比的好处：</p>
 <ul>
@@ -1026,7 +1023,7 @@ man git-&lt;verb&gt;
   <entry>
     <title>什么是 ASPICE</title>
     <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多的被 OEM 和零部分供应商提及和重视，几乎成为汽车行业的通用标准和准则，那么什么是 <strong>ASPICE</strong> 呢？</p>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多的被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准和准则，那么什么是 <strong>ASPICE</strong> 呢？</p>
 <span id="more"></span>
 
 <h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
@@ -1083,6 +1080,32 @@ man git-&lt;verb&gt;
       </categories>
       <tags>
         <tag>ASPICE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之九、循环和关系表达式</title>
+    <url>/2021/07/12/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B9%9D%E3%80%81%E5%BE%AA%E7%8E%AF%E5%92%8C%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>程序通常使用关系表达式和逻辑表达式来控制其行为。</p>
+<span id="more"></span>
+
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="表达式定义与值"><a href="#表达式定义与值" class="headerlink" title="表达式定义与值"></a>表达式定义与值</h2><p>任何值或任何有效的值和运算符的组合都是表达式，C++ 中每个表达式都有值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10  // 10 是值为 10 的表达式</span><br><span class="line">28 * 10     // 值为 280 的表达式</span><br><span class="line">x = 20      // 两个值和一个赋值运算符组成的表达式。C++ 将赋值表达式的值定义为左侧成员的值，因此这个表达式的值为 20</span><br><span class="line">x &lt; 30      // 表达式的值为 true 或 false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// express.cpp -- 表达式</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x = 100 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x = <span class="number">100</span>) &lt;&lt; endl;  <span class="comment">// 赋值表达式的值为左侧成员的值，此时 x 的值为 100，所以输出为 100</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Now x = &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 默认情况下，cout 在显示 bool 值之前将它们转换为 int，所以此输出为 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 同上，此时输出为 1</span></span><br><span class="line">    cout.<span class="built_in">setf</span>(ios_base::boolalpha); <span class="comment">// C++ 的一个新功能，此函数设置了一个标记，该标记命令 cout 对判断语句显示 true 和 false，而不是 1 和 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 false</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表达式副作用（side-effect）"><a href="#表达式副作用（side-effect）" class="headerlink" title="表达式副作用（side effect）"></a>表达式副作用（side effect）</h2><p>当表达式的操作改变了内存中数据的值时，我们说表达式有副作用（side effect）。如 <code>x = 100</code> 这个表达式改变了 <code>x</code> 的值，有副作用，而 <code>x + 15</code> 将计算出一个新的值且不会修改 <code>x</code> 的值，没有副作用。</p>
+<h1 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h1><p>从表达式到表达式语句的转变很容易，只要加上分号即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">age = 100   // 表达式</span><br><span class="line">age = 100;  // 语句，更准确地说，这是一条表达式语句</span><br></pre></td></tr></table></figure>
+
+<h2 id="非表达式语句"><a href="#非表达式语句" class="headerlink" title="非表达式语句"></a>非表达式语句</h2><p>表达式语句去掉分号就是表达式。但不是所有的语句都是这样。很多种情况语句去掉分号并不是表达式，此为非表达式语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a;  // 这是一条语句，但 int a 并不是一条表达式，因此它没有值，不能用于直接运算</span><br></pre></td></tr></table></figure>
+
+<h1 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h1><p>很多情况下都需要程序执行重复的任务，如依次打印数组中所有的元素，从 1 累加到 100 等，for 循环可以轻松完成这样的重复性任务。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
 </search>
