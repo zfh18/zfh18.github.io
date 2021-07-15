@@ -28,7 +28,7 @@
 <meta property="og:description" content="程序通常使用关系表达式和逻辑表达式来控制其行为。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-12T12:43:43.000Z">
-<meta property="article:modified_time" content="2021-07-12T15:00:26.654Z">
+<meta property="article:modified_time" content="2021-07-15T14:58:07.256Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">表达式定义与值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%89%AF%E4%BD%9C%E7%94%A8%EF%BC%88side-effect%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">表达式副作用（side effect）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">表达式语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">非表达式语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.</span> <span class="nav-text">for 循环</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">表达式定义与值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%89%AF%E4%BD%9C%E7%94%A8%EF%BC%88side-effect%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">表达式副作用（side effect）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%EF%BC%88sequence%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">顺序（sequence）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">表达式语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">非表达式语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.</span> <span class="nav-text">for 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-for-%E5%BE%AA%E7%8E%AF%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="nav-number">3.1.</span> <span class="nav-text">使用 for 循环进行计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-for-%E5%BE%AA%E7%8E%AF%E8%AE%BF%E9%97%AE%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.2.</span> <span class="nav-text">使用 for 循环访问字符串</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,10 +250,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-07-12 20:43:43 / 修改时间：23:00:26" itemprop="dateCreated datePublished" datetime="2021-07-12T20:43:43+08:00">2021-07-12</time>
+      <time title="创建时间：2021-07-12 20:43:43" itemprop="dateCreated datePublished" datetime="2021-07-12T20:43:43+08:00">2021-07-12</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-15 22:58:07" itemprop="dateModified" datetime="2021-07-15T22:58:07+08:00">2021-07-15</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -279,14 +285,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -305,6 +311,17 @@
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// express.cpp -- 表达式</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x = 100 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x = <span class="number">100</span>) &lt;&lt; endl;  <span class="comment">// 赋值表达式的值为左侧成员的值，此时 x 的值为 100，所以输出为 100</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Now x = &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 默认情况下，cout 在显示 bool 值之前将它们转换为 int，所以此输出为 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 同上，此时输出为 1</span></span><br><span class="line">    cout.<span class="built_in">setf</span>(ios_base::boolalpha); <span class="comment">// C++ 的一个新功能，此函数设置了一个标记，该标记命令 cout 对判断语句显示 true 和 false，而不是 1 和 0</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &lt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &lt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 false</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The expression x &gt; 3 has the value &quot;</span>;</span><br><span class="line">    cout &lt;&lt; (x &gt; <span class="number">3</span>) &lt;&lt; endl;    <span class="comment">// 输出为 true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="表达式副作用（side-effect）"><a href="#表达式副作用（side-effect）" class="headerlink" title="表达式副作用（side effect）"></a>表达式副作用（side effect）</h2><p>当表达式的操作改变了内存中数据的值时，我们说表达式有副作用（side effect）。如 <code>x = 100</code> 这个表达式改变了 <code>x</code> 的值，有副作用，而 <code>x + 15</code> 将计算出一个新的值且不会修改 <code>x</code> 的值，没有副作用。</p>
+<h2 id="顺序（sequence）"><a href="#顺序（sequence）" class="headerlink" title="顺序（sequence）"></a>顺序（sequence）</h2><p>指程序执行过程中的一个点，在这里，进入下一步之前将确保对所有的副作用都进行了评估。</p>
+<ul>
+<li>语句中的分号是一个顺序点，这意味着程序处理下一条语句之前，赋值运算符、递增运算符和递减运算符执行的所有修改都必须完成。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = (4 + x++) + (6 + x++);  // 4 + x++ 不是一个完整的表达式，因此，C++ 不保证 x 的值在计算子表达式 4 + x++ 后立刻增加 1，只保证在分号顺序点时，x 被执行了再次加 1，由于中间的过程的不确定性，所以应避免使用这样的表达式</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>任何完整的表达式（不是另一个更大表达式的子表达式）末尾都是一个顺序点。如表达式语句中的表达式部分以及用途 while 循环中检测条件的表达式。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while (guests++ &lt; 10)   // guests 值首先用于判断是否小于 10，由于 while 循环中检测条件的表达式是一个顺序点，所以此语句将保证 guests 的值被加 1</span><br><span class="line">    cout &lt;&lt; guests &lt;&lt; endl; // guests 在条件语句中已经加 1，这里将输出加 1 后的值</span><br></pre></td></tr></table></figure>
+
 <h1 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h1><p>从表达式到表达式语句的转变很容易，只要加上分号即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = 100   // 表达式</span><br><span class="line">age = 100;  // 语句，更准确地说，这是一条表达式语句</span><br></pre></td></tr></table></figure>
 
@@ -312,7 +329,14 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a;  // 这是一条语句，但 int a 并不是一条表达式，因此它没有值，不能用于直接运算</span><br></pre></td></tr></table></figure>
 
 <h1 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h1><p>很多情况下都需要程序执行重复的任务，如依次打印数组中所有的元素，从 1 累加到 100 等，for 循环可以轻松完成这样的重复性任务。</p>
+<p>for 语句的句法如下：</p>
+<pre><code>for (for-init-statement condition; expression)
+    statement
+</code></pre>
+<p><code>for</code> 括号中包含三部分 <code>for-init-statement</code> 语句，<code>condition</code> 表达式，<code>expression</code> 表达式。这里 <code>for-init-statement</code> 视为一条语句，有自己的分号。在 <code>for-init-statement</code> 语句中可以让我们进行一些初始化的操作。</p>
+<h2 id="使用-for-循环进行计算"><a href="#使用-for-循环进行计算" class="headerlink" title="使用 for 循环进行计算"></a>使用 for 循环进行计算</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打印整数的阶乘</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">16</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> factorials[ArSize];</span><br><span class="line">    factorials[<span class="number">0</span>] = factorials[<span class="number">1</span>] = <span class="number">1LL</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; ArSize; i++)    <span class="comment">// 包含 ArSize 个元素的数组的下标从 0 到 ArSize-1，这里也可以使用 i&lt;=ArSize-1，但它看上去没有前面的表达式好</span></span><br><span class="line">    &#123;</span><br><span class="line">        factorials[i] = i * factorials[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ArSize; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; <span class="string">&quot;!=&quot;</span> &lt;&lt; factorials[i] &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="使用-for-循环访问字符串"><a href="#使用-for-循环访问字符串" class="headerlink" title="使用 for 循环访问字符串"></a>使用 for 循环访问字符串</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// string 类包含在命名空间 std 中</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word); <span class="comment">// 通过 cin 读入一行字符到 word 中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = word.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">// 反向打印 word</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -382,13 +406,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">38k</span>
+    <span title="站点总字数">40k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:03</span>
+    <span title="站点阅读时长">1:06</span>
   </span>
 </div>
 <div class="busuanzi-count">
