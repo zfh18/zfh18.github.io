@@ -1030,7 +1030,7 @@ man git-&lt;verb&gt;
   <entry>
     <title>什么是 ASPICE</title>
     <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多的被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准和准则，那么什么是 <strong>ASPICE</strong> 呢？</p>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
 <span id="more"></span>
 
 <h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
@@ -1050,7 +1050,7 @@ man git-&lt;verb&gt;
 <p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
 <p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="双向可追溯性和一致性"></p>
 <p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="评估、验证准则和符合性"></p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3pa08t7mn14c68gr12g.png" title="评估、验证准则和符合性"></p>
 <h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
 <blockquote>
 <ol>
@@ -1074,7 +1074,7 @@ man git-&lt;verb&gt;
 <p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8let7mn14c68gkrb0.png" title="评估指标与过程能力"></p>
 <p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
 <p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l8q413afvpsuhrsl0g.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件–“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
 <p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
 <p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8t2mo4kba27fnd79g.png" title="ASPICE 插件"></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
