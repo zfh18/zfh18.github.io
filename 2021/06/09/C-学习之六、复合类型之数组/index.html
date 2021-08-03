@@ -29,7 +29,7 @@
 <meta property="og:description" content="C++ 复合类型之数组笔记。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-09T13:30:13.000Z">
-<meta property="article:modified_time" content="2021-07-15T14:16:04.467Z">
+<meta property="article:modified_time" content="2021-08-03T13:05:09.593Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">数组简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">数组的声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.</span> <span class="nav-text">特殊的数组 - 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.</span> <span class="nav-text">C 风格字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E7%82%B9%E4%B8%80-%E6%8B%BC%E6%8E%A5%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.1.1.</span> <span class="nav-text">C 风格字符串特点一 - 拼接字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.2.</span> <span class="nav-text">数组中使用字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-string-%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">C++ string 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.2.1.</span> <span class="nav-text">string 字符串初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.2.</span> <span class="nav-text">string 特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">字符串字面值</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">数组简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">数组的声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">数组的初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0%E7%BB%84-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.</span> <span class="nav-text">特殊的数组 - 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.</span> <span class="nav-text">C 风格字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E7%82%B9%E4%B8%80-%E6%8B%BC%E6%8E%A5%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.1.1.</span> <span class="nav-text">C 风格字符串特点一 - 拼接字面值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.1.2.</span> <span class="nav-text">数组中使用字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-string-%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">C++ string 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.2.1.</span> <span class="nav-text">string 字符串初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.2.</span> <span class="nav-text">string 特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">字符串字面值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">5.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">5.1.</span> <span class="nav-text">初始化二维数组</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-15 22:16:04" itemprop="dateModified" datetime="2021-07-15T22:16:04+08:00">2021-07-15</time>
+        <time title="修改时间：2021-08-03 21:05:09" itemprop="dateModified" datetime="2021-08-03T21:05:09+08:00">2021-08-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.2k</span>
+      <span>5.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -372,7 +372,12 @@
 <p>  <strong>Tips:</strong> 可将前缀 <strong>R</strong> 与其他字符串前缀结合，以标识 <code>wchar_t</code> 等类型的原始字符串。可将 <strong>R</strong> 放在前面，也可将其放在后面，如 <strong>Ru、UR</strong> 等。</p>
 </li>
 </ul>
-
+<h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><p>每个数组都可以看作是一行数据，二维数组更像是一个表格——既有数据行又有数据列。</p>
+<p>C++ 没有提供二维数组的类型，但用户可以创建每个元素本身都是数组的数组。</p>
+<p>可以这样声明一个二维数组：</p>
+<p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
+<h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -405,8 +410,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="prev" title="C++ 学习之五、C++ 算术运算符">
-                  <i class="fa fa-chevron-left"></i> C++ 学习之五、C++ 算术运算符
+                <a href="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="prev" title="C++ 学习之五、C++ 运算符">
+                  <i class="fa fa-chevron-left"></i> C++ 学习之五、C++ 运算符
                 </a>
             </div>
             <div class="post-nav-item">
@@ -445,13 +450,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">49k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:22</span>
   </span>
 </div>
 <div class="busuanzi-count">

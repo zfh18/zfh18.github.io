@@ -694,7 +694,7 @@ man git-&lt;verb&gt;
       </tags>
   </entry>
   <entry>
-    <title>C++ 学习之五、C++ 算术运算符</title>
+    <title>C++ 学习之五、C++ 运算符</title>
     <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
 <span id="more"></span>
@@ -713,6 +713,51 @@ man git-&lt;verb&gt;
 <h2 id="后缀版本"><a href="#后缀版本" class="headerlink" title="后缀版本"></a>后缀版本</h2><p>后缀版本先使用操作数当前的值计算表达式，再将值加 1 或减 1。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
 <p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
+<h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
+<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，使其加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
+<h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
+
+<p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
+<p>以下为组合赋值运算符总结</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>作用（L 为左操作数，R 为右操作数）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+=</td>
+<td>将 L+R 赋给 L</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>将 L-R 赋给 L</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>将 L*R 赋给 L</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>将 L/R 赋给 L</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>将 L%R 赋给 L</td>
+</tr>
+</tbody></table>
+<h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
+<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逗号运算符的优先级最低。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 17</span><br></pre></td></tr></table></figure>
+
 <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
 <p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
 <h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
@@ -847,7 +892,12 @@ man git-&lt;verb&gt;
 <p>  <strong>Tips:</strong> 可将前缀 <strong>R</strong> 与其他字符串前缀结合，以标识 <code>wchar_t</code> 等类型的原始字符串。可将 <strong>R</strong> 放在前面，也可将其放在后面，如 <strong>Ru、UR</strong> 等。</p>
 </li>
 </ul>
-]]></content>
+<h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><p>每个数组都可以看作是一行数据，二维数组更像是一个表格——既有数据行又有数据列。</p>
+<p>C++ 没有提供二维数组的类型，但用户可以创建每个元素本身都是数组的数组。</p>
+<p>可以这样声明一个二维数组：</p>
+<p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
+<h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1111,11 +1161,57 @@ man git-&lt;verb&gt;
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (guests++ &lt; 10)   // guests 值首先用于判断是否小于 10，由于 while 循环中检测条件的表达式是一个顺序点，所以此语句将保证 guests 的值被加 1</span><br><span class="line">    cout &lt;&lt; guests &lt;&lt; endl; // guests 在条件语句中已经加 1，这里将输出加 1 后的值</span><br></pre></td></tr></table></figure>
 
-<h1 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h1><p>从表达式到表达式语句的转变很容易，只要加上分号即可。</p>
+<h2 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h2><p>从表达式到表达式语句的转变很容易，只要加上分号即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">age = 100   // 表达式</span><br><span class="line">age = 100;  // 语句，更准确地说，这是一条表达式语句</span><br></pre></td></tr></table></figure>
 
 <h2 id="非表达式语句"><a href="#非表达式语句" class="headerlink" title="非表达式语句"></a>非表达式语句</h2><p>表达式语句去掉分号就是表达式。但不是所有的语句都是这样。很多种情况语句去掉分号并不是表达式，此为非表达式语句。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a;  // 这是一条语句，但 int a 并不是一条表达式，因此它没有值，不能用于直接运算</span><br></pre></td></tr></table></figure>
+
+<h2 id="关系表达式"><a href="#关系表达式" class="headerlink" title="关系表达式"></a>关系表达式</h2><p>C++ 提供了 6 种关系运算符来对数字进行比较。</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于或等于</td>
+</tr>
+<tr>
+<td>==</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于或等于</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+</tr>
+</tbody></table>
+<p><strong>Tips</strong>: 不要混淆 == 与赋值运算符 = 。前都用于判断，后者则是赋值。当使用赋值表达式作为判断时，值为等号左边的值，非零值为 true，零值为 false</p>
+<h3 id="C-风格字符串比较"><a href="#C-风格字符串比较" class="headerlink" title="C-风格字符串比较"></a>C-风格字符串比较</h3><p>数组名是数组的地址，同样，用引号括起的字符串常量也是其地址。因此，使用 == 只能比较两个字符串的地址。</p>
+<p>应使用 C-风格字符串库中的 <code>strcmp()</code> 函数来比较。该函数接受两个字符串地址作为参数，这意味着参数可以是指针、字符串常量或字符数组名。比较时，如果两个字符串相同，该函数将返回零；如果第一个字符串按字母顺序在第二个字符串之前，则 strcmp() 将返回一个负数值；如果第一个字符串按字母顺序排在第二个字符串之后，则 strcmp() 将返回一个正数值，字符是根据字符的系统编码来进行比较的，所以按照排列顺序，大写字母将位于小写字母之前。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span>  <span class="comment">// 包含 strcmp() 原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">char</span> word[<span class="number">5</span>] = <span class="string">&quot;?ate&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch = <span class="string">&#x27;a&#x27;</span>; <span class="built_in">strcmp</span>(word, <span class="string">&quot;mate&quot;</span>); ch++) <span class="comment">// 比较两个字符串，如果字符不相等，则值为非零（true），相等则值为零（false）</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">        word[<span class="number">0</span>] = ch;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After loop ends, word is &quot;</span> &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较-string-类字符串"><a href="#比较-string-类字符串" class="headerlink" title="比较 string 类字符串"></a>比较 string 类字符串</h3><p>string 类重载了运算符，可以直接使用关系运算符</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span>   <span class="comment">// 包含 string 类</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// string 包含在命名空间 std 中</span></span><br><span class="line">    string word = <span class="string">&quot;?ate&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch = <span class="string">&#x27;a&#x27;</span>; word != <span class="string">&quot;mate&quot;</span>; ch++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">        word[<span class="number">0</span>] = ch;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After loop ends, word is &quot;</span> &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复合语句（语句块）"><a href="#复合语句（语句块）" class="headerlink" title="复合语句（语句块）"></a>复合语句（语句块）</h2><p>两个花括号括起来的部分将形成一条复合语句，也即代码块，将视为一条语句。</p>
+<p>复合语句有一种特性，如果在语句块中定义一个新的变量，则仅当程序执行该语句块中的语句时，该变量才存在。执行完语句块后，变量将被释放。</p>
+<p>然而，如果一个变量既在代码块外面有声明，内部也有声明的时候，使用的时候是哪个呢？这个时候遵循就近原则。代码块内部使用时，离内部声明较近，使用的是内部的，执行完代码块后，代码块内的变量释放，外部使用的是外部声明的变量。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">20</span>;</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; endl;  <span class="comment">// 使用的外部变量 x = 20</span></span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">100</span>;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; endl;  <span class="comment">// 使用的上面定义的变量 x = 100</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;  <span class="comment">// 内部定义的变量被释放，这时候使用的还是外部 x = 20</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h1><p>很多情况下都需要程序执行重复的任务，如依次打印数组中所有的元素，从 1 累加到 100 等，for 循环可以轻松完成这样的重复性任务。</p>
 <p>for 语句的句法如下：</p>
@@ -1125,7 +1221,118 @@ man git-&lt;verb&gt;
 <p><code>for</code> 括号中包含三部分 <code>for-init-statement</code> 语句，<code>condition</code> 表达式，<code>expression</code> 表达式。这里 <code>for-init-statement</code> 视为一条语句，有自己的分号。在 <code>for-init-statement</code> 语句中可以让我们进行一些初始化的操作。</p>
 <h2 id="使用-for-循环进行计算"><a href="#使用-for-循环进行计算" class="headerlink" title="使用 for 循环进行计算"></a>使用 for 循环进行计算</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 打印整数的阶乘</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">16</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> factorials[ArSize];</span><br><span class="line">    factorials[<span class="number">0</span>] = factorials[<span class="number">1</span>] = <span class="number">1LL</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; ArSize; i++)    <span class="comment">// 包含 ArSize 个元素的数组的下标从 0 到 ArSize-1，这里也可以使用 i&lt;=ArSize-1，但它看上去没有前面的表达式好</span></span><br><span class="line">    &#123;</span><br><span class="line">        factorials[i] = i * factorials[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ArSize; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; i &lt;&lt; <span class="string">&quot;!=&quot;</span> &lt;&lt; factorials[i] &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用-for-循环访问字符串"><a href="#使用-for-循环访问字符串" class="headerlink" title="使用 for 循环访问字符串"></a>使用 for 循环访问字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// string 类包含在命名空间 std 中</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word); <span class="comment">// 通过 cin 读入一行字符到 word 中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = word.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">// 反向打印 word</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="使用-for-循环访问字符串"><a href="#使用-for-循环访问字符串" class="headerlink" title="使用 for 循环访问字符串"></a>使用 for 循环访问字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// string 类包含在命名空间 std 中</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word); <span class="comment">// 通过 cin 读入一行字符到 word 中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = word.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">// 反向打印 word</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips</strong>: 省略 for 循环中的测试表达式时，测试结果将为 true，因此下面的循环将一直运行下去：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (; ; ;)</span><br><span class="line">    body</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-11-新增基于范围的-for-循环"><a href="#C-11-新增基于范围的-for-循环" class="headerlink" title="C++11 新增基于范围的 for 循环"></a>C++11 新增基于范围的 for 循环</h2><p>基于范围的 for 循环简化了一种常见的循环任务：对数组（或容器类，如 vector 和 array）的每个元素执行相同的操作，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double price[5] = &#123;4.99, 20, 2.33, 8.888, 6.87&#125;;</span><br><span class="line">for (double x : price)  // x 将依次迭代取得 price 中的值</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以通过这种方法修改数组的元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (double &amp;x : price) // &amp;x 表明 x 是一个引用变量</span><br><span class="line">&#123;</span><br><span class="line">    x *= 0.8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h1><p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (test-condition)</span><br><span class="line">    body</span><br></pre></td></tr></table></figure>
+
+<p>while 与 for 循环本质上是一样的，使用哪一个只是风格上的问题。通常，使用 for 循环来为循环计数，在无法预先知道循环将执行的次数时，常使用 while 循环。</p>
+<p><strong>Tips</strong>: 在设计循环时，记住下面几条指导原则。</p>
+<ul>
+<li>指定循环终止的条件。</li>
+<li>在首次测试之前初始化条件。</li>
+<li>在条件被再次测试之前更新条件。</li>
+</ul>
+<h2 id="while-循环编写延时循环"><a href="#while-循环编写延时循环" class="headerlink" title="while 循环编写延时循环"></a>while 循环编写延时循环</h2><p>ANSI C 和 C++ 库中有一个函数有助于完成延时工作。这个函数名为 <code>clock()</code>，返回程序开始执行后所用的系统时间。但这有两个复杂的问题，首先，<code>clock()</code> 返回时间的单位不一定是秒；其次，该函数的返回类型在某些系统上可能是 long，在另一些系统上可能是 unsigned long 或其他类型。</p>
+<p>但头文件 ctime（较早的实现中为 time.h）提供了这些问题的解决方案。首先，它定义了一个符号常量-CLOCK_PER_SEC，该常量等于每秒钟包含的系统时间单位数。因此，将系统时间除以这个值，可以得到秒数。或者将秒数乘以 CLOCK_PER_SEC，可以得到以系统时间单位为单位的时间。其次，ctime 将 clock_t 作为 clock() 返回类型的别名，这意味着可以将变量声明为 clock_t 类型，编译器将把它转换为 long、unsigned int 或适合系统的其他类型。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 程序以系统时间单位为单位计算延时时间，避免了在每轮循环中将系统时间转换为秒</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span>    <span class="comment">// 包含 clock() 原型</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">float</span> sec;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input the time(s) you wait to wait: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; sec;</span><br><span class="line">    <span class="keyword">clock_t</span> delay = sec * CLOCKS_PER_SEC;   <span class="comment">// 将秒钟转换为系统时钟</span></span><br><span class="line">    <span class="keyword">clock_t</span> start = <span class="built_in">clock</span>();    <span class="comment">// 使用系统时钟计算开始时间</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">clock</span>() - start &lt; delay)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;done \a\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>C++ 为类型建立别名的方式有两种。</p>
+<ul>
+<li><p>使用预处理方式</p>
+<p>  #define BYTE char   // BYTE 作为 char 的别名，预处理器将在编译程序时用 char 替换所有的 BYTE，编译时将只是做最基本的字符替换操作，所以有些情况时不适合使用这种方式，如给指针类型取别名时</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define float_pointer float *;</span><br><span class="line">float_point pa, pb; // 预处理器将转换为 float * pa, pb; 此时 pb 是 float 类型，非指针类型，使用 typedef 不会有这样的问题</span><br></pre></td></tr></table></figure></li>
+<li><p>使用关键字 <code>typedef</code></p>
+<p>  格式为：typedef typeName aliasName;</p>
+<p>  <code>typedef char byte;</code>    // 将 byte 作为 char 的别名，注意 typedef 并不会创建新类型，只是别名</p>
+</li>
+</ul>
+<h1 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do while 循环"></a>do while 循环</h1><p>出口条件循环，即这种循环首先执行循环体。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">    body</span><br><span class="line">while (test-expression);</span><br></pre></td></tr></table></figure>
+
+<h1 id="循环和文本输入"><a href="#循环和文本输入" class="headerlink" title="循环和文本输入"></a>循环和文本输入</h1><h2 id="使用原始-cin-进行输入"><a href="#使用原始-cin-进行输入" class="headerlink" title="使用原始 cin 进行输入"></a>使用原始 cin 进行输入</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取一行输入，遇到 # 字符时停止</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;请输入字符，将在 # 号时结束：&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; ch;  <span class="comment">// 循环中直接先判断是否为 #，在循环之前应该先读取一个字符到 ch 中</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;#&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        count ++;</span><br><span class="line">        cout &lt;&lt; ch;</span><br><span class="line">        cin &gt;&gt; ch;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Have read &quot;</span> &lt;&lt; count &lt;&lt; <span class="string">&quot; chars&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是程序的运行情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">请输入字符，将在 # 号时结束：this is a right select.#not read</span><br><span class="line">thisisarightselect.</span><br><span class="line">Have read 19 chars </span><br></pre></td></tr></table></figure>
+
+<p>由于 cin 在读取字符时将忽略空格和换行符，所以程序在输出时省略了空格，计数中也没有包括空格。而且，发送给 cin 的输入被缓冲，只有用户按下回车键后，输入的内容才会被发送给程序。</p>
+<h2 id="使用-cin-get-char-进行输入"><a href="#使用-cin-get-char-进行输入" class="headerlink" title="使用 cin.get(char) 进行输入"></a>使用 cin.get(char) 进行输入</h2><p>cin.get(char) 将读取输入中的下一个字符（包括空格、制表符和换行符）并赋值给括号中的形参。替换上面的程序可以修补空格及计数的问题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取一行输入，遇到 # 字符时停止</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;请输入字符，将在 # 号时结束：&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(ch);  <span class="comment">// 读取一个字符赋值给 ch，这将改变 ch 的值</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;#&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        count ++;</span><br><span class="line">        cout &lt;&lt; ch;</span><br><span class="line">        cin.<span class="built_in">get</span>(ch);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Have read &quot;</span> &lt;&lt; count &lt;&lt; <span class="string">&quot; chars&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 C 语言中，要修改变量的值，必须将变量的地址传递给函数。但上面程序 cin.get(ch) 传递的是一个 char 类型，不是一个地址，在 C 语言中这样的代码无效。但在 C++ 中有效，只要函数将参数声明为引用即可，头文件 iostream 将 cin.get(ch) 的参数声明为引用类型，因此该函数可以修改其参数的值。</p>
+<h2 id="读取文件输入"><a href="#读取文件输入" class="headerlink" title="读取文件输入"></a>读取文件输入</h2><p>如果输入来自于文件，则可以使用一种功能更强大的技术-检测文件尾（EOF）。C++ 输入工具和操作系统协同工作，来检测文件尾并将这种信息告知程序。</p>
+<p>读取输入能通过读取文件操作来实现，是因为很多操作系统都支持重定向，允许用文件替换键盘输入。<code>&lt;</code> 符号是 Unix 和 Windows 命令提示符模式的重定向运算符。其次，很多操作系统都允许通过键盘来模拟文件尾条件。在 Unix 中，可以在行首按下 <code>Ctrl+D</code> 来实现；在 Windows 命令提示符模式下，可以在任意位置按 <code>Ctrl+Z</code> 和 <code>Enter</code>。</p>
+<p>如果编程环境能够检测 EOF，可以在程序中使用重定向的文件，也可以使用键盘输入，并在键盘输入中模拟 EOF。</p>
+<p>检测到 EOF 后，cin 将两位（eofbit 和 failbit）都设置为 1。可以通过成员函数 eof() 来查看 eofbit 是否被设置；如果检测到 EOF 后，则 cin.eof() 将返回 bool 值 true，否则返回 false。同样，如果 eofbit 或 failbit 被设置为 1，则 fail() 成员函数返回 true，否则返回 false。注意，eof() 和 fail() 方法报告最近读取的结果，也就是说，它们在事后报告，而不是预先报告。因此应将 cin.eof() 或 cin.fail() 测试放在读取后。实际中使用 fail() 更多。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(ch);    <span class="comment">// 先读取一个字符，因为读取文件尾是“事后报告”，需要先执行读取操作</span></span><br><span class="line">    <span class="keyword">while</span> (cin.<span class="built_in">fail</span>() == <span class="literal">false</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; ch;</span><br><span class="line">        ++ count;</span><br><span class="line">        cin.<span class="built_in">get</span>(ch);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; count &lt;&lt; <span class="string">&quot; characters read\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序的运行情况如下：</p>
+<p><strong>The green bird sings in the winter.&lt;ENTER&gt;</strong></p>
+<p>The green bird sings in the winter.</p>
+<p><strong>Yes, but the crow flies in the dawn.&lt;ENTER&gt;</strong></p>
+<p>Yes, but the crow flies in the dawn.</p>
+<p>&lt;CTRL&gt;+&lt;z&gt;&lt;ENTER&gt; // Windows 7 下 Ctrl+z 模拟文件尾</p>
+<p>73 characters read</p>
+<h3 id="EOF-结束输入"><a href="#EOF-结束输入" class="headerlink" title="EOF 结束输入"></a>EOF 结束输入</h3><p>前面指出过，cin 方法检测到 EOF 时，将设置 cin 对象中一个指示 EOF 条件的标记。设置这个标记后，cin 将不读取输入，再次调用 cin 也不管用。对于文件输入，这是有道理的，因为程序不应该读取超出文件尾的内容。然而，对于键盘输入，有可能使用模拟 EOF 来结束循环，但后续还需要读取其它输入。cin.clear() 方法可以清除 EOF 标记，使输入继续进行。这将在后续详细介绍，不过要记住的是，在有些系统中，按 Ctrl+z 实际上将结束输入和输出，而 cin.clear() 将无法恢复输入和输出。</p>
+<h3 id="常见的字符输入做法"><a href="#常见的字符输入做法" class="headerlink" title="常见的字符输入做法"></a>常见的字符输入做法</h3><p>每次读取一个字符，直到遇到 EOF 的输入循环的基本设计如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin.<span class="built_in">get</span>(ch);    <span class="comment">// 首先先读取一个字符</span></span><br><span class="line"><span class="keyword">while</span> (cin.<span class="built_in">fail</span>() == <span class="literal">false</span>)   <span class="comment">// 判断上次的读操作是否读到的是文件尾</span></span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    cin.<span class="built_in">get</span>(ch);    <span class="comment">// 不是文件尾，读取下一个字符</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面判断条件可以简化为：<code>!cin.fail()</code>。</p>
+<p>方法 <code>cin.get(char)</code> 的返回值是一个 <code>cin</code> 对象。然而 <code>istream</code> 类提供了一个可以将 <code>istream</code> 对象（如 <code>cin</code>）转换为 bool 值的函数；此 <code>cin</code> 出现在需要 bool 值的地方（如在 while 循环的测试条件中）时，该转换函数将被调用。另外，如果最后一次读取成功了，则转换得到的 bool 值为 true；否则为 false。这意味着可以将上述 while 测试简化为这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (cin) // 当读取成功时</span><br></pre></td></tr></table></figure>
+
+<p>这比 <code>!cin.fail()</code> 或 <code>!cin.eof()</code> 更通用，因为它可以检测到其他失败原因，如磁盘故障。</p>
+<p>最后，由于 <code>cin.get(char)</code> 返回值为 <code>cin</code>，因此可以将循环简化成如下格式：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (cin.<span class="built_in">get</span>(ch)) <span class="comment">// cin.get(ch) 读取一个字符，并返回 cin 对象，cin 出现在 while 条件语句中，将转换为 bool 类型，读取成功则返回 true，否则返回 false</span></span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，cin.get(char) 只被调用一次，而不是两次：循环前一次，循环结束后一次。</p>
+<h3 id="另一个-cin-get-版本"><a href="#另一个-cin-get-版本" class="headerlink" title="另一个 cin.get() 版本"></a>另一个 cin.get() 版本</h3><p>C 语言用户可能喜欢 C 语言中的字符 I/O 函数——getchar() 和 putchar()，它们仍然可以在 C++ 中使用，只要像 C 语言中那样包含头文件 stdio.h（或新的 cstdio）即可。也可以使用 istream 和 ostream 类中类似功能的成员函数，来看看这种方式。</p>
+<p>不接受任何参数的 <code>cin.get()</code> 成员函数返回输入中的下一个字符。也就是说，可以这样使用它：</p>
+<p>ch = cin.get();</p>
+<p>该函数的工作方式与 C 语言中的 getchar() 相似，将字符编码作为 int 值返回；而 cin.get(ch) 返回一个对象，而不是读取的字符。同样，可以使用 cout.put 函数来显示字符：</p>
+<p>cout.put(ch);</p>
+<p>该函数的工作方式类似 C 语言中的 putchar()，只不过其参数类型为 char，而不是 int。</p>
+<p><strong>Tips</strong>: 最初，put() 成员只有一个原型——put(char)。可以传递一个 int 参数给它，该参数将被强制转换为 char。C++ 标准还要求只有一个原型。然而，有些 C++ 实现都提供了 3 个原型：put(char)、put(signed char) 和 put(unsigned char)。在这些实现中，给 put() 传递一个 int 参数将导致错误消息，因为转换 int 的方式不止一种。使用显式强制类型转换的原型（如 cin.put(char(ch))）可使用 int 参数。</p>
+<p>为成功地使用 cin.get()，需要知道其如何处理 EOF 条件。当该函数到达 EOF 时，cin.get() 将返回一个用符号常量 EOF 表示的特殊值，该常量在头文件 iostream 中定义，值为 -1。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ch;</span><br><span class="line">ch = cin.<span class="built_in">get</span>();</span><br><span class="line"><span class="keyword">while</span> (ch != EOF)</span><br><span class="line">&#123;</span><br><span class="line">    cout.<span class="built_in">put</span>(ch);</span><br><span class="line">    ++count;</span><br><span class="line">    ch = cin.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="cin-get-两个版本的区别"><a href="#cin-get-两个版本的区别" class="headerlink" title="cin.get() 两个版本的区别"></a>cin.get() 两个版本的区别</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>cin.get(ch)</th>
+<th>ch=cin.get()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传递输入字符的方式</td>
+<td>赋给参数 ch</td>
+<td>将函数返回值赋给 ch</td>
+</tr>
+<tr>
+<td>用于字符输入时函数的返回值</td>
+<td>istream 对象（执行 bool 转换后为 true）</td>
+<td>int 类型的字符编码</td>
+</tr>
+<tr>
+<td>到达 EOF 时函数的返回值</td>
+<td>istream 对象（执行 bool 转换后为 false）</td>
+<td>EOF</td>
+</tr>
+</tbody></table>
+<p>使用 cin.get(ch) 进行输入时，将不会导致任何类型方面的问题，且该函数在到达 EOF 时，不会将一个特殊值赋给 ch，在这种情况下，它不会将任何值赋给 ch，ch 不会被用来存储非 char 值。对于 cin.get() 返回是的 int 类型的值，如果要输出为字符，则需要强制转换。</p>
+<p>那么应使用 cin.get() 还是 cin.get(char) 呢？使用字符参数的版本更符合对象方式，因为其返回值是 istream 对象。这意味着可以将它们拼接起来。如</p>
+<p><code>cin.get(ch1).get(ch2);</code>    // 这个是可行的，因为 cin.get(char) 返回的是 cin 对象</p>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
