@@ -139,7 +139,7 @@ hexo s      # 启动预览
 <ul>
 <li>程序创建步骤</li>
 </ul>
-<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c2rocm7qq1srh5grt570.png" alt="程序创建步骤" title="程序创建"></p>
+<p><img src="/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/%E7%A8%8B%E5%BA%8F%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4.png" alt="程序创建步骤" title="程序创建"></p>
 <ul>
 <li><p>C++ 编译</p>
 <p>  常用编译器有 <code>gcc g++</code>。</p>
@@ -160,10 +160,10 @@ hexo s      # 启动预览
 <span id="more"></span>
 
 <p>示例1：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在此函数中，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 // 打头，到行尾结束。也可以位于单独的一行上。</p>
-<p>C++ 也支持 C 风格的注释，C 注释包括在符号 /* 和 */ 之间，如：<code>/* 简易乘法表 */</code>。</p>
+<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
+<p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
 <h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
 <p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
 <table>
@@ -200,7 +200,7 @@ hexo s      # 启动预览
 <td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace std</td>
 </tr>
 </tbody></table>
-<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装产品中的相同函数。使用情况如下。</p>
+<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
 <h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
 <h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用命名空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
 <h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
@@ -211,7 +211,7 @@ hexo s      # 启动预览
 </li>
 </ul>
 <p><strong>Tips:</strong> C++ 程序应当为程序中使用的每个函数提供原型。</p>
-<p>函数原型之于函数就像变量声明之于变量–指出涉及的类型。</p>
+<p>函数原型之于函数就像变量声明之于变量——指出涉及的类型。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -256,75 +256,75 @@ hexo s      # 启动预览
 </thead>
 <tbody><tr>
 <td>CHAR_BIT</td>
-<td>char 的位数</td>
+<td><code>char</code> 的位数</td>
 </tr>
 <tr>
 <td>CHAR_MAX</td>
-<td>char 的最大值</td>
+<td><code>char</code> 的最大值</td>
 </tr>
 <tr>
 <td>CHAR_MIN</td>
-<td>char 的最小值</td>
+<td><code>char</code> 的最小值</td>
 </tr>
 <tr>
 <td>SCHAR_MAX</td>
-<td>signed char 的最大值</td>
+<td><code>signed char</code> 的最大值</td>
 </tr>
 <tr>
 <td>SCHAR_MIN</td>
-<td>signed char 的最小值</td>
+<td><code>signed char</code> 的最小值</td>
 </tr>
 <tr>
 <td>UCHAR_MAX</td>
-<td>unsigned char 的最大值</td>
+<td><code>unsigned char</code> 的最大值</td>
 </tr>
 <tr>
 <td>SHRT_MAX</td>
-<td>short 的最大值</td>
+<td><code>short</code> 的最大值</td>
 </tr>
 <tr>
 <td>SHRT_MIN</td>
-<td>short 的最小值</td>
+<td><code>short</code> 的最小值</td>
 </tr>
 <tr>
 <td>USHRT_MAX</td>
-<td>unsigned short 的最大值</td>
+<td><code>unsigned short</code> 的最大值</td>
 </tr>
 <tr>
 <td>INT_MAX</td>
-<td>int 的最大值</td>
+<td><code>int</code> 的最大值</td>
 </tr>
 <tr>
 <td>INT_MIN</td>
-<td>int 的最小值</td>
+<td><code>int</code> 的最小值</td>
 </tr>
 <tr>
 <td>UINT_MAX</td>
-<td>unsigned int 的最大值</td>
+<td><code>unsigned int</code> 的最大值</td>
 </tr>
 <tr>
 <td>LONG_MAX</td>
-<td>long 的最大值</td>
+<td><code>long</code> 的最大值</td>
 </tr>
 <tr>
 <td>LONG_MIN</td>
-<td>long 的最小值</td>
+<td><code>long</code> 的最小值</td>
 </tr>
 <tr>
 <td>ULONG_MAX</td>
-<td>unsigned long 的最大值</td>
+<td><code>unsigned long</code> 的最大值</td>
 </tr>
 <tr>
 <td>LLONG_MAX</td>
-<td>long long 的最大值</td>
+<td><code>long long</code> 的最大值</td>
 </tr>
 <tr>
 <td>LLONG_MIN</td>
-<td>long long 的最小值</td>
+<td><code>long long</code> 的最小值</td>
 </tr>
 <tr>
 <td>ULLONG_MAX</td>
-<td>unsigned long long 的最大值</td>
+<td><code>unsigned long long</code> 的最大值</td>
 </tr>
 </tbody></table>
 <h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>C++ 提供了如此多的整型，使用时应该怎么去选择呢？</p>
@@ -341,7 +341,7 @@ hexo s      # 启动预览
 <li>十进制：第一位为 1~9，如 53</li>
 <li>二进制：所有位都以 0 和 1 来表示，如 0101 等于十进制中 6</li>
 <li>八进制：第一位为 0，第二位为 1~7，如 042 等于十进制中的 34</li>
-<li>十六进制：前两位为 0x 或 0X，如 0x42 等于十进制的 66</li>
+<li>十六进制：以 0x 或 0X 开头，如 0x42 等于十进制的 66</li>
 </ul>
 <p> 进制计数只是为了人为的计数方便，在计算机中，数据最终都是以二进制存储。</p>
 <p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
@@ -355,7 +355,7 @@ hexo s      # 启动预览
 </ol>
 </li>
 </ol>
-<h2 id="另一种整型-char-类型"><a href="#另一种整型-char-类型" class="headerlink" title="另一种整型- char 类型"></a>另一种整型- char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。一般占用 8 位。</p>
+<h2 id="另一种整型-——-char-类型"><a href="#另一种整型-——-char-类型" class="headerlink" title="另一种整型 —— char 类型"></a>另一种整型 —— char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。一般占用 8 位。</p>
 <h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。如果 <code>char</code> 有某种特定的行为对您来说非常重要，则可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显式定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显式定义为有符号类型</span></span><br></pre></td></tr></table></figure>
 
@@ -449,7 +449,7 @@ hexo s      # 启动预览
 </tbody></table>
 <p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
 <p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
-<h3 id="char-引申-–-通用字符名"><a href="#char-引申-–-通用字符名" class="headerlink" title="char 引申 – 通用字符名"></a>char 引申 – 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
+<h3 id="char-引申-——-通用字符名"><a href="#char-引申-——-通用字符名" class="headerlink" title="char 引申 —— 通用字符名"></a>char 引申 —— 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
 <p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（<code>ISO 10646</code> 是一种正在制定的国际标准，为大量的字符提供数值编码）。</p>
 <p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
 <pre><code>int k\u00F6rper;
@@ -459,7 +459,7 @@ cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
 <pre><code>Let them eat gâteau.
 </code></pre>
 <p>如果系统不支持 ISO 10646，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
-<h3 id="char-引申-–-wchar-t-宽字符类型"><a href="#char-引申-–-wchar-t-宽字符类型" class="headerlink" title="char 引申 – wchar_t 宽字符类型"></a>char 引申 – wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
+<h3 id="char-引申-——-wchar-t-宽字符类型"><a href="#char-引申-——-wchar-t-宽字符类型" class="headerlink" title="char 引申 —— wchar_t 宽字符类型"></a>char 引申 —— wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
 <p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 - <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
 <pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
 wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
@@ -696,10 +696,11 @@ man git-&lt;verb&gt;
   <entry>
     <title>C++ 学习之五、C++ 运算符</title>
     <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算，C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算。</p>
 <span id="more"></span>
 
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><ul>
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+<ul>
 <li>加法运算，运算符为 “<code>+</code>“。如 <code>4 + 20</code></li>
 <li>减法运算，运算符为 “<code>-</code>“。如 <code>20 - 3</code></li>
 <li>乘法运算，运算符为 “<code>*</code>“。如 <code>5 * 6</code></li>
@@ -714,9 +715,9 @@ man git-&lt;verb&gt;
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
 <p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
 <h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
-<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，使其加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
+<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，原变量加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
 <h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
 
 <p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
@@ -756,7 +757,7 @@ man git-&lt;verb&gt;
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>逗号运算符的优先级最低。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 17</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
 
 <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
 <p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
