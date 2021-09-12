@@ -21,15 +21,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;gitalk&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:{&quot;gitalk&quot;:{&quot;order&quot;:-2},&quot;disqus&quot;:{&quot;text&quot;:&quot;Load Disqus&quot;,&quot;order&quot;:-1}},&quot;activeClass&quot;:&quot;gitalk&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="已经看完 C++ 基本输入 cin 和基本输出 cout 的使用，但这两者的使用方式繁多，以下来总结一下至今的使用方式。">
+<meta name="description" content="已经看完 C++ 输入 cin 使用方式繁多，以下来总结一下至今的使用方式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ 学习之十、C++ 基本输入输出总结">
+<meta property="og:title" content="C++ 学习之十、C++ 输入总结">
 <meta property="og:url" content="https://zfh18.github.io/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="未闻驿站">
-<meta property="og:description" content="已经看完 C++ 基本输入 cin 和基本输出 cout 的使用，但这两者的使用方式繁多，以下来总结一下至今的使用方式。">
+<meta property="og:description" content="已经看完 C++ 输入 cin 使用方式繁多，以下来总结一下至今的使用方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-25T13:01:50.000Z">
-<meta property="article:modified_time" content="2021-09-08T12:46:03.984Z">
+<meta property="article:modified_time" content="2021-09-12T03:48:43.065Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -39,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;08&#x2F;25&#x2F;C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;08&#x2F;25&#x2F;C-学习之十、C-基本输入输出总结&#x2F;&quot;,&quot;title&quot;:&quot;C++ 学习之十、C++ 基本输入输出总结&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;08&#x2F;25&#x2F;C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;08&#x2F;25&#x2F;C-学习之十、C-基本输入输出总结&#x2F;&quot;,&quot;title&quot;:&quot;C++ 学习之十、C++ 输入总结&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>C++ 学习之十、C++ 基本输入输出总结 | 未闻驿站</title><script src="/js/config.js"></script>
+<title>C++ 学习之十、C++ 输入总结 | 未闻驿站</title><script src="/js/config.js"></script>
   
 
 
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">基本使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-char-%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">输入类型为 char 字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-int"><span class="nav-number">1.2.</span> <span class="nav-text">输入类型为 int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-double"><span class="nav-number">1.3.</span> <span class="nav-text">输入类型为 double</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-char"><span class="nav-number">1.4.</span> <span class="nav-text">输入类型为 char []</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cin-gt-gt-%E4%BB%8E%E7%BC%93%E5%86%B2%E5%8C%BA%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">cin &gt;&gt; 从缓冲区读取数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-char-%E5%AD%97%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">输入类型为 char 字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-int"><span class="nav-number">1.2.</span> <span class="nav-text">输入类型为 int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-double"><span class="nav-number">1.3.</span> <span class="nav-text">输入类型为 double</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E4%B8%BA-char"><span class="nav-number">1.4.</span> <span class="nav-text">输入类型为 char []</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -241,7 +241,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++ 学习之十、C++ 基本输入输出总结
+          C++ 学习之十、C++ 输入总结
         </h1>
 
         <div class="post-meta-container">
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-08 20:46:03" itemprop="dateModified" datetime="2021-09-08T20:46:03+08:00">2021-09-08</time>
+        <time title="修改时间：2021-09-12 11:48:43" itemprop="dateModified" datetime="2021-09-12T11:48:43+08:00">2021-09-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>488</span>
+      <span>725</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -304,11 +304,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>已经看完 C++ 基本输入 <code>cin</code> 和基本输出 <code>cout</code> 的使用，但这两者的使用方式繁多，以下来总结一下至今的使用方式。</p>
+        <p>已经看完 C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
 <span id="more"></span>
 
-<p>输入和输出基本是成对使用的。</p>
-<h1 id="基本使用方式"><a href="#基本使用方式" class="headerlink" title="基本使用方式"></a>基本使用方式</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
 <p>例如有如下示例输入行：</p>
 <p><strong>38.5 19.2</strong></p>
 <h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
@@ -319,7 +319,10 @@
 <h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
 
 <p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
-<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2>
+<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
     </div>
 
     
@@ -336,7 +339,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zfh18.github.io/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/" title="C++ 学习之十、C++ 基本输入输出总结">https://zfh18.github.io/2021/08/25/C-学习之十、C-基本输入输出总结/</a>
+      <a href="https://zfh18.github.io/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/" title="C++ 学习之十、C++ 输入总结">https://zfh18.github.io/2021/08/25/C-学习之十、C-基本输入输出总结/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -395,7 +398,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:26</span>
+    <span title="站点阅读时长">1:27</span>
   </span>
 </div>
 <div class="busuanzi-count">

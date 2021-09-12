@@ -6,7 +6,7 @@
     <content><![CDATA[<p>综合了很多种方案，平衡稳定、简洁等因素，最终还是决定使用<a href="https://hexo.io/zh-cn/">Hexo</a>+<a href="https://pages.github.com/">GitHub Pages</a>来搭建博客网站，虽然前期需要折腾一下，权当学习。</p>
 <span id="more"></span>
 
-<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>需要安装<a href="https://git-scm.com/downloads">Git</a>和<a href="https://nodejs.org/zh-cn/">Node.js</a>，安装完成(包括设置好环境变量后)，打开cmd或PowerShell，输入<code>node -v</code>、<code>npm -v</code>和<code>git --version</code>，如图出现程序版本号即可。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/environment.png" alt="git及node.js环境测试" title="Git及node.js环境">  </p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>需要安装<a href="https://git-scm.com/downloads">Git</a>和<a href="https://nodejs.org/zh-cn/">Node.js</a>，安装完成(包括设置好环境变量后)，打开cmd或PowerShell，输入<code>node -v</code>、<code>npm -v</code>和<code>git --version</code>，如图出现程序版本号即可。<br><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/environment.png" alt="git及node.js环境测试" title="Git及node.js环境">  </p>
 <h1 id="连接GitHub"><a href="#连接GitHub" class="headerlink" title="连接GitHub"></a>连接GitHub</h1><ol>
 <li><p>创建<a href="https://github.com/">GitHub</a>账户，完成邮件验证。</p>
 </li>
@@ -17,9 +17,9 @@
 </li>
 <li><p>创建SSH密钥：<br>输入<code>ssh-keygen -t rsa -C &quot;Github邮箱&quot;</code>，然后一路回车确认。</p>
 </li>
-<li><p>添加密钥：<br>进入C:\Users\用户名.ssh目录（要勾选显示“隐藏的项目”），用记事本打开公钥id_rsa.pub 文件并完整复制里面的内容。<br>登陆GitHub，进入Settings页面，选择左边栏的SSH and GPG keys，点击New SSH key。Title随便，粘贴复制的id_rsa.pub内容到Key中，点击Add SSH key完成添加。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Github_ssh_1.png" alt="GitHub ssh 1" title="Github添加ssh1"><br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Github_ssh_2.png" alt="GitHub ssh 2" title="Github添加ssh2"></p>
+<li><p>添加密钥：<br>进入C:\Users\用户名.ssh目录（要勾选显示“隐藏的项目”），用记事本打开公钥id_rsa.pub 文件并完整复制里面的内容。<br>登陆GitHub，进入Settings页面，选择左边栏的SSH and GPG keys，点击New SSH key。Title随便，粘贴复制的id_rsa.pub内容到Key中，点击Add SSH key完成添加。<br><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/Github_ssh_1.png" alt="GitHub ssh 1" title="Github添加ssh1"><br><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/Github_ssh_2.png" alt="GitHub ssh 2" title="Github添加ssh2"></p>
 </li>
-<li><p>验证连接:<br>打开Git Bash, 输入<code>ssh -T git@github.com</code>出现“Are you sure …”, 输入yes回车确认。<br>显示”Hi xxx! You’ve successfully authenticated, but GitHub does not …”即连接成功。后续再次输入此命令时，将不需要输入yes确认，直接显示成功。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/Verify_Link_To_Github.png" alt="GitHub Link" title="连接Github">  </p>
+<li><p>验证连接:<br>打开Git Bash, 输入<code>ssh -T git@github.com</code>出现“Are you sure …”, 输入yes回车确认。<br>显示”Hi xxx! You’ve successfully authenticated, but GitHub does not …”即连接成功。后续再次输入此命令时，将不需要输入yes确认，直接显示成功。<br><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/Verify_Link_To_Github.png" alt="GitHub Link" title="连接Github">  </p>
 </li>
 </ol>
 <h1 id="创建Github-Pages仓库"><a href="#创建Github-Pages仓库" class="headerlink" title="创建Github Pages仓库"></a>创建Github Pages仓库</h1><p>GitHub主页右上角点加号-&gt;New repository:</p>
@@ -28,7 +28,7 @@
 <li>勾选 “Initialize this repository with a README”</li>
 <li>Description 选填</li>
 </ul>
-<p>填好后点击Create repository创建。<br><img src="/2021/05/11/Hexo-Github-Pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/CreateRepo.png" alt="GitHub create repository" title="Github创建一个仓库"></p>
+<p>填好后点击Create repository创建。<br><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CreateRepo.png" alt="GitHub create repository" title="Github创建一个仓库"></p>
 <p>创建后默认自动启动HTTPS，博客地址为：<code>https://用户名.github.io</code></p>
 <h1 id="本地安装Hexo博客程序"><a href="#本地安装Hexo博客程序" class="headerlink" title="本地安装Hexo博客程序"></a>本地安装Hexo博客程序</h1><p>新建一个文件夹用来存放Hexo的程序文件，如Hexo-Blog。进入该文件夹，右键-&gt;Git Bash Here。</p>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>使用npm一键安装Hexo博客程序：</p>
@@ -139,7 +139,7 @@ hexo s      # 启动预览
 <ul>
 <li>程序创建步骤</li>
 </ul>
-<p><img src="/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/%E7%A8%8B%E5%BA%8F%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4.png" alt="程序创建步骤" title="程序创建"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%A8%8B%E5%BA%8F%E5%88%9B%E5%BB%BA%E6%AD%A5%E9%AA%A4.png" alt="程序创建步骤" title="程序创建"></p>
 <ul>
 <li><p>C++ 编译</p>
 <p>  常用编译器有 <code>gcc g++</code>。</p>
@@ -807,7 +807,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
 <p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
 <h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
-<p><img src="/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
 <h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
 <ul>
 <li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
@@ -1022,6 +1022,68 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
+<span id="more"></span>
+
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p>![](<a href="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI">https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI</a> IDEAL 模型.png “CMMI IDEAL 模型”)</p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p>![](<a href="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE">https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE</a> 总览.jpg “SPICE 标准”)</p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p>![](<a href="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE">https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE</a> 模型.png “ASPICE 模型”)</p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p>![](<a href="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE">https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE</a> 过程参考模型.png “ASPICE 过程参考模型”)</p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c3l7q6p3afvpsuhrsgog.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3pa08t7mn14c68gr12g.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
+<blockquote>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
+</blockquote>
+</li>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8let7mn14c68gkrb0.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l8q413afvpsuhrsl0g.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8t2mo4kba27fnd79g.png" title="ASPICE 插件"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>ASPICE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ 学习之八、复合类型之指针</title>
     <url>/2021/06/22/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AB%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>指针是一个在 C 和 C++ 语言中很重要的概念。</p>
@@ -1124,75 +1186,13 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
-    <title>什么是 ASPICE</title>
-    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
-<span id="more"></span>
-
-<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
-<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
-<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
-<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l7ei93afvpsuhrsgag.png" title="CMMI IDEAL 模型"></p>
-<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
-<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l73dh3afvpsuhrsfo0.jpg" title="ASPICE 发展历史"></p>
-<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
-<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l7i113afvpsuhrsgeg.jpg" title="SPICE 标准"></p>
-<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
-<p><img src="https://p9.douyinpic.com/obj/toutiao.cg.fiji/c3l7kn57mn14c68gkq8g.png" title="ASPICE 模型"></p>
-<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
-<p><img src="https://p26.douyinpic.com/obj/toutiao.cg.fiji/c3l7mtl7mn14c68gkqb0.png" title="ASPICE 过程参考模型"></p>
-<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
-<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c3l7q6p3afvpsuhrsgog.png" title="V 模型"></p>
-<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="双向可追溯性和一致性"></p>
-<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3pa08t7mn14c68gr12g.png" title="评估、验证准则和符合性"></p>
-<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
-<blockquote>
-<ol>
-<li>过程实施指标 – 只适用于 L1<blockquote>
-<ol>
-<li>基本实践（BP）</li>
-<li>工作产品（WP）</li>
-</ol>
-</blockquote>
-</li>
-<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
-<ol>
-<li>通用实践（GP）</li>
-<li>通用资源（GR）</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<p>评估指标与过程能力的关系如图。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8let7mn14c68gkrb0.png" title="评估指标与过程能力"></p>
-<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
-<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l8q413afvpsuhrsl0g.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
-<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8t2mo4kba27fnd79g.png" title="ASPICE 插件"></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Automotive</category>
-      </categories>
-      <tags>
-        <tag>ASPICE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之十、C++ 基本输入输出总结</title>
+    <title>C++ 学习之十、C++ 输入总结</title>
     <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>已经看完 C++ 基本输入 <code>cin</code> 和基本输出 <code>cout</code> 的使用，但这两者的使用方式繁多，以下来总结一下至今的使用方式。</p>
+    <content><![CDATA[<p>已经看完 C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
 <span id="more"></span>
 
-<p>输入和输出基本是成对使用的。</p>
-<h1 id="基本使用方式"><a href="#基本使用方式" class="headerlink" title="基本使用方式"></a>基本使用方式</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
 <p>例如有如下示例输入行：</p>
 <p><strong>38.5 19.2</strong></p>
 <h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
@@ -1203,7 +1203,10 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
 
 <p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
-<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2>]]></content>
+<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
