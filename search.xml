@@ -154,76 +154,6 @@ hexo s      # 启动预览
       </tags>
   </entry>
   <entry>
-    <title>C++学习之二、C++程序基本结构概述</title>
-    <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
-<span id="more"></span>
-
-<p>示例1：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在此函数中，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
-<p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
-<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
-<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
-<table>
-<thead>
-<tr>
-<th>头文件类型</th>
-<th>约定</th>
-<th>示例</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C++ 旧式风格</td>
-<td>以 .h 结尾</td>
-<td>iostream.h</td>
-<td>C++ 程序可以使用</td>
-</tr>
-<tr>
-<td>C 旧式风格</td>
-<td>以 .h 结尾</td>
-<td>math.h</td>
-<td>C、C++ 程序可以使用，因为 C++ 兼容 C</td>
-</tr>
-<tr>
-<td>C++ 新式风格</td>
-<td>没有扩展名</td>
-<td>iostream</td>
-<td>C++ 程序可以使用，使用 namespace xxx</td>
-</tr>
-<tr>
-<td>转换后的 C</td>
-<td>加上前缀 c ，没有扩展名</td>
-<td>cmath</td>
-<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
-</tr>
-</tbody></table>
-<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
-<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
-<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用名称空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
-<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
-<h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
-<li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
-</li>
-<li><p>函数定义：具体的函数实现代码，一般包含于库文件中。</p>
-</li>
-</ul>
-<p><strong>Tips:</strong> C++ 程序应当为程序中使用的每个函数提供原型。</p>
-<p>函数原型之于函数就像变量声明之于变量——指出涉及的类型。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++学习之三、C++基本数据类型</title>
     <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>C++ 内置数据类型分两大类：<strong>基本数据类型</strong>和<strong>复合数据类型</strong>。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
@@ -494,6 +424,76 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之二、C++程序基本结构概述</title>
+    <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
+<span id="more"></span>
+
+<p>示例1：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在此函数中，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
+<p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
+<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
+<table>
+<thead>
+<tr>
+<th>头文件类型</th>
+<th>约定</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C++ 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>iostream.h</td>
+<td>C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>math.h</td>
+<td>C、C++ 程序可以使用，因为 C++ 兼容 C</td>
+</tr>
+<tr>
+<td>C++ 新式风格</td>
+<td>没有扩展名</td>
+<td>iostream</td>
+<td>C++ 程序可以使用，使用 namespace xxx</td>
+</tr>
+<tr>
+<td>转换后的 C</td>
+<td>加上前缀 c ，没有扩展名</td>
+<td>cmath</td>
+<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
+</tr>
+</tbody></table>
+<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
+<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
+<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用名称空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
+<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
+<h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
+<li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
+</li>
+<li><p>函数定义：具体的函数实现代码，一般包含于库文件中。</p>
+</li>
+</ul>
+<p><strong>Tips:</strong> C++ 程序应当为程序中使用的每个函数提供原型。</p>
+<p>函数原型之于函数就像变量声明之于变量——指出涉及的类型。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -1022,6 +1022,68 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
+<span id="more"></span>
+
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
+<blockquote>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
+</blockquote>
+</li>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>ASPICE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ 学习之八、复合类型之指针</title>
     <url>/2021/06/22/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AB%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>指针是一个在 C 和 C++ 语言中很重要的概念。</p>
@@ -1121,68 +1183,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>什么是 ASPICE</title>
-    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
-<span id="more"></span>
-
-<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
-<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
-<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
-<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
-<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
-<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
-<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
-<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
-<p><img src="https://p29.douyinpic.com/obj/toutiao.cg.fiji/c3l7q6p3afvpsuhrsgog.png" title="V 模型"></p>
-<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l80h93afvpsuhrsgug.png" title="双向可追溯性和一致性"></p>
-<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3pa08t7mn14c68gr12g.png" title="评估、验证准则和符合性"></p>
-<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
-<blockquote>
-<ol>
-<li>过程实施指标 – 只适用于 L1<blockquote>
-<ol>
-<li>基本实践（BP）</li>
-<li>工作产品（WP）</li>
-</ol>
-</blockquote>
-</li>
-<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
-<ol>
-<li>通用实践（GP）</li>
-<li>通用资源（GR）</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<p>评估指标与过程能力的关系如图。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8let7mn14c68gkrb0.png" title="评估指标与过程能力"></p>
-<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
-<p><img src="https://p6.douyinpic.com/obj/toutiao.cg.fiji/c3l8q413afvpsuhrsl0g.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
-<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
-<p><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c3l8t2mo4kba27fnd79g.png" title="ASPICE 插件"></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Automotive</category>
-      </categories>
-      <tags>
-        <tag>ASPICE</tag>
       </tags>
   </entry>
   <entry>
