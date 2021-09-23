@@ -154,12 +154,82 @@ hexo s      # 启动预览
       </tags>
   </entry>
   <entry>
+    <title>C++学习之二、C++程序基本结构概述</title>
+    <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
+<span id="more"></span>
+
+<p>示例1：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在函数内，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
+<p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
+<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
+<table>
+<thead>
+<tr>
+<th>头文件类型</th>
+<th>约定</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C++ 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>iostream.h</td>
+<td>C++ 程序可以使用</td>
+</tr>
+<tr>
+<td>C 旧式风格</td>
+<td>以 .h 结尾</td>
+<td>math.h</td>
+<td>C、C++ 程序可以使用，因为 C++ 兼容 C</td>
+</tr>
+<tr>
+<td>C++ 新式风格</td>
+<td>没有扩展名</td>
+<td>iostream</td>
+<td>C++ 程序可以使用，使用 namespace xxx</td>
+</tr>
+<tr>
+<td>转换后的 C</td>
+<td>加上前缀 c ，没有扩展名</td>
+<td>cmath</td>
+<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
+</tr>
+</tbody></table>
+<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
+<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
+<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用名称空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
+<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
+<h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
+<li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
+</li>
+<li><p>函数定义：具体的函数实现代码，一般包含于库文件中。</p>
+</li>
+</ul>
+<p><strong>Tips:</strong> C++ 程序应当为程序中使用的每个函数提供原型。</p>
+<p>函数原型之于函数就像变量声明之于变量——指出涉及的类型。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++学习之三、C++基本数据类型</title>
     <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<p>C++ 内置数据类型分两大类：<strong>基本数据类型</strong>和<strong>复合数据类型</strong>。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
 <span id="more"></span>
 
-<h1 id="基本数据类型–整型"><a href="#基本数据类型–整型" class="headerlink" title="基本数据类型–整型"></a>基本数据类型–整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语宽度（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
+<h1 id="基本数据类型——整型"><a href="#基本数据类型——整型" class="headerlink" title="基本数据类型——整型"></a>基本数据类型——整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语<strong>宽度</strong>（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
 <p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
 <h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
 <h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现了基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit。</p>
@@ -171,7 +241,7 @@ hexo s      # 启动预览
 <li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
 </ul>
 <p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// 默认为 int 类型，int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
 
 <p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span> (<span class="keyword">int</span>) &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="keyword">sizeof</span> n_int &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br></pre></td></tr></table></figure>
@@ -185,75 +255,75 @@ hexo s      # 启动预览
 </tr>
 </thead>
 <tbody><tr>
-<td>CHAR_BIT</td>
+<td><code>CHAR_BIT</code></td>
 <td><code>char</code> 的位数</td>
 </tr>
 <tr>
-<td>CHAR_MAX</td>
+<td><code>CHAR_MAX</code></td>
 <td><code>char</code> 的最大值</td>
 </tr>
 <tr>
-<td>CHAR_MIN</td>
+<td><code>CHAR_MIN</code></td>
 <td><code>char</code> 的最小值</td>
 </tr>
 <tr>
-<td>SCHAR_MAX</td>
+<td><code>SCHAR_MAX</code></td>
 <td><code>signed char</code> 的最大值</td>
 </tr>
 <tr>
-<td>SCHAR_MIN</td>
+<td><code>SCHAR_MIN</code></td>
 <td><code>signed char</code> 的最小值</td>
 </tr>
 <tr>
-<td>UCHAR_MAX</td>
+<td><code>UCHAR_MAX</code></td>
 <td><code>unsigned char</code> 的最大值</td>
 </tr>
 <tr>
-<td>SHRT_MAX</td>
+<td><code>SHRT_MAX</code></td>
 <td><code>short</code> 的最大值</td>
 </tr>
 <tr>
-<td>SHRT_MIN</td>
+<td><code>SHRT_MIN</code></td>
 <td><code>short</code> 的最小值</td>
 </tr>
 <tr>
-<td>USHRT_MAX</td>
+<td><code>USHRT_MAX</code></td>
 <td><code>unsigned short</code> 的最大值</td>
 </tr>
 <tr>
-<td>INT_MAX</td>
+<td><code>INT_MAX</code></td>
 <td><code>int</code> 的最大值</td>
 </tr>
 <tr>
-<td>INT_MIN</td>
+<td><code>INT_MIN</code></td>
 <td><code>int</code> 的最小值</td>
 </tr>
 <tr>
-<td>UINT_MAX</td>
+<td><code>UINT_MAX</code></td>
 <td><code>unsigned int</code> 的最大值</td>
 </tr>
 <tr>
-<td>LONG_MAX</td>
+<td><code>LONG_MAX</code></td>
 <td><code>long</code> 的最大值</td>
 </tr>
 <tr>
-<td>LONG_MIN</td>
+<td><code>LONG_MIN</code></td>
 <td><code>long</code> 的最小值</td>
 </tr>
 <tr>
-<td>ULONG_MAX</td>
+<td><code>ULONG_MAX</code></td>
 <td><code>unsigned long</code> 的最大值</td>
 </tr>
 <tr>
-<td>LLONG_MAX</td>
+<td><code>LLONG_MAX</code></td>
 <td><code>long long</code> 的最大值</td>
 </tr>
 <tr>
-<td>LLONG_MIN</td>
+<td><code>LLONG_MIN</code></td>
 <td><code>long long</code> 的最小值</td>
 </tr>
 <tr>
-<td>ULLONG_MAX</td>
+<td><code>ULLONG_MAX</code></td>
 <td><code>unsigned long long</code> 的最大值</td>
 </tr>
 </tbody></table>
@@ -424,76 +494,7 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习之二、C++程序基本结构概述</title>
-    <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
-<span id="more"></span>
-
-<p>示例1：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在此函数中，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
-<p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
-<h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
-<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
-<table>
-<thead>
-<tr>
-<th>头文件类型</th>
-<th>约定</th>
-<th>示例</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C++ 旧式风格</td>
-<td>以 .h 结尾</td>
-<td>iostream.h</td>
-<td>C++ 程序可以使用</td>
-</tr>
-<tr>
-<td>C 旧式风格</td>
-<td>以 .h 结尾</td>
-<td>math.h</td>
-<td>C、C++ 程序可以使用，因为 C++ 兼容 C</td>
-</tr>
-<tr>
-<td>C++ 新式风格</td>
-<td>没有扩展名</td>
-<td>iostream</td>
-<td>C++ 程序可以使用，使用 namespace xxx</td>
-</tr>
-<tr>
-<td>转换后的 C</td>
-<td>加上前缀 c ，没有扩展名</td>
-<td>cmath</td>
-<td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
-</tr>
-</tbody></table>
-<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
-<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
-<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用名称空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
-<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
-<h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
-<li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
-</li>
-<li><p>函数定义：具体的函数实现代码，一般包含于库文件中。</p>
-</li>
-</ul>
-<p><strong>Tips:</strong> C++ 程序应当为程序中使用的每个函数提供原型。</p>
-<p>函数原型之于函数就像变量声明之于变量——指出涉及的类型。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<h1 id="一些总结归纳"><a href="#一些总结归纳" class="headerlink" title="一些总结归纳"></a>一些总结归纳</h1><p>数值整型和浮点型字面值，使用后缀来表征不同类型，如 10U, 100UL 。但对于 <strong>char</strong> 类型，使用前缀来表征不同的类型，如 u’a’, U’a’, L’b’ 。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -600,11 +601,11 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
     <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
 <span id="more"></span>
 
-<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
+<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
 <ul>
-<li>信息将存储在哪里；</li>
-<li>要存储什么值；</li>
-<li>存储何种类型的信息；</li>
+<li>信息将存储在哪里。</li>
+<li>要存储什么值。</li>
+<li>存储何种类型的信息。</li>
 </ul>
 <h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
 <li>名称中只能使用字母字符、数字和下划线（_）。</li>
@@ -612,7 +613,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <li>区分大小写。</li>
 <li>不能将 C++ 关键字用作名称。</li>
 <li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制。（但是可能系统会对名称长度有限制）</li>
+<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
 </ul>
 <h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
 <ul>
@@ -620,20 +621,149 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
 <li>C++11 新增方式：</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
 <ul>
-<li>它能够明确指定数据类型</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
-<li><code>const</code> 可用于更复杂的类型</li>
+<li>它能够明确指定数据类型。</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
+<li><code>const</code> 可用于更复杂的类型。</li>
 </ul>
 <p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
 <pre><code>const int MONTH = 12;
 </code></pre>
 <h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
 <p>一般用于处理复杂类型。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之五、C++ 运算符</title>
+    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算。</p>
+<span id="more"></span>
+
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除和求模运算。</p>
+<ul>
+<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code>。</li>
+<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code>。</li>
+<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code>。</li>
+<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code>。</li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1。</li>
+</ul>
+<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++x</code>，后缀版本位于操作数后面，如 <code>x++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
+<h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; ++a;    // 先将 a 值加 1，然后使用新的值来计算表达式，这里打印值为 6</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
+
+<h2 id="后缀版本"><a href="#后缀版本" class="headerlink" title="后缀版本"></a>后缀版本</h2><p>后缀版本先使用操作数当前的值计算表达式，再将值加 1 或减 1。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
+<h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
+<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，原变量加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
+<h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
+
+<p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面 pt 指向 arr[1] 的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
+<p>以下为组合赋值运算符总结</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>作用（L 为左操作数，R 为右操作数）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+=</td>
+<td>将 L+R 赋给 L</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>将 L-R 赋给 L</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>将 L*R 赋给 L</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>将 L/R 赋给 L</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>将 L%R 赋给 L</td>
+</tr>
+</tbody></table>
+<h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
+<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号只是用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逗号运算符的优先级最低。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
+
+<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
+<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换。</p>
+<ul>
+<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
+<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
+<li>将参数传递给函数时，C++ 将对值进行转换。</li>
+</ul>
+<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
+
+<p>这种类型的转换在一些情况下可能出现问题</p>
+<table>
+<thead>
+<tr>
+<th>转换</th>
+<th>潜在的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
+<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将浮点型转换为整型</td>
+<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
+<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
+</tr>
+</tbody></table>
+<p><strong>Tips:</strong> 将 0 赋给 <code>bool</code> 变量时，将被转换为 <code>false</code>，而非零值将被转换为 <code>true</code>。</p>
+<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许转换为无法表示该值的数据类型。例如：</p>
+<ul>
+<li>不允许浮点型转换为整型。</li>
+<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 非法，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 合法，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 合法，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 非法，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况；此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量类型能处理该值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
+
+<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
+<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
+
+<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
+<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
+<p>long double &gt; double &gt; float &gt; 整型提升</p>
+<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
+<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -739,135 +869,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
-    <title>C++ 学习之五、C++ 运算符</title>
-    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算。</p>
-<span id="more"></span>
-
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
-<ul>
-<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code></li>
-<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code></li>
-<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code></li>
-<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code></li>
-<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1</li>
-</ul>
-<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++x</code>，后缀版本位于操作数后面，如 <code>x++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
-<h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; ++a;    // 先将 a 值加 1，然后使用新的值来计算表达式，这里打印值为 6</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
-
-<h2 id="后缀版本"><a href="#后缀版本" class="headerlink" title="后缀版本"></a>后缀版本</h2><p>后缀版本先使用操作数当前的值计算表达式，再将值加 1 或减 1。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
-<p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
-<h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
-<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，原变量加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
-<h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
-
-<p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
-<p>以下为组合赋值运算符总结</p>
-<table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>作用（L 为左操作数，R 为右操作数）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>+=</td>
-<td>将 L+R 赋给 L</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>将 L-R 赋给 L</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>将 L*R 赋给 L</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>将 L/R 赋给 L</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>将 L%R 赋给 L</td>
-</tr>
-</tbody></table>
-<h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
-<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号只是用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>逗号运算符的优先级最低。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
-
-<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
-<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
-<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
-<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
-<ul>
-<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
-<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
-<li>将参数传递给函数时，C++ 将对值进行转换。</li>
-</ul>
-<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
-
-<p>这种类型的转换在一些情况下可能出现问题</p>
-<table>
-<thead>
-<tr>
-<th>转换</th>
-<th>潜在的问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
-<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将浮点型转换为整型</td>
-<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
-<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
-</tr>
-</tbody></table>
-<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
-<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许转换为无法表示该值的数据类型。例如：</p>
-<ul>
-<li>不允许浮点型转换为整型。</li>
-<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 非法，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 合法，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 合法，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 非法，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况；此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量类型能处理该值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
-
-<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
-<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
-
-<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
-<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
-<p>long double &gt; double &gt; float &gt; 整型提升</p>
-<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的写法</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
-<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ 学习之六、复合类型之数组</title>
     <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>C++ 复合类型之数组笔记。</p>
@@ -876,13 +877,13 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <h1 id="数组简介"><a href="#数组简介" class="headerlink" title="数组简介"></a>数组简介</h1><p>数组（array）是一种数据格式，能够存储多个同类型的值。</p>
 <h1 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h1><p>声明数组的通用格式如下：</p>
 <p><code>typeName arrayName[arraySize]</code></p>
-<p><strong>Tips:</strong> <code>arraySize</code> 指定元素数目，它必须是整型常数（如 10 ）或 <code>const</code> 值，也可以是常量表达式（如 <code>8*sizeof( int )</code>），即其中所有的值在编译时都是已知的。具体地说，<code>arraySize</code> 不能是变量。然后后面将介绍使用 <code>new</code> 运算符来避开这种限制。</p>
+<p><strong>Tips:</strong> <code>arraySize</code> 指定元素数目，它必须是整型常数（如 10 ）或 <code>const</code> 值，也可以是常量表达式（如 <code>8*sizeof( int )</code>），即其中所有的值在编译时都是已知的。具体地说，<code>arraySize</code> 不能是变量。后面将介绍使用 <code>new</code> 运算符来避开这种限制。</p>
 <p>数组与类型是强关联的，如 <code>float f[20]</code>，f 的类型不是“数组”，而是“float 数组”。</p>
-<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>未初始化的数组的内容是未定义的，只有定义数组时才能初始化，此后就不能使用了，不能将一个数组赋给另一个数组</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int cards[4] = &#123;3, 6, 8, 10&#125;;   // 数组列表初始化</span><br><span class="line">int hand[4];    // 数组声明</span><br><span class="line">hand[4] = &#123;5, 6, 7, 8&#125;  // 错误，只能在上面声明的时候直接初始化，现在的 hand[4] 表示第 5 个元素</span><br><span class="line">hand = cards;   // 错误，不能将一个数组赋给另一个</span><br></pre></td></tr></table></figure>
+<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>未初始化的数组的内容是未定义的，只有在定义数组时才能初始化，此后就不能使用了，不能将一个数组赋给另一个数组</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int cards[4] = &#123;3, 6, 8, 10&#125;;   // 数组列表初始化</span><br><span class="line">int hand[4];    // 数组声明</span><br><span class="line">hand[4] = &#123;5, 6, 7, 8&#125;  // 非法，只能在上面声明的时候直接初始化，现在的 hand[4] 表示第 5 个元素</span><br><span class="line">hand = cards;   // 非法，不能将一个数组赋给另一个</span><br></pre></td></tr></table></figure>
 
 <p>几种初始化方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float n_float[3] = &#123;0.1, 0.555, 6.8&#125;;   // 列表初始化，可列出所有元素</span><br><span class="line">long n_long[10] = &#123;5, 7&#125;;   // 只列出一部分元素，编译器将把其它元素设置为 0</span><br><span class="line">short n_short[] = &#123;1, 2, 3, 4, 5&#125;;  // 如果 [] 内元素个数为空，C++ 编译器将根据初始化内容来计算元素个数，这里为有 5 个元素，通常这种做法在非初始化 char 数组时不可取，因为不利于排错</span><br><span class="line">double n_double[3]&#123;1.2e12, 1.3e5, 5.9e9&#125;;   // C++11 方式，可省略等号</span><br><span class="line">int n_int[8] = &#123;&#125;;  // C++11 方式，大括号内不包含任何内容，将把所有元素初始化为 0，同上等号也可以省略</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float n_float[3] = &#123;0.1, 0.555, 6.8&#125;;   // 列表初始化，可列出所有元素</span><br><span class="line">long n_long[10] = &#123;5, 7&#125;;   // 只列出一部分元素，编译器将把其它元素设置为 0</span><br><span class="line">short n_short[] = &#123;1, 2, 3, 4, 5&#125;;  // 如果 [] 内元素个数为空，C++ 编译器将根据初始化内容来计算元素个数，这里为有 5 个元素，通常这种做法在初始化非 char 数组时不可取，因为不利于排错</span><br><span class="line">double n_double[3]&#123;1.2e12, 1.3e5, 5.9e9&#125;;   // C++11 方式，可省略等号</span><br><span class="line">int n_int[8] = &#123;&#125;;  // C++11 方式，大括号内不包含任何内容，将把所有元素初始化为 0，同上等号也可以省略</span><br></pre></td></tr></table></figure>
 
 <p><strong>Tips:</strong> 上述所有列表初始化同其它列表初始化一样，禁止缩窄操作。</p>
 <h1 id="特殊的数组-——-字符串"><a href="#特殊的数组-——-字符串" class="headerlink" title="特殊的数组 —— 字符串"></a>特殊的数组 —— 字符串</h1><h2 id="C-风格字符串"><a href="#C-风格字符串" class="headerlink" title="C 风格字符串"></a>C 风格字符串</h2><p><code>char</code> 数组中存储多个 <code>char</code> 类型的值，其中有一种特殊情况，如果 <code>char</code> 数组最后一个元素为 <code>\0</code>，即以空字符结尾，这时这个数组就是一个字符串，可以看出，字符串是一种特殊的 <code>char</code> 数组。</p>
@@ -892,14 +893,14 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <h3 id="C-风格字符串特点-——-拼接字面值"><a href="#C-风格字符串特点-——-拼接字面值" class="headerlink" title="C 风格字符串特点 —— 拼接字面值"></a>C 风格字符串特点 —— 拼接字面值</h3><p>有时候字符串很长，无法放到一行中。C++ 允许拼接字符串字面值，即将两个用引号括起的字符串合并为一个。任何两个由空白（空格、制表符和换行符）分隔的字符串常量将自动拼接成一个，如以下两句意义相同。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; &quot;This is a&quot; &quot; string&quot;;  // 将自动拼接为 &quot;This is a string&quot;</span><br><span class="line">cout &lt;&lt; &quot;This is a string&quot;;</span><br></pre></td></tr></table></figure>
 
-<p><strong>Tips:</strong> 如上拼接时，前一个字符串末尾的 “\0” 将被后一个字符串中的第一个字符代替，两者之间不会自动加上空白。</p>
+<p><strong>Tips:</strong> 拼接时，前一个字符串末尾的 “\0” 将被后一个字符串中的第一个字符代替，两者之间不会自动加上空白。</p>
 <h3 id="数组中使用字符串"><a href="#数组中使用字符串" class="headerlink" title="数组中使用字符串"></a>数组中使用字符串</h3><p>在数组中使用字符串，最常用的有两种方法——将数组初始化为字符串、将键盘或文件输入读入到数组中。</p>
 <p>数组初始化为字符串前面已详细介绍。</p>
 <p>而字符串输入，有以下几种方式：</p>
 <ul>
 <li><code>cin</code> 输入方式。<code>cin</code> 使用空白（空格、制表符和换行符）来确定字符串的结束位置，<code>cin</code> 在获取字符数组输入时只读取一个单词，读取该单词后，<code>cin</code> 将该字符放到数组中，并自动在结尾添加空字符。<code>cin</code> 会将空白保留在输入序列中，但当 <code>cin</code> 将输入转换为整型时，空白不处理也不会有影响。</li>
-<li><code>cin.getline(char *, int)</code>。读取一行输入，直到到达换行符，丢弃换行符。它将使用空字符来替换换行符。</li>
-<li><code>cin.get(char *, int)</code>。读取一行输入，直到到达换行符，将换行符保留在输入序列中。</li>
+<li><code>cin cin.getline(char *, int)</code>。读取一行输入，直到到达换行符，丢弃换行符。它将使用空字符来替换换行符。</li>
+<li><code>cin cin.get(char *, int)</code>。读取一行输入，直到到达换行符，将换行符保留在输入序列中。</li>
 </ul>
 <p><strong>Tips:</strong> <code>strlen()</code> 用于计算可见的字符数量。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// CinInputArray.cpp 通过控制台输入姓名，年龄，身高，体重，判断是否肥胖</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span>  <span class="comment">// 含有 strlen() 函数原型</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span>, <span class="keyword">float</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> nameSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> name[nameSize] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">float</span> weight, height;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;What is your name? &quot;</span>;</span><br><span class="line">    <span class="comment">// 或者使用 cin.getline(name, nameSize); 此时换行符会被丢弃，无需处理</span></span><br><span class="line">    cin.<span class="built_in">get</span>(name, nameSize).<span class="built_in">get</span>();  <span class="comment">//cin.get(name, nameSize) 读入 name，返回 cin 对象，再使用 get() 处理掉换行符</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;How old are you? &quot;</span>;</span><br><span class="line">    cin &gt;&gt; age; <span class="comment">// 按理 cin 读取后将留下换行符，但接下来读入的都是数值类型，会忽略换行，所以不处理也可行。</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your weight kg: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; weight;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input your height m: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; height;</span><br><span class="line">    cout &lt;&lt; name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; age &lt;&lt; <span class="string">&quot; years old!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You are &quot;</span> &lt;&lt; weight &lt;&lt; <span class="string">&quot;kg&quot;</span> &lt;&lt; <span class="string">&quot; and &quot;</span> &lt;&lt; height &lt;&lt; <span class="string">&quot;m&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">bMICal</span>(weight, height);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bMICal</span><span class="params">(<span class="keyword">float</span> weight, <span class="keyword">float</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> bmi = weight / (height * height);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Your BMI is &quot;</span> &lt;&lt; bmi &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">if</span> (bmi &lt; <span class="number">18.5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重过低！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">18.5</span> &amp;&amp; bmi &lt;= <span class="number">23.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;体重正常！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">24.0</span> &amp;&amp; bmi &lt;= <span class="number">27.9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;超重！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (bmi &gt;= <span class="number">28</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;肥胖！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -944,6 +945,108 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
 <h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之八、复合类型之指针</title>
+    <url>/2021/06/22/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AB%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>指针是一个在 C 和 C++ 语言中很重要的概念。</p>
+<span id="more"></span>
+
+<h1 id="什么是指针"><a href="#什么是指针" class="headerlink" title="什么是指针"></a>什么是指针</h1><p>指针是用于存储值的地址的变量。</p>
+<p>对于常规变量，值是指定的量，而地址是派生量，地址值可通过对变量应用地址运算符（&amp;）取得。</p>
+<p>对于指针刚好相反，将地址视为指定的量，而将值视为派生量。<code>*</code> 运算符被称为间接值或解除引用运算符，将其应用于指针，可以得到该地址处存储的值。</p>
+<h1 id="指针初始化"><a href="#指针初始化" class="headerlink" title="指针初始化"></a>指针初始化</h1><p>指针与数组一样都是与类型强关联的。如 <code>int *pt</code> 表示 <code>int</code> 类型的指针 <code>pt</code>。</p>
+<p><strong>Tips: 一定要在对指针应用解除引用运算符（*）之前，将指针初始化为一个确定的、适当的地址，这是关于使用指针的金科玉律。</strong></p>
+<h2 id="先声明再赋值"><a href="#先声明再赋值" class="headerlink" title="先声明再赋值"></a>先声明再赋值</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1000</span>;    <span class="comment">// temp 为 int 类型</span></span><br><span class="line"><span class="keyword">int</span> *pt;    <span class="comment">// 声明 int 指针 pt，也可写成 int * pt，空格在哪里都可以，或者不写空格</span></span><br><span class="line">pt = &amp;temp; <span class="comment">// 将 temp 变量的地址赋值给 int 指针 pt</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="声明时直接赋值"><a href="#声明时直接赋值" class="headerlink" title="声明时直接赋值"></a>声明时直接赋值</h2><p>注意此语法是给指针赋值，并不是给指针指向的值赋值。此种类型初始化同样适用于使用 new 初始化指针时。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> *pt = &amp;temp;    <span class="comment">// 注意此时是给 int 指针 pt 赋值，而不是 *pt（指针指向的值）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 声明多个指针时，每个指针变量都要有一个 <code>*</code>，注意区别：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt1, pt2;  <span class="comment">//声明 int 指针 pt1 和 int 整型 pt2</span></span><br><span class="line"><span class="keyword">int</span> *pt1, *pt2; <span class="comment">// 这才是声明两个 int 指针 pt1 和 pt2，所以为防止错误 * 最好跟着变量名一起</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="指针的特性"><a href="#指针的特性" class="headerlink" title="指针的特性"></a>指针的特性</h1><h2 id="指针与整数"><a href="#指针与整数" class="headerlink" title="指针与整数"></a>指针与整数</h2><p>指针不等同于整数，即使指针变量中存储的地址值确实是一个整数，但从概念上看，这两个是截然不同的类型。</p>
+<p>整数是可以执行加、减、乘、除等算术运算的数字，而指针描述的是位置，将两个地址相乘除没有任何意义，因此，不能简单地将整数赋给指针。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt;</span><br><span class="line">pt = <span class="number">0xB8000000</span>;    <span class="comment">// 非法，不能直接将整数赋值给指针</span></span><br><span class="line">pt = (<span class="keyword">int</span> *)<span class="number">0xB8000000</span>; <span class="comment">// 合法，实在要将一个整数赋给指针变量，可以使用强制类型转换</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>pt</code> 是 int 值的地址并不意味着 <code>pt</code> 本身的类型是 int，例如，在有些平台中，int 类型是个 2 字节值，而地址是个 4 字节值。</p>
+<h2 id="指针的算术运算"><a href="#指针的算术运算" class="headerlink" title="指针的算术运算"></a>指针的算术运算</h2><p>如上所述，指针中存储的是地址值，将两个地址相乘除是没有任何意义的。但指针是可以进行加减运算的。</p>
+<p>指针加 1 的结果等于原来的地址值加上指向的对象占用的字节数。同理减 1 类似。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> *p = &amp;temp; <span class="comment">// 如果 int 为 4 个字节，p=0x123，此时 P+1=0x127</span></span><br></pre></td></tr></table></figure>
+
+<p>还可以将一个指针减去另外一个指针，获得两个指针的差，这将运算将得到一个整数，仅当两个指针指向同一个数组（也可以指向超出结尾的一个位置）时，这种运算才有意义，这将得到两个元素的间隔。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> tacos[<span class="number">10</span>] = &#123;<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">90</span>, <span class="number">20</span>, <span class="number">1</span>, <span class="number">90</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *pt = tacos;    <span class="comment">// int 指针 pt 指向数组的第一个元素</span></span><br><span class="line">pt = pt + <span class="number">1</span>;    <span class="comment">// 加 1 后指向数组的第二个元素 2</span></span><br><span class="line"><span class="keyword">int</span> *pe = &amp;tacos[<span class="number">9</span>];    <span class="comment">// int 指针 pe 指向数组的第十个元素</span></span><br><span class="line">pe = pe - <span class="number">1</span>;    <span class="comment">// 减 1 后指向数组的第九个元素 1</span></span><br><span class="line"><span class="keyword">int</span> diff = pe - pt; <span class="comment">// diff 等于 7，这两个指针相隔七个元素，注意相减的结果并不是这两个指针相差的字节数，而是元素个数</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="new-运算符"><a href="#new-运算符" class="headerlink" title="new 运算符"></a>new 运算符</h1><p>在 C 语言中使用库函数 <code>malloc()</code> 来分配内存，在 C++ 中仍然可以这样做，但更推荐使用 new 运算符。</p>
+<p>使用 new 运算符在运行阶段分配未命名的内存以存储值。在这种情况下，只能通过指针来访问内存。</p>
+<h2 id="初始化为基本类型对象的地址"><a href="#初始化为基本类型对象的地址" class="headerlink" title="初始化为基本类型对象的地址"></a>初始化为基本类型对象的地址</h2><p>语法：typeName * pointer_name = new typeName;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// new 运算符初始化指针</span></span><br></pre></td></tr></table></figure>
+
+<p><code>new int</code> 告诉程序，需要适合存储 <code>int</code> 的内存。<code>new</code> 运算符根据类型来确定需要多少字节的内存，然后，它找到这样的内存，并返回其地址。接下来，将地址赋给 <code>pt</code>，<code>pt</code> 是被声明为指向 int 的指针。（如果因为各种原因，new 运算符无法取得所需要的地址时，将返回一个空指针）。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// use_new.cpp -- new 运算符应用</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> nights = <span class="number">1001</span>;</span><br><span class="line">    <span class="keyword">int</span> *pt = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// new 运算符给 int 指针 pt 分配内存</span></span><br><span class="line">    *pt = <span class="number">1001</span>; <span class="comment">// 分配的内存中存储一个 int 值</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;nights value = &quot;</span> &lt;&lt; nights &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; &amp;nights &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;int value = &quot;</span> &lt;&lt; *pt &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; pt &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> *pd = <span class="keyword">new</span> <span class="keyword">double</span>;    <span class="comment">// new 运算符给 double 指针 pd 分配内存</span></span><br><span class="line">    *pd = <span class="number">10000001.0</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;double value = &quot;</span> &lt;&lt; *pd &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; pd &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;location of pointer pd: &quot;</span> &lt;&lt; &amp;pd &lt;&lt; endl;  <span class="comment">// 打印存储指针变量 pd 的值的地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> pt;  <span class="comment">// 使用 delete 释放内存 pt</span></span><br><span class="line">    <span class="keyword">delete</span> pd;  <span class="comment">// 使用 delete 释放内存 pd</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当需要内存时，可以使用 <code>new</code> 来请求，使用完内存后，使用 <code>delete</code> 来释放内存，归还或释放的内存可供程序的其他部分使用。使用 <code>delete</code> 时，后面要加上指向内存块的指针（这些内存块最初是用 <code>new</code> 分配的）。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ps = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// 给 int 指针 ps 分配内存</span></span><br><span class="line">*ps = <span class="number">1001</span>; <span class="comment">// 向分配的内存中存储 int 值</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
+
+<p>这将释放 ps 指向的内存，但不会删除指针 ps 本身。可以将 ps 重新指向另一个新分配的内存块。</p>
+<p>注意一定要配对地使用 <code>new</code> 和 <code>delete</code>；否则将发生内存泄漏（memory leak），也就是说，被分配的内存再也无法使用了。如果内存泄漏严重，则程序将由于不断寻找更多的内存而终止。</p>
+<p>不要尝试释放已经释放的内存块，C++ 标准指出，这样做的结果将是不确定的，这意味着什么情况都可能发生。另外，不能使用 delete 来释放声明变量所获得的内存：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ps = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// not OK，不要释放已经释放的内存</span></span><br><span class="line"><span class="keyword">int</span> jugs = <span class="number">5</span>;   <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">int</span> *pi = &amp;jugs;    <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> pi;  <span class="comment">// 非法，int 指针 pi 所指向的内存不是由 new 运算符分配的，不能使用 delete 释放内存</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips: 只能使用 delete 来释放使用 new 分配的内存。然而，对空指针使用 delete 是安全的。</strong></p>
+<p>使用 delete 的关键在于，将它用于 new 分配的内存，我们语法中 delete 指针变量，是为了释放 new 分配的内存，我们也可以直接 delete 另一个引用了该内存的指针来释放该内存。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> * ps = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line"><span class="keyword">int</span> * pq = ps;  <span class="comment">// int 指针 pq 也指向 ps 所指的内存</span></span><br><span class="line"><span class="keyword">delete</span> pq;  <span class="comment">// 语法正确，可以释放该内存，但通常不要创建两个指向同一个内存块的指针</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化为复合数据类型地址"><a href="#初始化为复合数据类型地址" class="headerlink" title="初始化为复合数据类型地址"></a>初始化为复合数据类型地址</h2><p>如果程序只需要一个值，则可能会声明一个简单变量，这样也便于理解和管理。但是，通常对于大型数据（如数组、字符串和结构），应使用 <code>new</code> 运算符来动态分配内存，达到灵活的目的。使用 <code>new[]</code> 运算符创建数组时，将采用动态联编（动态数组），即将在运行时为数组分配空间，其长度也将在运行时设置，还可以将长度设置为变量赋值。使用完这种数组后，应使用 <code>delete[]</code> 释放占用的内存。</p>
+<h3 id="使用-new-创建动态数组"><a href="#使用-new-创建动态数组" class="headerlink" title="使用 new 创建动态数组"></a>使用 new 创建动态数组</h3><p>语法：type_name * pointer_name = new type_name[num_elements];</p>
+<p>new 运算符将返回第一个元素的地址。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *p_int = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];   <span class="comment">// 初始化一个指向 int 数组的指针，该指针指向数组的第一个元素</span></span><br></pre></td></tr></table></figure>
+
+<p>释放 new 创建的数组地址：<code>delete [] p_int;</code>，使用 <code>new[]</code> 为数组分配的内存，则应使用 <code>delete[]</code> 来释放。</p>
+<h4 id="使用动态数组"><a href="#使用动态数组" class="headerlink" title="使用动态数组"></a>使用动态数组</h4><p>创建动态数组后，如何使用它呢？</p>
+<p>C 和 C++ 内部都使用指针来处理数据，数组和指针基本等价。通常，使用数组表示法时，C++ 都执行以下转换：</p>
+<p>arrayname[i] 转换为 *(arrayname + i)    // arrayname 为数组名</p>
+<p>如果使用指针，而不是数组名，则 C++ 也将执行同样的转换：</p>
+<p>pointername[i] 转换为 *(pointername + i)    // pointername 为指向数组的指针</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *p_some = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">*p_some = <span class="number">1</span>;    <span class="comment">// 指向数组中第一个元素，此时相当于给数组中第一个元素赋值为 1；</span></span><br><span class="line">*(p_some + <span class="number">1</span>) = <span class="number">17</span>; <span class="comment">// 使用指向数组的指针时，指针加 1 将使指针指向下一个元素，此时相当于给数组中第二个元素赋值为 17</span></span><br><span class="line">psome[<span class="number">2</span>] = <span class="number">36</span>;  <span class="comment">// C 和 C++ 内部都使用指针来处理数组，数组和指针基本等价，此时相当于给数组中第三个元素赋值为 36；</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="指针与数组的区别"><a href="#指针与数组的区别" class="headerlink" title="指针与数组的区别"></a>指针与数组的区别</h4><p>C 和 C++ 将数组名解释为第一个元素的地址，所以指针和数组基本等价，都可以使用下标来访问数组元素，但两者之间还是有一些微小的差别的。</p>
+<ul>
+<li><p>指针是一个变量，数组名相当于是一个常量。指针和数组加 1 都将指向下一个元素，但能重新给指针赋值，但将值赋给数组名是非法的。</p>
+</li>
+<li><p><code>sizeof</code> 运算符。对数组应用 sizeof 运算符得到的是整个数组占用的字节数，而对指针应用 sizeof 得到的是指针变量的长度。这种情况下，C++ 不会将数组名解释为地址，自然也不会解释为第 0 个元素的地址。</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *array_point = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> array[<span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(array_point);    <span class="comment">// 打印出指针变量 array_point 的长度，一般为 4</span></span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(array);  <span class="comment">// 打印出整个 array 占用字节数，如果 int 在这个系统中占用 4 个字节，sizeof(array) 值就为 40</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对数组取地址时，数组名也不会被解释为其地址。数组名被解释为第 1 个元素的地址，而对数组名应用地址运算符（&amp;）时，将得到的是整个数组的地址：</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">short</span> tell[<span class="number">10</span>]; <span class="comment">// tell 是一个宽度 20 个字节的 short 数组</span></span><br><span class="line">cout &lt;&lt; tell &lt;&lt; endl;   <span class="comment">// 打印第一个元素的地址，&amp;tell[0]</span></span><br><span class="line">cout &lt;&lt; &amp;tell &lt;&lt; endl;  <span class="comment">// 打印整个数组的地址</span></span><br></pre></td></tr></table></figure>
+<p>  从数字上说，这两个地址相同，但从概念上说，&amp;tell[0] （即 tell ）是一个 2 字节内存块的地址，而 &amp;tell 是一个 20 字节内存块的地址。因此 tell+1 将地址加 2，而表达式 &amp;tell+1 将地址加 20。</p>
+</li>
+</ul>
+<h4 id="指针与字符串"><a href="#指针与字符串" class="headerlink" title="指针与字符串"></a>指针与字符串</h4><p>我们知道字符串是一种特殊的 char 数组。在 C++ 中，用引号括起的字符串也像数组名一样，表示第 1 个元素的地址</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> flower[<span class="number">10</span>] = <span class="string">&quot;rose&quot;</span>;</span><br><span class="line">cout &lt;&lt; flower &lt;&lt; <span class="string">&quot;s are red\n&quot;</span>;    <span class="comment">// 给 cout提供一个字符的地址，则它将从该字符开始打印，直到遇到空字符为止。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 在 cout 和多数 C++ 表达式中，char 数组名、char 指针以及用引用括起的字符串常量被解释为字符串第一个字符的地址。</p>
+<p>所以引出另外一个问题。一般来说，如果给 cout 提供一个指针，它将打印该指针变量的地址值。但如果指针的类型为 <code>char *</code>，则 cout 将显示指针指向的字符串。如果要显示的是字符串的地址，则必须将这种指针强制转换为另一种指针类型。</p>
+<h3 id="使用-new-创建动态结构"><a href="#使用-new-创建动态结构" class="headerlink" title="使用 new 创建动态结构"></a>使用 new 创建动态结构</h3><p>在运行时创建数组优于在编译时创建数组，对于结构也是如此。需要在程序运行时为结构分配所需的空间，这也可以使用 new 运算符来完成。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// newstrct.cpp -- 使用 new 运算符来创建结构</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">inflatable</span>   // 定义一个结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">float</span> volume;</span><br><span class="line">    <span class="keyword">double</span> price;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    inflatable * ps = <span class="keyword">new</span> inflatable;   <span class="comment">// 为结构指针分配内存</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter name of inflatable itme: &quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(ps-&gt;name, <span class="number">20</span>);  <span class="comment">// 箭头运算符访问成员</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter volume in cubic feet: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; (*ps).volume;    <span class="comment">// *ps 就表示结构实体，使用句点运算符访问成员</span></span><br><span class="line">    cout &lt;&lt;  <span class="string">&quot;Enter price: $&quot;</span>;</span><br><span class="line">    cin &gt;&gt; ps-&gt;price;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;name: &quot;</span> &lt;&lt; (*ps).name &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Volume: &quot;</span> &lt;&lt; ps-&gt;volume &lt;&lt; <span class="string">&quot; cubic feet\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Price: $&quot;</span> &lt;&lt; ps-&gt;price &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">delete</span> ps;  <span class="comment">// 释放 new 分配的内存</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 应使用句点运算符还是箭头运算符，规则非常简单，如果结构标识符是结构名，则使用句点运算符；如果标识符是指向结构的指针，则使用箭头运算符。</p>
+<h1 id="自动存储、静态存储和动态存储"><a href="#自动存储、静态存储和动态存储" class="headerlink" title="自动存储、静态存储和动态存储"></a>自动存储、静态存储和动态存储</h1><p>根据用于分配内存的方法，C++ 有 3 种管理数据内存的方式：自动存储、静态存储和动态存储（有时也叫作自由存储空间或堆）。在存在时间的长短方面，以 3 种方式分配的数据对象各不相同。先简要概括这些知识。</p>
+<h2 id="自动存储"><a href="#自动存储" class="headerlink" title="自动存储"></a>自动存储</h2><p>在函数内部定义的常规变量使用自动存储空间，被称为自动变量（automatic variable），这意味着它们在所属的函数被调用时自动产生，在该函数结束时消亡。</p>
+<p>实际上，自动变量是一个局部变量，其作用域为包含它的代码块。</p>
+<p>自动变量通常存储在<strong>栈内存</strong>中。这意味着执行代码块时，其中的变量将依次加入到栈中，而在离开代码块时，将按相反的顺序释放这些变量，这被称为<strong>后进先出（LIFO）</strong>。因此，在程序执行过程中，栈将不断地增大和缩小。</p>
+<h2 id="静态存储"><a href="#静态存储" class="headerlink" title="静态存储"></a>静态存储</h2><p>静态存储是整个程序执行期间都存在的存储方式。使变量成为静态的方式有两种：一种是在函数外面定义它；另一种是在声明变量时使用关键字 <code>static</code>:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> fee = <span class="number">56.50</span>;</span><br></pre></td></tr></table></figure>
+
+<p>自动存储和静态存储的关键在于：这些方法严格地限制了变量的寿命。变量可能存在于程序的整个生命周期（静态变量），也可能只是在特定函数被执行时存在（自动变量）。</p>
+<h2 id="动态存储"><a href="#动态存储" class="headerlink" title="动态存储"></a>动态存储</h2><p><code>new</code> 和 <code>delete</code> 运算符提供了一种比自动变量和静态变量更灵活的方法。它们管理了一个内存池，这在 C++ 中被称为自由存储空间（free store）或堆（heap）。该内存池同用于静态变量和自动变量的内存是分开的。new 和 delete 让我们可以自由控制内存的分配和释放，可以在这个函数中分配内存，到另一个函数中再释放，但通常不那么做。因此，数据的生命周期不完全受程序或函数的生存时间控制。与使用常规变量相比，使用 new 和 delete 让程序员对程序如何使用内存有更大的控制权，然而，内存管理也更复杂了。在栈中，自动添加和删除机制使得占用的内存总是连续的，但 new 和 delete 的相互影响可能导致占用的自由存储区不连续，这使得跟踪新分配内存的位置更困难。</p>
+<p><strong>Tips:</strong> 要避免内存泄漏问题，最好养成同时使用 <code>new</code> 和 <code>delete</code> 运算符，在自由存储空间上动态分配内存，随后便释放它。C++ 后续学习智能指针有助于自动完成这种任务。</p>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1081,108 +1184,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </categories>
       <tags>
         <tag>ASPICE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之八、复合类型之指针</title>
-    <url>/2021/06/22/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AB%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<p>指针是一个在 C 和 C++ 语言中很重要的概念。</p>
-<span id="more"></span>
-
-<h1 id="什么是指针"><a href="#什么是指针" class="headerlink" title="什么是指针"></a>什么是指针</h1><p>指针是用于存储值的地址的变量。</p>
-<p>对于常规变量，值是指定的量，而地址是派生量，地址值可通过对变量应用地址运算符（&amp;）取得。</p>
-<p>对于指针刚好相反，将地址视为指定的量，而将值视为派生量。<code>*</code> 运算符被称为间接值或解除引用运算符，将其应用于指针，可以得到该地址处存储的值。</p>
-<h1 id="指针初始化"><a href="#指针初始化" class="headerlink" title="指针初始化"></a>指针初始化</h1><p>指针与数组一样都是与类型强关联的。如 <code>int *pt</code> 表示 <code>int</code> 类型的指针 <code>pt</code>。</p>
-<p><strong>Tips: 一定要在对指针应用解除引用运算符（*）之前，将指针初始化为一个确定的、适当的地址，这是关于使用指针的金科玉律。</strong></p>
-<h2 id="先声明再赋值"><a href="#先声明再赋值" class="headerlink" title="先声明再赋值"></a>先声明再赋值</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1000</span>;    <span class="comment">// temp 为 int 类型</span></span><br><span class="line"><span class="keyword">int</span> *pt;    <span class="comment">// 声明 int 指针 pt，也可写成 int * pt，空格在哪里都可以，或者不写空格</span></span><br><span class="line">pt = &amp;temp; <span class="comment">// 将 temp 变量的地址赋值给 int 指针 pt</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="声明时直接赋值"><a href="#声明时直接赋值" class="headerlink" title="声明时直接赋值"></a>声明时直接赋值</h2><p>注意此语法是给指针赋值，并不是给指针指向的值赋值。此种类型初始化同样适用于使用 new 初始化指针时。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> *pt = &amp;temp;    <span class="comment">// 注意此时是给 int 指针 pt 赋值，而不是 *pt（指针指向的值）</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 声明多个指针时，每个指针变量都要有一个 <code>*</code>，注意区别：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt1, pt2;  <span class="comment">//声明 int 指针 pt1 和 int 整型 pt2</span></span><br><span class="line"><span class="keyword">int</span> *pt1, *pt2; <span class="comment">// 这才是声明两个 int 指针 pt1 和 pt2，所以为防止错误 * 最好跟着变量名一起</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="指针的特性"><a href="#指针的特性" class="headerlink" title="指针的特性"></a>指针的特性</h1><h2 id="指针与整数"><a href="#指针与整数" class="headerlink" title="指针与整数"></a>指针与整数</h2><p>指针不等同于整数，即使指针变量中存储的地址值确实是一个整数，但从概念上看，这两个是截然不同的类型。</p>
-<p>整数是可以执行加、减、乘、除等算术运算的数字，而指针描述的是位置，将两个地址相乘除没有任何意义，因此，不能简单地将整数赋给指针。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt;</span><br><span class="line">pt = <span class="number">0xB8000000</span>;    <span class="comment">// 非法，不能直接将整数赋值给指针</span></span><br><span class="line">pt = (<span class="keyword">int</span> *)<span class="number">0xB8000000</span>; <span class="comment">// 合法，实在要将一个整数赋给指针变量，可以使用强制类型转换</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>pt</code> 是 int 值的地址并不意味着 <code>pt</code> 本身的类型是 int，例如，在有些平台中，int 类型是个 2 字节值，而地址是个 4 字节值。</p>
-<h2 id="指针的算术运算"><a href="#指针的算术运算" class="headerlink" title="指针的算术运算"></a>指针的算术运算</h2><p>如上所述，指针中存储的是地址值，将两个地址相乘除是没有任何意义的。但指针是可以进行加减运算的。</p>
-<p>指针加 1 的结果等于原来的地址值加上指向的对象占用的字节数。同理减 1 类似。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> *p = &amp;temp; <span class="comment">// 如果 int 为 4 个字节，p=0x123，此时 P+1=0x127</span></span><br></pre></td></tr></table></figure>
-
-<p>还可以将一个指针减去另外一个指针，获得两个指针的差，这将运算将得到一个整数，仅当两个指针指向同一个数组（也可以指向超出结尾的一个位置）时，这种运算才有意义，这将得到两个元素的间隔。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> tacos[<span class="number">10</span>] = &#123;<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">90</span>, <span class="number">20</span>, <span class="number">1</span>, <span class="number">90</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *pt = tacos;    <span class="comment">// int 指针 pt 指向数组的第一个元素</span></span><br><span class="line">pt = pt + <span class="number">1</span>;    <span class="comment">// 加 1 后指向数组的第二个元素 2</span></span><br><span class="line"><span class="keyword">int</span> *pe = &amp;tacos[<span class="number">9</span>];    <span class="comment">// int 指针 pe 指向数组的第十个元素</span></span><br><span class="line">pe = pe - <span class="number">1</span>;    <span class="comment">// 减 1 后指向数组的第九个元素 1</span></span><br><span class="line"><span class="keyword">int</span> diff = pe - pt; <span class="comment">// diff 等于 7，这两个指针相隔七个元素，注意相减的结果并不是这两个指针相差的字节数，而是元素个数</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="new-运算符"><a href="#new-运算符" class="headerlink" title="new 运算符"></a>new 运算符</h1><p>在 C 语言中使用库函数 <code>malloc()</code> 来分配内存，在 C++ 中仍然可以这样做，但更推荐使用 new 运算符。</p>
-<p>使用 new 运算符在运行阶段分配未命名的内存以存储值。在这种情况下，只能通过指针来访问内存。</p>
-<h2 id="初始化为基本类型对象的地址"><a href="#初始化为基本类型对象的地址" class="headerlink" title="初始化为基本类型对象的地址"></a>初始化为基本类型对象的地址</h2><p>语法：typeName * pointer_name = new typeName;</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *pt = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// new 运算符初始化指针</span></span><br></pre></td></tr></table></figure>
-
-<p><code>new int</code> 告诉程序，需要适合存储 <code>int</code> 的内存。<code>new</code> 运算符根据类型来确定需要多少字节的内存，然后，它找到这样的内存，并返回其地址。接下来，将地址赋给 <code>pt</code>，<code>pt</code> 是被声明为指向 int 的指针。（如果因为各种原因，new 运算符无法取得所需要的地址时，将返回一个空指针）。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// use_new.cpp -- new 运算符应用</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">int</span> nights = <span class="number">1001</span>;</span><br><span class="line">    <span class="keyword">int</span> *pt = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// new 运算符给 int 指针 pt 分配内存</span></span><br><span class="line">    *pt = <span class="number">1001</span>; <span class="comment">// 分配的内存中存储一个 int 值</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;nights value = &quot;</span> &lt;&lt; nights &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; &amp;nights &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;int value = &quot;</span> &lt;&lt; *pt &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; pt &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> *pd = <span class="keyword">new</span> <span class="keyword">double</span>;    <span class="comment">// new 运算符给 double 指针 pd 分配内存</span></span><br><span class="line">    *pd = <span class="number">10000001.0</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;double value = &quot;</span> &lt;&lt; *pd &lt;&lt; <span class="string">&quot;: location &quot;</span> &lt;&lt; pd &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;location of pointer pd: &quot;</span> &lt;&lt; &amp;pd &lt;&lt; endl;  <span class="comment">// 打印存储指针变量 pd 的值的地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> pt;  <span class="comment">// 使用 delete 释放内存 pt</span></span><br><span class="line">    <span class="keyword">delete</span> pd;  <span class="comment">// 使用 delete 释放内存 pd</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当需要内存时，可以使用 <code>new</code> 来请求，使用完内存后，使用 <code>delete</code> 来释放内存，归还或释放的内存可供程序的其他部分使用。使用 <code>delete</code> 时，后面要加上指向内存块的指针（这些内存块最初是用 <code>new</code> 分配的）。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ps = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// 给 int 指针 ps 分配内存</span></span><br><span class="line">*ps = <span class="number">1001</span>; <span class="comment">// 向分配的内存中存储 int 值</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
-
-<p>这将释放 ps 指向的内存，但不会删除指针 ps 本身。可以将 ps 重新指向另一个新分配的内存块。</p>
-<p>注意一定要配对地使用 <code>new</code> 和 <code>delete</code>；否则将发生内存泄漏（memory leak），也就是说，被分配的内存再也无法使用了。如果内存泄漏严重，则程序将由于不断寻找更多的内存而终止。</p>
-<p>不要尝试释放已经释放的内存块，C++ 标准指出，这样做的结果将是不确定的，这意味着什么情况都可能发生。另外，不能使用 delete 来释放声明变量所获得的内存：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ps = <span class="keyword">new</span> <span class="keyword">int</span>;  <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> ps;  <span class="comment">// not OK，不要释放已经释放的内存</span></span><br><span class="line"><span class="keyword">int</span> jugs = <span class="number">5</span>;   <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">int</span> *pi = &amp;jugs;    <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">delete</span> pi;  <span class="comment">// 非法，int 指针 pi 所指向的内存不是由 new 运算符分配的，不能使用 delete 释放内存</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips: 只能使用 delete 来释放使用 new 分配的内存。然而，对空指针使用 delete 是安全的。</strong></p>
-<p>使用 delete 的关键在于，将它用于 new 分配的内存，我们语法中 delete 指针变量，是为了释放 new 分配的内存，我们也可以直接 delete 另一个引用了该内存的指针来释放该内存。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> * ps = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line"><span class="keyword">int</span> * pq = ps;  <span class="comment">// int 指针 pq 也指向 ps 所指的内存</span></span><br><span class="line"><span class="keyword">delete</span> pq;  <span class="comment">// 语法正确，可以释放该内存，但通常不要创建两个指向同一个内存块的指针</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化为复合数据类型地址"><a href="#初始化为复合数据类型地址" class="headerlink" title="初始化为复合数据类型地址"></a>初始化为复合数据类型地址</h2><p>如果程序只需要一个值，则可能会声明一个简单变量，这样也便于理解和管理。但是，通常对于大型数据（如数组、字符串和结构），应使用 <code>new</code> 运算符来动态分配内存，达到灵活的目的。使用 <code>new[]</code> 运算符创建数组时，将采用动态联编（动态数组），即将在运行时为数组分配空间，其长度也将在运行时设置，还可以将长度设置为变量赋值。使用完这种数组后，应使用 <code>delete[]</code> 释放占用的内存。</p>
-<h3 id="使用-new-创建动态数组"><a href="#使用-new-创建动态数组" class="headerlink" title="使用 new 创建动态数组"></a>使用 new 创建动态数组</h3><p>语法：type_name * pointer_name = new type_name[num_elements];</p>
-<p>new 运算符将返回第一个元素的地址。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *p_int = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];   <span class="comment">// 初始化一个指向 int 数组的指针，该指针指向数组的第一个元素</span></span><br></pre></td></tr></table></figure>
-
-<p>释放 new 创建的数组地址：<code>delete [] p_int;</code>，使用 <code>new[]</code> 为数组分配的内存，则应使用 <code>delete[]</code> 来释放。</p>
-<h4 id="使用动态数组"><a href="#使用动态数组" class="headerlink" title="使用动态数组"></a>使用动态数组</h4><p>创建动态数组后，如何使用它呢？</p>
-<p>C 和 C++ 内部都使用指针来处理数据，数组和指针基本等价。通常，使用数组表示法时，C++ 都执行以下转换：</p>
-<p>arrayname[i] 转换为 *(arrayname + i)    // arrayname 为数组名</p>
-<p>如果使用指针，而不是数组名，则 C++ 也将执行同样的转换：</p>
-<p>pointername[i] 转换为 *(pointername + i)    // pointername 为指向数组的指针</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *p_some = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">*p_some = <span class="number">1</span>;    <span class="comment">// 指向数组中第一个元素，此时相当于给数组中第一个元素赋值为 1；</span></span><br><span class="line">*(p_some + <span class="number">1</span>) = <span class="number">17</span>; <span class="comment">// 使用指向数组的指针时，指针加 1 将使指针指向下一个元素，此时相当于给数组中第二个元素赋值为 17</span></span><br><span class="line">psome[<span class="number">2</span>] = <span class="number">36</span>;  <span class="comment">// C 和 C++ 内部都使用指针来处理数组，数组和指针基本等价，此时相当于给数组中第三个元素赋值为 36；</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="指针与数组的区别"><a href="#指针与数组的区别" class="headerlink" title="指针与数组的区别"></a>指针与数组的区别</h4><p>C 和 C++ 将数组名解释为第一个元素的地址，所以指针和数组基本等价，都可以使用下标来访问数组元素，但两者之间还是有一些微小的差别的。</p>
-<ul>
-<li><p>指针是一个变量，数组名相当于是一个常量。指针和数组加 1 都将指向下一个元素，但能重新给指针赋值，但将值赋给数组名是非法的。</p>
-</li>
-<li><p><code>sizeof</code> 运算符。对数组应用 sizeof 运算符得到的是整个数组占用的字节数，而对指针应用 sizeof 得到的是指针变量的长度。这种情况下，C++ 不会将数组名解释为地址，自然也不会解释为第 0 个元素的地址。</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *array_point = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> array[<span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(array_point);    <span class="comment">// 打印出指针变量 array_point 的长度，一般为 4</span></span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(array);  <span class="comment">// 打印出整个 array 占用字节数，如果 int 在这个系统中占用 4 个字节，sizeof(array) 值就为 40</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对数组取地址时，数组名也不会被解释为其地址。数组名被解释为第 1 个元素的地址，而对数组名应用地址运算符（&amp;）时，将得到的是整个数组的地址：</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">short</span> tell[<span class="number">10</span>]; <span class="comment">// tell 是一个宽度 20 个字节的 short 数组</span></span><br><span class="line">cout &lt;&lt; tell &lt;&lt; endl;   <span class="comment">// 打印第一个元素的地址，&amp;tell[0]</span></span><br><span class="line">cout &lt;&lt; &amp;tell &lt;&lt; endl;  <span class="comment">// 打印整个数组的地址</span></span><br></pre></td></tr></table></figure>
-<p>  从数字上说，这两个地址相同，但从概念上说，&amp;tell[0] （即 tell ）是一个 2 字节内存块的地址，而 &amp;tell 是一个 20 字节内存块的地址。因此 tell+1 将地址加 2，而表达式 &amp;tell+1 将地址加 20。</p>
-</li>
-</ul>
-<h4 id="指针与字符串"><a href="#指针与字符串" class="headerlink" title="指针与字符串"></a>指针与字符串</h4><p>我们知道字符串是一种特殊的 char 数组。在 C++ 中，用引号括起的字符串也像数组名一样，表示第 1 个元素的地址</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> flower[<span class="number">10</span>] = <span class="string">&quot;rose&quot;</span>;</span><br><span class="line">cout &lt;&lt; flower &lt;&lt; <span class="string">&quot;s are red\n&quot;</span>;    <span class="comment">// 给 cout提供一个字符的地址，则它将从该字符开始打印，直到遇到空字符为止。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 在 cout 和多数 C++ 表达式中，char 数组名、char 指针以及用引用括起的字符串常量被解释为字符串第一个字符的地址。</p>
-<p>所以引出另外一个问题。一般来说，如果给 cout 提供一个指针，它将打印该指针变量的地址值。但如果指针的类型为 <code>char *</code>，则 cout 将显示指针指向的字符串。如果要显示的是字符串的地址，则必须将这种指针强制转换为另一种指针类型。</p>
-<h3 id="使用-new-创建动态结构"><a href="#使用-new-创建动态结构" class="headerlink" title="使用 new 创建动态结构"></a>使用 new 创建动态结构</h3><p>在运行时创建数组优于在编译时创建数组，对于结构也是如此。需要在程序运行时为结构分配所需的空间，这也可以使用 new 运算符来完成。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// newstrct.cpp -- 使用 new 运算符来创建结构</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">inflatable</span>   // 定义一个结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">float</span> volume;</span><br><span class="line">    <span class="keyword">double</span> price;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    inflatable * ps = <span class="keyword">new</span> inflatable;   <span class="comment">// 为结构指针分配内存</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter name of inflatable itme: &quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(ps-&gt;name, <span class="number">20</span>);  <span class="comment">// 箭头运算符访问成员</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter volume in cubic feet: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; (*ps).volume;    <span class="comment">// *ps 就表示结构实体，使用句点运算符访问成员</span></span><br><span class="line">    cout &lt;&lt;  <span class="string">&quot;Enter price: $&quot;</span>;</span><br><span class="line">    cin &gt;&gt; ps-&gt;price;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;name: &quot;</span> &lt;&lt; (*ps).name &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Volume: &quot;</span> &lt;&lt; ps-&gt;volume &lt;&lt; <span class="string">&quot; cubic feet\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Price: $&quot;</span> &lt;&lt; ps-&gt;price &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">delete</span> ps;  <span class="comment">// 释放 new 分配的内存</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 应使用句点运算符还是箭头运算符，规则非常简单，如果结构标识符是结构名，则使用句点运算符；如果标识符是指向结构的指针，则使用箭头运算符。</p>
-<h1 id="自动存储、静态存储和动态存储"><a href="#自动存储、静态存储和动态存储" class="headerlink" title="自动存储、静态存储和动态存储"></a>自动存储、静态存储和动态存储</h1><p>根据用于分配内存的方法，C++ 有 3 种管理数据内存的方式：自动存储、静态存储和动态存储（有时也叫作自由存储空间或堆）。在存在时间的长短方面，以 3 种方式分配的数据对象各不相同。先简要概括这些知识。</p>
-<h2 id="自动存储"><a href="#自动存储" class="headerlink" title="自动存储"></a>自动存储</h2><p>在函数内部定义的常规变量使用自动存储空间，被称为自动变量（automatic variable），这意味着它们在所属的函数被调用时自动产生，在该函数结束时消亡。</p>
-<p>实际上，自动变量是一个局部变量，其作用域为包含它的代码块。</p>
-<p>自动变量通常存储在<strong>栈内存</strong>中。这意味着执行代码块时，其中的变量将依次加入到栈中，而在离开代码块时，将按相反的顺序释放这些变量，这被称为<strong>后进先出（LIFO）</strong>。因此，在程序执行过程中，栈将不断地增大和缩小。</p>
-<h2 id="静态存储"><a href="#静态存储" class="headerlink" title="静态存储"></a>静态存储</h2><p>静态存储是整个程序执行期间都存在的存储方式。使变量成为静态的方式有两种：一种是在函数外面定义它；另一种是在声明变量时使用关键字 <code>static</code>:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> fee = <span class="number">56.50</span>;</span><br></pre></td></tr></table></figure>
-
-<p>自动存储和静态存储的关键在于：这些方法严格地限制了变量的寿命。变量可能存在于程序的整个生命周期（静态变量），也可能只是在特定函数被执行时存在（自动变量）。</p>
-<h2 id="动态存储"><a href="#动态存储" class="headerlink" title="动态存储"></a>动态存储</h2><p><code>new</code> 和 <code>delete</code> 运算符提供了一种比自动变量和静态变量更灵活的方法。它们管理了一个内存池，这在 C++ 中被称为自由存储空间（free store）或堆（heap）。该内存池同用于静态变量和自动变量的内存是分开的。new 和 delete 让我们可以自由控制内存的分配和释放，可以在这个函数中分配内存，到另一个函数中再释放，但通常不那么做。因此，数据的生命周期不完全受程序或函数的生存时间控制。与使用常规变量相比，使用 new 和 delete 让程序员对程序如何使用内存有更大的控制权，然而，内存管理也更复杂了。在栈中，自动添加和删除机制使得占用的内存总是连续的，但 new 和 delete 的相互影响可能导致占用的自由存储区不连续，这使得跟踪新分配内存的位置更困难。</p>
-<p><strong>Tips:</strong> 要避免内存泄漏问题，最好养成同时使用 <code>new</code> 和 <code>delete</code> 运算符，在自由存储空间上动态分配内存，随后便释放它。C++ 后续学习智能指针有助于自动完成这种任务。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>

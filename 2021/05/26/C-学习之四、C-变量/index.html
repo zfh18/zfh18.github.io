@@ -29,7 +29,7 @@
 <meta property="og:description" content="C++ 变量是什么，变量的作用，变量的其它功能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-26T14:33:04.000Z">
-<meta property="article:modified_time" content="2021-09-08T12:46:03.977Z">
+<meta property="article:modified_time" content="2021-09-23T12:56:16.861Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">变量作用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%90%8D%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">变量名命名规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const-%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">const 限定符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#auto-%E5%A3%B0%E6%98%8E%EF%BC%88%E8%87%AA%E5%8A%A8%E6%8E%A8%E6%96%AD%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">auto 声明（自动推断）</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">变量作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%90%8D%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">变量名命名规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const-%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">const 限定符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#auto-%E5%A3%B0%E6%98%8E%EF%BC%88%E8%87%AA%E5%8A%A8%E6%8E%A8%E6%96%AD%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">auto 声明（自动推断）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-08 20:46:03" itemprop="dateModified" datetime="2021-09-08T20:46:03+08:00">2021-09-08</time>
+        <time title="修改时间：2021-09-23 20:56:16" itemprop="dateModified" datetime="2021-09-23T20:56:16+08:00">2021-09-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>721</span>
+      <span>725</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -307,11 +307,11 @@
         <p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
 <span id="more"></span>
 
-<h1 id="变量作用："><a href="#变量作用：" class="headerlink" title="变量作用："></a>变量作用：</h1><p>变量用来表征：</p>
+<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
 <ul>
-<li>信息将存储在哪里；</li>
-<li>要存储什么值；</li>
-<li>存储何种类型的信息；</li>
+<li>信息将存储在哪里。</li>
+<li>要存储什么值。</li>
+<li>存储何种类型的信息。</li>
 </ul>
 <h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
 <li>名称中只能使用字母字符、数字和下划线（_）。</li>
@@ -319,7 +319,7 @@
 <li>区分大小写。</li>
 <li>不能将 C++ 关键字用作名称。</li>
 <li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制。（但是可能系统会对名称长度有限制）</li>
+<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
 </ul>
 <h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
 <ul>
@@ -327,14 +327,14 @@
 <li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
 <li>C++11 新增方式：</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>define</code> 相比的好处：</p>
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
 <ul>
-<li>它能够明确指定数据类型</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中</li>
-<li><code>const</code> 可用于更复杂的类型</li>
+<li>它能够明确指定数据类型。</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
+<li><code>const</code> 可用于更复杂的类型。</li>
 </ul>
 <p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
 <pre><code>const int MONTH = 12;

@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
 <meta property="article:published_time" content="2021-06-03T12:54:08.000Z">
-<meta property="article:modified_time" content="2021-09-17T01:38:26.392Z">
+<meta property="article:modified_time" content="2021-09-23T12:56:16.862Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -261,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-17 09:38:26" itemprop="dateModified" datetime="2021-09-17T09:38:26+08:00">2021-09-17</time>
+        <time title="修改时间：2021-09-23 20:56:16" itemprop="dateModified" datetime="2021-09-23T20:56:16+08:00">2021-09-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,13 +309,13 @@
         <p>每种语言都有类似的运算符，如同数学运算。</p>
 <span id="more"></span>
 
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除、除和求模运算。</p>
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除和求模运算。</p>
 <ul>
-<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code></li>
-<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code></li>
-<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code></li>
-<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code></li>
-<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1</li>
+<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code>。</li>
+<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code>。</li>
+<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code>。</li>
+<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code>。</li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1。</li>
 </ul>
 <h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++x</code>，后缀版本位于操作数后面，如 <code>x++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
 <h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
@@ -330,7 +330,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
 
 <p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 紧接上面的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 紧接上面 pt 指向 arr[1] 的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
 
 <h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
 <p>以下为组合赋值运算符总结</p>
@@ -373,7 +373,7 @@
 <p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
 <h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
-<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换：</p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换。</p>
 <ul>
 <li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
 <li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
@@ -403,7 +403,7 @@
 <td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
 </tr>
 </tbody></table>
-<p><strong>Tips:</strong> 将 0 赋给 bool 变量时，将被转换为 false；而非零值将被转换为 true。</p>
+<p><strong>Tips:</strong> 将 0 赋给 <code>bool</code> 变量时，将被转换为 <code>false</code>，而非零值将被转换为 <code>true</code>。</p>
 <h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许转换为无法表示该值的数据类型。例如：</p>
 <ul>
 <li>不允许浮点型转换为整型。</li>
@@ -420,7 +420,7 @@
 <p>long double &gt; double &gt; float &gt; 整型提升</p>
 <h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
 <h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的写法</span><br></pre></td></tr></table></figure>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
 
 <h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
 <p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
