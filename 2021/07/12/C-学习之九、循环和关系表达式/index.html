@@ -29,7 +29,7 @@
 <meta property="og:description" content="程序通常使用关系表达式和逻辑表达式来控制其行为。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-12T12:43:43.000Z">
-<meta property="article:modified_time" content="2021-09-08T12:46:03.983Z">
+<meta property="article:modified_time" content="2021-11-20T15:21:02.779Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-08 20:46:03" itemprop="dateModified" datetime="2021-09-08T20:46:03+08:00">2021-09-08</time>
+        <time title="修改时间：2021-11-20 23:21:02" itemprop="dateModified" datetime="2021-11-20T23:21:02+08:00">2021-11-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -347,7 +347,7 @@
 </tr>
 <tr>
 <td>==</td>
-<td>等于</td>
+<td>等等于</td>
 </tr>
 <tr>
 <td>&gt;</td>
@@ -386,7 +386,7 @@
 <h2 id="使用-for-循环访问字符串"><a href="#使用-for-循环访问字符串" class="headerlink" title="使用 for 循环访问字符串"></a>使用 for 循环访问字符串</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// string 类包含在命名空间 std 中</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word); <span class="comment">// 通过 cin 读入一行字符到 word 中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = word.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">// 反向打印 word</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>Tips</strong>: 省略 for 循环中的测试表达式时，测试结果将为 true，因此下面的循环将一直运行下去：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for (; ; ;)</span><br><span class="line">    body</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for (; ; ;)</span><br><span class="line">    body    // 如果循环体只有一条语句，可以不加大括号</span><br></pre></td></tr></table></figure>
 
 <h2 id="C-11-新增基于范围的-for-循环"><a href="#C-11-新增基于范围的-for-循环" class="headerlink" title="C++11 新增基于范围的 for 循环"></a>C++11 新增基于范围的 for 循环</h2><p>基于范围的 for 循环简化了一种常见的循环任务：对数组（或容器类，如 vector 和 array）的每个元素执行相同的操作，如下所示：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double price[5] = &#123;4.99, 20, 2.33, 8.888, 6.87&#125;;</span><br><span class="line">for (double x : price)  // x 将依次迭代取得 price 中的值</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -406,7 +406,7 @@
 </ul>
 <h2 id="while-循环编写延时循环"><a href="#while-循环编写延时循环" class="headerlink" title="while 循环编写延时循环"></a>while 循环编写延时循环</h2><p>ANSI C 和 C++ 库中有一个函数有助于完成延时工作。这个函数名为 <code>clock()</code>，返回程序开始执行后所用的系统时间。但这有两个复杂的问题，首先，<code>clock()</code> 返回时间的单位不一定是秒；其次，该函数的返回类型在某些系统上可能是 long，在另一些系统上可能是 unsigned long 或其他类型。</p>
 <p>但头文件 ctime（较早的实现中为 time.h）提供了这些问题的解决方案。首先，它定义了一个符号常量-CLOCK_PER_SEC，该常量等于每秒钟包含的系统时间单位数。因此，将系统时间除以这个值，可以得到秒数。或者将秒数乘以 CLOCK_PER_SEC，可以得到以系统时间为单位的时间。其次，ctime 将 clock_t 作为 clock() 返回类型的别名，这意味着可以将变量声明为 clock_t 类型，编译器将把它转换为 long、unsigned int 或适合系统的其他类型。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 程序以系统时间单位为单位计算延时时间，避免了在每轮循环中将系统时间转换为秒</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span>    <span class="comment">// 包含 clock() 原型</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">float</span> sec;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input the time(s) you wait to wait: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; sec;</span><br><span class="line">    <span class="keyword">clock_t</span> delay = sec * CLOCKS_PER_SEC;   <span class="comment">// 将秒钟转换为系统时钟</span></span><br><span class="line">    <span class="keyword">clock_t</span> start = <span class="built_in">clock</span>();    <span class="comment">// 使用系统时钟计算开始时间</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">clock</span>() - start &lt; delay)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;done \a\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 程序以系统时间为单位计算延时时间，避免了在每轮循环中将系统时间转换为秒</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span>    <span class="comment">// 包含 clock() 原型</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">float</span> sec;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please input the time(s) you wait to wait: &quot;</span>;</span><br><span class="line">    cin &gt;&gt; sec;</span><br><span class="line">    <span class="keyword">clock_t</span> delay = sec * CLOCKS_PER_SEC;   <span class="comment">// 将秒钟转换为系统时钟</span></span><br><span class="line">    <span class="keyword">clock_t</span> start = <span class="built_in">clock</span>();    <span class="comment">// 使用系统时钟计算开始时间</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">clock</span>() - start &lt; delay)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;done \a\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>C++ 为类型建立别名的方式有两种。</p>
 <ul>
@@ -414,7 +414,7 @@
 <p>  #define BYTE char   // BYTE 作为 char 的别名，预处理器将在编译程序时用 <code>char</code> 替换所有的 <code>BYTE</code>，编译时将只是做最基本的字符替换操作，所以有些情况下不适合使用这种方式，如给指针类型取别名时</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define float_pointer float *;</span><br><span class="line">float_point pa, pb; // 预处理器将转换为 float * pa, pb; 此时 pb 是 float 类型，非指针类型，使用 typedef 不会有这样的问题</span><br></pre></td></tr></table></figure></li>
 <li><p>使用关键字 <code>typedef</code></p>
-<p>  格式为：typedef typeName aliasName;</p>
+<p>  格式为：typedef typeName aliasName; // 注意和 #define 的定义顺序相反</p>
 <p>  <code>typedef char byte;</code>    // 将 byte 作为 char 的别名，注意 typedef 并不会创建新类型，只是别名</p>
 </li>
 </ul>
@@ -567,13 +567,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">52k</span>
+    <span title="站点总字数">54k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:27</span>
+    <span title="站点阅读时长">1:30</span>
   </span>
 </div>
 <div class="busuanzi-count">
