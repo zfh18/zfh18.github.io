@@ -644,6 +644,102 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
+    <title>VSCode 教程</title>
+    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
+<span id="more"></span>
+
+<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
+<ul>
+<li>VS Code 命令面板</li>
+</ul>
+<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
+<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
+<li><p>光标移动</p>
+<ul>
+<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
+<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
+<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
+<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
+</ul>
+</li>
+<li><p>文本选择</p>
+<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
+</li>
+<li><p>删除操作</p>
+<ul>
+<li>可以先选中文本，再按删除。</li>
+<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
+<li>删除行。<code>Ctrl + Shift + K</code>。</li>
+<li>剪切行。<code>Ctrl + X</code>。</li>
+<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
+<li>移动代码行。<code>Alt + 上下方向键</code></li>
+<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
+</ul>
+<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
+<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
+<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
+<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
+<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
+<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
+<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
+<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
+<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
+<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
+<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
+<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
+<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
+<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
+<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
+<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
+<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
+<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
+<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
+<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
+<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
+<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
+<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
+<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
+<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
+<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
+<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
+<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
+<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
+<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
+<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
+<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
+<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
+<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
+<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
+<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
+<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
+<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
+<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
+<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
+<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
+<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
+<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
+<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
+<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
+<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
+<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
+<p><code>Shift+ F12</code> 打开函数引用预览。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ 学习之五、C++ 运算符</title>
     <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算。</p>
@@ -773,102 +869,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
-    <title>VSCode 教程</title>
-    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
-<span id="more"></span>
-
-<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
-<ul>
-<li>VS Code 命令面板</li>
-</ul>
-<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
-<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
-<li><p>光标移动</p>
-<ul>
-<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
-<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
-<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
-<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
-</ul>
-</li>
-<li><p>文本选择</p>
-<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
-</li>
-<li><p>删除操作</p>
-<ul>
-<li>可以先选中文本，再按删除。</li>
-<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
-</ul>
-</li>
-</ul>
-<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
-<li>删除行。<code>Ctrl + Shift + K</code>。</li>
-<li>剪切行。<code>Ctrl + X</code>。</li>
-<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
-<li>移动代码行。<code>Alt + 上下方向键</code></li>
-<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
-</ul>
-<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
-<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
-<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
-<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
-<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
-<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
-<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
-<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
-<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
-<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
-<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
-<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
-<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
-<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
-<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
-<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
-<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
-<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
-<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
-<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
-<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
-<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
-<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
-<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
-<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
-<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
-<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
-<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
-<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
-<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
-<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
-<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
-<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
-<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
-<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
-<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
-<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
-<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
-<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
-<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
-<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
-<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
-<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
-<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
-<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
-<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
-<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
-<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
-<p><code>Shift+ F12</code> 打开函数引用预览。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ 学习之六、复合类型之数组</title>
     <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>C++ 复合类型之数组笔记。</p>
@@ -945,6 +945,76 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
 <h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
+    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
+<span id="more"></span>
+
+<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
+<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
+<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
+<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
+<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
+
+<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
+<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
+<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
+</li>
+<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
+<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
+
+<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
+</li>
+</ul>
+<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
+<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
+<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
+<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
+<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
+<p>最后，可以创建多个值相同的枚举量：</p>
+<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
+<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
+<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
+<ul>
+<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
+<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
+</ul>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1046,76 +1116,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <p>自动存储和静态存储的关键在于：这些方法严格地限制了变量的寿命。变量可能存在于程序的整个生命周期（静态变量），也可能只是在特定函数被执行时存在（自动变量）。</p>
 <h2 id="动态存储"><a href="#动态存储" class="headerlink" title="动态存储"></a>动态存储</h2><p><code>new</code> 和 <code>delete</code> 运算符提供了一种比自动变量和静态变量更灵活的方法。它们管理了一个内存池，这在 C++ 中被称为自由存储空间（free store）或堆（heap）。该内存池同用于静态变量和自动变量的内存是分开的。new 和 delete 让我们可以自由控制内存的分配和释放，可以在这个函数中分配内存，到另一个函数中再释放，但通常不那么做。因此，数据的生命周期不完全受程序或函数的生存时间控制。与使用常规变量相比，使用 new 和 delete 让程序员对程序如何使用内存有更大的控制权，然而，内存管理也更复杂了。在栈中，自动添加和删除机制使得占用的内存总是连续的，但 new 和 delete 的相互影响可能导致占用的自由存储区不连续，这使得跟踪新分配内存的位置更困难。</p>
 <p><strong>Tips:</strong> 要避免内存泄漏问题，最好养成同时使用 <code>new</code> 和 <code>delete</code> 运算符，在自由存储空间上动态分配内存，随后便释放它。C++ 后续学习智能指针有助于自动完成这种任务。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
-    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
-<span id="more"></span>
-
-<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
-<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
-<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
-<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
-
-<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
-<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
-
-<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
-<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
-<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
-</li>
-<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
-<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
-
-<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
-</li>
-</ul>
-<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
-<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
-<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
-<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
-<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
-<p>最后，可以创建多个值相同的枚举量：</p>
-<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
-<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
-<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
-<ul>
-<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
-<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
-</ul>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -1307,7 +1307,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <td>不等于</td>
 </tr>
 </tbody></table>
-<p><strong>Tips</strong>: 不要混淆 == 与赋值运算符 = 。前都用于判断，后者则是赋值。当使用赋值表达式作为判断时，值为等号左边的值，非零值为 true，零值为 false</p>
+<p><strong>Tips</strong>: 不要混淆 == 与赋值运算符 = 。前者用于判断，后者则是赋值。当使用赋值表达式作为判断时，值为等号左边的值，非零值为 true，零值为 false</p>
 <h3 id="C——风格字符串比较"><a href="#C——风格字符串比较" class="headerlink" title="C——风格字符串比较"></a>C——风格字符串比较</h3><p>数组名是数组的地址，同样，用引号括起的字符串常量也是其地址。因此，使用 == 只能比较两个字符串的地址。</p>
 <p>应使用 C-风格字符串库中的 <code>strcmp()</code> 函数来比较。该函数接受两个字符串地址作为参数，这意味着参数可以是指针、字符串常量或字符数组名。比较时，如果两个字符串相同，该函数将返回零；如果第一个字符串按字母顺序在第二个字符串之前，则 strcmp() 将返回一个负数值；如果第一个字符串按字母顺序排在第二个字符串之后，则 strcmp() 将返回一个正数值，字符是根据字符的系统编码来进行比较的，所以按照排列顺序，大写字母将位于小写字母之前。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span>  <span class="comment">// 包含 strcmp() 原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="keyword">char</span> word[<span class="number">5</span>] = <span class="string">&quot;?ate&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch = <span class="string">&#x27;a&#x27;</span>; <span class="built_in">strcmp</span>(word, <span class="string">&quot;mate&quot;</span>); ch++) <span class="comment">// 比较两个字符串，如果字符不相等，则值为非零（true），相等则值为零（false）</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">        word[<span class="number">0</span>] = ch;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;After loop ends, word is &quot;</span> &lt;&lt; word &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
