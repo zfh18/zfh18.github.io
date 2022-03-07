@@ -83,19 +83,19 @@ hexo s      # 启动预览
   <entry>
     <title>C++学习之一、 C++简介</title>
     <url>/2021/05/15/%E4%B8%80%E3%80%81C-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<p>开始学习 C++ 之前的一些认知。</p>
+    <content><![CDATA[<p>C++ 是什么？C++ 有什么特点。</p>
 <span id="more"></span>
 
-<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++ 语言特点"></a>C++ 语言特点</h1><p>C++ 融合了 3 种不同的编程方式：</p>
+<h1 id="C-语言特点"><a href="#C-语言特点" class="headerlink" title="C++ 语言特点"></a>C++ 语言特点</h1><p>C++ 融合了 3 种不同的编程方式。</p>
 <ul>
 <li>C 语言代表的过程性编程。</li>
 <li>C++ 在 C 语言基础上添加的类代表的面向对象（OOP）编程。</li>
 <li>C++ 模板支持的泛型编程。</li>
 </ul>
-<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++ 起源"></a>C++ 起源</h1><p>诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong> 于 20 世纪 80 年代开发出了这种语言。基于 C 语言。</p>
+<h1 id="C-起源"><a href="#C-起源" class="headerlink" title="C++ 起源"></a>C++ 起源</h1><p>C++ 诞生于贝尔实验室，<strong>Bjarne Stroustrup</strong> 于 20 世纪 80 年代开发出了这种语言，C++ 基于 C 语言。</p>
 <h1 id="C-标准"><a href="#C-标准" class="headerlink" title="C++ 标准"></a>C++ 标准</h1><ul>
 <li>移植时需要对程序重新编译。</li>
-<li>常用的两种标准，C++98, C++11 标准。</li>
+<li>常用的两种标准，C++98, C++11 标准。具体介绍参见 <a href="https://zh.cppreference.com/w/cpp" title="C++ 参考手册">C++ 参考手册</a></li>
 </ul>
 <h1 id="C-语言风格"><a href="#C-语言风格" class="headerlink" title="C++ 语言风格"></a>C++ 语言风格</h1><ul>
 <li>源代码文件扩展名</li>
@@ -156,16 +156,16 @@ hexo s      # 启动预览
   <entry>
     <title>C++学习之二、C++程序基本结构概述</title>
     <url>/2021/05/16/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%8C%E3%80%81C-%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<p>C++ 程序的基本结构概述，如函数和类。</p>
+    <content><![CDATA[<p>C++ 程序的基本结构是什么样的呢？</p>
 <span id="more"></span>
 
 <p>示例1：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在函数内，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束。也可以位于单独的一行上。</p>
+<h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束，也可以位于单独的一行上。</p>
 <p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
 <h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
-<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 h，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 h （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 h （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 c （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 h 不只是形式上的变化，没有 h 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 <code>h</code>，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 <code>h</code> （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 <code>h</code> （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 <code>c</code> （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 <code>h</code> 不只是形式上的变化，没有 <code>h</code> 的头文件也可以包含命名空间。下表对头文件的命名约定进行了总结。</p>
 <table>
 <thead>
 <tr>
@@ -185,25 +185,25 @@ hexo s      # 启动预览
 <td>C 旧式风格</td>
 <td>以 .h 结尾</td>
 <td>math.h</td>
-<td>C、C++ 程序可以使用，因为 C++ 兼容 C</td>
+<td>C、C++ 程序都可以使用，因为 C++ 兼容 C</td>
 </tr>
 <tr>
 <td>C++ 新式风格</td>
 <td>没有扩展名</td>
 <td>iostream</td>
-<td>C++ 程序可以使用，使用 namespace xxx</td>
+<td>C++ 程序可以使用，可以使用命名空间特性 namespace xxx</td>
 </tr>
 <tr>
 <td>转换后的 C</td>
-<td>加上前缀 c ，没有扩展名</td>
+<td>加上前缀 c，没有扩展名</td>
 <td>cmath</td>
 <td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
 </tr>
 </tbody></table>
-<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，为了区分不同封装中相同名称的函数。使用情况如下。</p>
-<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该空间中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
-<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用名称空间对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用名称空间 <code>std::endl</code>。</p>
-<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用名称空间中对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
+<h1 id="命名空间-namespace"><a href="#命名空间-namespace" class="headerlink" title="命名空间 namespace"></a>命名空间 namespace</h1><p>命名空间支持是一项 C++ 特性，命名空间提供了一种在大项目中避免名字冲突的方法。<br>在命名空间块内声明的符号被放入一个具名的作用域中，避免这些符号被误认为其他作用域中的同名符号。<br>多个命名空间块的名字可以相同。这些块中的所有声明在该具名作用域声明。</p>
+<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该命名空间，后续使用该域中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
+<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含命名空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用域对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用域对象 <code>std::endl</code>。</p>
+<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用域对象或方法时，需要引用命名空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
 <h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
 <li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
 </li>
