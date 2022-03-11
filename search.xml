@@ -742,7 +742,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
   <entry>
     <title>C++ 学习之五、C++ 运算符</title>
     <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算。</p>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算符。</p>
 <span id="more"></span>
 
 <h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除和求模运算。</p>
@@ -753,7 +753,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code>。</li>
 <li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1。</li>
 </ul>
-<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++x</code>，后缀版本位于操作数后面，如 <code>x++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
+<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++a</code>，后缀版本位于操作数后面，如 <code>a++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
 <h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; ++a;    // 先将 a 值加 1，然后使用新的值来计算表达式，这里打印值为 6</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
 
@@ -799,11 +799,11 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 </tr>
 </tbody></table>
 <h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
-<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值</p>
+<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号只是用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>逗号运算符的优先级最低。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符和值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符的值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
 
 <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
 <p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
@@ -856,10 +856,12 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <p>long double &gt; double &gt; float &gt; 整型提升</p>
 <h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
 <h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 int(&#x27;Q&#x27;)，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 (int) &#x27;Q&#x27;，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
 
 <h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
-<p>static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -1244,6 +1246,94 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenWrt 插件选择</title>
+    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>编译 OpenWrt 时一些选项的备份，加粗表示不可取消项。</p>
+<span id="more"></span>
+
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><ul>
+<li>Target System –&gt; x86</li>
+<li>Subtarget –&gt; x64_64</li>
+<li>Target Profile –&gt; Generic x86/64</li>
+<li>Target Image<blockquote>
+<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h1><h2 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h2><ul>
+<li>luci-theme-argonv3</li>
+<li><strong>luci-theme-bootstrap</strong></li>
+<li>luci-theme-netgearv2</li>
+</ul>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ul>
+<li>luci-app-accesscontrol</li>
+<li>luci-app-adbyby-plus</li>
+<li>luci-app-adguardhome<blockquote>
+<p>Include Binary File</p>
+</blockquote>
+</li>
+<li>luci-app-argon-config</li>
+<li>luci-app-autoreboot</li>
+<li>luci-app-baidupcs-web</li>
+<li>luci-app-cifs-mount</li>
+<li>luci-app-ddns</li>
+<li>luci-app-diskman<blockquote>
+<p>Include btrfs-progs<br>Include lsblk</p>
+</blockquote>
+</li>
+<li>luci-app-filetransfer</li>
+<li><strong>luci-app-firewall</strong></li>
+<li>luci-app-frpc</li>
+<li>luci-app-frps</li>
+<li>luci-app-gowebdav</li>
+<li>luci-app-haproxy-tcp</li>
+<li>luci-app-hd-idle</li>
+<li>luci-app-ipsec-vpnd</li>
+<li>luci-app-nlbwmon</li>
+<li>luci-app-openclash</li>
+<li>luci-app-passwall</li>
+<li>luci-app-ramfree</li>
+<li>luci-app-rclone<blockquote>
+<p>Include rclone-webui<br>Include rclone-ng</p>
+</blockquote>
+</li>
+<li>luci-app-samba</li>
+<li>luci-app-softethervpn</li>
+<li>luci-app-ssr-plus</li>
+<li>luci-app-turboacc<blockquote>
+<p>Include Flow Offload<br>Include BBR CCA</p>
+</blockquote>
+</li>
+<li>luci-app-unblockmusic<blockquote>
+<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
+</blockquote>
+</li>
+<li>luci-app-upnp</li>
+<li>luci-app-usb-printer</li>
+<li>luci-app-uugamebooster</li>
+<li>luci-app-vlmcsd</li>
+<li>luci-app-vsftpd</li>
+<li>luci-app-watchcat</li>
+<li>luci-app-webadmin</li>
+<li>luci-app-wol</li>
+<li>luci-app-xlnetacc</li>
+<li>luci-app-zerotier</li>
+</ul>
+<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><h2 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h2><ul>
+<li>ddns-scripts_aliyun</li>
+</ul>
+<h1 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h1><h2 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h2><ul>
+<li>cfdisk</li>
+</ul>
+]]></content>
+      <categories>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
