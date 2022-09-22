@@ -1183,6 +1183,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 </blockquote>
 </li>
 <li>luci-app-samba</li>
+<li>luci-app-smartdns</li>
 <li>luci-app-softethervpn</li>
 <li>luci-app-ssr-plus</li>
 <li>luci-app-ttyd</li>
@@ -1197,7 +1198,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <li>luci-app-upnp</li>
 <li>luci-app-usb-printer</li>
 <li>luci-app-uugamebooster</li>
-<li>luci-app-v2ray-server</li>
+<li><del>luci-app-v2ray-server</del></li>
 <li>luci-app-vlmcsd</li>
 <li>luci-app-vsftpd</li>
 <li>luci-app-watchcat</li>
@@ -1206,7 +1207,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <li>luci-app-xlnetacc</li>
 <li>luci-app-zerotier</li>
 </ul>
-<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra</p>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
 <h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
 <li>ddns-scripts_aliyun</li>
 <li>v2ray-geoip</li>
@@ -1227,6 +1228,8 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
 <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
 <p><code>$ make -j1 V=s</code></p>
+<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
+<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
 <li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
 <li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
@@ -1569,6 +1572,18 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UDS 笔记</title>
+    <url>/2022/09/22/UDS-%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>Unified Diagnostic Service（统一诊断服务），简称 <strong>UDS</strong></p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>UDS</tag>
       </tags>
   </entry>
 </search>
