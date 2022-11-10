@@ -873,68 +873,6 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
-    <title>什么是 ASPICE</title>
-    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
-<span id="more"></span>
-
-<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
-<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
-<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
-<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
-<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
-<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
-<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
-<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
-<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
-<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
-<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
-<blockquote>
-<ol>
-<li>过程实施指标 – 只适用于 L1<blockquote>
-<ol>
-<li>基本实践（BP）</li>
-<li>工作产品（WP）</li>
-</ol>
-</blockquote>
-</li>
-<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
-<ol>
-<li>通用实践（GP）</li>
-<li>通用资源（GR）</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<p>评估指标与过程能力的关系如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
-<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
-<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Automotive</category>
-      </categories>
-      <tags>
-        <tag>ASPICE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ 学习之六、复合类型之数组</title>
     <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>C++ 复合类型之数组笔记。</p>
@@ -1011,6 +949,76 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 <p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
 <h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
+    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
+<span id="more"></span>
+
+<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
+<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
+<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
+<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
+<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
+
+<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
+<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
+<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
+</li>
+<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
+<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
+
+<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
+</li>
+</ul>
+<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
+<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
+<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
+<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
+<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
+<p>最后，可以创建多个值相同的枚举量：</p>
+<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
+<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
+<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
+<ul>
+<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
+<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
+</ul>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1121,256 +1129,65 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
-    <title>OpenWrt 编译过程</title>
-    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
 <span id="more"></span>
 
-<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
-<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
-
-<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
-<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
-<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
-
-<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
-<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
-<li>Target System –&gt; x86</li>
-<li>Subtarget –&gt; x64_64</li>
-<li>Target Profile –&gt; Generic x86/64</li>
-<li>Target Image<blockquote>
-<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
+<blockquote>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
 </blockquote>
 </li>
-</ul>
-<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
-<li>luci-theme-argonv3</li>
-<li><strong>luci-theme-bootstrap</strong></li>
-<li>luci-theme-netgearv2</li>
-</ul>
-<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
-<li>luci-app-accesscontrol</li>
-<li>luci-app-adbyby-plus</li>
-<li>luci-app-adguardhome<blockquote>
-<p>Include Binary File</p>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
 </blockquote>
 </li>
-<li>luci-app-argon-config</li>
-<li>luci-app-autoreboot</li>
-<li>luci-app-baidupcs-web</li>
-<li>luci-app-cifs-mount</li>
-<li>luci-app-ddns</li>
-<li>luci-app-diskman<blockquote>
-<p>Include btrfs-progs<br>Include lsblk</p>
+</ol>
 </blockquote>
-</li>
-<li>luci-app-filetransfer</li>
-<li><strong>luci-app-firewall</strong></li>
-<li>luci-app-frpc</li>
-<li>luci-app-frps</li>
-<li>luci-app-gowebdav</li>
-<li>luci-app-haproxy-tcp</li>
-<li>luci-app-hd-idle</li>
-<li>luci-app-ipsec-vpnd</li>
-<li>luci-app-openclash</li>
-<li>luci-app-passwall</li>
-<li>luci-app-ramfree</li>
-<li>luci-app-rclone<blockquote>
-<p>Include rclone-webui<br>Include rclone-ng</p>
-</blockquote>
-</li>
-<li>luci-app-samba</li>
-<li>luci-app-smartdns</li>
-<li>luci-app-softethervpn</li>
-<li>luci-app-ssr-plus</li>
-<li>luci-app-ttyd</li>
-<li>luci-app-turboacc<blockquote>
-<p>Include Flow Offload<br>Include BBR CCA</p>
-</blockquote>
-</li>
-<li>luci-app-unblockmusic<blockquote>
-<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
-</blockquote>
-</li>
-<li>luci-app-upnp</li>
-<li>luci-app-usb-printer</li>
-<li>luci-app-uugamebooster</li>
-<li><del>luci-app-v2ray-server</del></li>
-<li>luci-app-vlmcsd</li>
-<li>luci-app-vsftpd</li>
-<li>luci-app-watchcat</li>
-<li>luci-app-webadmin</li>
-<li>luci-app-wol</li>
-<li>luci-app-xlnetacc</li>
-<li>luci-app-zerotier</li>
-</ul>
-<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
-<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
-<li>ddns-scripts_aliyun</li>
-<li>v2ray-geoip</li>
-<li>v2ray-geosite</li>
-</ul>
-<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
-<li>cfdisk</li>
-</ul>
-<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
-<li>autosamba</li>
-<li>ipv6helper</li>
-</ul>
-<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
-<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
-<p><code>$ make -j1 V=s</code></p>
-<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
-<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
-<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
-<p><code>$ make -j1 V=s</code></p>
-<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
-<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
-<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
-<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>OpenWrt</category>
+        <category>Automotive</category>
       </categories>
       <tags>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之十、C++ 输入总结</title>
-    <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
-<span id="more"></span>
-
-<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
-<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
-<p>例如有如下示例输入行：</p>
-<p><strong>38.5 19.2</strong></p>
-<h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
-<p>输入行的第一个字符也即字符 3 被赋值给 <code>ch</code>。</p>
-<h2 id="输入类型为-int"><a href="#输入类型为-int" class="headerlink" title="输入类型为 int"></a>输入类型为 int</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br></pre></td></tr></table></figure>
-
-<p><code>cin</code> 将不断读取，直到遇到非数字字符。注意 <code>cin</code> 都是以字符读取，它将读取 3 和 8，这样句点将成为输入队列中的下一个字符。<code>cin</code> 通过计算发现，这两个字符对应的数值为 38，因此将 38 的二进制编码复制到变量 n 中。</p>
-<h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
-
-<p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
-<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
-
-<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
-<h1 id="cin-get-用法"><a href="#cin-get-用法" class="headerlink" title="cin.get() 用法"></a>cin.get() 用法</h1><p>该函数有多种重载形式，分为四种格式：无参，一参数，二参数，三个参数。常用的函数原型如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span>&amp; var)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>其中 streamsize 在 VC++ 中被定义为 <code>long long</code> 类型。</p>
-<h2 id="cin-get-读取一个字符"><a href="#cin-get-读取一个字符" class="headerlink" title="cin.get() 读取一个字符"></a>cin.get() 读取一个字符</h2><p>读取一个字符，可以使用 cin.get() 或者 cin.get(var)，示例如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a, b;</span><br><span class="line">    a = cin.<span class="built_in">get</span>();</span><br><span class="line">    cin.<span class="built_in">get</span>(b);</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>cin.get()</code> 返回值是 <code>int</code> 类型，成功则返回读取字符的 ASCII 码值。<code>cin.get(char var)</code> 成功返回的是 <code>cin</code> 对象。</p>
-<h2 id="cin-get-读取一行"><a href="#cin-get-读取一行" class="headerlink" title="cin.get() 读取一行"></a>cin.get() 读取一行</h2><p>读取一行可以使用以下函数：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">size_t</span> n, streamsize n)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>二者的区别是前者默认以换行符结束，后者可指定行结束符。<code>n</code> 表示目标空间的大小。</p>
-<p>示例如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="keyword">char</span> array[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">get</span>(array, <span class="number">20</span>);</span><br><span class="line">    cin.<span class="built_in">get</span>(a);</span><br><span class="line">    cout &lt;&lt; array &lt;&lt; &quot; &quot; &lt;&lt; <span class="keyword">int</span>(a) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输入：123456789[回车]，输出如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">123456789 10</span><br></pre></td></tr></table></figure>
-
-<p><code>cin.get(array, 20);</code>  读取一行，遇到换行时结束读取，但没有对换行符处理，接下来 <code>cin.get(a)</code> 将队列中的换行符读入变量 a 中，输出换行符的 ASCII 码值 10。</p>
-<p>cin.get(str, size) 读取一行时，只能将字符串读入 C 风格的字符串中，即 char*，但是 cin.getline() 函数可以将字符串读入 C++ 风格的字符串 string 中，所以建议使用 cin.getline() 读取行。</p>
-<h1 id="cin-getline-读取一行"><a href="#cin-getline-读取一行" class="headerlink" title="cin.getline() 读取一行"></a>cin.getline() 读取一行</h1><p>函数作用：从标准输入设备键盘读取一串字符串，并以指定的结束符结束。函数原型有两个：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count)</span></span>;    <span class="comment">// 默认以换行符结束</span></span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>使用示例：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> array[ArSize] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">getline</span>(array, ArSize);</span><br><span class="line">    <span class="comment">// cin.getline(array, ArSize, &#x27;\n&#x27;);    // 使用此语法指定结束符</span></span><br><span class="line">    cout &lt;&lt; array &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>cin.getline()</code> 与 <code>cin.get()</code> 的区别在于，前者不会将行结束符（如换行符）残留在输入缓冲区中。</p>
-<h1 id="cin-的条件状态"><a href="#cin-的条件状态" class="headerlink" title="cin 的条件状态"></a>cin 的条件状态</h1><p>使用 <code>cin</code> 读取键盘输入时，可能会发生一些错误，<code>cin</code> 将设置条件状态（condition state）。条件状态位有：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">goodbit(0x0): 无错误</span><br><span class="line">eofbit(0x1): 已到达文件尾</span><br><span class="line">failbit(0x2): 非致命的输入/输出错误，可挽回</span><br><span class="line">badbit(0x4): 致命的输入/输出错误，无法挽回</span><br></pre></td></tr></table></figure>
-
-<p>与这些条件状态对应的就是设置、读取和判断条件状态的流对象的成员函数。它们主要有：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">s.eof(): 若流 s 的 eofbit 置位，则返回 true</span><br><span class="line">s.fail()：若流 s 的 failbit 置位，则返回 true</span><br><span class="line">s.bad()：若流 s 的 badbit 置位，则返回 true</span><br><span class="line">s.good()：若流 s 的 goodbit 置位，则返回 true</span><br><span class="line">s.clear(flags)：清空当前状态, 然后把状态设置为 flags，返回 void</span><br><span class="line">s.setstate(flags)：不清空当前状态，设置给定的状态 flags，返回 void</span><br><span class="line">s.rdstate()：返回流 s 的当前条件状态，返回值类型为 ios_base::iostate</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
-    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
-<span id="more"></span>
-
-<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
-<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
-<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
-<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
-
-<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
-<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
-
-<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
-<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
-<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
-</li>
-<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
-<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
-
-<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
-</li>
-</ul>
-<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
-<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
-<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
-<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
-<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
-<p>最后，可以创建多个值相同的枚举量：</p>
-<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
-<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
-<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
-<ul>
-<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
-<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
+        <tag>ASPICE</tag>
       </tags>
   </entry>
   <entry>
@@ -1575,15 +1392,198 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
       </tags>
   </entry>
   <entry>
+    <title>C++ 学习之十、C++ 输入总结</title>
+    <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
+<span id="more"></span>
+
+<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
+<p>例如有如下示例输入行：</p>
+<p><strong>38.5 19.2</strong></p>
+<h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
+<p>输入行的第一个字符也即字符 3 被赋值给 <code>ch</code>。</p>
+<h2 id="输入类型为-int"><a href="#输入类型为-int" class="headerlink" title="输入类型为 int"></a>输入类型为 int</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到非数字字符。注意 <code>cin</code> 都是以字符读取，它将读取 3 和 8，这样句点将成为输入队列中的下一个字符。<code>cin</code> 通过计算发现，这两个字符对应的数值为 38，因此将 38 的二进制编码复制到变量 n 中。</p>
+<h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
+
+<p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
+<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
+<h1 id="cin-get-用法"><a href="#cin-get-用法" class="headerlink" title="cin.get() 用法"></a>cin.get() 用法</h1><p>该函数有多种重载形式，分为四种格式：无参，一参数，二参数，三个参数。常用的函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span>&amp; var)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中 streamsize 在 VC++ 中被定义为 <code>long long</code> 类型。</p>
+<h2 id="cin-get-读取一个字符"><a href="#cin-get-读取一个字符" class="headerlink" title="cin.get() 读取一个字符"></a>cin.get() 读取一个字符</h2><p>读取一个字符，可以使用 cin.get() 或者 cin.get(var)，示例如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a, b;</span><br><span class="line">    a = cin.<span class="built_in">get</span>();</span><br><span class="line">    cin.<span class="built_in">get</span>(b);</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>cin.get()</code> 返回值是 <code>int</code> 类型，成功则返回读取字符的 ASCII 码值。<code>cin.get(char var)</code> 成功返回的是 <code>cin</code> 对象。</p>
+<h2 id="cin-get-读取一行"><a href="#cin-get-读取一行" class="headerlink" title="cin.get() 读取一行"></a>cin.get() 读取一行</h2><p>读取一行可以使用以下函数：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">size_t</span> n, streamsize n)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>二者的区别是前者默认以换行符结束，后者可指定行结束符。<code>n</code> 表示目标空间的大小。</p>
+<p>示例如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="keyword">char</span> array[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">get</span>(array, <span class="number">20</span>);</span><br><span class="line">    cin.<span class="built_in">get</span>(a);</span><br><span class="line">    cout &lt;&lt; array &lt;&lt; &quot; &quot; &lt;&lt; <span class="keyword">int</span>(a) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输入：123456789[回车]，输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">123456789 10</span><br></pre></td></tr></table></figure>
+
+<p><code>cin.get(array, 20);</code>  读取一行，遇到换行时结束读取，但没有对换行符处理，接下来 <code>cin.get(a)</code> 将队列中的换行符读入变量 a 中，输出换行符的 ASCII 码值 10。</p>
+<p>cin.get(str, size) 读取一行时，只能将字符串读入 C 风格的字符串中，即 char*，但是 cin.getline() 函数可以将字符串读入 C++ 风格的字符串 string 中，所以建议使用 cin.getline() 读取行。</p>
+<h1 id="cin-getline-读取一行"><a href="#cin-getline-读取一行" class="headerlink" title="cin.getline() 读取一行"></a>cin.getline() 读取一行</h1><p>函数作用：从标准输入设备键盘读取一串字符串，并以指定的结束符结束。函数原型有两个：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count)</span></span>;    <span class="comment">// 默认以换行符结束</span></span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用示例：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> array[ArSize] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">getline</span>(array, ArSize);</span><br><span class="line">    <span class="comment">// cin.getline(array, ArSize, &#x27;\n&#x27;);    // 使用此语法指定结束符</span></span><br><span class="line">    cout &lt;&lt; array &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>cin.getline()</code> 与 <code>cin.get()</code> 的区别在于，前者不会将行结束符（如换行符）残留在输入缓冲区中。</p>
+<h1 id="cin-的条件状态"><a href="#cin-的条件状态" class="headerlink" title="cin 的条件状态"></a>cin 的条件状态</h1><p>使用 <code>cin</code> 读取键盘输入时，可能会发生一些错误，<code>cin</code> 将设置条件状态（condition state）。条件状态位有：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">goodbit(0x0): 无错误</span><br><span class="line">eofbit(0x1): 已到达文件尾</span><br><span class="line">failbit(0x2): 非致命的输入/输出错误，可挽回</span><br><span class="line">badbit(0x4): 致命的输入/输出错误，无法挽回</span><br></pre></td></tr></table></figure>
+
+<p>与这些条件状态对应的就是设置、读取和判断条件状态的流对象的成员函数。它们主要有：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">s.eof(): 若流 s 的 eofbit 置位，则返回 true</span><br><span class="line">s.fail()：若流 s 的 failbit 置位，则返回 true</span><br><span class="line">s.bad()：若流 s 的 badbit 置位，则返回 true</span><br><span class="line">s.good()：若流 s 的 goodbit 置位，则返回 true</span><br><span class="line">s.clear(flags)：清空当前状态, 然后把状态设置为 flags，返回 void</span><br><span class="line">s.setstate(flags)：不清空当前状态，设置给定的状态 flags，返回 void</span><br><span class="line">s.rdstate()：返回流 s 的当前条件状态，返回值类型为 ios_base::iostate</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UDS 笔记</title>
     <url>/2022/09/22/UDS-%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>Unified Diagnostic Service（统一诊断服务），简称 <strong>UDS</strong></p>
+    <content><![CDATA[<p>Unified Diagnostic Service（统一诊断服务），简称 <strong>UDS</strong>，是在汽车电子 ECU 环境中的一种诊断通信协议。在 <strong>ISO 14229</strong> 中规定，它是从 <strong>ISO 14230-3(KWP2000)</strong> 和 <strong>ISO 15765-3</strong> 协议衍生也来的。</p>
 <span id="more"></span>]]></content>
       <categories>
         <category>Automotive</category>
       </categories>
       <tags>
         <tag>UDS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenWrt 编译过程</title>
+    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
+<span id="more"></span>
+
+<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
+<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
+
+<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
+<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
+<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
+
+<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
+<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
+<li>Target System –&gt; x86</li>
+<li>Subtarget –&gt; x64_64</li>
+<li>Target Profile –&gt; Generic x86/64</li>
+<li>Target Image<blockquote>
+<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
+<li>luci-theme-argonv3</li>
+<li><strong>luci-theme-bootstrap</strong></li>
+<li>luci-theme-netgearv2</li>
+</ul>
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
+<li>luci-app-accesscontrol</li>
+<li>luci-app-adbyby-plus</li>
+<li>luci-app-adguardhome<blockquote>
+<p>Include Binary File</p>
+</blockquote>
+</li>
+<li>luci-app-argon-config</li>
+<li>luci-app-autoreboot</li>
+<li>luci-app-baidupcs-web</li>
+<li>luci-app-cifs-mount</li>
+<li>luci-app-ddns</li>
+<li>luci-app-diskman<blockquote>
+<p>Include btrfs-progs<br>Include lsblk</p>
+</blockquote>
+</li>
+<li>luci-app-filetransfer</li>
+<li><strong>luci-app-firewall</strong></li>
+<li>luci-app-frpc</li>
+<li>luci-app-frps</li>
+<li>luci-app-gowebdav</li>
+<li>luci-app-haproxy-tcp</li>
+<li>luci-app-hd-idle</li>
+<li>luci-app-ipsec-vpnd</li>
+<li>luci-app-openclash</li>
+<li>luci-app-passwall</li>
+<li>luci-app-ramfree</li>
+<li>luci-app-rclone<blockquote>
+<p>Include rclone-webui<br>Include rclone-ng</p>
+</blockquote>
+</li>
+<li>luci-app-samba</li>
+<li>luci-app-smartdns</li>
+<li>luci-app-softethervpn</li>
+<li>luci-app-ssr-plus</li>
+<li>luci-app-ttyd</li>
+<li>luci-app-turboacc<blockquote>
+<p>Include Flow Offload<br>Include BBR CCA</p>
+</blockquote>
+</li>
+<li>luci-app-unblockmusic<blockquote>
+<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
+</blockquote>
+</li>
+<li>luci-app-upnp</li>
+<li>luci-app-usb-printer</li>
+<li>luci-app-uugamebooster</li>
+<li><del>luci-app-v2ray-server</del></li>
+<li>luci-app-vlmcsd</li>
+<li>luci-app-vsftpd</li>
+<li>luci-app-watchcat</li>
+<li>luci-app-webadmin</li>
+<li>luci-app-wol</li>
+<li>luci-app-xlnetacc</li>
+<li>luci-app-zerotier</li>
+</ul>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
+<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
+<li>ddns-scripts_aliyun</li>
+<li>v2ray-geoip</li>
+<li>v2ray-geosite</li>
+</ul>
+<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
+<li>cfdisk</li>
+</ul>
+<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
+<li>autosamba</li>
+<li>ipv6helper</li>
+</ul>
+<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
+<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
+<p><code>$ make -j1 V=s</code></p>
+<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
+<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
+<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
+<p><code>$ make -j1 V=s</code></p>
+<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
+<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
+<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
+<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
 </search>
