@@ -23,30 +23,31 @@
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;gitalk&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:{&quot;gitalk&quot;:{&quot;order&quot;:-2},&quot;disqus&quot;:{&quot;text&quot;:&quot;Load Disqus&quot;,&quot;order&quot;:-1}},&quot;activeClass&quot;:&quot;gitalk&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
 <meta name="description" content="Git 常用的一些命令汇总，及相关用法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git常用命令">
+<meta property="og:title" content="Git 常用命令">
 <meta property="og:url" content="https://zfh18.github.io/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="未闻驿站">
 <meta property="og:description" content="Git 常用的一些命令汇总，及相关用法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_Checkins_Over_Time.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%91%A8%E6%9C%9F.png">
 <meta property="article:published_time" content="2021-05-17T11:58:53.000Z">
-<meta property="article:modified_time" content="2021-08-25T13:05:57.360Z">
+<meta property="article:modified_time" content="2022-11-13T13:58:29.863Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="版本控制">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_Checkins_Over_Time.png">
 
 
 <link rel="canonical" href="https://zfh18.github.io/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;05&#x2F;17&#x2F;Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;17&#x2F;Git常用命令&#x2F;&quot;,&quot;title&quot;:&quot;Git常用命令&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2021&#x2F;05&#x2F;17&#x2F;Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;17&#x2F;Git常用命令&#x2F;&quot;,&quot;title&quot;:&quot;Git 常用命令&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>Git常用命令 | 未闻驿站</title><script src="/js/config.js"></script>
+<title>Git 常用命令 | 未闻驿站</title><script src="/js/config.js"></script>
   
 
 
@@ -152,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFGit"><span class="nav-number">1.</span> <span class="nav-text">什么是Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">Git 处理数据特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E6%96%87%E4%BB%B6%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">1.2.</span> <span class="nav-text">Git 文件工作状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%AE%E5%8A%A9"><span class="nav-number">2.</span> <span class="nav-text">配置及帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">初次运行 Git 前的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9"><span class="nav-number">2.2.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text">Git 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Git-%E4%BB%93%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">获取 Git 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="nav-number">3.2.</span> <span class="nav-text">查看当前项目文件状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%82%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">暂存文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">.gitignore 忽略文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="nav-number">3.5.</span> <span class="nav-text">提交更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-number">3.6.</span> <span class="nav-text">移除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="nav-number">3.7.</span> <span class="nav-text">移动文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="nav-number">3.8.</span> <span class="nav-text">查看提交历史</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFGit"><span class="nav-number">1.</span> <span class="nav-text">什么是Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">Git 处理数据特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E6%96%87%E4%BB%B6%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">1.2.</span> <span class="nav-text">Git 文件工作状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%AE%E5%8A%A9"><span class="nav-number">2.</span> <span class="nav-text">配置及帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">初次运行 Git 前的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9"><span class="nav-number">2.2.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text">Git 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Git-%E4%BB%93%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">获取 Git 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="nav-number">3.2.</span> <span class="nav-text">查看当前项目文件状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%82%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">暂存文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">.gitignore 忽略文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E6%9A%82%E5%AD%98%E5%92%8C%E6%9C%AA%E6%9A%82%E5%AD%98%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-number">3.5.</span> <span class="nav-text">查看已暂存和未暂存的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="nav-number">3.6.</span> <span class="nav-text">提交更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-number">3.7.</span> <span class="nav-text">移除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="nav-number">3.8.</span> <span class="nav-text">移动文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="nav-number">3.9.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C"><span class="nav-number">3.10.</span> <span class="nav-text">撤消操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E6%B6%88%E6%8F%90%E4%BA%A4-%E4%BF%AE%E8%A1%A5%E6%8F%90%E4%BA%A4"><span class="nav-number">3.10.1.</span> <span class="nav-text">撤消提交 - 修补提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E6%B6%88%E6%9A%82%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">3.10.2.</span> <span class="nav-text">撤消暂存的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E6%B6%88%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-number">3.10.3.</span> <span class="nav-text">撤消对文件的修改</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,7 +246,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Git常用命令
+          Git 常用命令
         </h1>
 
         <div class="post-meta-container">
@@ -263,7 +264,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-25 21:05:57" itemprop="dateModified" datetime="2021-08-25T21:05:57+08:00">2021-08-25</time>
+        <time title="修改时间：2022-11-13 21:58:29" itemprop="dateModified" datetime="2022-11-13T21:58:29+08:00">2022-11-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,14 +291,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -312,55 +313,58 @@
 <span id="more"></span>
 
 <h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有<strong>提交过</strong>的操作都是可追溯的。</p>
-<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://p3.douyinpic.com/obj/toutiao.cg.fiji/c2qsklnqq1srh5grop10.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_Checkins_Over_Time.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<p>Git 中所有发数据在存储前都计算检验和，然后以校验和来引用。Git 用以计算检验和的机制叫做 SHA-1 散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。SHA-1 哈希看起来是这样：</p>
+<pre><code>24b9da6552252987aa493b52f8696cd6d3b00373
+</code></pre>
+<p>Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。实际上，Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
 <h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
 <blockquote>
-<p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
-<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
-<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据，一般为 <code>.git</code> 目录。</p>
+<p>工作区是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据，一般为 <code>.git</code> 目录。</p>
 </blockquote>
-<p>Git 项目下文件大的方面分两个状态：未跟踪和已跟踪。</p>
+<p>Git 项目下文件大的方面分两个状态：<strong>未跟踪</strong>和<strong>已跟踪</strong>。</p>
 <blockquote>
 <p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
 <p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
 <blockquote>
 <p>已修改，指文件被修改，但修改之后还没有暂存</p>
-<p>已暂存，指被操作后的文件已被标记，将纳入下次提交</p>
-<p>已提交，指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+<p>已暂存，指被操作后的文件已被标记，放入暂存区，将纳入下次提交</p>
+<p>已提交（也称为<strong>未修改</strong>状态），指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
 </blockquote>
 </blockquote>
-<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><pre><code>$ git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置
-$ git config --global // 针对当前用户的配置，如 git config --global user.name &quot;Tom Zhou&quot; 配置用户名
-$ git config --local  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令，git config 默认不加任何参数时为此命令
-$ git config &lt;key&gt;    // 查看某项配置，如 git config core.editor
-$ git config --list   // 查看所有配置
-$ git config --list --show-origin // 查看所有配置以及它们所在的文件
-$ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的文件，参数的位置不可调换，否则将变为配置&lt;key&gt;
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%91%A8%E6%9C%9F.png" alt="文件的状态变化周期"></p>
+<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置</span><br><span class="line">$ git config --global // 针对当前用户的配置，如 git config --global user.name <span class="string">&quot;zfh18&quot;</span> 配置用户名</span><br><span class="line">$ git config --<span class="built_in">local</span>  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令，git config 默认不加任何参数时为此命令</span><br><span class="line">$ git config &lt;key&gt;    // 查看某项配置，如 git config core.editor</span><br><span class="line">$ git config --list   // 查看所有配置</span><br><span class="line">$ git config --list --show-origin // 查看所有配置以及它们所在的文件</span><br><span class="line">$ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的文件，参数的位置不可调换，否则将变为配置 &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><ul>
 <li><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
-<pre><code>  $ git help &lt;verb&gt;     // 如 git help config
-  $ git &lt;verb&gt; --help   // 如 git add -h
-  $ man git-&lt;verb&gt;
-</code></pre>
-</li>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">help</span> &lt;verb&gt;     // 如 git <span class="built_in">help</span> config</span><br><span class="line">$ git &lt;verb&gt; --<span class="built_in">help</span>   // 如 git add -h</span><br><span class="line">$ man git-&lt;verb&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>查看网页指导，本编基于 <a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2" title="Git - Book">git 教程</a></p>
 </li>
 </ul>
 <h1 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h1><h2 id="获取-Git-仓库"><a href="#获取-Git-仓库" class="headerlink" title="获取 Git 仓库"></a>获取 Git 仓库</h2><ul>
-<li>本地初始化一个仓库，开始使用 Git 管理。<code>$ git init</code></li>
-<li>克隆远程仓库。<code>$ git clone https://github.com/libgit2/libgit2</code> 会在当前目录下创建文件夹“libgit2”并从远程取到所有项目文件开始管理，如果需更改文件夹名，后面接上该名称就可以了，如 <code>$ git clone https://github.com/libgit2/libgit2 mygitfloder</code></li>
+<li><p>本地初始化一个仓库，开始使用 Git 管理。</p>
+<p>  <code>$ git init</code></p>
+</li>
+<li><p>克隆远程仓库。</p>
+<p>  <code>$ git clone https://github.com/libgit2/libgit2</code></p>
+<p>  这会在当前目录下创建一个名为 “libgit2” 的目录，并在这个目录下初始化一个 .git 文件夹， 从远程仓库拉取下所有数据放入 .git 文件夹，然后从中读取最新版本的文件的拷贝。如果你进入到这个新建的 libgit2 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
+<p>  如果你想在克隆远程仓库的时候，自定义本地仓库的名字，你可以通过额外的参数指定新的目录名： </p>
+<p>  <code>$ git clone https://github.com/libgit2/libgit2 mygitfloder</code></p>
+</li>
 </ul>
 <h2 id="查看当前项目文件状态"><a href="#查看当前项目文件状态" class="headerlink" title="查看当前项目文件状态"></a>查看当前项目文件状态</h2><p>可以用 <code>git status</code> 命令查看哪些文件处于什么状态。可能的输出如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working</span><br><span class="line">directory)</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
 
 <p>如果觉得输出内容比较繁琐，可以带上 -s 或 –short 参数打印精简信息，输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README    // 在工作区已修改但尚未暂存</span><br><span class="line">MM Rakefile // 暂存修改后的文件后，又在工作区作了修改</span><br><span class="line">A lib/git.rb    // 新添加到暂存区中的文件前面有 A 标记 </span><br><span class="line">M lib/simplegit.rb  // 文件的修改已暂存</span><br><span class="line">?? LICENSE.txt  // 新添加的未跟踪文件前面有 ?? 标记</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README    // 在工作区已修改但尚未暂存</span><br><span class="line">MM Rakefile // 暂存修改的文件后，又在工作区作了修改</span><br><span class="line">A lib/git.rb    // 新添加到暂存区中的文件前面有 A 标记 </span><br><span class="line">M lib/simplegit.rb  // 文件的修改已暂存</span><br><span class="line">?? LICENSE.txt  // 新添加的未跟踪文件前面有 ?? 标记</span><br></pre></td></tr></table></figure>
 
-<h2 id="暂存文件"><a href="#暂存文件" class="headerlink" title="暂存文件"></a>暂存文件</h2><p>可以使用 <code>git add</code> 精确地将文件放入暂存区，以便下次提交。如：</p>
+<h2 id="暂存文件"><a href="#暂存文件" class="headerlink" title="暂存文件"></a>暂存文件</h2><p>可以使用 <code>git add</code> 精确地将内容添加到下一次提交中。如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git add CONTRIBUTING.md</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
 
-<h2 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title=".gitignore 忽略文件"></a>.gitignore 忽略文件</h2><p>一些文件通常我们不想 Git 来管理，也不想每次 <code>git status</code> 时出现提示未跟踪该文件，譬如说一些 log 文件，或者代码编译过程中的中间文件，没必要通过版本控制来管控。Git 提供 .gitignore 文件来忽略所需的文件，该文件的格式规范如下：</p>
+<p><strong>Tips:</strong> <code>git add</code> 只暂存了运行该命令时的版本，之后又作了修订的文件，需要重新运行 <code>git add</code> 把最新版本重新暂存起来。</p>
+<h2 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title=".gitignore 忽略文件"></a>.gitignore 忽略文件</h2><p>一些文件通常我们不想 Git 来管理，也不想每次 <code>git status</code> 时出现提示未跟踪该文件，譬如说一些 log 文件，或者代码编译过程中的中间文件，没必要通过版本控制来管控。Git 提供 .gitignore 文件来忽略这些文件，该文件的格式规范如下：</p>
 <blockquote>
 <ul>
 <li>所有空行或者以 # 开关的行都会被 Git 忽略。</li>
@@ -372,13 +376,24 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 忽略所有的 .a 文件</span><br><span class="line">*.a</span><br><span class="line"># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span><br><span class="line">!lib.a</span><br><span class="line"># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"># 忽略任何目录下名为 build 的文件夹</span><br><span class="line">build/</span><br><span class="line"># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
 
+<p><strong>Tips:</strong> 在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
+<h2 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h2><p><code>git diff</code> 命令可以通过显示文件补丁的方式告诉我们，哪些更新尚未暂存（当前工作区与暂存区对比），哪些更新已暂存并准备好下次提交（当前暂存区与上一次提交对比）。</p>
+<p>要查看尚未暂存的文件更新了哪些部分，不加参数直接输入 <code>git diff</code>，此命令比较的是工作目录中当前文件和暂存区域快照之间的差异。也就是修改之后还没有暂存起来的变化内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git diff</span><br><span class="line">diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md</span><br><span class="line">index 8ebb991..643e24f 100644</span><br><span class="line">--- a/CONTRIBUTING.md</span><br><span class="line">+++ b/CONTRIBUTING.md</span><br><span class="line">@@ -65,7 +65,8 @@ branch directly, things can get messy. Please include a nice description of your changes when you submit your</span><br><span class="line">PR; if we have to read the whole diff to figure out why you&#x27;re contributing in the first place, you&#x27;re less likely to get feedback and have your</span><br><span class="line">change</span><br><span class="line">-merged in.</span><br><span class="line">+merged in. Also, split your changes into comprehensive chunks if your</span><br><span class="line">patch is</span><br><span class="line">+longer than a dozen lines.</span><br><span class="line"></span><br><span class="line"> If you are starting to work on a particular area, feel free to submit a</span><br><span class="line">PR that highlights your work in progress (and note in the PR title that it&#x27;s</span><br></pre></td></tr></table></figure>
+
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 <code>git diff --staged</code> 或 <code>git diff --cached</code> 命令。此命令将比对已暂存文件与最后一次提交的文件差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git diff --staged</span><br><span class="line">diff --git a/README b/README</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..03902a1</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/README</span><br><span class="line">@@ -0,0 +1 @@</span><br><span class="line">+My Project</span><br></pre></td></tr></table></figure>
+
 <h2 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit    // 将打开通过 git config --global -core.editor 设置的编辑器，输入提交信息即可完成提交</span><br><span class="line">$ git commit -m &quot;commit message&quot;    // 如果提交信息只有一行，可以按此方式提交</span><br><span class="line">$ git commit -a -m &quot;commit message&quot;     // 使用此方式可以跳过暂存步骤，直接将所有已跟踪过的文件暂存起来一并提交</span><br></pre></td></tr></table></figure>
 
+<p><strong>Tips:</strong> 打开编辑器输入提交信息，退出编辑器时，Git 会丢弃注释行。</p>
 <h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><p><code>git rm</code> 命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rm &lt;file&gt; // 从工作目录和跟踪清单中删除文件，下次提交后该文件将不存在于工作目录和 Git 管理中，当要删除之前修改过或存放到暂存区的文件，则要加上强制删除选项 -f，以防止误删尚未添加到快照的数据</span><br><span class="line">$ git rm &lt;file&gt; --cached    // 从 Git 仓库中删除，工作目录中依然保留，用于不想使用 Git 来跟踪此数据，执行此命令后，再加入 .gitignore 后将不再跟踪该文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rm &lt;file&gt; // 从工作目录和跟踪清单中删除文件，提交后该文件将不存在于工作目录和 Git 管理中，当要删除之前修改过或存放到暂存区的文件，则要加上强制删除选项 -f，以防止误删尚未添加到快照的数据</span><br><span class="line">$ git rm --cached &lt;file&gt;   // 从 Git 仓库中删除，工作目录中依然保留，用于不想使用 Git 来跟踪此数据，执行此命令后，再加入 .gitignore 后将不再跟踪该文件</span><br></pre></td></tr></table></figure>
 
 <p><code>git rm</code> 命令后面可以列出文件或者目录的名字，也可以使用 <code>glob</code> 模式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rm log/\*.log // 删除 log/ 目录下扩展名为 .log 的所有文件</span><br><span class="line">$ git rm \*~    // 删除所有名字以 ~ 结尾的文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 注意使用 <code>git rm &lt;file&gt;</code> 命令时，不管后续是否进行提交，该文件已经在工作区间被删除，如果此时想恢复，只能从 Git 仓库中 checkout 该文件。</p>
 <h2 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h2><p><code>git mv</code> 命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv file_from file_to</span><br></pre></td></tr></table></figure>
 
@@ -387,7 +402,98 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
 
 <p>其实，相当于如下命令集合：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mv README.md README</span><br><span class="line">$ git rm README.md</span><br><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
-<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2>
+
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p><code>git log</code> 会按时间先后顺序列出所有的提交，最近的更新排在最上面。这个命令会列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit ca82a6dff817ec66f44342007202690a93763949</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Mar 17 21:52:11 2008 -0700</span><br><span class="line"></span><br><span class="line">    changed the version number</span><br><span class="line"></span><br><span class="line">commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 16:40:33 2008 -0700</span><br><span class="line"></span><br><span class="line">    removed unnecessary test</span><br><span class="line"></span><br><span class="line">commit a11bef06a3f659402fe7563abf99ad00de2209e6</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 10:31:28 2008 -0700</span><br><span class="line"></span><br><span class="line">    first commit</span><br></pre></td></tr></table></figure>
+
+<p><code>git log</code> 有许多选项可以帮助搜寻你所要找的提交，常用的选项如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-p</td>
+<td align="left">按补丁格式显示每个提交引入的差异</td>
+</tr>
+<tr>
+<td align="left">–stat</td>
+<td align="left">显示每次提交的文件修改统计信息</td>
+</tr>
+<tr>
+<td align="left">–shortstat</td>
+<td align="left">只显示 –stat 中最后的行数修改添加移除统计</td>
+</tr>
+<tr>
+<td align="left">–name-only</td>
+<td align="left">仅在提交信息后显示已修改的文件清单</td>
+</tr>
+<tr>
+<td align="left">–name-status</td>
+<td align="left">显示新增、修改、删除的文件清单</td>
+</tr>
+<tr>
+<td align="left">–abbrev-commit</td>
+<td align="left">仅显示 SHA-1 校验和所有 40 个字符中的前几个字符</td>
+</tr>
+<tr>
+<td align="left">–relative-date</td>
+<td align="left">使用较短的相对时间而不是完整格式显示日期（比如 “2 weeks ago”）</td>
+</tr>
+<tr>
+<td align="left">–graph</td>
+<td align="left">在日志旁边以 ASCII 图形显示分支与合并历史</td>
+</tr>
+<tr>
+<td align="left">–pretty</td>
+<td align="left">使用其他格式显示历史提交信息。可用的选项包括 oneline、short、full、fuller 和 format （用来定义自己的格式）</td>
+</tr>
+<tr>
+<td align="left">–oneline</td>
+<td align="left">–pretty=oneline –abbrev-commit 合并的简写</td>
+</tr>
+<tr>
+<td align="left">-<n></td>
+<td align="left">仅显示最近的 n 条提交</td>
+</tr>
+<tr>
+<td align="left">–since, –after</td>
+<td align="left">仅显示指定时间之后的提交</td>
+</tr>
+<tr>
+<td align="left">–until, –before</td>
+<td align="left">仅显示指定时间之前的提交</td>
+</tr>
+<tr>
+<td align="left">–author</td>
+<td align="left">仅显示作者匹配指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">–committer</td>
+<td align="left">仅显示提交者匹配指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">–grep</td>
+<td align="left">仅显示提交说明中包含指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">仅显示添加或删除内容匹配指定字符串的提交</td>
+</tr>
+</tbody></table>
+<h2 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h2><h3 id="撤消提交-修补提交"><a href="#撤消提交-修补提交" class="headerlink" title="撤消提交 - 修补提交"></a>撤消提交 - 修补提交</h3><p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。这时候可以使用简单的修补提交操作，用一个 <strong>新的提交</strong> 替换旧的提交，从效果上来说，就像旧的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+
+<h3 id="撤消暂存的文件"><a href="#撤消暂存的文件" class="headerlink" title="撤消暂存的文件"></a>撤消暂存的文件</h3><p>如何取消已暂存的文件，<code>git status</code> 命令中已经给了提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   mytest.txt</span><br></pre></td></tr></table></figure>
+
+<p>提示使用 <code>git restore --staged &lt;file&gt;...</code> 来取消暂存。所以，我们可以使用此命令来取消暂存，但取消时并没有任何提示，再次查看状态时可以看到已经取消成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git restore --staged mytest.txt   # 无任何输出提示</span><br><span class="line"></span><br><span class="line">$ git status    # 查看状态可以看到已经取消成功</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">        mytest.txt</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>git reset HEAD &lt;file&gt;...</code> 命令也能达到目的，但是使用 reset 命令比较危险，新版本中推荐使用 <code>git restore</code></p>
+<h3 id="撤消对文件的修改"><a href="#撤消对文件的修改" class="headerlink" title="撤消对文件的修改"></a>撤消对文件的修改</h3>
     </div>
 
     
@@ -404,7 +510,7 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zfh18.github.io/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Git常用命令">https://zfh18.github.io/2021/05/17/Git常用命令/</a>
+      <a href="https://zfh18.github.io/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Git 常用命令">https://zfh18.github.io/2021/05/17/Git常用命令/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -462,13 +568,13 @@ $ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">57k</span>
+    <span title="站点总字数">61k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:35</span>
+    <span title="站点阅读时长">1:41</span>
   </span>
 </div>
 <div class="busuanzi-count">
