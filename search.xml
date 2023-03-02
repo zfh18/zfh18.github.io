@@ -184,12 +184,12 @@ hexo g -d   # 生成静态页面并部署发布
 <span id="more"></span>
 
 <p>示例1：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 用在函数内，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Simpmul.cpp ------ 文件名存储后缀为 .cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> <span class="comment">// C++ 预处理</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span>)</span></span>;  <span class="comment">// 函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">// main 函数，程序入口</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> table = <span class="number">9</span>;</span><br><span class="line">    <span class="built_in">simpMul</span>(table);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">// main() 函数返回值，main() 函数默认返回 0，也可省略此语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 简易乘法表 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">simpMul</span><span class="params">(<span class="keyword">int</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;    <span class="comment">// 名称空间，用在函数内，只能在这个函数中使用</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= table; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;*&quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot;=&quot;</span> &lt;&lt; i*j &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束，也可以位于单独的一行上。</p>
 <p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
 <h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
-<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 <code>h</code>，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 <code>h</code> （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 <code>h</code> （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 <code>c</code> （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 <code>h</code> 不只是形式上的变化，没有 <code>h</code> 的头文件也可以包含命名空间。下表对头文件的命名约定进行了总结。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 <code>h</code>，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 <code>h</code> （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 <code>h</code> （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 <code>c</code> （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 <code>h</code> 不只是形式上的变化，没有 <code>h</code> 的头文件也可以包含名称空间。下表对头文件的命名约定进行了总结。</p>
 <table>
 <thead>
 <tr>
@@ -215,7 +215,7 @@ hexo g -d   # 生成静态页面并部署发布
 <td>C++ 新式风格</td>
 <td>没有扩展名</td>
 <td>iostream</td>
-<td>C++ 程序可以使用，可以使用命名空间特性 namespace xxx</td>
+<td>C++ 程序可以使用，可以使用名称空间特性 namespace xxx</td>
 </tr>
 <tr>
 <td>转换后的 C</td>
@@ -224,10 +224,10 @@ hexo g -d   # 生成静态页面并部署发布
 <td>C++ 程序可以使用，可以使用不是 C 的特性，如 namespace xxx</td>
 </tr>
 </tbody></table>
-<h1 id="命名空间-namespace"><a href="#命名空间-namespace" class="headerlink" title="命名空间 namespace"></a>命名空间 namespace</h1><p>命名空间支持是一项 C++ 特性，命名空间提供了一种在大项目中避免名字冲突的方法。<br>在命名空间块内声明的符号被放入一个具名的作用域中，避免这些符号被误认为其他作用域中的同名符号。<br>多个命名空间块的名字可以相同。这些块中的所有声明在该具名作用域声明。</p>
-<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该命名空间，后续使用该域中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
-<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含命名空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用域对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用域对象 <code>std::endl</code>。</p>
-<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用域对象或方法时，需要引用命名空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
+<h1 id="名称空间-namespace"><a href="#名称空间-namespace" class="headerlink" title="名称空间 namespace"></a>名称空间 namespace</h1><p>名称空间支持是一项 C++ 特性，名称空间提供了一种在大项目中避免名字冲突的方法。<br>在名称空间块内声明的符号被放入一个具名的作用域中，避免这些符号被误认为其他作用域中的同名符号。<br>多个名称空间块的名字可以相同。这些块中的所有声明在该具名作用域声明。</p>
+<h2 id="使用-using-namespace-xxx"><a href="#使用-using-namespace-xxx" class="headerlink" title="使用 using namespace xxx"></a>使用 using namespace xxx</h2><p>如使用 <code>using namespace std</code> 编译指令包含该名称空间，后续使用该域中的对象或方法可以直接使用，如 <code>cout</code>，<code>cin</code>，<code>endl</code> 等。</p>
+<h2 id="使用-using-xxx-xx"><a href="#使用-using-xxx-xx" class="headerlink" title="使用 using xxx::xx"></a>使用 using xxx::xx</h2><p>使用 <code>using</code> 指令只包含名称空间中的特定对象或方法，后续可以直接使用这些对象或方法，其它需要引用域对象。<br>如使用 <code>using std::cout</code> ，后面可以直接使用 <code>cout</code>，但是没有使用该指令的，如 <code>endl</code>，就需要引用域对象 <code>std::endl</code>。</p>
+<h2 id="不使用-using-编译指令"><a href="#不使用-using-编译指令" class="headerlink" title="不使用 using 编译指令"></a>不使用 using 编译指令</h2><p>不使用任何 <code>using</code> 指令，在需要使用域对象或方法时，需要引用名称空间。<br>如 <code>std::cout</code>, <code>std::cin</code>, <code>std::endl</code></p>
 <h1 id="C-函数原型与函数定义"><a href="#C-函数原型与函数定义" class="headerlink" title="C++ 函数原型与函数定义"></a>C++ 函数原型与函数定义</h1><ul>
 <li><p>函数原型：用于描述函数接口，描述函数的参数及返回值信息，头文件中的内容就是函数原型，没有具体的函数代码。</p>
 </li>
@@ -239,6 +239,334 @@ hexo g -d   # 生成静态页面并部署发布
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之三、C++基本数据类型</title>
+    <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p>C++ 内置数据类型分两大类：<strong>基本数据类型</strong>和<strong>复合数据类型</strong>。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
+<span id="more"></span>
+
+<h1 id="基本数据类型——整型"><a href="#基本数据类型——整型" class="headerlink" title="基本数据类型——整型"></a>基本数据类型——整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语<strong>宽度</strong>（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
+<p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
+<h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
+<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现了基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit。</p>
+<p>C++ 提供了一种灵活的标准，它确保了最小长度（从 C 语言借鉴而来）：</p>
+<ul>
+<li><code>short</code> 至少 16 位；</li>
+<li><code>int</code> 至少与 <code>short</code> 一样长；</li>
+<li><code>long</code> 至少 32 位，且至少与 <code>int</code> 一样长；</li>
+<li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
+</ul>
+<p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// 默认为 int 类型，int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
+
+<p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span> (<span class="keyword">int</span>) &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="keyword">sizeof</span> n_int &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>limits</code> 头文件通过预编译（#define）方式，提供了一些符号常量用以确定数据类型的取值范围：</p>
+<table>
+<thead>
+<tr>
+<th>符号常量</th>
+<th>表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHAR_BIT</code></td>
+<td><code>char</code> 的位数</td>
+</tr>
+<tr>
+<td><code>CHAR_MAX</code></td>
+<td><code>char</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>CHAR_MIN</code></td>
+<td><code>char</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>SCHAR_MAX</code></td>
+<td><code>signed char</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>SCHAR_MIN</code></td>
+<td><code>signed char</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>UCHAR_MAX</code></td>
+<td><code>unsigned char</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>SHRT_MAX</code></td>
+<td><code>short</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>SHRT_MIN</code></td>
+<td><code>short</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>USHRT_MAX</code></td>
+<td><code>unsigned short</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>INT_MAX</code></td>
+<td><code>int</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>INT_MIN</code></td>
+<td><code>int</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>UINT_MAX</code></td>
+<td><code>unsigned int</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>LONG_MAX</code></td>
+<td><code>long</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>LONG_MIN</code></td>
+<td><code>long</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>ULONG_MAX</code></td>
+<td><code>unsigned long</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>LLONG_MAX</code></td>
+<td><code>long long</code> 的最大值</td>
+</tr>
+<tr>
+<td><code>LLONG_MIN</code></td>
+<td><code>long long</code> 的最小值</td>
+</tr>
+<tr>
+<td><code>ULLONG_MAX</code></td>
+<td><code>unsigned long long</code> 的最大值</td>
+</tr>
+</tbody></table>
+<h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>C++ 提供了如此多的整型，使用时应该怎么去选择呢？</p>
+<ul>
+<li>通常，<code>int</code> 被设置为对目标计算机而言最为“自然”的长度，计算机处理起来效率最高。如果没有其它理由，则应使用 <code>int</code>。</li>
+<li>如果变量表示的值不可能为负，则可以使用无符号类型，这样变量可以表示更大的值。</li>
+<li>如果变量表示的整数值可能大于 16 位整数的最大值，则使用 <code>long</code>。即使系统上 <code>int</code> 为 32 位也应该这样做。这样，将程序移植到 <code>int</code> 为 16 位的系统时，就不会突然无法正常工作。</li>
+<li>如果要存储的值超过 20 亿，可使用 <code>long long</code>。</li>
+<li>由于 <code>short</code> 比 <code>int</code> 小，使用 <code>short</code> 可以节省内存。通常，仅当有大型整型数组时，才有必要使用 <code>short</code>。如果节省内存很重要，则应使用 <code>short</code> 而不是使用 <code>int</code>。</li>
+</ul>
+<h3 id="整型字面值"><a href="#整型字面值" class="headerlink" title="整型字面值"></a>整型字面值</h3><ol>
+<li><p>整型字面值，常用为四种不同的计数方式：</p>
+<ul>
+<li>十进制：第一位为 1~9，如 53</li>
+<li>二进制：所有位都以 0 和 1 来表示，如 0101 等于十进制中 6</li>
+<li>八进制：第一位为 0，第二位为 1~7，如 042 等于十进制中的 34</li>
+<li>十六进制：以 0x 或 0X 开头，如 0x42 等于十进制的 66</li>
+</ul>
+<p> 进制计数只是为了人为的计数方便，在计算机中，数据最终都是以二进制存储。</p>
+<p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十进制 42；</span></span><br></pre></td></tr></table></figure></li>
+<li><p>C++ 如何确定常量的类型</p>
+<p> 如程序是如何确定常量 1000 是存储为 <code>int</code>、<code>long</code> 还是其它类型呢？</p>
+<ol>
+<li>默认存储为 <code>int</code>。</li>
+<li>数值后的后缀。后缀有 L(Long)、U(Unsigned int)、LL(long long) 及组合后缀。</li>
+<li>数值的长度。在 C++ 中，对十进制整数采用的规则与十六进制及八进制的不同。对于不带后缀的十进制整数，使用 <code>int</code>、<code>long</code>、<code>long long</code> 中能够存储该数的最小类型来表示。对于不带后缀的十六进制或八进制，使用下面几种类型中能够存储该数的最小类型来表示：<code>int</code>、<code>unsigned int</code>、<code>long</code>、<code>unsigned long</code>、<code>long long</code> 或 <code>unsigned long long</code>。</li>
+</ol>
+</li>
+</ol>
+<h2 id="另一种整型-——-char-类型"><a href="#另一种整型-——-char-类型" class="headerlink" title="另一种整型 —— char 类型"></a>另一种整型 —— char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。一般占用 8 位。</p>
+<h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。<code>char</code> 可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显式定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显式定义为有符号类型</span></span><br></pre></td></tr></table></figure>
+
+<p><code>char</code> 类型变量初始化使用单引号：<code>char c = &#39;M&#39;</code></p>
+<p>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code></p>
+<p>使用 <code>cin</code> 输入时都是读取的字符，然后强转为其它类型存储。</p>
+<h3 id="char-字面值"><a href="#char-字面值" class="headerlink" title="char 字面值"></a>char 字面值</h3><ul>
+<li>以单引号括起来。如 <code>&#39;M&#39;</code>、<code>&#39;N&#39;</code>、<code>&#39;&#39;</code>、<code>&#39;5&#39;</code></li>
+<li>不能直接通过键盘输入的字符使用转义序列。如<code>&#39;\a&#39;</code>、<code>&#39;\t&#39;</code>、<code>&#39;\n&#39;</code><br>C++ 转义序列的编码</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符名称</th>
+<th>ASCII 符号</th>
+<th>C++ 代码</th>
+<th>十进制 ASCII 编码</th>
+<th>十六进制 ASCII 编码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>换行符</td>
+<td>NL(LF)</td>
+<td>\n</td>
+<td>10</td>
+<td>0xA</td>
+</tr>
+<tr>
+<td>水平制表符</td>
+<td>HT</td>
+<td>\t</td>
+<td>9</td>
+<td>0x9</td>
+</tr>
+<tr>
+<td>垂直制表符</td>
+<td>VT</td>
+<td>\v</td>
+<td>11</td>
+<td>0xB</td>
+</tr>
+<tr>
+<td>退格</td>
+<td>BS</td>
+<td>\b</td>
+<td>8</td>
+<td>0x8</td>
+</tr>
+<tr>
+<td>回车</td>
+<td>CR</td>
+<td>\r</td>
+<td>13</td>
+<td>0xD</td>
+</tr>
+<tr>
+<td>振铃</td>
+<td>BEL</td>
+<td>\a</td>
+<td>7</td>
+<td>0x7</td>
+</tr>
+<tr>
+<td>反斜杠</td>
+<td>\</td>
+<td>\\</td>
+<td>92</td>
+<td>0x5C</td>
+</tr>
+<tr>
+<td>问号</td>
+<td>?</td>
+<td>\?</td>
+<td>63</td>
+<td>0x3F</td>
+</tr>
+<tr>
+<td>单引号</td>
+<td>‘</td>
+<td>\‘</td>
+<td>39</td>
+<td>0x27</td>
+</tr>
+<tr>
+<td>双引号</td>
+<td>“</td>
+<td>\“</td>
+<td>34</td>
+<td>0x22</td>
+</tr>
+</tbody></table>
+<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
+<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
+<h3 id="char-引申-——-通用字符名"><a href="#char-引申-——-通用字符名" class="headerlink" title="char 引申 —— 通用字符名"></a>char 引申 —— 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
+<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（一种正在制定的国际标准，为大量的字符提供数值编码）。</p>
+<p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
+<pre><code>int k\u00F6rper;
+cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
+</code></pre>
+<p><code>ö</code> 的 ISO 10646 码点为 <code>00F6</code>，而 <code>â</code> 的码点 <code>00E2</code> 。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
+<pre><code>Let them eat gâteau.
+</code></pre>
+<p>如果系统不支持 <code>ISO 10646</code>，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
+<h3 id="char-引申-——-wchar-t-宽字符类型"><a href="#char-引申-——-wchar-t-宽字符类型" class="headerlink" title="char 引申 —— wchar_t 宽字符类型"></a>char 引申 —— wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
+<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 - <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
+<pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
+wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
+</code></pre>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，<strong>无符号类型</strong>。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两种字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
+<p><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
+<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 <code>true</code> 或 <code>false</code>，这两个值都可以通过提升转换为 <code>int</code> 类型，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。</p>
+<pre><code>bool is_ready = true;
+</code></pre>
+<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 <code>true</code>，而零被转换为 <code>false</code>。</p>
+<h1 id="基本数据类型-——-浮点型"><a href="#基本数据类型-——-浮点型" class="headerlink" title="基本数据类型 —— 浮点型"></a>基本数据类型 —— 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的数，它们的内部表示方法与整数有天壤之别。</p>
+<p>有效位（significant figure）是指十进制数字中有意义的位（从第一个非零数字开始算起）。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<p><strong>Tips:</strong> 0.00000000035 的有效位数为 2。</p>
+<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
+<h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
+<ul>
+<li><code>float</code> 至少 32 位；</li>
+<li><code>double</code> 至少 48 位，且不少于 <code>float</code>；</li>
+<li><code>long double</code> 至少和 <code>double</code> 一样多；</li>
+<li>以上三种类型的有效位数可以一样多。然而，通常，<code>float</code> 为 32 位，<code>double</code> 为 64 位，<code>long double</code> 为 80、96 或 128 位。</li>
+<li>以上三种类型的指数范围至少是 -37 到 37。</li>
+</ul>
+<p>头文件 <code>cfloat</code> 或 <code>float.h</code> 对系统的限制作了说明（<code>cfloat</code> 是 C 语言的 <code>float.h</code> 文件的 C++ 版本）。下面列出 <code>Borland C++ Builder</code> 的 <code>float.h</code> 文件中一些批注项：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数（针对十进制，下同）</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="浮点数字面值"><a href="#浮点数字面值" class="headerlink" title="浮点数字面值"></a>浮点数字面值</h2><p>在程序中书写浮点常量时，程序将把它存储为哪种浮点类型呢？</p>
+<ul>
+<li><p>默认情况下，浮点常量将存储为 <code>double</code> 类型。</p>
+<p>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</p>
+</li>
+<li><p>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
+<h1 id="一些总结归纳"><a href="#一些总结归纳" class="headerlink" title="一些总结归纳"></a>一些总结归纳</h1><p>数值整型和浮点型字面值，使用后缀来表征不同类型，如 10U, 100UL 。但对于 <strong>char</strong> 类型，使用前缀来表征不同的类型，如 <code>u&#39;a&#39;</code> <code>U&#39;a&#39;</code> <code>L&#39;b&#39;</code> 。</p>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之四、C++变量</title>
+    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
+<span id="more"></span>
+
+<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
+<ul>
+<li>信息将存储在哪里。</li>
+<li>要存储什么值。</li>
+<li>存储何种类型的信息。</li>
+</ul>
+<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
+<li>名称中只能使用字母字符、数字和下划线（_）。</li>
+<li>名称中第一个字符不能是数字。</li>
+<li>区分大小写。</li>
+<li>不能将 C++ 关键字用作名称。</li>
+<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
+<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
+</ul>
+<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
+<ul>
+<li>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></li>
+<li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
+<li>C++11 新增方式：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
+<ul>
+<li>它能够明确指定数据类型。</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
+<li><code>const</code> 可用于更复杂的类型。</li>
+</ul>
+<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
+<pre><code>const int MONTH = 12;
+</code></pre>
+<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
+<p>一般用于处理复杂类型。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -536,6 +864,102 @@ hexo g -d   # 生成静态页面并部署发布
       </tags>
   </entry>
   <entry>
+    <title>VSCode 教程</title>
+    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
+<span id="more"></span>
+
+<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
+<ul>
+<li>VS Code 命令面板</li>
+</ul>
+<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
+<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
+<li><p>光标移动</p>
+<ul>
+<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
+<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
+<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
+<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
+</ul>
+</li>
+<li><p>文本选择</p>
+<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
+</li>
+<li><p>删除操作</p>
+<ul>
+<li>可以先选中文本，再按删除。</li>
+<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
+<li>删除行。<code>Ctrl + Shift + K</code>。</li>
+<li>剪切行。<code>Ctrl + X</code>。</li>
+<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
+<li>移动代码行。<code>Alt + 上下方向键</code></li>
+<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
+</ul>
+<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
+<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
+<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
+<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
+<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
+<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
+<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
+<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
+<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
+<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
+<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
+<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
+<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
+<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
+<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
+<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
+<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
+<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
+<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
+<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
+<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
+<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
+<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
+<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
+<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
+<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
+<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
+<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
+<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
+<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
+<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
+<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
+<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
+<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
+<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
+<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
+<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
+<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
+<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
+<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
+<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
+<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
+<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
+<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
+<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
+<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
+<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
+<p><code>Shift+ F12</code> 打开函数引用预览。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ 学习之五、C++ 运算符</title>
     <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算符。</p>
@@ -667,562 +1091,6 @@ hexo g -d   # 生成静态页面并部署发布
       </tags>
   </entry>
   <entry>
-    <title>VSCode 教程</title>
-    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
-<span id="more"></span>
-
-<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
-<ul>
-<li>VS Code 命令面板</li>
-</ul>
-<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
-<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
-<li><p>光标移动</p>
-<ul>
-<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
-<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
-<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
-<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
-</ul>
-</li>
-<li><p>文本选择</p>
-<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
-</li>
-<li><p>删除操作</p>
-<ul>
-<li>可以先选中文本，再按删除。</li>
-<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
-</ul>
-</li>
-</ul>
-<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
-<li>删除行。<code>Ctrl + Shift + K</code>。</li>
-<li>剪切行。<code>Ctrl + X</code>。</li>
-<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
-<li>移动代码行。<code>Alt + 上下方向键</code></li>
-<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
-</ul>
-<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
-<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
-<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
-<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
-<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
-<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
-<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
-<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
-<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
-<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
-<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
-<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
-<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
-<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
-<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
-<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
-<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
-<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
-<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
-<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
-<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
-<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
-<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
-<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
-<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
-<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
-<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
-<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
-<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
-<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
-<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
-<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
-<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
-<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
-<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
-<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
-<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
-<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
-<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
-<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
-<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
-<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
-<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
-<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
-<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
-<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
-<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
-<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
-<p><code>Shift+ F12</code> 打开函数引用预览。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
-    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
-<span id="more"></span>
-
-<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
-<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
-<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
-<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
-
-<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
-<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
-
-<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
-<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
-<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
-</li>
-<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
-<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
-
-<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
-</li>
-</ul>
-<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
-<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
-<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
-<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
-<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
-<p>最后，可以创建多个值相同的枚举量：</p>
-<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
-<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
-<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
-<ul>
-<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
-<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习之四、C++变量</title>
-    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
-<span id="more"></span>
-
-<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
-<ul>
-<li>信息将存储在哪里。</li>
-<li>要存储什么值。</li>
-<li>存储何种类型的信息。</li>
-</ul>
-<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
-<li>名称中只能使用字母字符、数字和下划线（_）。</li>
-<li>名称中第一个字符不能是数字。</li>
-<li>区分大小写。</li>
-<li>不能将 C++ 关键字用作名称。</li>
-<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
-</ul>
-<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
-<ul>
-<li>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></li>
-<li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
-<li>C++11 新增方式：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
-<ul>
-<li>它能够明确指定数据类型。</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
-<li><code>const</code> 可用于更复杂的类型。</li>
-</ul>
-<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
-<pre><code>const int MONTH = 12;
-</code></pre>
-<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
-<p>一般用于处理复杂类型。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习之三、C++基本数据类型</title>
-    <url>/2021/05/17/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%89%E3%80%81C-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p>C++ 内置数据类型分两大类：<strong>基本数据类型</strong>和<strong>复合数据类型</strong>。本编介绍基本数据类型，又称算术（arithmetic）类型。</p>
-<span id="more"></span>
-
-<h1 id="基本数据类型——整型"><a href="#基本数据类型——整型" class="headerlink" title="基本数据类型——整型"></a>基本数据类型——整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语<strong>宽度</strong>（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
-<p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
-<h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
-<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现了基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit。</p>
-<p>C++ 提供了一种灵活的标准，它确保了最小长度（从 C 语言借鉴而来）：</p>
-<ul>
-<li><code>short</code> 至少 16 位；</li>
-<li><code>int</code> 至少与 <code>short</code> 一样长；</li>
-<li><code>long</code> 至少 32 位，且至少与 <code>int</code> 一样长；</li>
-<li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
-</ul>
-<p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// 默认为 int 类型，int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
-
-<p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span> (<span class="keyword">int</span>) &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;int is &quot;</span> &lt;&lt; <span class="keyword">sizeof</span> n_int &lt;&lt; <span class="string">&quot; bytes.\n&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p><code>limits</code> 头文件通过预编译（#define）方式，提供了一些符号常量用以确定数据类型的取值范围：</p>
-<table>
-<thead>
-<tr>
-<th>符号常量</th>
-<th>表示</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>CHAR_BIT</code></td>
-<td><code>char</code> 的位数</td>
-</tr>
-<tr>
-<td><code>CHAR_MAX</code></td>
-<td><code>char</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>CHAR_MIN</code></td>
-<td><code>char</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>SCHAR_MAX</code></td>
-<td><code>signed char</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>SCHAR_MIN</code></td>
-<td><code>signed char</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>UCHAR_MAX</code></td>
-<td><code>unsigned char</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>SHRT_MAX</code></td>
-<td><code>short</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>SHRT_MIN</code></td>
-<td><code>short</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>USHRT_MAX</code></td>
-<td><code>unsigned short</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>INT_MAX</code></td>
-<td><code>int</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>INT_MIN</code></td>
-<td><code>int</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>UINT_MAX</code></td>
-<td><code>unsigned int</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>LONG_MAX</code></td>
-<td><code>long</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>LONG_MIN</code></td>
-<td><code>long</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>ULONG_MAX</code></td>
-<td><code>unsigned long</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>LLONG_MAX</code></td>
-<td><code>long long</code> 的最大值</td>
-</tr>
-<tr>
-<td><code>LLONG_MIN</code></td>
-<td><code>long long</code> 的最小值</td>
-</tr>
-<tr>
-<td><code>ULLONG_MAX</code></td>
-<td><code>unsigned long long</code> 的最大值</td>
-</tr>
-</tbody></table>
-<h3 id="选择整型类型"><a href="#选择整型类型" class="headerlink" title="选择整型类型"></a>选择整型类型</h3><p>C++ 提供了如此多的整型，使用时应该怎么去选择呢？</p>
-<ul>
-<li>通常，<code>int</code> 被设置为对目标计算机而言最为“自然”的长度，计算机处理起来效率最高。如果没有其它理由，则应使用 <code>int</code>。</li>
-<li>如果变量表示的值不可能为负，则可以使用无符号类型，这样变量可以表示更大的值。</li>
-<li>如果变量表示的整数值可能大于 16 位整数的最大值，则使用 <code>long</code>。即使系统上 <code>int</code> 为 32 位也应该这样做。这样，将程序移植到 <code>int</code> 为 16 位的系统时，就不会突然无法正常工作。</li>
-<li>如果要存储的值超过 20 亿，可使用 <code>long long</code>。</li>
-<li>由于 <code>short</code> 比 <code>int</code> 小，使用 <code>short</code> 可以节省内存。通常，仅当有大型整型数组时，才有必要使用 <code>short</code>。如果节省内存很重要，则应使用 <code>short</code> 而不是使用 <code>int</code>。</li>
-</ul>
-<h3 id="整型字面值"><a href="#整型字面值" class="headerlink" title="整型字面值"></a>整型字面值</h3><ol>
-<li><p>整型字面值，常用为四种不同的计数方式：</p>
-<ul>
-<li>十进制：第一位为 1~9，如 53</li>
-<li>二进制：所有位都以 0 和 1 来表示，如 0101 等于十进制中 6</li>
-<li>八进制：第一位为 0，第二位为 1~7，如 042 等于十进制中的 34</li>
-<li>十六进制：以 0x 或 0X 开头，如 0x42 等于十进制的 66</li>
-</ul>
-<p> 进制计数只是为了人为的计数方便，在计算机中，数据最终都是以二进制存储。</p>
-<p> <strong>Tips:</strong> <code>cout</code> 输出默认为十进制，<code>cout</code> 提供了控制符来控制显示 <code>dec</code>、<code>hex</code>、<code>oct</code>。具体如下：</p>
- <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 默认打印为十进制：42</span></span><br><span class="line">cout &lt;&lt; hex;    <span class="comment">// 切换输出为十六进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十六进制 2a</span></span><br><span class="line">cout &lt;&lt; oct;    <span class="comment">// 切换输出为八进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为八进制 52</span></span><br><span class="line">cout &lt;&lt; dec;    <span class="comment">// 切换输出为十进制</span></span><br><span class="line">cout &lt;&lt; a;  <span class="comment">// 输出打印为十进制 42；</span></span><br></pre></td></tr></table></figure></li>
-<li><p>C++ 如何确定常量的类型</p>
-<p> 如程序是如何确定常量 1000 是存储为 <code>int</code>、<code>long</code> 还是其它类型呢？</p>
-<ol>
-<li>默认存储为 <code>int</code>。</li>
-<li>数值后的后缀。后缀有 L(Long)、U(Unsigned int)、LL(long long) 及组合后缀。</li>
-<li>数值的长度。在 C++ 中，对十进制整数采用的规则与十六进制及八进制的不同。对于不带后缀的十进制整数，使用 <code>int</code>、<code>long</code>、<code>long long</code> 中能够存储该数的最小类型来表示。对于不带后缀的十六进制或八进制，使用下面几种类型中能够存储该数的最小类型来表示：<code>int</code>、<code>unsigned int</code>、<code>long</code>、<code>unsigned long</code>、<code>long long</code> 或 <code>unsigned long long</code>。</li>
-</ol>
-</li>
-</ol>
-<h2 id="另一种整型-——-char-类型"><a href="#另一种整型-——-char-类型" class="headerlink" title="另一种整型 —— char 类型"></a>另一种整型 —— char 类型</h2><p><code>char</code> 是比 <code>short</code> 更小的整型，专为存储字符（字母或数字）而设计。它足够长，能够表示目标计算机系统中所有的基本符号——所有的字母、数字、标点符号。一般占用 8 位。</p>
-<h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。<code>char</code> 可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显式定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显式定义为有符号类型</span></span><br></pre></td></tr></table></figure>
-
-<p><code>char</code> 类型变量初始化使用单引号：<code>char c = &#39;M&#39;</code></p>
-<p>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code></p>
-<p>使用 <code>cin</code> 输入时都是读取的字符，然后强转为其它类型存储。</p>
-<h3 id="char-字面值"><a href="#char-字面值" class="headerlink" title="char 字面值"></a>char 字面值</h3><ul>
-<li>以单引号括起来。如 <code>&#39;M&#39;</code>、<code>&#39;N&#39;</code>、<code>&#39;&#39;</code>、<code>&#39;5&#39;</code></li>
-<li>不能直接通过键盘输入的字符使用转义序列。如<code>&#39;\a&#39;</code>、<code>&#39;\t&#39;</code>、<code>&#39;\n&#39;</code><br>C++ 转义序列的编码</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字符名称</th>
-<th>ASCII 符号</th>
-<th>C++ 代码</th>
-<th>十进制 ASCII 编码</th>
-<th>十六进制 ASCII 编码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>换行符</td>
-<td>NL(LF)</td>
-<td>\n</td>
-<td>10</td>
-<td>0xA</td>
-</tr>
-<tr>
-<td>水平制表符</td>
-<td>HT</td>
-<td>\t</td>
-<td>9</td>
-<td>0x9</td>
-</tr>
-<tr>
-<td>垂直制表符</td>
-<td>VT</td>
-<td>\v</td>
-<td>11</td>
-<td>0xB</td>
-</tr>
-<tr>
-<td>退格</td>
-<td>BS</td>
-<td>\b</td>
-<td>8</td>
-<td>0x8</td>
-</tr>
-<tr>
-<td>回车</td>
-<td>CR</td>
-<td>\r</td>
-<td>13</td>
-<td>0xD</td>
-</tr>
-<tr>
-<td>振铃</td>
-<td>BEL</td>
-<td>\a</td>
-<td>7</td>
-<td>0x7</td>
-</tr>
-<tr>
-<td>反斜杠</td>
-<td>\</td>
-<td>\\</td>
-<td>92</td>
-<td>0x5C</td>
-</tr>
-<tr>
-<td>问号</td>
-<td>?</td>
-<td>\?</td>
-<td>63</td>
-<td>0x3F</td>
-</tr>
-<tr>
-<td>单引号</td>
-<td>‘</td>
-<td>\‘</td>
-<td>39</td>
-<td>0x27</td>
-</tr>
-<tr>
-<td>双引号</td>
-<td>“</td>
-<td>\“</td>
-<td>34</td>
-<td>0x22</td>
-</tr>
-</tbody></table>
-<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
-<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
-<h3 id="char-引申-——-通用字符名"><a href="#char-引申-——-通用字符名" class="headerlink" title="char 引申 —— 通用字符名"></a>char 引申 —— 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
-<p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（一种正在制定的国际标准，为大量的字符提供数值编码）。</p>
-<p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
-<pre><code>int k\u00F6rper;
-cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
-</code></pre>
-<p><code>ö</code> 的 ISO 10646 码点为 <code>00F6</code>，而 <code>â</code> 的码点 <code>00E2</code> 。因此，上述代码将变量名设置为 <code>körper</code>，将显示下面的输出</p>
-<pre><code>Let them eat gâteau.
-</code></pre>
-<p>如果系统不支持 <code>ISO 10646</code>，它将显示其它字符或 <code>gu00E2teau</code>，而不是 <code>â</code>。</p>
-<h3 id="char-引申-——-wchar-t-宽字符类型"><a href="#char-引申-——-wchar-t-宽字符类型" class="headerlink" title="char 引申 —— wchar_t 宽字符类型"></a>char 引申 —— wchar_t 宽字符类型</h3><p><code>wchar_t</code> 宽字符类型是一种整数类型，它的长度和符号特征随实现而异。它有足够的空间，可以表示系统使用的<strong>最大扩展字符集</strong>。这种类型与另一种整型（底层[underlying]类型）的长度和符号属性相同。对底层类型的选择取决于实现，因此在一个系统中，它可能是 <code>unsigned short</code>，而在另一个系统中，则可能是 <code>int</code>。</p>
-<p><code>cin</code> 和 <code>cout</code> 将输入和输出看作是 <code>char</code> 流，因此不适于用来处理 <code>wchar_t</code> 类型。 <code>iostream</code> 头文件的最新版本提供了作用相似的工具 - <code>wcin</code> 和 <code>wcout</code>，可用于处理 <code>wchar_t</code> 流。另外，可以通过加上前缀 <code>L</code> 来指示宽字符常量和宽字符串。</p>
-<pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
-wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
-</code></pre>
-<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，<strong>无符号类型</strong>。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两种字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
-<p><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
-<h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 <code>true</code> 或 <code>false</code>，这两个值都可以通过提升转换为 <code>int</code> 类型，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。</p>
-<pre><code>bool is_ready = true;
-</code></pre>
-<p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 <code>true</code>，而零被转换为 <code>false</code>。</p>
-<h1 id="基本数据类型-——-浮点型"><a href="#基本数据类型-——-浮点型" class="headerlink" title="基本数据类型 —— 浮点型"></a>基本数据类型 —— 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的数，它们的内部表示方法与整数有天壤之别。</p>
-<p>有效位（significant figure）是指十进制数字中有意义的位（从第一个非零数字开始算起）。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
-<p><strong>Tips:</strong> 0.00000000035 的有效位数为 2。</p>
-<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
-<h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
-<ul>
-<li><code>float</code> 至少 32 位；</li>
-<li><code>double</code> 至少 48 位，且不少于 <code>float</code>；</li>
-<li><code>long double</code> 至少和 <code>double</code> 一样多；</li>
-<li>以上三种类型的有效位数可以一样多。然而，通常，<code>float</code> 为 32 位，<code>double</code> 为 64 位，<code>long double</code> 为 80、96 或 128 位。</li>
-<li>以上三种类型的指数范围至少是 -37 到 37。</li>
-</ul>
-<p>头文件 <code>cfloat</code> 或 <code>float.h</code> 对系统的限制作了说明（<code>cfloat</code> 是 C 语言的 <code>float.h</code> 文件的 C++ 版本）。下面列出 <code>Borland C++ Builder</code> 的 <code>float.h</code> 文件中一些批注项：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下为对浮点型有效位的限制</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FLT_DIG 6   <span class="comment">// float 类型，至少 6 位有效位数（针对十进制，下同）</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DBL_DIG 15  <span class="comment">// double 类型，至少 15 位有效位数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LDBL_DIG 18 <span class="comment">// long double 类型，至少 18 位有效位数</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="浮点数字面值"><a href="#浮点数字面值" class="headerlink" title="浮点数字面值"></a>浮点数字面值</h2><p>在程序中书写浮点常量时，程序将把它存储为哪种浮点类型呢？</p>
-<ul>
-<li><p>默认情况下，浮点常量将存储为 <code>double</code> 类型。</p>
-<p>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</p>
-</li>
-<li><p>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
-<h1 id="一些总结归纳"><a href="#一些总结归纳" class="headerlink" title="一些总结归纳"></a>一些总结归纳</h1><p>数值整型和浮点型字面值，使用后缀来表征不同类型，如 10U, 100UL 。但对于 <strong>char</strong> 类型，使用前缀来表征不同的类型，如 <code>u&#39;a&#39;</code> <code>U&#39;a&#39;</code> <code>L&#39;b&#39;</code> 。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>什么是 ASPICE</title>
-    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
-<span id="more"></span>
-
-<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
-<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
-<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
-<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
-<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
-<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
-<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
-<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
-<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
-<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
-<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
-<blockquote>
-<ol>
-<li>过程实施指标 – 只适用于 L1<blockquote>
-<ol>
-<li>基本实践（BP）</li>
-<li>工作产品（WP）</li>
-</ol>
-</blockquote>
-</li>
-<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
-<ol>
-<li>通用实践（GP）</li>
-<li>通用资源（GR）</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<p>评估指标与过程能力的关系如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
-<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
-<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Automotive</category>
-      </categories>
-      <tags>
-        <tag>ASPICE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ 学习之六、复合类型之数组</title>
     <url>/2021/06/09/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%85%AD%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>C++ 复合类型之数组笔记。</p>
@@ -1299,6 +1167,76 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
 <h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
+    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
+<span id="more"></span>
+
+<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
+<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
+<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
+<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
+<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
+
+<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
+<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
+<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
+</li>
+<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
+<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
+
+<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
+</li>
+</ul>
+<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
+<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
+<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
+<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
+<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
+<p>最后，可以创建多个值相同的枚举量：</p>
+<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
+<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
+<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
+<ul>
+<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
+<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
+</ul>
+]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1409,170 +1347,65 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
-    <title>OpenWrt 编译过程</title>
-    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
 <span id="more"></span>
 
-<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
-<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
-
-<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
-<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
-<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
-
-<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
-<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
-<li>Target System –&gt; x86</li>
-<li>Subtarget –&gt; x64_64</li>
-<li>Target Profile –&gt; Generic x86/64</li>
-<li>Target Image<blockquote>
-<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
+<blockquote>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
 </blockquote>
 </li>
-</ul>
-<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
-<li>luci-theme-argonv3</li>
-<li><strong>luci-theme-bootstrap</strong></li>
-<li>luci-theme-netgearv2</li>
-</ul>
-<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
-<li>luci-app-accesscontrol</li>
-<li>luci-app-adbyby-plus</li>
-<li>luci-app-adguardhome<blockquote>
-<p>Include Binary File</p>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
 </blockquote>
 </li>
-<li>luci-app-argon-config</li>
-<li>luci-app-autoreboot</li>
-<li>luci-app-baidupcs-web</li>
-<li>luci-app-cifs-mount</li>
-<li>luci-app-ddns</li>
-<li>luci-app-diskman<blockquote>
-<p>Include btrfs-progs<br>Include lsblk</p>
+</ol>
 </blockquote>
-</li>
-<li>luci-app-filetransfer</li>
-<li><strong>luci-app-firewall</strong></li>
-<li>luci-app-frpc</li>
-<li>luci-app-frps</li>
-<li>luci-app-gowebdav</li>
-<li>luci-app-haproxy-tcp</li>
-<li>luci-app-hd-idle</li>
-<li>luci-app-ipsec-vpnd</li>
-<li>luci-app-openclash</li>
-<li>luci-app-passwall</li>
-<li>luci-app-ramfree</li>
-<li>luci-app-rclone<blockquote>
-<p>Include rclone-webui<br>Include rclone-ng</p>
-</blockquote>
-</li>
-<li>luci-app-samba</li>
-<li>luci-app-smartdns</li>
-<li>luci-app-softethervpn</li>
-<li>luci-app-ssr-plus</li>
-<li>luci-app-ttyd</li>
-<li>luci-app-turboacc<blockquote>
-<p>Include Flow Offload<br>Include BBR CCA</p>
-</blockquote>
-</li>
-<li>luci-app-unblockmusic<blockquote>
-<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
-</blockquote>
-</li>
-<li>luci-app-upnp</li>
-<li>luci-app-usb-printer</li>
-<li>luci-app-uugamebooster</li>
-<li><del>luci-app-v2ray-server</del></li>
-<li>luci-app-vlmcsd</li>
-<li>luci-app-vsftpd</li>
-<li>luci-app-watchcat</li>
-<li>luci-app-webadmin</li>
-<li>luci-app-wol</li>
-<li>luci-app-xlnetacc</li>
-<li>luci-app-zerotier</li>
-</ul>
-<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
-<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
-<li>ddns-scripts_aliyun</li>
-<li>v2ray-geoip</li>
-<li>v2ray-geosite</li>
-</ul>
-<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
-<li>cfdisk</li>
-</ul>
-<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
-<li>autosamba</li>
-<li>ipv6helper</li>
-</ul>
-<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
-<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
-<p><code>$ make -j1 V=s</code></p>
-<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
-<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
-<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
-<p><code>$ make -j1 V=s</code></p>
-<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
-<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
-<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
-<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>OpenWrt</category>
+        <category>Automotive</category>
       </categories>
       <tags>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown 如何转换为 Confluence</title>
-    <url>/2022/11/15/Markdown-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E4%B8%BA-Confluence/</url>
-    <content><![CDATA[<p>Confluence 是一个专业的企业知识管理与协同软件，也可以用于构建企业 wiki。 使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。Confluence 有自己的一套标记语言，如果想使用 Markdown 的话就需要转换一下。</p>
-<span id="more"></span>
-
-<h1 id="Markdown-优点"><a href="#Markdown-优点" class="headerlink" title="Markdown 优点"></a>Markdown 优点</h1><p>作为一种轻量级标记语言，Markdown 优点包括但不限于：</p>
-<ul>
-<li>纯文本，兼容性极强，可以用所有文本编辑器打开</li>
-<li>让写作者专注于文字而不是排版</li>
-<li>格式转换方便，Markdown 的文本可以轻松转换为 html、电子书</li>
-<li>Markdown 的标记语法有极好的可读性</li>
-</ul>
-<p>概括来讲，Markdown 易懂易写，但 Confluence 没有提供支持 Markdown 格式的编辑器，这对习惯于写 Markdown 文档的开发者来说是一件很苦恼的事情。</p>
-<h1 id="Markdown-转-Confluence"><a href="#Markdown-转-Confluence" class="headerlink" title="Markdown 转 Confluence"></a>Markdown 转 Confluence</h1><p>通过一个曲折的解决方法，即先将 markdown 文档转成 wiki 文档，再通过 Confluence 的 wiki 导入功能插入文档内容。</p>
-<p>Markdown -&gt; wiki -&gt; Confluence</p>
-<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/MarkdownToWiKi.png" alt="Markdown to Confluence"></p>
-<p>将 markdown 文档转成 wiki 文档，方法有两种:</p>
-<ul>
-<li>Github 上有一个 <a href="https://github.com/chunpu/markdown2confluence">mardown 项目</a>，可将 markdown 文档转成 wiki 文档。通过 <code>npm i markdown2confluence -g</code> 安装在本地，再通过命令 <code>markdown2confluence doc.md</code> 进行转换，也可以通过该项目提供的<a href="http://chunpu.github.io/markdown2confluence/browser/">在线转换</a>进行转换。</li>
-<li>使用 Visual Studio Code，安装插件 <strong>Markdown to confluence for VSCode Extension</strong>，选择相应文件按以下步骤执行：<ul>
-<li>CMD/CTRL + Shift + P -&gt; md2confl: Convert markdown to confluence and Open window</li>
-<li>Copy text from the window</li>
-<li>Paste to the Confluence</li>
-</ul>
-</li>
-</ul>
-<p>将 markdown 文档复制粘贴到输入区即可生成对应的 wiki 文档<br>wiki -&gt; Confluence<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/ConfluenceImportWiKi.png" alt="WiKi To Confluence"></p>
-<p>在 Confluence 界面选择 + 号 选择插入 wiki 标记，复制上一步得到的 wiki 文件点击插入即可。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://www.cnblogs.com/cuianbing/p/15891950.html">使用 Markdown 编辑器来写 Confluence 文档</a></li>
-<li><a href="https://github.com/chunpu/markdown2confluence">markdown2confluence</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=t-nano.markdown-to-confluence-vscode">Markdown to confluence for VSCode Extension</a></li>
-<li><a href="https://markdown.com.cn/">Markdown 教程</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Confluence</tag>
+        <tag>ASPICE</tag>
       </tags>
   </entry>
   <entry>
@@ -1777,6 +1610,245 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
+    <title>C++ 学习之十、C++ 输入总结</title>
+    <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
+<span id="more"></span>
+
+<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
+<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
+<p>例如有如下示例输入行：</p>
+<p><strong>38.5 19.2</strong></p>
+<h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
+<p>输入行的第一个字符也即字符 3 被赋值给 <code>ch</code>。</p>
+<h2 id="输入类型为-int"><a href="#输入类型为-int" class="headerlink" title="输入类型为 int"></a>输入类型为 int</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到非数字字符。注意 <code>cin</code> 都是以字符读取，它将读取 3 和 8，这样句点将成为输入队列中的下一个字符。<code>cin</code> 通过计算发现，这两个字符对应的数值为 38，因此将 38 的二进制编码复制到变量 n 中。</p>
+<h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
+
+<p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
+<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
+<h1 id="cin-get-用法"><a href="#cin-get-用法" class="headerlink" title="cin.get() 用法"></a>cin.get() 用法</h1><p>该函数有多种重载形式，分为四种格式：无参，一参数，二参数，三个参数。常用的函数原型如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span>&amp; var)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中 streamsize 在 VC++ 中被定义为 <code>long long</code> 类型。</p>
+<h2 id="cin-get-读取一个字符"><a href="#cin-get-读取一个字符" class="headerlink" title="cin.get() 读取一个字符"></a>cin.get() 读取一个字符</h2><p>读取一个字符，可以使用 cin.get() 或者 cin.get(var)，示例如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a, b;</span><br><span class="line">    a = cin.<span class="built_in">get</span>();</span><br><span class="line">    cin.<span class="built_in">get</span>(b);</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>cin.get()</code> 返回值是 <code>int</code> 类型，成功则返回读取字符的 ASCII 码值。<code>cin.get(char var)</code> 成功返回的是 <code>cin</code> 对象。</p>
+<h2 id="cin-get-读取一行"><a href="#cin-get-读取一行" class="headerlink" title="cin.get() 读取一行"></a>cin.get() 读取一行</h2><p>读取一行可以使用以下函数：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">size_t</span> n, streamsize n)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>二者的区别是前者默认以换行符结束，后者可指定行结束符。<code>n</code> 表示目标空间的大小。</p>
+<p>示例如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="keyword">char</span> array[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">get</span>(array, <span class="number">20</span>);</span><br><span class="line">    cin.<span class="built_in">get</span>(a);</span><br><span class="line">    cout &lt;&lt; array &lt;&lt; &quot; &quot; &lt;&lt; <span class="keyword">int</span>(a) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输入：123456789[回车]，输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">123456789 10</span><br></pre></td></tr></table></figure>
+
+<p><code>cin.get(array, 20);</code>  读取一行，遇到换行时结束读取，但没有对换行符处理，接下来 <code>cin.get(a)</code> 将队列中的换行符读入变量 a 中，输出换行符的 ASCII 码值 10。</p>
+<p>cin.get(str, size) 读取一行时，只能将字符串读入 C 风格的字符串中，即 char*，但是 cin.getline() 函数可以将字符串读入 C++ 风格的字符串 string 中，所以建议使用 cin.getline() 读取行。</p>
+<h1 id="cin-getline-读取一行"><a href="#cin-getline-读取一行" class="headerlink" title="cin.getline() 读取一行"></a>cin.getline() 读取一行</h1><p>函数作用：从标准输入设备键盘读取一串字符串，并以指定的结束符结束。函数原型有两个：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count)</span></span>;    <span class="comment">// 默认以换行符结束</span></span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用示例：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> array[ArSize] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">getline</span>(array, ArSize);</span><br><span class="line">    <span class="comment">// cin.getline(array, ArSize, &#x27;\n&#x27;);    // 使用此语法指定结束符</span></span><br><span class="line">    cout &lt;&lt; array &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>cin.getline()</code> 与 <code>cin.get()</code> 的区别在于，前者不会将行结束符（如换行符）残留在输入缓冲区中。</p>
+<h1 id="cin-的条件状态"><a href="#cin-的条件状态" class="headerlink" title="cin 的条件状态"></a>cin 的条件状态</h1><p>使用 <code>cin</code> 读取键盘输入时，可能会发生一些错误，<code>cin</code> 将设置条件状态（condition state）。条件状态位有：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">goodbit(0x0): 无错误</span><br><span class="line">eofbit(0x1): 已到达文件尾</span><br><span class="line">failbit(0x2): 非致命的输入/输出错误，可挽回</span><br><span class="line">badbit(0x4): 致命的输入/输出错误，无法挽回</span><br></pre></td></tr></table></figure>
+
+<p>与这些条件状态对应的就是设置、读取和判断条件状态的流对象的成员函数。它们主要有：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">s.eof(): 若流 s 的 eofbit 置位，则返回 true</span><br><span class="line">s.fail()：若流 s 的 failbit 置位，则返回 true</span><br><span class="line">s.bad()：若流 s 的 badbit 置位，则返回 true</span><br><span class="line">s.good()：若流 s 的 goodbit 置位，则返回 true</span><br><span class="line">s.clear(flags)：清空当前状态, 然后把状态设置为 flags，返回 void</span><br><span class="line">s.setstate(flags)：不清空当前状态，设置给定的状态 flags，返回 void</span><br><span class="line">s.rdstate()：返回流 s 的当前条件状态，返回值类型为 ios_base::iostate</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenWrt 编译过程</title>
+    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
+<span id="more"></span>
+
+<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
+<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
+
+<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
+<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
+<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
+
+<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
+<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
+<li>Target System –&gt; x86</li>
+<li>Subtarget –&gt; x64_64</li>
+<li>Target Profile –&gt; Generic x86/64</li>
+<li>Target Image<blockquote>
+<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
+<li>luci-theme-argonv3</li>
+<li><strong>luci-theme-bootstrap</strong></li>
+<li>luci-theme-netgearv2</li>
+</ul>
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
+<li>luci-app-accesscontrol</li>
+<li>luci-app-adbyby-plus</li>
+<li>luci-app-adguardhome<blockquote>
+<p>Include Binary File</p>
+</blockquote>
+</li>
+<li>luci-app-argon-config</li>
+<li>luci-app-autoreboot</li>
+<li>luci-app-baidupcs-web</li>
+<li>luci-app-cifs-mount</li>
+<li>luci-app-ddns</li>
+<li>luci-app-diskman<blockquote>
+<p>Include btrfs-progs<br>Include lsblk</p>
+</blockquote>
+</li>
+<li>luci-app-filetransfer</li>
+<li><strong>luci-app-firewall</strong></li>
+<li>luci-app-frpc</li>
+<li>luci-app-frps</li>
+<li>luci-app-gowebdav</li>
+<li>luci-app-haproxy-tcp</li>
+<li>luci-app-hd-idle</li>
+<li>luci-app-ipsec-vpnd</li>
+<li>luci-app-openclash</li>
+<li>luci-app-passwall</li>
+<li>luci-app-ramfree</li>
+<li>luci-app-rclone<blockquote>
+<p>Include rclone-webui<br>Include rclone-ng</p>
+</blockquote>
+</li>
+<li>luci-app-samba</li>
+<li>luci-app-smartdns</li>
+<li>luci-app-softethervpn</li>
+<li>luci-app-ssr-plus</li>
+<li>luci-app-ttyd</li>
+<li>luci-app-turboacc<blockquote>
+<p>Include Flow Offload<br>Include BBR CCA</p>
+</blockquote>
+</li>
+<li>luci-app-unblockmusic<blockquote>
+<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
+</blockquote>
+</li>
+<li>luci-app-upnp</li>
+<li>luci-app-usb-printer</li>
+<li>luci-app-uugamebooster</li>
+<li><del>luci-app-v2ray-server</del></li>
+<li>luci-app-vlmcsd</li>
+<li>luci-app-vsftpd</li>
+<li>luci-app-watchcat</li>
+<li>luci-app-webadmin</li>
+<li>luci-app-wol</li>
+<li>luci-app-xlnetacc</li>
+<li>luci-app-zerotier</li>
+</ul>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
+<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
+<li>ddns-scripts_aliyun</li>
+<li>v2ray-geoip</li>
+<li>v2ray-geosite</li>
+</ul>
+<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
+<li>cfdisk</li>
+</ul>
+<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
+<li>autosamba</li>
+<li>ipv6helper</li>
+</ul>
+<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
+<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
+<p><code>$ make -j1 V=s</code></p>
+<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
+<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
+<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
+<p><code>$ make -j1 V=s</code></p>
+<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
+<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
+<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
+<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UDS 笔记</title>
+    <url>/2022/09/22/UDS-%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>Unified Diagnostic Service（统一诊断服务），简称 <strong>UDS</strong>，是在汽车电子 ECU 环境中的一种诊断通信协议。在 <strong>ISO 14229</strong> 中规定，它是从 <strong>ISO 14230-3(KWP2000)</strong> 和 <strong>ISO 15765-3</strong> 协议衍生也来的。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>UDS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown 如何转换为 Confluence</title>
+    <url>/2022/11/15/Markdown-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E4%B8%BA-Confluence/</url>
+    <content><![CDATA[<p>Confluence 是一个专业的企业知识管理与协同软件，也可以用于构建企业 wiki。 使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。Confluence 有自己的一套标记语言，如果想使用 Markdown 的话就需要转换一下。</p>
+<span id="more"></span>
+
+<h1 id="Markdown-优点"><a href="#Markdown-优点" class="headerlink" title="Markdown 优点"></a>Markdown 优点</h1><p>作为一种轻量级标记语言，Markdown 优点包括但不限于：</p>
+<ul>
+<li>纯文本，兼容性极强，可以用所有文本编辑器打开</li>
+<li>让写作者专注于文字而不是排版</li>
+<li>格式转换方便，Markdown 的文本可以轻松转换为 html、电子书</li>
+<li>Markdown 的标记语法有极好的可读性</li>
+</ul>
+<p>概括来讲，Markdown 易懂易写，但 Confluence 没有提供支持 Markdown 格式的编辑器，这对习惯于写 Markdown 文档的开发者来说是一件很苦恼的事情。</p>
+<h1 id="Markdown-转-Confluence"><a href="#Markdown-转-Confluence" class="headerlink" title="Markdown 转 Confluence"></a>Markdown 转 Confluence</h1><p>通过一个曲折的解决方法，即先将 markdown 文档转成 wiki 文档，再通过 Confluence 的 wiki 导入功能插入文档内容。</p>
+<p>Markdown -&gt; wiki -&gt; Confluence</p>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/MarkdownToWiKi.png" alt="Markdown to Confluence"></p>
+<p>将 markdown 文档转成 wiki 文档，方法有两种:</p>
+<ul>
+<li>Github 上有一个 <a href="https://github.com/chunpu/markdown2confluence">mardown 项目</a>，可将 markdown 文档转成 wiki 文档。通过 <code>npm i markdown2confluence -g</code> 安装在本地，再通过命令 <code>markdown2confluence doc.md</code> 进行转换，也可以通过该项目提供的<a href="http://chunpu.github.io/markdown2confluence/browser/">在线转换</a>进行转换。</li>
+<li>使用 Visual Studio Code，安装插件 <strong>Markdown to confluence for VSCode Extension</strong>，选择相应文件按以下步骤执行：<ul>
+<li>CMD/CTRL + Shift + P -&gt; md2confl: Convert markdown to confluence and Open window</li>
+<li>Copy text from the window</li>
+<li>Paste to the Confluence</li>
+</ul>
+</li>
+</ul>
+<p>将 markdown 文档复制粘贴到输入区即可生成对应的 wiki 文档<br>wiki -&gt; Confluence<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/ConfluenceImportWiKi.png" alt="WiKi To Confluence"></p>
+<p>在 Confluence 界面选择 + 号 选择插入 wiki 标记，复制上一步得到的 wiki 文件点击插入即可。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://www.cnblogs.com/cuianbing/p/15891950.html">使用 Markdown 编辑器来写 Confluence 文档</a></li>
+<li><a href="https://github.com/chunpu/markdown2confluence">markdown2confluence</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=t-nano.markdown-to-confluence-vscode">Markdown to confluence for VSCode Extension</a></li>
+<li><a href="https://markdown.com.cn/">Markdown 教程</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Confluence</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AutoSAR NM 状态机总结</title>
     <url>/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>AutoSAR NM 是 AutoSAR 软件架构默认的一种网络管理策略。AutoSAR NM 是一种分布式直接网络管理，每个节点根据网络管理帧的状态独立的控制自己的网络状态。</p>
@@ -1897,78 +1969,6 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </categories>
       <tags>
         <tag>AutoSAR NM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之十、C++ 输入总结</title>
-    <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
-<span id="more"></span>
-
-<h1 id="cin-gt-gt-从缓冲区读取数据"><a href="#cin-gt-gt-从缓冲区读取数据" class="headerlink" title="cin &gt;&gt; 从缓冲区读取数据"></a>cin &gt;&gt; 从缓冲区读取数据</h1><p>使用 <code>cin</code> 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后 <code>cin</code> 对象负责将文本转换为其他类型。</p>
-<p><code>cin &gt;&gt;</code> 从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab 或换行这些分隔符时，<code>cin &gt;&gt;</code> 会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区中的，<code>cin &gt;&gt;</code> 不做处理。</p>
-<p>例如有如下示例输入行：</p>
-<p><strong>38.5 19.2</strong></p>
-<h2 id="输入类型为-char-字符"><a href="#输入类型为-char-字符" class="headerlink" title="输入类型为 char 字符"></a>输入类型为 char 字符</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">cin &gt;&gt; ch;</span><br></pre></td></tr></table></figure>
-<p>输入行的第一个字符也即字符 3 被赋值给 <code>ch</code>。</p>
-<h2 id="输入类型为-int"><a href="#输入类型为-int" class="headerlink" title="输入类型为 int"></a>输入类型为 int</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br></pre></td></tr></table></figure>
-
-<p><code>cin</code> 将不断读取，直到遇到非数字字符。注意 <code>cin</code> 都是以字符读取，它将读取 3 和 8，这样句点将成为输入队列中的下一个字符。<code>cin</code> 通过计算发现，这两个字符对应的数值为 38，因此将 38 的二进制编码复制到变量 n 中。</p>
-<h2 id="输入类型为-double"><a href="#输入类型为-double" class="headerlink" title="输入类型为 double"></a>输入类型为 double</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br></pre></td></tr></table></figure>
-
-<p>和上面类似，<code>cin</code> 将不断读取，直到遇到第一个不属于浮点数的字符，这里在读取到空格时停止，使得空格成为输入队列中的下一个字符。将 38.5 赋值给变量 x。</p>
-<h2 id="输入类型为-char"><a href="#输入类型为-char" class="headerlink" title="输入类型为 char []"></a>输入类型为 char []</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> word[<span class="number">50</span>]</span><br><span class="line">cin &gt;&gt; word;</span><br></pre></td></tr></table></figure>
-
-<p><code>cin</code> 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，<code>cin</code> 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个空字符。</p>
-<h1 id="cin-get-用法"><a href="#cin-get-用法" class="headerlink" title="cin.get() 用法"></a>cin.get() 用法</h1><p>该函数有多种重载形式，分为四种格式：无参，一参数，二参数，三个参数。常用的函数原型如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span>&amp; var)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>其中 streamsize 在 VC++ 中被定义为 <code>long long</code> 类型。</p>
-<h2 id="cin-get-读取一个字符"><a href="#cin-get-读取一个字符" class="headerlink" title="cin.get() 读取一个字符"></a>cin.get() 读取一个字符</h2><p>读取一个字符，可以使用 cin.get() 或者 cin.get(var)，示例如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a, b;</span><br><span class="line">    a = cin.<span class="built_in">get</span>();</span><br><span class="line">    cin.<span class="built_in">get</span>(b);</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>cin.get()</code> 返回值是 <code>int</code> 类型，成功则返回读取字符的 ASCII 码值。<code>cin.get(char var)</code> 成功返回的是 <code>cin</code> 对象。</p>
-<h2 id="cin-get-读取一行"><a href="#cin-get-读取一行" class="headerlink" title="cin.get() 读取一行"></a>cin.get() 读取一行</h2><p>读取一行可以使用以下函数：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, streamsize n)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">get</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">size_t</span> n, streamsize n)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>二者的区别是前者默认以换行符结束，后者可指定行结束符。<code>n</code> 表示目标空间的大小。</p>
-<p>示例如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="keyword">char</span> array[<span class="number">20</span>] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">get</span>(array, <span class="number">20</span>);</span><br><span class="line">    cin.<span class="built_in">get</span>(a);</span><br><span class="line">    cout &lt;&lt; array &lt;&lt; &quot; &quot; &lt;&lt; <span class="keyword">int</span>(a) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输入：123456789[回车]，输出如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">123456789 10</span><br></pre></td></tr></table></figure>
-
-<p><code>cin.get(array, 20);</code>  读取一行，遇到换行时结束读取，但没有对换行符处理，接下来 <code>cin.get(a)</code> 将队列中的换行符读入变量 a 中，输出换行符的 ASCII 码值 10。</p>
-<p>cin.get(str, size) 读取一行时，只能将字符串读入 C 风格的字符串中，即 char*，但是 cin.getline() 函数可以将字符串读入 C++ 风格的字符串 string 中，所以建议使用 cin.getline() 读取行。</p>
-<h1 id="cin-getline-读取一行"><a href="#cin-getline-读取一行" class="headerlink" title="cin.getline() 读取一行"></a>cin.getline() 读取一行</h1><p>函数作用：从标准输入设备键盘读取一串字符串，并以指定的结束符结束。函数原型有两个：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count)</span></span>;    <span class="comment">// 默认以换行符结束</span></span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span><span class="params">(<span class="keyword">char</span> *s, streamsize count, <span class="keyword">char</span> delim)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>使用示例：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">char</span> array[ArSize] = &#123;&#125;;</span><br><span class="line">    cin.<span class="built_in">getline</span>(array, ArSize);</span><br><span class="line">    <span class="comment">// cin.getline(array, ArSize, &#x27;\n&#x27;);    // 使用此语法指定结束符</span></span><br><span class="line">    cout &lt;&lt; array &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>cin.getline()</code> 与 <code>cin.get()</code> 的区别在于，前者不会将行结束符（如换行符）残留在输入缓冲区中。</p>
-<h1 id="cin-的条件状态"><a href="#cin-的条件状态" class="headerlink" title="cin 的条件状态"></a>cin 的条件状态</h1><p>使用 <code>cin</code> 读取键盘输入时，可能会发生一些错误，<code>cin</code> 将设置条件状态（condition state）。条件状态位有：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">goodbit(0x0): 无错误</span><br><span class="line">eofbit(0x1): 已到达文件尾</span><br><span class="line">failbit(0x2): 非致命的输入/输出错误，可挽回</span><br><span class="line">badbit(0x4): 致命的输入/输出错误，无法挽回</span><br></pre></td></tr></table></figure>
-
-<p>与这些条件状态对应的就是设置、读取和判断条件状态的流对象的成员函数。它们主要有：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">s.eof(): 若流 s 的 eofbit 置位，则返回 true</span><br><span class="line">s.fail()：若流 s 的 failbit 置位，则返回 true</span><br><span class="line">s.bad()：若流 s 的 badbit 置位，则返回 true</span><br><span class="line">s.good()：若流 s 的 goodbit 置位，则返回 true</span><br><span class="line">s.clear(flags)：清空当前状态, 然后把状态设置为 flags，返回 void</span><br><span class="line">s.setstate(flags)：不清空当前状态，设置给定的状态 flags，返回 void</span><br><span class="line">s.rdstate()：返回流 s 的当前条件状态，返回值类型为 ios_base::iostate</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UDS 笔记</title>
-    <url>/2022/09/22/UDS-%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>Unified Diagnostic Service（统一诊断服务），简称 <strong>UDS</strong>，是在汽车电子 ECU 环境中的一种诊断通信协议。在 <strong>ISO 14229</strong> 中规定，它是从 <strong>ISO 14230-3(KWP2000)</strong> 和 <strong>ISO 15765-3</strong> 协议衍生也来的。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>Automotive</category>
-      </categories>
-      <tags>
-        <tag>UDS</tag>
       </tags>
   </entry>
 </search>
