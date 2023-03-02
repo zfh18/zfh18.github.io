@@ -189,7 +189,7 @@ hexo g -d   # 生成静态页面并部署发布
 <h1 id="C-注释"><a href="#C-注释" class="headerlink" title="C++ 注释"></a>C++ 注释</h1><p>C++ 注释以 <code>//</code> 打头，到行尾结束，也可以位于单独的一行上。</p>
 <p>C++ 也支持 C 风格的注释，C 注释包括在符号 <code>/*</code> 和 <code>*/</code> 之间，如：<code>/* 简易乘法表 */</code>。</p>
 <h1 id="C-预处理和-iostream-文件"><a href="#C-预处理和-iostream-文件" class="headerlink" title="C++ 预处理和 iostream 文件"></a>C++ 预处理和 iostream 文件</h1><p>C++ 提供了两个用于处理输入和输出的预定义对象（ <code>cin</code> 和 <code>cout</code> ），它们是 <code>istream</code> 和 <code>ostream</code> 类的实例，这两个类是在 <code>iostream</code> 文件中定义的。</p>
-<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 <code>h</code>，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 <code>h</code> （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 <code>h</code> （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 <code>c</code> （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时 C 头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 <code>h</code> 不只是形式上的变化，没有 <code>h</code> 的头文件也可以包含命名空间。下表对头文件的命名约定进行了总结。</p>
+<p>像 <code>iostream</code> 这样的文件叫做包含文件（ include file ），也叫头文件（ header file ），C 语言的传统是头文件使用扩展名 <code>h</code>，但 C++ 用法不同。现在，对老式 C 的头文件保留了扩展名 <code>h</code> （ C++ 程序仍然可以使用这种文件），而 C++ 头文件则没有扩展名。有些 C 头文件被转换为 C++ 头文件，这些文件被重新命名，去掉了扩展名 <code>h</code> （使之成为 C++ 风格的名称），并在文件名称前面加上前缀 <code>c</code> （表明来自 C 语言）。例如，C++ 版本的 math.h 为 cmath。有时头文件的 C 版本和 C++ 版本相同，而有时候新的版本做了一些修改。对于纯粹的 C++ 头文件（如 <code>iostream</code>）来说，去掉 <code>h</code> 不只是形式上的变化，没有 <code>h</code> 的头文件也可以包含命名空间。下表对头文件的命名约定进行了总结。</p>
 <table>
 <thead>
 <tr>
@@ -239,6 +239,639 @@ hexo g -d   # 生成静态页面并部署发布
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span>)</span></span>;    <span class="comment">// 函数原型，没有具体代码</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> d)</span>   <span class="comment">// 函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 常用命令</title>
+    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
+<span id="more"></span>
+
+<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有<strong>提交过</strong>的操作都是可追溯的。</p>
+<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_Checkins_Over_Time.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
+<p>Git 中所有发数据在存储前都计算检验和，然后以校验和来引用。Git 用以计算检验和的机制叫做 SHA-1 散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。SHA-1 哈希看起来是这样：</p>
+<pre><code>24b9da6552252987aa493b52f8696cd6d3b00373
+</code></pre>
+<p>Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。实际上，Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
+<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
+<blockquote>
+<p>工作区是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据，一般为 <code>.git</code> 目录。</p>
+</blockquote>
+<p>Git 项目下文件大的方面分两个状态：<strong>未跟踪</strong>和<strong>已跟踪</strong>。</p>
+<blockquote>
+<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
+<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
+<blockquote>
+<p>已修改，指文件被修改，但修改之后还没有暂存</p>
+<p>已暂存，指被操作后的文件已被标记，放入暂存区，将纳入下次提交</p>
+<p>已提交（也称为<strong>未修改</strong>状态），指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+</blockquote>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%91%A8%E6%9C%9F.png" alt="文件的状态变化周期"></p>
+<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置</span><br><span class="line">$ git config --global // 针对当前用户的配置，如 git config --global user.name <span class="string">&quot;zfh18&quot;</span> 配置用户名</span><br><span class="line">$ git config --<span class="built_in">local</span>  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令，git config 默认不加任何参数时为此命令</span><br><span class="line">$ git config &lt;key&gt;    // 查看某项配置，如 git config core.editor</span><br><span class="line">$ git config --list   // 查看所有配置</span><br><span class="line">$ git config --list --show-origin // 查看所有配置以及它们所在的文件</span><br><span class="line">$ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的文件，参数的位置不可调换，否则将变为配置 &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><ul>
+<li><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">help</span> &lt;verb&gt;     // 如 git <span class="built_in">help</span> config</span><br><span class="line">$ git &lt;verb&gt; --<span class="built_in">help</span>   // 如 git add -h</span><br><span class="line">$ man git-&lt;verb&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>查看网页指导，本编基于 <a href="https://git-scm.com/book/zh/v2" title="Git - Book">git 教程</a></p>
+</li>
+</ul>
+<h1 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h1><h2 id="获取-Git-仓库"><a href="#获取-Git-仓库" class="headerlink" title="获取 Git 仓库"></a>获取 Git 仓库</h2><ul>
+<li><p>本地初始化一个仓库，开始使用 Git 管理。</p>
+<p>  <code>$ git init</code></p>
+</li>
+<li><p>克隆远程仓库。</p>
+<p>  <code>$ git clone https://github.com/libgit2/libgit2</code></p>
+<p>  这会在当前目录下创建一个名为 “libgit2” 的目录，并在这个目录下初始化一个 .git 文件夹， 从远程仓库拉取下所有数据放入 .git 文件夹，然后从中读取最新版本的文件的拷贝。如果你进入到这个新建的 libgit2 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
+<p>  如果你想在克隆远程仓库的时候，自定义本地仓库的名字，你可以通过额外的参数指定新的目录名： </p>
+<p>  <code>$ git clone https://github.com/libgit2/libgit2 mygitfloder</code></p>
+</li>
+</ul>
+<h2 id="查看当前项目文件状态"><a href="#查看当前项目文件状态" class="headerlink" title="查看当前项目文件状态"></a>查看当前项目文件状态</h2><p>可以用 <code>git status</code> 命令查看哪些文件处于什么状态。可能的输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working</span><br><span class="line">directory)</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+
+<p>如果觉得输出内容比较繁琐，可以带上 -s 或 –short 参数打印精简信息，输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README    // 在工作区已修改但尚未暂存</span><br><span class="line">MM Rakefile // 暂存修改的文件后，又在工作区作了修改</span><br><span class="line">A lib/git.rb    // 新添加到暂存区中的文件前面有 A 标记 </span><br><span class="line">M lib/simplegit.rb  // 文件的修改已暂存</span><br><span class="line">?? LICENSE.txt  // 新添加的未跟踪文件前面有 ?? 标记</span><br></pre></td></tr></table></figure>
+
+<h2 id="暂存文件"><a href="#暂存文件" class="headerlink" title="暂存文件"></a>暂存文件</h2><p>可以使用 <code>git add</code> 精确地将内容添加到下一次提交中。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add CONTRIBUTING.md</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>git add</code> 只暂存了运行该命令时的版本，之后又作了修订的文件，需要重新运行 <code>git add</code> 把最新版本重新暂存起来。</p>
+<h2 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title=".gitignore 忽略文件"></a>.gitignore 忽略文件</h2><p>一些文件通常我们不想 Git 来管理，也不想每次 <code>git status</code> 时出现提示未跟踪该文件，譬如说一些 log 文件，或者代码编译过程中的中间文件，没必要通过版本控制来管控。Git 提供 .gitignore 文件来忽略这些文件，该文件的格式规范如下：</p>
+<blockquote>
+<ul>
+<li>所有空行或者以 # 开关的行都会被 Git 忽略。</li>
+<li>可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</li>
+<li>匹配模式可以以（/）开头防止递归。</li>
+<li>匹配模式可以以（/）结尾指定目录。</li>
+<li>要忽略批定模式以外的文件或目录，可以在模式前加上（！）取反。</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 忽略所有的 .a 文件</span><br><span class="line">*.a</span><br><span class="line"># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span><br><span class="line">!lib.a</span><br><span class="line"># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"># 忽略任何目录下名为 build 的文件夹</span><br><span class="line">build/</span><br><span class="line"># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
+<h2 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h2><p><code>git diff</code> 命令可以通过显示文件补丁的方式告诉我们，哪些更新尚未暂存（当前工作区与暂存区对比），哪些更新已暂存并准备好下次提交（当前暂存区与上一次提交对比）。</p>
+<p>要查看尚未暂存的文件更新了哪些部分，不加参数直接输入 <code>git diff</code>，此命令比较的是工作目录中当前文件和暂存区域快照之间的差异。也就是修改之后还没有暂存起来的变化内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br><span class="line">diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md</span><br><span class="line">index 8ebb991..643e24f 100644</span><br><span class="line">--- a/CONTRIBUTING.md</span><br><span class="line">+++ b/CONTRIBUTING.md</span><br><span class="line">@@ -65,7 +65,8 @@ branch directly, things can get messy. Please include a nice description of your changes when you submit your</span><br><span class="line">PR; if we have to read the whole diff to figure out why you&#x27;re contributing in the first place, you&#x27;re less likely to get feedback and have your</span><br><span class="line">change</span><br><span class="line">-merged in.</span><br><span class="line">+merged in. Also, split your changes into comprehensive chunks if your</span><br><span class="line">patch is</span><br><span class="line">+longer than a dozen lines.</span><br><span class="line"></span><br><span class="line"> If you are starting to work on a particular area, feel free to submit a</span><br><span class="line">PR that highlights your work in progress (and note in the PR title that it&#x27;s</span><br></pre></td></tr></table></figure>
+
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 <code>git diff --staged</code> 或 <code>git diff --cached</code> 命令。此命令将比对已暂存文件与最后一次提交的文件差异：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff --staged</span><br><span class="line">diff --git a/README b/README</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..03902a1</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/README</span><br><span class="line">@@ -0,0 +1 @@</span><br><span class="line">+My Project</span><br></pre></td></tr></table></figure>
+
+<h2 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit    // 将打开通过 git config --global -core.editor 设置的编辑器，输入提交信息即可完成提交</span><br><span class="line">$ git commit -m &quot;commit message&quot;    // 如果提交信息只有一行，可以按此方式提交</span><br><span class="line">$ git commit -a -m &quot;commit message&quot;     // 使用此方式可以跳过暂存步骤，直接将所有已跟踪过的文件暂存起来一并提交</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 打开编辑器输入提交信息，退出编辑器时，Git 会丢弃注释行。</p>
+<h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><p><code>git rm</code> 命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rm &lt;file&gt; // 从工作目录和跟踪清单中删除文件，提交后该文件将不存在于工作目录和 Git 管理中，当要删除之前修改过或存放到暂存区的文件，则要加上强制删除选项 -f，以防止误删尚未添加到快照的数据</span><br><span class="line">$ git rm --cached &lt;file&gt;   // 从 Git 仓库中删除，工作目录中依然保留，用于不想使用 Git 来跟踪此数据，执行此命令后，再加入 .gitignore 后将不再跟踪该文件</span><br></pre></td></tr></table></figure>
+
+<p><code>git rm</code> 命令后面可以列出文件或者目录的名字，也可以使用 <code>glob</code> 模式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rm log/\*.log // 删除 log/ 目录下扩展名为 .log 的所有文件</span><br><span class="line">$ git rm \*~    // 删除所有名字以 ~ 结尾的文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> 注意使用 <code>git rm &lt;file&gt;</code> 命令时，不管后续是否进行提交，该文件已经在工作区间被删除，如果此时想恢复，只能从 Git 仓库中 checkout 该文件。</p>
+<h2 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h2><p><code>git mv</code> 命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git mv file_from file_to</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git mv README.md README</span><br></pre></td></tr></table></figure>
+
+<p>其实，相当于如下命令集合：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mv README.md README</span><br><span class="line">$ git rm README.md</span><br><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p><code>git log</code> 会按时间先后顺序列出所有的提交，最近的更新排在最上面。这个命令会列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit ca82a6dff817ec66f44342007202690a93763949</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Mar 17 21:52:11 2008 -0700</span><br><span class="line"></span><br><span class="line">    changed the version number</span><br><span class="line"></span><br><span class="line">commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 16:40:33 2008 -0700</span><br><span class="line"></span><br><span class="line">    removed unnecessary test</span><br><span class="line"></span><br><span class="line">commit a11bef06a3f659402fe7563abf99ad00de2209e6</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 10:31:28 2008 -0700</span><br><span class="line"></span><br><span class="line">    first commit</span><br></pre></td></tr></table></figure>
+
+<p><code>git log</code> 有许多选项可以帮助搜寻你所要找的提交，常用的选项如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-p</td>
+<td align="left">按补丁格式显示每个提交引入的差异</td>
+</tr>
+<tr>
+<td align="left">–stat</td>
+<td align="left">显示每次提交的文件修改统计信息</td>
+</tr>
+<tr>
+<td align="left">–shortstat</td>
+<td align="left">只显示 –stat 中最后的行数修改添加移除统计</td>
+</tr>
+<tr>
+<td align="left">–name-only</td>
+<td align="left">仅在提交信息后显示已修改的文件清单</td>
+</tr>
+<tr>
+<td align="left">–name-status</td>
+<td align="left">显示新增、修改、删除的文件清单</td>
+</tr>
+<tr>
+<td align="left">–abbrev-commit</td>
+<td align="left">仅显示 SHA-1 校验和所有 40 个字符中的前几个字符</td>
+</tr>
+<tr>
+<td align="left">–relative-date</td>
+<td align="left">使用较短的相对时间而不是完整格式显示日期（比如 “2 weeks ago”）</td>
+</tr>
+<tr>
+<td align="left">–graph</td>
+<td align="left">在日志旁边以 ASCII 图形显示分支与合并历史</td>
+</tr>
+<tr>
+<td align="left">–pretty</td>
+<td align="left">使用其他格式显示历史提交信息。可用的选项包括 oneline、short、full、fuller 和 format （用来定义自己的格式）</td>
+</tr>
+<tr>
+<td align="left">–oneline</td>
+<td align="left">–pretty=oneline –abbrev-commit 合并的简写</td>
+</tr>
+<tr>
+<td align="left">-<n></td>
+<td align="left">仅显示最近的 n 条提交</td>
+</tr>
+<tr>
+<td align="left">–since, –after</td>
+<td align="left">仅显示指定时间之后的提交</td>
+</tr>
+<tr>
+<td align="left">–until, –before</td>
+<td align="left">仅显示指定时间之前的提交</td>
+</tr>
+<tr>
+<td align="left">–author</td>
+<td align="left">仅显示作者匹配指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">–committer</td>
+<td align="left">仅显示提交者匹配指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">–grep</td>
+<td align="left">仅显示提交说明中包含指定字符串的提交</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">仅显示添加或删除内容匹配指定字符串的提交</td>
+</tr>
+</tbody></table>
+<h2 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h2><h3 id="撤消提交-修补提交"><a href="#撤消提交-修补提交" class="headerlink" title="撤消提交 - 修补提交"></a>撤消提交 - 修补提交</h3><p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。这时候可以使用简单的修补提交操作，用一个 <strong>新的提交</strong> 替换旧的提交，从效果上来说，就像旧的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+
+<h3 id="撤消暂存的文件"><a href="#撤消暂存的文件" class="headerlink" title="撤消暂存的文件"></a>撤消暂存的文件</h3><p>如何取消已暂存的文件，<code>git status</code> 命令中已经给了提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   mytest.txt</span><br></pre></td></tr></table></figure>
+
+<p>提示使用 <code>git restore --staged &lt;file&gt;...</code> 来取消暂存。所以，我们可以使用此命令来取消暂存，但取消时并没有任何提示，再次查看状态时可以看到已经取消成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git restore --staged mytest.txt   # 无任何输出提示</span><br><span class="line"></span><br><span class="line">$ git status    # 查看状态可以看到已经取消成功</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">        mytest.txt</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Tips:</strong> <code>git reset HEAD &lt;file&gt;...</code> 命令也能达到目的，但是使用 reset 命令比较危险，新版本中推荐使用 <code>git restore</code></p>
+<h3 id="撤消对文件的修改"><a href="#撤消对文件的修改" class="headerlink" title="撤消对文件的修改"></a>撤消对文件的修改</h3><p>如果你想放弃对文件的修改，还原成上次提交时的样子，或仓库中某一个版本的样子，同样，<code>git status</code> 也告诉了你应该如何做，就是使用 <code>git restore &lt;file&gt;...</code> 命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#x27;origin/master&#x27; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.mkd</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br><span class="line"></span><br><span class="line">$ git restore README.mkd</span><br><span class="line"></span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#x27;origin/master&#x27; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+<p>可以看到使用该命令后无任何提示，但修改已经被撤消。</p>
+<p>使用 <code>git checkout -- &lt;file&gt;</code> 也可以达到同样的效果。</p>
+<h2 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h2><p>远程仓库是指托管在因特网或其他网络中的项目版本库，用于项目多人协作。一个项目可以关联多个远程仓库，而这些远程仓库的权限对你可能都是不同的。远程仓库也可以在你的本地主机上，可以像其它远程仓库上一样进行标准摄像头、拉取和抓取操作。</p>
+<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p><code>git remote</code> 会列出指定的每一个远程服务器的简写，可以指定选项 <code>-v</code> 显示需要读写的远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/schacon/ticgit (fetch)</span><br><span class="line">origin  https://github.com/schacon/ticgit (push)</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><ul>
+<li><p>如果使用 <code>git clone</code> 拉取一个远程仓库到本地，那么本地该项目会自动添加并关联远程仓库，且默认以 “origin” 为简写。</p>
+</li>
+<li><p>手动使用 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程仓库，同时指定一个方便使用的简写：</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line">$ git remote add pb https://github.com/paulboone/ticgit</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/schacon/ticgit (fetch)</span><br><span class="line">origin  https://github.com/schacon/ticgit (push)</span><br><span class="line">pb  https://github.com/paulboone/ticgit (fetch)</span><br><span class="line">pb  https://github.com/paulboone/ticgit (push)</span><br></pre></td></tr></table></figure>
+
+<p>  现在你可以在命令行中使用字符串 <code>pb</code> 来代替整个 URL。例如如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 <code>git fetch pb</code>:</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git fetch pb</span><br><span class="line">remote: Counting objects: 43, done.</span><br><span class="line">remote: Compressing objects: 100% (36/36), done.</span><br><span class="line">remote: Total 43 (delta 10), reused 31 (delta 5)</span><br><span class="line">Unpacking objects: 100% (43/43), done.</span><br><span class="line">From https://github.com/paulboone/ticgit</span><br><span class="line"> * [new branch]      master     -&gt; pb/master</span><br><span class="line"> * [new branch]      ticgit     -&gt; pb/ticgit</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h3><p>从远程仓库中获取数据，可以执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>git fetch &lt;remote&gt;</code> 会抓取克隆（或上一次抓取）后新推送的所有工作，将远程数据下载到你的本地仓库。执行完成后，你将会拥有那个远程仓库中所有分支的引用，但它不会自动合并或修改你当前的工作，当准备好时你必须手动将其合并入你的工作中。</p>
+<p>如果你想抓取之后自动合并到当前工作中，你可能想执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull &lt;remote&gt; # 会从跟踪分支中拉取数据并尝试合并到当前所在分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>当你想分享你的项目时，必须将其推送到上游。这个命令很简单：<code>git push &lt;remote&gt; &lt;branch&gt;</code>。当你想要将 master 分支推送到 origin 服务器时，那么运行这个命令就可以将你所做的备份到服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。当你和其他人在同一时间克隆，他们先推送到上游然后你再摄像头到上游，你的推送就会毫无疑问地被拒绝。你必须先抓取他们的工作并将其合并进你的工作后才能推送。</p>
+<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><p>如果想要查看某个远程仓库的更多信息，可以使用 <code>git remote show &lt;remote&gt;</code> 命令。如果想以一个特定的缩写名运行这个命令，例如 <code>origin</code>，会得到像下面类似的信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  Fetch URL: https://github.com/schacon/ticgit</span><br><span class="line">  Push  URL: https://github.com/schacon/ticgit</span><br><span class="line">  HEAD branch: master</span><br><span class="line">  Remote branches:</span><br><span class="line">    master                               tracked</span><br><span class="line">    dev-branch                           tracked</span><br><span class="line">  Local branch configured for &#x27;git pull&#x27;:</span><br><span class="line">    master merges with remote master</span><br><span class="line">  Local ref configured for &#x27;git push&#x27;:</span><br><span class="line">    master pushes to master (up to date)</span><br></pre></td></tr></table></figure>
+
+<p>它同样会列出远程仓库的 URL 与跟踪分支的信息。这些信息非常有用，它告诉你正处于 master 分支，并且如果运行 <code>git pull</code>，就会抓取所有的远程引用，然后将远程 master 分支合并到本地 master 分支。它也会列出拉取到的所有远程引用。</p>
+<h3 id="远程仓库的重命名与移除"><a href="#远程仓库的重命名与移除" class="headerlink" title="远程仓库的重命名与移除"></a>远程仓库的重命名与移除</h3><p>你可以运行 <code>git remote rename &lt;old_name&gt; &lt;new_name&gt;</code> 来修改一个远程仓库的简写名。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote rename pb paul # 将远程仓库 pb 重命名为 paul，那些过去引用 pb/master 的现在会引用 paul/master</span><br></pre></td></tr></table></figure>
+
+<p>可以使用 <code>git remote remove</code> 或 <code>git remote rm</code> 来移除一个远程仓库，一旦删除了一个远程仓库，那么所有和这个远程仓库相关的远程跟踪分支以及配置信息也会一起被删除。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote rm paul</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>Git 可以给仓库历史中的某一个提交打上标签，以示重要。Git 支持两种标签：轻量标签（lightweight）与附注标签（annotated）。</p>
+<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><p>使用 <code>git tag</code> 列出标签，可带上可选的 -l 选项 –list:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag # 列出所有标签，-l 或 --list 可选</span><br><span class="line">v1.0</span><br><span class="line">v2.0</span><br><span class="line"></span><br><span class="line">$ git tag -l &quot;v1.8.5*&quot;  # 需要列出匹配的标签时，-l 或 --list 选项是强制的</span><br><span class="line">v1.8.5</span><br><span class="line">v1.8.5-rc0</span><br><span class="line">v1.8.5-rc1</span><br><span class="line">v1.8.5-rc2</span><br><span class="line">v1.8.5-rc3</span><br><span class="line">v1.8.5.1</span><br><span class="line">v1.8.5.2</span><br><span class="line">v1.8.5.3</span><br><span class="line">v1.8.5.4</span><br><span class="line">v1.8.5.5</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>轻量标签很像一个不会改变的分支——它只是某个特定提交的引用。</p>
+<p>而附注标签是存储在 Git 数据库中的一个完整对象，它们是可以被检验的，其中包含打标签者的名字、电子邮件地址、日期时间，此外还有一个标签信息，并且可以使用 GNU Privacy Guard（GPG）签名并验证。通常会建议创建附注标签。</p>
+<h4 id="附注标签"><a href="#附注标签" class="headerlink" title="附注标签"></a>附注标签</h4><p>在 Git 中创建附注标签十分简单。最简单的方式是当你在运行 <code>tag</code> 命令时指定 <code>-a</code> 选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag -a v1.4 -m &quot;my version 1.4&quot;</span><br><span class="line">$ git tag</span><br><span class="line">v0.1</span><br><span class="line">v1.3</span><br><span class="line">v1.4</span><br></pre></td></tr></table></figure>
+
+<p><code>-m</code> 选项指定了一条将会存储在标签中的信息。如果没有为附注标签指定一条信息，Git 会启动编辑器要求你输入信息。</p>
+<p>通过使用 <code>git show</code> 命令可以看到标签信息和与之对应的提交信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git show v1.4</span><br><span class="line">tag v1.4</span><br><span class="line">Tagger: Ben Straub &lt;ben@straub.cc&gt;</span><br><span class="line">Date:   Sat May 3 20:19:12 2014 -0700</span><br><span class="line"></span><br><span class="line">my version 1.4</span><br><span class="line"></span><br><span class="line">commit ca82a6dff817ec66f44342007202690a93763949</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Mar 17 21:52:11 2008 -0700</span><br><span class="line"></span><br><span class="line">    changed the version number</span><br></pre></td></tr></table></figure>
+
+<p>输出显示了打标签者的信息、打标签的日期时间、附注信息，然后显示具体的提交信息。</p>
+<h4 id="轻量标签"><a href="#轻量标签" class="headerlink" title="轻量标签"></a>轻量标签</h4><p>另一种给提交打标签的方式是使用轻量标签。轻量标签本质上是将提交校验和存储到一个文件中——没有保存任何其他信息。创建轻量标签，不需要使用 <code>-a</code>、<code>-s</code> 或 <code>-m</code> 选项，只需要提供标签名字：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag v1.4-lw</span><br><span class="line">$ git tag</span><br><span class="line">v0.1</span><br><span class="line">v1.3</span><br><span class="line">v1.4</span><br><span class="line">v1.4-lw</span><br><span class="line">v1.5</span><br></pre></td></tr></table></figure>
+
+<p>这时，如果在标签上运行 <code>git show</code>，你不会看到额外的标签信息。命令只会显示出提交信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git show v1.4-lw</span><br><span class="line">commit ca82a6dff817ec66f44342007202690a93763949</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Mar 17 21:52:11 2008 -0700</span><br><span class="line"></span><br><span class="line">    changed the version number</span><br></pre></td></tr></table></figure>
+
+<h4 id="后期打标签"><a href="#后期打标签" class="headerlink" title="后期打标签"></a>后期打标签</h4><p>你也可以对过去的提交打标签。假设提交历史是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log --pretty=oneline</span><br><span class="line">15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch &#x27;experiment&#x27;</span><br><span class="line">a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support</span><br><span class="line">0d52aaab4479697da7686c15f77a3d64d9165190 one more thing</span><br><span class="line">6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch &#x27;experiment&#x27;</span><br><span class="line">0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function</span><br><span class="line">4682c3261057305bdd616e23b64b0857d832627b added a todo file</span><br><span class="line">166ae0c4d3f420721acbb115cc33848dfcc2121a started write support</span><br><span class="line">9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile</span><br><span class="line">964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo</span><br><span class="line">8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme</span><br></pre></td></tr></table></figure>
+
+<p>现在，假设在 v1.2 时你忘记给项目打标签，也就是在 “updated rakefile” 提交。 你可以在之后补上标签。 要<br>在那个提交上打标签，你需要在命令的末尾指定提交的校验和（或部分校验和）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag -a v1.2 9fceb02</span><br></pre></td></tr></table></figure>
+
+<p>可以看到你已经在那次提交上打上标签了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag</span><br><span class="line">v0.1</span><br><span class="line">v1.2</span><br><span class="line">v1.3</span><br><span class="line">v1.4</span><br><span class="line">v1.4-lw</span><br><span class="line">v1.5</span><br><span class="line"></span><br><span class="line">$ git show v1.2</span><br><span class="line">tag v1.2</span><br><span class="line">Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Feb 9 15:32:16 2009 -0800</span><br><span class="line"></span><br><span class="line">version 1.2</span><br><span class="line">commit 9fceb02d0ae598e95dc970b74767f19372d61af8</span><br><span class="line">Author: Magnus Chacon &lt;mchacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sun Apr 27 20:43:35 2008 -0700</span><br><span class="line"></span><br><span class="line">    updated rakefile</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h4><p>默认情况下，<code>git push</code> 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到<br>共享服务器上。 这个过程就像共享远程分支一样——你可以运行 <code>git push origin &lt;tagname&gt;</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin v1.5</span><br><span class="line">Counting objects: 14, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (12/12), done.</span><br><span class="line">Writing objects: 100% (14/14), 2.05 KiB | 0 bytes/s, done.</span><br><span class="line">Total 14 (delta 3), reused 0 (delta 0)</span><br><span class="line">To git@github.com:schacon/simplegit.git</span><br><span class="line"> * [new tag]         v1.5 -&gt; v1.5</span><br></pre></td></tr></table></figure>
+
+<p>如果想要一次性推送很多标签，也可以使用带有 –tags 选项的 git push 命令。 这将会把所有不在远程仓库<br>服务器上的标签全部传送到那里。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin --tags</span><br><span class="line">Counting objects: 1, done.</span><br><span class="line">Writing objects: 100% (1/1), 160 bytes | 0 bytes/s, done.</span><br><span class="line">Total 1 (delta 0), reused 0 (delta 0)</span><br><span class="line">To git@github.com:schacon/simplegit.git</span><br><span class="line"> * [new tag]         v1.4 -&gt; v1.4</span><br><span class="line"> * [new tag]         v1.4-lw -&gt; v1.4-lw</span><br></pre></td></tr></table></figure>
+
+<p>现在，当其他人从仓库中克隆或拉取，他们也能得到你的那些标签。</p>
+<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><p>要删除掉你本地仓库上的标签，可以使用命令 <code>git tag -d &lt;tagname&gt;</code>。 例如，可以使用以下命令删除一个<br>轻量标签：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git tag -d v1.4-lw</span><br><span class="line">Deleted tag &#x27;v1.4-lw&#x27; (was e7d5add)</span><br></pre></td></tr></table></figure>
+
+<p>注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 git push <remote> :refs/tags/<tagname> 来更新你的远程仓库：</p>
+<p>注意上述命令并不会从任何远程仓库中移除这个标签，你必须用 git push <remote><br>:refs/tags/<tagname> 来更新你的远程仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin :refs/tags/v1.4-lw</span><br><span class="line">To /git@github.com:schacon/simplegit.git</span><br><span class="line"> - [deleted]         v1.4-lw</span><br></pre></td></tr></table></figure>
+
+<p>上面这种操作的含义是，将冒号前面的空值推送到远程标签名，从而高效地删除它。</p>
+<p>第二种更直观的删除远程标签的方式是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin --delete &lt;tagname&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-别名"><a href="#Git-别名" class="headerlink" title="Git 别名"></a>Git 别名</h2><p>为方便一些长命令的记忆，可使用 Git 别名。Git 只是简单地将别名替换为对应的命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global alias.last `log -1 HEAD`</span><br></pre></td></tr></table></figure>
+
+<p>如上，可以轻松地看到最后一次的提交。</p>
+<p>然而，你可能想要执行外部命令，而不是一个 Git 子命令。如果是那样的话，可以在命令前面加入 ！ 符号。如果你自己要写一些与 Git 仓库协作的工具的话，那会很有用。我们现在演示将 <code>git visual</code> 定义为 <code>gitk</code> 的别名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global alias.visual `!gitk`</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git学习</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>GitHub</tag>
+        <tag>版本控制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之五、C++ 运算符</title>
+    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算符。</p>
+<span id="more"></span>
+
+<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除和求模运算。</p>
+<ul>
+<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code>。</li>
+<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code>。</li>
+<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code>。</li>
+<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code>。</li>
+<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1。</li>
+</ul>
+<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++a</code>，后缀版本位于操作数后面，如 <code>a++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
+<h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; ++a;    // 先将 a 值加 1，然后使用新的值来计算表达式，这里打印值为 6</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
+
+<h2 id="后缀版本"><a href="#后缀版本" class="headerlink" title="后缀版本"></a>后缀版本</h2><p>后缀版本先使用操作数当前的值计算表达式，再将值加 1 或减 1。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
+<h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
+<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，原变量加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
+<h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
+
+<p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面 pt 指向 arr[1] 的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
+<p>以下为组合赋值运算符总结</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>作用（L 为左操作数，R 为右操作数）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+=</td>
+<td>将 L+R 赋给 L</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>将 L-R 赋给 L</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>将 L*R 赋给 L</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>将 L/R 赋给 L</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>将 L%R 赋给 L</td>
+</tr>
+</tbody></table>
+<h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
+<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号只是用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逗号运算符的优先级最低。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符的值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
+
+<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
+<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
+<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换。</p>
+<ul>
+<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
+<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
+<li>将参数传递给函数时，C++ 将对值进行转换。</li>
+</ul>
+<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
+
+<p>这种类型的转换在一些情况下可能出现问题</p>
+<table>
+<thead>
+<tr>
+<th>转换</th>
+<th>潜在的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
+<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将浮点型转换为整型</td>
+<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
+</tr>
+<tr>
+<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
+<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
+</tr>
+</tbody></table>
+<p><strong>Tips:</strong> 将 0 赋给 <code>bool</code> 变量时，将被转换为 <code>false</code>，而非零值将被转换为 <code>true</code>。</p>
+<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许转换为无法表示该值的数据类型。例如：</p>
+<ul>
+<li>不允许浮点型转换为整型。</li>
+<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 非法，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 合法，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 合法，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 非法，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况；此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量类型能处理该值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
+
+<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
+<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
+
+<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
+<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
+<p>long double &gt; double &gt; float &gt; 整型提升</p>
+<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
+<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 (int) &#x27;Q&#x27;，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VSCode 教程</title>
+    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
+<span id="more"></span>
+
+<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
+<ul>
+<li>VS Code 命令面板</li>
+</ul>
+<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
+<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
+<li><p>光标移动</p>
+<ul>
+<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
+<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
+<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
+<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
+</ul>
+</li>
+<li><p>文本选择</p>
+<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
+</li>
+<li><p>删除操作</p>
+<ul>
+<li>可以先选中文本，再按删除。</li>
+<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
+</ul>
+</li>
+</ul>
+<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
+<li>删除行。<code>Ctrl + Shift + K</code>。</li>
+<li>剪切行。<code>Ctrl + X</code>。</li>
+<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
+<li>移动代码行。<code>Alt + 上下方向键</code></li>
+<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
+</ul>
+<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
+<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
+<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
+<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
+<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
+<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
+<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
+<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
+<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
+<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
+<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
+<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
+<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
+<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
+<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
+<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
+<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
+<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
+<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
+<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
+<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
+<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
+<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
+<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
+<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
+<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
+<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
+<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
+<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
+<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
+<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
+<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
+<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
+<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
+<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
+<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
+<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
+<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
+<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
+<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
+<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
+<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
+<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
+<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
+<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
+<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
+<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
+<p><code>Shift+ F12</code> 打开函数引用预览。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
+    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
+<span id="more"></span>
+
+<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
+<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
+<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
+<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
+<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
+
+<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
+<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
+<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
+</li>
+<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
+<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
+
+<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
+</li>
+</ul>
+<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
+<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
+<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
+<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
+<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
+<p>最后，可以创建多个值相同的枚举量：</p>
+<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
+<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
+<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
+<ul>
+<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
+<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习之四、C++变量</title>
+    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
+<span id="more"></span>
+
+<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
+<ul>
+<li>信息将存储在哪里。</li>
+<li>要存储什么值。</li>
+<li>存储何种类型的信息。</li>
+</ul>
+<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
+<li>名称中只能使用字母字符、数字和下划线（_）。</li>
+<li>名称中第一个字符不能是数字。</li>
+<li>区分大小写。</li>
+<li>不能将 C++ 关键字用作名称。</li>
+<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
+<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
+</ul>
+<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
+<ul>
+<li>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></li>
+<li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
+<li>C++11 新增方式：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
+<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
+<ul>
+<li>它能够明确指定数据类型。</li>
+<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
+<li><code>const</code> 可用于更复杂的类型。</li>
+</ul>
+<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
+<pre><code>const int MONTH = 12;
+</code></pre>
+<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
+<p>一般用于处理复杂类型。</p>
 ]]></content>
       <categories>
         <category>C++学习</category>
@@ -528,509 +1161,65 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
-    <title>Git 常用命令</title>
-    <url>/2021/05/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>Git 常用的一些命令汇总，及相关用法。</p>
+    <title>什么是 ASPICE</title>
+    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
+    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
 <span id="more"></span>
 
-<h1 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h1><p>Git 是一个分布式版本控制系统，常用于软件代码的版本控制，在这个系统的控制下，所有<strong>提交过</strong>的操作都是可追溯的。</p>
-<h2 id="Git-处理数据特点"><a href="#Git-处理数据特点" class="headerlink" title="Git 处理数据特点"></a>Git 处理数据特点</h2><p>Git 把数据看作是对小型文件系统的一系列快照。在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当前的全部文件创建一个快照并保存这个快照的索引。如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。Git 对待数据更像是一个快照流。<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_Checkins_Over_Time.png" alt="Checkins Over Time" title="存储项目随时间改变的快照"></p>
-<p>Git 中所有发数据在存储前都计算检验和，然后以校验和来引用。Git 用以计算检验和的机制叫做 SHA-1 散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。SHA-1 哈希看起来是这样：</p>
-<pre><code>24b9da6552252987aa493b52f8696cd6d3b00373
-</code></pre>
-<p>Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。实际上，Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p>
-<h2 id="Git-文件工作状态"><a href="#Git-文件工作状态" class="headerlink" title="Git 文件工作状态"></a>Git 文件工作状态</h2><p>Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p>
+<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
+<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
+<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
+<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
+<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
+<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
+<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
+<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
+<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
+<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
+<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
 <blockquote>
-<p>工作区是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
-<p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p>
-<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据，一般为 <code>.git</code> 目录。</p>
+<ol>
+<li>过程实施指标 – 只适用于 L1<blockquote>
+<ol>
+<li>基本实践（BP）</li>
+<li>工作产品（WP）</li>
+</ol>
 </blockquote>
-<p>Git 项目下文件大的方面分两个状态：<strong>未跟踪</strong>和<strong>已跟踪</strong>。</p>
-<blockquote>
-<p>未跟踪指未纳入 Git 管理的文件，Git 下没有该文件的记录，不识别该文件</p>
-<p>已跟踪指已在 Git 管理下的文件，又区分为：已修改、已暂存和已提交状态。</p>
-<blockquote>
-<p>已修改，指文件被修改，但修改之后还没有暂存</p>
-<p>已暂存，指被操作后的文件已被标记，放入暂存区，将纳入下次提交</p>
-<p>已提交（也称为<strong>未修改</strong>状态），指该文件已被提交到 Git 仓库，仓库中目前的快照为当前状态。第一次 clone 下来的文件就处于这个状态</p>
+</li>
+<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
+<ol>
+<li>通用实践（GP）</li>
+<li>通用资源（GR）</li>
+</ol>
 </blockquote>
+</li>
+</ol>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/Git_%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%91%A8%E6%9C%9F.png" alt="文件的状态变化周期"></p>
-<h1 id="配置及帮助"><a href="#配置及帮助" class="headerlink" title="配置及帮助"></a>配置及帮助</h1><h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --system // 系统配置文件，包含系统上每一个用户及他们仓库的通用配置</span><br><span class="line">$ git config --global // 针对当前用户的配置，如 git config --global user.name <span class="string">&quot;zfh18&quot;</span> 配置用户名</span><br><span class="line">$ git config --<span class="built_in">local</span>  // 针对该仓库，需要进入某个 Git 仓库中才能使用该命令，git config 默认不加任何参数时为此命令</span><br><span class="line">$ git config &lt;key&gt;    // 查看某项配置，如 git config core.editor</span><br><span class="line">$ git config --list   // 查看所有配置</span><br><span class="line">$ git config --list --show-origin // 查看所有配置以及它们所在的文件</span><br><span class="line">$ git config --show-origin &lt;key&gt;  // 查看某项配置以及它所在的文件，参数的位置不可调换，否则将变为配置 &lt;key&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><ul>
-<li><p>有三种等价的方法可以找到 Git 命令的综合手册：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">help</span> &lt;verb&gt;     // 如 git <span class="built_in">help</span> config</span><br><span class="line">$ git &lt;verb&gt; --<span class="built_in">help</span>   // 如 git add -h</span><br><span class="line">$ man git-&lt;verb&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>查看网页指导，本编基于 <a href="https://git-scm.com/book/zh/v2" title="Git - Book">git 教程</a></p>
-</li>
-</ul>
-<h1 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h1><h2 id="获取-Git-仓库"><a href="#获取-Git-仓库" class="headerlink" title="获取 Git 仓库"></a>获取 Git 仓库</h2><ul>
-<li><p>本地初始化一个仓库，开始使用 Git 管理。</p>
-<p>  <code>$ git init</code></p>
-</li>
-<li><p>克隆远程仓库。</p>
-<p>  <code>$ git clone https://github.com/libgit2/libgit2</code></p>
-<p>  这会在当前目录下创建一个名为 “libgit2” 的目录，并在这个目录下初始化一个 .git 文件夹， 从远程仓库拉取下所有数据放入 .git 文件夹，然后从中读取最新版本的文件的拷贝。如果你进入到这个新建的 libgit2 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
-<p>  如果你想在克隆远程仓库的时候，自定义本地仓库的名字，你可以通过额外的参数指定新的目录名： </p>
-<p>  <code>$ git clone https://github.com/libgit2/libgit2 mygitfloder</code></p>
-</li>
-</ul>
-<h2 id="查看当前项目文件状态"><a href="#查看当前项目文件状态" class="headerlink" title="查看当前项目文件状态"></a>查看当前项目文件状态</h2><p>可以用 <code>git status</code> 命令查看哪些文件处于什么状态。可能的输出如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working</span><br><span class="line">directory)</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
-
-<p>如果觉得输出内容比较繁琐，可以带上 -s 或 –short 参数打印精简信息，输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README    // 在工作区已修改但尚未暂存</span><br><span class="line">MM Rakefile // 暂存修改的文件后，又在工作区作了修改</span><br><span class="line">A lib/git.rb    // 新添加到暂存区中的文件前面有 A 标记 </span><br><span class="line">M lib/simplegit.rb  // 文件的修改已暂存</span><br><span class="line">?? LICENSE.txt  // 新添加的未跟踪文件前面有 ?? 标记</span><br></pre></td></tr></table></figure>
-
-<h2 id="暂存文件"><a href="#暂存文件" class="headerlink" title="暂存文件"></a>暂存文件</h2><p>可以使用 <code>git add</code> 精确地将内容添加到下一次提交中。如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add CONTRIBUTING.md</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">new file: README</span><br><span class="line">modified: CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>git add</code> 只暂存了运行该命令时的版本，之后又作了修订的文件，需要重新运行 <code>git add</code> 把最新版本重新暂存起来。</p>
-<h2 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title=".gitignore 忽略文件"></a>.gitignore 忽略文件</h2><p>一些文件通常我们不想 Git 来管理，也不想每次 <code>git status</code> 时出现提示未跟踪该文件，譬如说一些 log 文件，或者代码编译过程中的中间文件，没必要通过版本控制来管控。Git 提供 .gitignore 文件来忽略这些文件，该文件的格式规范如下：</p>
-<blockquote>
-<ul>
-<li>所有空行或者以 # 开关的行都会被 Git 忽略。</li>
-<li>可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</li>
-<li>匹配模式可以以（/）开头防止递归。</li>
-<li>匹配模式可以以（/）结尾指定目录。</li>
-<li>要忽略批定模式以外的文件或目录，可以在模式前加上（！）取反。</li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 忽略所有的 .a 文件</span><br><span class="line">*.a</span><br><span class="line"># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span><br><span class="line">!lib.a</span><br><span class="line"># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"># 忽略任何目录下名为 build 的文件夹</span><br><span class="line">build/</span><br><span class="line"># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
-<h2 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h2><p><code>git diff</code> 命令可以通过显示文件补丁的方式告诉我们，哪些更新尚未暂存（当前工作区与暂存区对比），哪些更新已暂存并准备好下次提交（当前暂存区与上一次提交对比）。</p>
-<p>要查看尚未暂存的文件更新了哪些部分，不加参数直接输入 <code>git diff</code>，此命令比较的是工作目录中当前文件和暂存区域快照之间的差异。也就是修改之后还没有暂存起来的变化内容。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br><span class="line">diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md</span><br><span class="line">index 8ebb991..643e24f 100644</span><br><span class="line">--- a/CONTRIBUTING.md</span><br><span class="line">+++ b/CONTRIBUTING.md</span><br><span class="line">@@ -65,7 +65,8 @@ branch directly, things can get messy. Please include a nice description of your changes when you submit your</span><br><span class="line">PR; if we have to read the whole diff to figure out why you&#x27;re contributing in the first place, you&#x27;re less likely to get feedback and have your</span><br><span class="line">change</span><br><span class="line">-merged in.</span><br><span class="line">+merged in. Also, split your changes into comprehensive chunks if your</span><br><span class="line">patch is</span><br><span class="line">+longer than a dozen lines.</span><br><span class="line"></span><br><span class="line"> If you are starting to work on a particular area, feel free to submit a</span><br><span class="line">PR that highlights your work in progress (and note in the PR title that it&#x27;s</span><br></pre></td></tr></table></figure>
-
-<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 <code>git diff --staged</code> 或 <code>git diff --cached</code> 命令。此命令将比对已暂存文件与最后一次提交的文件差异：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git diff --staged</span><br><span class="line">diff --git a/README b/README</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..03902a1</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/README</span><br><span class="line">@@ -0,0 +1 @@</span><br><span class="line">+My Project</span><br></pre></td></tr></table></figure>
-
-<h2 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit    // 将打开通过 git config --global -core.editor 设置的编辑器，输入提交信息即可完成提交</span><br><span class="line">$ git commit -m &quot;commit message&quot;    // 如果提交信息只有一行，可以按此方式提交</span><br><span class="line">$ git commit -a -m &quot;commit message&quot;     // 使用此方式可以跳过暂存步骤，直接将所有已跟踪过的文件暂存起来一并提交</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 打开编辑器输入提交信息，退出编辑器时，Git 会丢弃注释行。</p>
-<h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><p><code>git rm</code> 命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rm &lt;file&gt; // 从工作目录和跟踪清单中删除文件，提交后该文件将不存在于工作目录和 Git 管理中，当要删除之前修改过或存放到暂存区的文件，则要加上强制删除选项 -f，以防止误删尚未添加到快照的数据</span><br><span class="line">$ git rm --cached &lt;file&gt;   // 从 Git 仓库中删除，工作目录中依然保留，用于不想使用 Git 来跟踪此数据，执行此命令后，再加入 .gitignore 后将不再跟踪该文件</span><br></pre></td></tr></table></figure>
-
-<p><code>git rm</code> 命令后面可以列出文件或者目录的名字，也可以使用 <code>glob</code> 模式。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git rm log/\*.log // 删除 log/ 目录下扩展名为 .log 的所有文件</span><br><span class="line">$ git rm \*~    // 删除所有名字以 ~ 结尾的文件</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> 注意使用 <code>git rm &lt;file&gt;</code> 命令时，不管后续是否进行提交，该文件已经在工作区间被删除，如果此时想恢复，只能从 Git 仓库中 checkout 该文件。</p>
-<h2 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h2><p><code>git mv</code> 命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git mv file_from file_to</span><br></pre></td></tr></table></figure>
-
-<p>如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git mv README.md README</span><br></pre></td></tr></table></figure>
-
-<p>其实，相当于如下命令集合：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ mv README.md README</span><br><span class="line">$ git rm README.md</span><br><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p><code>git log</code> 会按时间先后顺序列出所有的提交，最近的更新排在最上面。这个命令会列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit ca82a6dff817ec66f44342007202690a93763949</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Mon Mar 17 21:52:11 2008 -0700</span><br><span class="line"></span><br><span class="line">    changed the version number</span><br><span class="line"></span><br><span class="line">commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 16:40:33 2008 -0700</span><br><span class="line"></span><br><span class="line">    removed unnecessary test</span><br><span class="line"></span><br><span class="line">commit a11bef06a3f659402fe7563abf99ad00de2209e6</span><br><span class="line">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;</span><br><span class="line">Date:   Sat Mar 15 10:31:28 2008 -0700</span><br><span class="line"></span><br><span class="line">    first commit</span><br></pre></td></tr></table></figure>
-
-<p><code>git log</code> 有许多选项可以帮助搜寻你所要找的提交，常用的选项如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">选项</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">-p</td>
-<td align="left">按补丁格式显示每个提交引入的差异</td>
-</tr>
-<tr>
-<td align="left">–stat</td>
-<td align="left">显示每次提交的文件修改统计信息</td>
-</tr>
-<tr>
-<td align="left">–shortstat</td>
-<td align="left">只显示 –stat 中最后的行数修改添加移除统计</td>
-</tr>
-<tr>
-<td align="left">–name-only</td>
-<td align="left">仅在提交信息后显示已修改的文件清单</td>
-</tr>
-<tr>
-<td align="left">–name-status</td>
-<td align="left">显示新增、修改、删除的文件清单</td>
-</tr>
-<tr>
-<td align="left">–abbrev-commit</td>
-<td align="left">仅显示 SHA-1 校验和所有 40 个字符中的前几个字符</td>
-</tr>
-<tr>
-<td align="left">–relative-date</td>
-<td align="left">使用较短的相对时间而不是完整格式显示日期（比如 “2 weeks ago”）</td>
-</tr>
-<tr>
-<td align="left">–graph</td>
-<td align="left">在日志旁边以 ASCII 图形显示分支与合并历史</td>
-</tr>
-<tr>
-<td align="left">–pretty</td>
-<td align="left">使用其他格式显示历史提交信息。可用的选项包括 oneline、short、full、fuller 和 format （用来定义自己的格式）</td>
-</tr>
-<tr>
-<td align="left">–oneline</td>
-<td align="left">–pretty=oneline –abbrev-commit 合并的简写</td>
-</tr>
-<tr>
-<td align="left">-<n></td>
-<td align="left">仅显示最近的 n 条提交</td>
-</tr>
-<tr>
-<td align="left">–since, –after</td>
-<td align="left">仅显示指定时间之后的提交</td>
-</tr>
-<tr>
-<td align="left">–until, –before</td>
-<td align="left">仅显示指定时间之前的提交</td>
-</tr>
-<tr>
-<td align="left">–author</td>
-<td align="left">仅显示作者匹配指定字符串的提交</td>
-</tr>
-<tr>
-<td align="left">–committer</td>
-<td align="left">仅显示提交者匹配指定字符串的提交</td>
-</tr>
-<tr>
-<td align="left">–grep</td>
-<td align="left">仅显示提交说明中包含指定字符串的提交</td>
-</tr>
-<tr>
-<td align="left">-S</td>
-<td align="left">仅显示添加或删除内容匹配指定字符串的提交</td>
-</tr>
-</tbody></table>
-<h2 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h2><h3 id="撤消提交-修补提交"><a href="#撤消提交-修补提交" class="headerlink" title="撤消提交 - 修补提交"></a>撤消提交 - 修补提交</h3><p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。这时候可以使用简单的修补提交操作，用一个 <strong>新的提交</strong> 替换旧的提交，从效果上来说，就像旧的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
-
-<h3 id="撤消暂存的文件"><a href="#撤消暂存的文件" class="headerlink" title="撤消暂存的文件"></a>撤消暂存的文件</h3><p>如何取消已暂存的文件，<code>git status</code> 命令中已经给了提示：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   mytest.txt</span><br></pre></td></tr></table></figure>
-
-<p>提示使用 <code>git restore --staged &lt;file&gt;...</code> 来取消暂存。所以，我们可以使用此命令来取消暂存，但取消时并没有任何提示，再次查看状态时可以看到已经取消成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git restore --staged mytest.txt   # 无任何输出提示</span><br><span class="line"></span><br><span class="line">$ git status    # 查看状态可以看到已经取消成功</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#x27;origin/master&#x27;.</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">        mytest.txt</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong> <code>git reset HEAD &lt;file&gt;...</code> 命令也能达到目的，但是使用 reset 命令比较危险，新版本中推荐使用 <code>git restore</code></p>
-<h3 id="撤消对文件的修改"><a href="#撤消对文件的修改" class="headerlink" title="撤消对文件的修改"></a>撤消对文件的修改</h3><p>如果你想放弃对文件的修改，还原成上次提交时的样子，或仓库中某一个版本的样子，同样，<code>git status</code> 也告诉了你应该如何做，就是使用 <code>git restore &lt;file&gt;...</code> 命令。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#x27;origin/master&#x27; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.mkd</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br><span class="line"></span><br><span class="line">$ git restore README.mkd</span><br><span class="line"></span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#x27;origin/master&#x27; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-
-<p>可以看到使用该命令后无任何提示，但修改已经被撤消。</p>
-<p>使用 <code>git checkout -- &lt;file&gt;</code> 也可以达到同样的效果。</p>
-<h2 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h2><p>远程仓库是指托管在因特网或其他网络中的项目版本库，用于项目多人协作。一个项目可以关联多个远程仓库，而这些远程仓库的权限对你可能都是不同的。远程仓库也可以在你的本地主机上，可以像其它远程仓库上一样进行标准摄像头、拉取和抓取操作。</p>
-<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p><code>git remote</code> 会列出指定的每一个远程服务器的简写，可以指定选项 <code>-v</code> 显示需要读写的远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/schacon/ticgit (fetch)</span><br><span class="line">origin  https://github.com/schacon/ticgit (push)</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><ul>
-<li><p>如果使用 <code>git clone</code> 拉取一个远程仓库到本地，那么本地该项目会自动添加并关联远程仓库，且默认以 “origin” 为简写。</p>
-</li>
-<li><p>手动使用 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程仓库，同时指定一个方便使用的简写：</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line">$ git remote add pb https://github.com/paulboone/ticgit</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  https://github.com/schacon/ticgit (fetch)</span><br><span class="line">origin  https://github.com/schacon/ticgit (push)</span><br><span class="line">pb  https://github.com/paulboone/ticgit (fetch)</span><br><span class="line">pb  https://github.com/paulboone/ticgit (push)</span><br></pre></td></tr></table></figure>
-
-<p>  现在你可以在命令行中使用字符串 <code>pb</code> 来代替整个 URL。例如如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 <code>git fetch pb</code>:</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git fetch pb</span><br><span class="line">remote: Counting objects: 43, done.</span><br><span class="line">remote: Compressing objects: 100% (36/36), done.</span><br><span class="line">remote: Total 43 (delta 10), reused 31 (delta 5)</span><br><span class="line">Unpacking objects: 100% (43/43), done.</span><br><span class="line">From https://github.com/paulboone/ticgit</span><br><span class="line"> * [new branch]      master     -&gt; pb/master</span><br><span class="line"> * [new branch]      ticgit     -&gt; pb/ticgit</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h3><p>从远程仓库中获取数据，可以执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>git fetch &lt;remote&gt;</code> 会抓取克隆（或上一次抓取）后新推送的所有工作，将远程数据下载到你的本地仓库。执行完成后，你将会拥有那个远程仓库中所有分支的引用，但它不会自动合并或修改你当前的工作，当准备好时你必须手动将其合并入你的工作中。</p>
-<p>如果你想抓取之后自动合并到当前工作中，你可能想执行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git pull &lt;remote&gt; # 会从跟踪分支中拉取数据并尝试合并到当前所在分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>当你想分享你的项目时，必须将其推送到上游。这个命令很简单：<code>git push &lt;remote&gt; &lt;branch&gt;</code>。当你想要将 master 分支推送到 origin 服务器时，那么运行这个命令就可以将你所做的备份到服务器：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
-<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。当你和其他人在同一时间克隆，他们先推送到上游然后你再摄像头到上游，你的推送就会毫无疑问地被拒绝。你必须先抓取他们的工作并将其合并进你的工作后才能推送。</p>
-<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><p>如果想要查看某个远程仓库的更多信息，可以使用 <code>git remote show &lt;remote&gt;</code> 命令。如果想以一个特定的缩写名运行这个命令，例如 <code>origin</code>，会得到像下面类似的信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  Fetch URL: https://github.com/schacon/ticgit</span><br><span class="line">  Push  URL: https://github.com/schacon/ticgit</span><br><span class="line">  HEAD branch: master</span><br><span class="line">  Remote branches:</span><br><span class="line">    master                               tracked</span><br><span class="line">    dev-branch                           tracked</span><br><span class="line">  Local branch configured for &#x27;git pull&#x27;:</span><br><span class="line">    master merges with remote master</span><br><span class="line">  Local ref configured for &#x27;git push&#x27;:</span><br><span class="line">    master pushes to master (up to date)</span><br></pre></td></tr></table></figure>
-
-<p>它同样会列出远程仓库的 URL 与跟踪分支的信息。这些信息非常有用，它告诉你正处于 master 分支，并且如果运行 <code>git pull</code>，就会抓取所有的远程引用，然后将远程 master 分支合并到本地 master 分支。它也会列出拉取到的所有远程引用。</p>
-<h3 id="远程仓库的重命名与移除"><a href="#远程仓库的重命名与移除" class="headerlink" title="远程仓库的重命名与移除"></a>远程仓库的重命名与移除</h3><p>你可以运行 <code>git remote rename &lt;old_name&gt; &lt;new_name&gt;</code> 来修改一个远程仓库的简写名。</p>
+<p>评估指标与过程能力的关系如图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
+<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
+<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
+<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Git学习</category>
+        <category>Automotive</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>GitHub</tag>
-        <tag>版本控制</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习之四、C++变量</title>
-    <url>/2021/05/26/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%9B%E3%80%81C-%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>C++ 变量是什么，变量的作用，变量的其它功能。</p>
-<span id="more"></span>
-
-<h1 id="变量作用"><a href="#变量作用" class="headerlink" title="变量作用"></a>变量作用</h1><p>变量用来表征：</p>
-<ul>
-<li>信息将存储在哪里。</li>
-<li>要存储什么值。</li>
-<li>存储何种类型的信息。</li>
-</ul>
-<h1 id="变量名命名规则"><a href="#变量名命名规则" class="headerlink" title="变量名命名规则"></a>变量名命名规则</h1><ul>
-<li>名称中只能使用字母字符、数字和下划线（_）。</li>
-<li>名称中第一个字符不能是数字。</li>
-<li>区分大小写。</li>
-<li>不能将 C++ 关键字用作名称。</li>
-<li>以两个下划线开头或以下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符。</li>
-<li>C++ 对于名称长度没有限制（但是可能系统会对名称长度有限制）。</li>
-</ul>
-<h1 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h1><p>如果不对函数内部定义的变量进行初始化，该变量的值将是不确定的。</p>
-<ul>
-<li>常规方式：<code> int n_int = INT_MAX;</code> <code>int one = 1;</code></li>
-<li>C++ 方式：<code> short n_short = &#123;SHRT_MAX&#125;;</code></li>
-<li>C++11 新增方式：</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n_int = &#123;INT_MAX&#125;;    <span class="comment">// 大括号初始化器，又称为列表初始化</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;INT_MAX&#125;;   <span class="comment">// 可省略等号</span></span><br><span class="line"><span class="keyword">int</span> n_int&#123;&#125;;   <span class="comment">// 大括号可以不包含任何东西，这种情况将初始化为 0</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="const-限定符"><a href="#const-限定符" class="headerlink" title="const 限定符"></a>const 限定符</h1><p><code>const</code> 等价于 C 语言中的 <code>#define</code>，C++ 中推荐使用 <code>const</code> 来声明一个值不可变的变量，也即常量。</p>
-<p><code>const</code> 与 <code>#define</code> 相比的好处：</p>
-<ul>
-<li>它能够明确指定数据类型。</li>
-<li>C++ 作用域规则可将定义限制在特定的函数或文件中。</li>
-<li><code>const</code> 可用于更复杂的类型。</li>
-</ul>
-<p><code>const</code> 限定的变量需要直接初始化，之后该变量的值不可改变。</p>
-<pre><code>const int MONTH = 12;
-</code></pre>
-<h1 id="auto-声明（自动推断）"><a href="#auto-声明（自动推断）" class="headerlink" title="auto 声明（自动推断）"></a>auto 声明（自动推断）</h1><p>C++11 新增了一个工具，让编译器能够根据初始值的类型推断变量的类型。为此，它重新定义了 auto 的含义。</p>
-<p>一般用于处理复杂类型。</p>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VSCode 教程</title>
-    <url>/2021/05/29/VSCode-%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>工欲善其事，必先利其器。简要记录 Windows 下 VS Code 的使用。</p>
-<span id="more"></span>
-
-<h1 id="VS-Code-是什么"><a href="#VS-Code-是什么" class="headerlink" title="VS Code 是什么"></a>VS Code 是什么</h1><p><strong>VS Code</strong> 全称是 <strong>Visual Studio Code</strong>，是微软开源的一款多功能文本编辑器，支持丰富的扩展，功能强大，界面美观，适合作为各种编程 IDE。</p>
-<ul>
-<li>VS Code 命令面板</li>
-</ul>
-<p>它是 VS Code 快捷键的主要交互界面，可能通过快捷键 <code>Ctrl + Shift + P</code> 打开。然后输入常用指令对 VS Code 进行操作。</p>
-<h1 id="VS-Code-键盘操作"><a href="#VS-Code-键盘操作" class="headerlink" title="VS Code 键盘操作"></a>VS Code 键盘操作</h1><ul>
-<li><p>光标移动</p>
-<ul>
-<li>单词的光标移动。<code>Ctrl + 左右方向键</code> 。</li>
-<li>光标移动到行首或行末。<code>Home/End</code> 。</li>
-<li>代码块花括号移动。光标在代码块花括号上时，按下 <code>Ctrl + Shift + \</code>，就可以在这对花括号之间跳转。</li>
-<li>移动到文档首行或最后一行。<code>Ctrl + Home/End</code> 。</li>
-</ul>
-</li>
-<li><p>文本选择</p>
-<p>  在光标移动的基础上，多按一个 <code>Shift</code> 键。</p>
-</li>
-<li><p>删除操作</p>
-<ul>
-<li>可以先选中文本，再按删除。</li>
-<li><code>Ctrl + backspace/Del</code> 删除左/右方向上的单词。</li>
-</ul>
-</li>
-</ul>
-<h1 id="VS-Code-代码行编辑"><a href="#VS-Code-代码行编辑" class="headerlink" title="VS Code 代码行编辑"></a>VS Code 代码行编辑</h1><ul>
-<li>删除行。<code>Ctrl + Shift + K</code>。</li>
-<li>剪切行。<code>Ctrl + X</code>。</li>
-<li>重开一行，向下/向上。<code>Ctrl + Enter</code>/<code>Ctrl + Shift + Enter</code></li>
-<li>移动代码行。<code>Alt + 上下方向键</code></li>
-<li>复制代码行。<code>Alt + Shift + 上下方向键</code></li>
-</ul>
-<h1 id="VS-Code-撤销光标移动"><a href="#VS-Code-撤销光标移动" class="headerlink" title="VS Code 撤销光标移动"></a>VS Code 撤销光标移动</h1><p>有时候你移动完光标之后，又希望把光标回退到上一个位置，这时你只需按下 <code>Ctrl + U</code>，就可以撤销这一次光标的移动。</p>
-<h1 id="VS-Code-行排序"><a href="#VS-Code-行排序" class="headerlink" title="VS Code 行排序"></a>VS Code 行排序</h1><p>无论是你在写代码，还是写 Markdown，你都可以把代码行按照字母序进行重新排序。不过这个命令比较小众，VS Code 并没有给这个命令指定快捷键，你可以调出命令面板，然后搜索 “按升序排列行” 或者 “按降序排列行” 命令执行。</p>
-<h1 id="VS-Code-合并代码行"><a href="#VS-Code-合并代码行" class="headerlink" title="VS Code 合并代码行"></a>VS Code 合并代码行</h1><p>有的时候你可能会为了避免代码看起来过于冗余，就会把比较短小的几行代码合并到一行里面去。这时，你可以打开命令面板，搜索“合并行”就可以了，而不需要不断地调整光标、删除换行符。</p>
-<h1 id="VS-Code-调整字符大小写"><a href="#VS-Code-调整字符大小写" class="headerlink" title="VS Code 调整字符大小写"></a>VS Code 调整字符大小写</h1><p>我估计这个你会经常用到。你可以选中一串字符，然后在命令面板里运行“转换为大写”或 “转换为小写”, 来变换字符的大小写。</p>
-<h1 id="VS-Code-调换字符位置"><a href="#VS-Code-调换字符位置" class="headerlink" title="VS Code 调换字符位置"></a>VS Code 调换字符位置</h1><p>Windows 上未绑定快捷键，可以打开命令面板，搜索 “转置游标处的字符” 来把当前光标前后的字符调换位置。</p>
-<h1 id="VS-Code-代码缩进"><a href="#VS-Code-代码缩进" class="headerlink" title="VS Code 代码缩进"></a>VS Code 代码缩进</h1><p>有的时候，你会觉得代码格式化太重了，需要的可能只是把代码里的缩进调整一下。这时你可以打开命令面板，搜索 “缩进”，然后使用 “重新缩进行” 将整个文档的缩进进行调整，但更多时候，你只需要运行 “重新缩进选中行” 来调整部分选中代码行的缩进。</p>
-<h1 id="VS-Code-代码格式化"><a href="#VS-Code-代码格式化" class="headerlink" title="VS Code 代码格式化"></a>VS Code 代码格式化</h1><p>你可以按下 <code>Alt + Shift + F</code> 来对整个文档进行格式化，VS Code 也会根据你当前的语言，选择相关的插件。当然，前提条件是你已经安装了相关插件。</p>
-<p>你也可以选中一段代码，然后按下 <code>Ctrl + K</code> 或 <code>Ctrl + F</code>，这样只有这段被选中的代码才会被格式化。</p>
-<h1 id="VS-Code-添加代码注释"><a href="#VS-Code-添加代码注释" class="headerlink" title="VS Code 添加代码注释"></a>VS Code 添加代码注释</h1><p>你在调试代码时，肯定经常需要临时地把一些代码注释掉。如果你要将一行代码注释掉，你只需按下 <code>Ctrl + /</code>。</p>
-<h1 id="VS-Code-自动补全"><a href="#VS-Code-自动补全" class="headerlink" title="VS Code 自动补全"></a>VS Code 自动补全</h1><p>VS Code 当中的自动补全内容，其实是由语言服务来提供的。</p>
-<p>VS Code 编程语言工作者提供了纹饰一的 API，即 Language Server Protocol，每种语言都能够通过实现这个 API 在 VS Code 上得到类似 IDE 的开发体验，而各个语言根据这个 API 实现的服务，就被称为<strong>语言服务</strong>。</p>
-<h1 id="VS-Code-文本选择"><a href="#VS-Code-文本选择" class="headerlink" title="VS Code 文本选择"></a>VS Code 文本选择</h1><p>在 VS Code 中，你单击鼠标左键就可以把光标移动到相应的位置。而双击鼠标左键，则会将当前光标下的单词选中。连续三次按下鼠标左键，则会选中当前这一行代码。最后是连续四次按下鼠标左键，则会选中整个文档。</p>
-<p>到这里你可能会问，如果我想要使用鼠标，选中其中的多行代码该怎么办？VS Code也考虑到了这个情况，在编辑器的最左边，显示的是每一行的行号。如果你单击行号，就能够直接选中这一行。如果你在某个行号上按下鼠标，然后上下移动，则能够选中多行代码。</p>
-<h1 id="VS-Code-快速预览"><a href="#VS-Code-快速预览" class="headerlink" title="VS Code 快速预览"></a>VS Code 快速预览</h1><p>VS Code 快速预览是指，有的时候，当我们看到一个建议列表里的某个函数名，我们可能并不能够立刻想起它的作用是什么，它的参数定义是什么样的。这时候我们可以单击当前这一项建议的最右侧的蓝色图标。除了使用鼠标键外，我们还可以使用 “Ctrl+空格键”组合键来快速调出这个快速预览窗口。</p>
-<h1 id="VS-Code-参数预览"><a href="#VS-Code-参数预览" class="headerlink" title="VS Code 参数预览"></a>VS Code 参数预览</h1><p>当我们从建议列表选择了一个函数，然后输入括号，准备开始输入参数时，我们会看到一个参数预览的悬浮框。通过这个参数预览的窗口，我们可以知道这个函数可以传入哪些参数，它们的参数类型又是什么样的。</p>
-<p>同样的，隐藏这个窗口的快捷键也是 Escape。如果你想再次将其调出的话，需要按下 <code>Ctrl + Shift + Space</code></p>
-<h1 id="VS-Code-快速修复"><a href="#VS-Code-快速修复" class="headerlink" title="VS Code 快速修复"></a>VS Code 快速修复</h1><p>语言服务除了在书写代码的时候提供提示以外，还能够帮我们分析当前的代码，检测出他们潜在的问题，然后提供快速修复的方案。在需要修复的行首，看到灯泡图标，点击该图标选择修复内容进行操作，也可以按快捷键 <code>Ctrl + .</code> 来调出这个快速悠的建议列表。</p>
-<h1 id="VS-Code-重构"><a href="#VS-Code-重构" class="headerlink" title="VS Code 重构"></a>VS Code 重构</h1><p>当我们想修改一个函数或者变量的名字时候，我们只需把光标放到函数或者变量名上，然后按下 F2，这样这个函数或者变量出现的地方就都会被修改。这个操作并不是一个粗暴的搜索关键词并替换。另一个常用的重构的操作就是把一段长代码抽取出来转成一个单独的函数。在VS Code中，我们只需选中那段代码，点击黄色的灯泡图标，然后选择对应的重构操作即可。</p>
-<p>要注意的是，并不是每个语言服务都支持重构的操作。如果你选中一段代码后，但没有看到那个黄色的灯泡图标，那么也就是说你使用的这门语言可能还没有支持快速重构。</p>
-<h1 id="VS-Code-文本编辑"><a href="#VS-Code-文本编辑" class="headerlink" title="VS Code 文本编辑"></a>VS Code 文本编辑</h1><p><strong>VS Code 文本编辑</strong>，在 VS Code中，我们除了能够使用鼠标来选择文本以外，还能够使用鼠标对文本进行一定程度的修改，我们把它称为拖放功能（drag and drop）。</p>
-<p>比如在今天的示例代码中，我们选中一段函数，然后将鼠标移到这段选中的代码之上，按下鼠标左键不松开。这时你可以看到，鼠标指针已经从一条竖线，变成了一个箭头。这时候我们移动鼠标的话，就可以把这段文本拖拽到我们想要的位置。</p>
-<p>在移动的过程当中，我们能够在编辑器中看到一个由虚线构成的光标，当我们松开鼠标左键的时候，这段文本就会被移动到这个虚拟的光标所在的位置。</p>
-<p>如果我们在拖拽这段文本的同时，按下 Ctrl 键，鼠标指针上会多一个加号，这时候我们再移动鼠标或虚拟光标至我们想要的位置，然后当我们松开鼠标左键的时候，这段文本将会被复制粘贴到虚拟光标所在的位置，也就是我们既定的目标位置。</p>
-<h1 id="VS-Code-多光标"><a href="#VS-Code-多光标" class="headerlink" title="VS Code 多光标"></a>VS Code 多光标</h1><p>在我们的日常编码过程中，有很多工作，它本身就是具有“重复”属性的。比如你需要把多个单词的第一个字母从小写变成大写，这种跟业务逻辑相关的重复性操作，编辑器很难为它们一个个单独做优化。</p>
-<p>而 VS Code 的多光标特性其实就是用来解决这类问题的。当你在一个文本框或者某个输入框里打入字符时，会有一个竖线来显示你将要输入文字的位置，这就是“光标”。顾名思义，多光标其实就是多个输入位置，这里你可以脑补下多个竖线的场景。</p>
-<p>多光标特性允许你在输入框的多个位置创建光标，这样你就可以在多个不同的位置同时输入文字或者执行其他操作。</p>
-<h2 id="使用鼠标"><a href="#使用鼠标" class="headerlink" title="使用鼠标"></a>使用鼠标</h2><p>第一种添加多光标的方式，就是使用鼠标。在键盘上按住 <code>Alt</code>，然后鼠标点第二个想要创建光标的位置，那么第二个光标就创建好了。现在你可以看到两个光标，第二个光标比第一个要细一点。之后想添加其它光标按上面的操作即可。</p>
-<h2 id="使用键盘"><a href="#使用键盘" class="headerlink" title="使用键盘"></a>使用键盘</h2><p>首先把光标移动到一个合适位置，按下 <code>Ctrl + Alt + 上/下方向键</code>，就可以在当前光标的上/下位置创建一个光标。</p>
-<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p><code>Ctrl + D</code>，第一次按下时，它会选中光标附近的单词；第二次按下时，它会找到这个单词第二次出现的位置，创建一个新的光标，并且选中它。</p>
-<p><code>Alt + Shift + i</code>，选择多行代码后按下该命令，第一行的最后都会创建一个新的光标。</p>
-<h2 id="鼠标中键"><a href="#鼠标中键" class="headerlink" title="鼠标中键"></a>鼠标中键</h2><p>你只需按下鼠标中键，然后对着一段文档拖出一个框，在这个框中的代码就都被选中了，而且每一行被选中的代码，都拥有一个独立的光标。</p>
-<h1 id="VS-Code-代码跳转和链接"><a href="#VS-Code-代码跳转和链接" class="headerlink" title="VS Code 代码跳转和链接"></a>VS Code 代码跳转和链接</h1><p>我们把鼠标放到要跳转的代码上，按住 <code>Ctrl</code> 键，这时代码下面出现一个下划线。然后当我们按下鼠标左键，就跳转到函数定义处。</p>
-<p>当我们在编写 Markdown 这样的非编程语言的文档时，也可以通过这种方法打开超级链接。</p>
-<h1 id="VS-Code-悬停提示窗口"><a href="#VS-Code-悬停提示窗口" class="headerlink" title="VS Code 悬停提示窗口"></a>VS Code 悬停提示窗口</h1><p>当我们的鼠标移动到某些文本上之后，稍等片刻就能看到一个悬停提示窗口。这个窗口里会显示跟鼠标下文本相关的信息。譬如鼠标停留在一个函数上时，它告诉我们这是一个函数，函数的返回值和类型。</p>
-<p>当我们按住 <code>Ctrl</code> 然后悬停时，提示窗口会显示该函数的实现。</p>
-<h1 id="VS-Code-文件跳转"><a href="#VS-Code-文件跳转" class="headerlink" title="VS Code 文件跳转"></a>VS Code 文件跳转</h1><p>当你在开发一个新功能或者修复一个 Bug 的时候，你同时在阅读和修改的文件可能就有几个或者十几个。从资源管理器里打开文件固然方便，但是如果这个项目里的文件非常多，并且经常需要在资源管理器里寻找文件，那“眼花缭乱”的，肯定要浪费你不少宝贵的时间。</p>
-<p>在VS Code中，解决这个问题的第一个方法，就是按下 <code>Ctrl + Tab</code>，然后继续按着 <code>Ctrl</code> 键但是松开 <code>Tab</code> 键，这样你就可以打开一个文件列表，这个列表罗列了当前打开的所有文件。接下来，你可以通过按下 <code>Tab</code> 键在这个列表里跳转，选择你想要打开的文件。最后选到你想打开的文件后，松开 <code>Ctrl</code> 键，这个文件就被打开了。</p>
-<p>不过，使用这个方式切换文件，最大的问题在于，文件一旦多了，你就得不停地按 <code>Tab</code> 键，没完没了地上下跳转和挑选，这会是一个恼人的耗费时间和眼力的操作。</p>
-<p>还好，VS Code 在命令面板里提供了一种支持搜索的文件跳转方式。当你按下 <code>Ctrl + P</code> 时，就会跳出一个最近打开文件的列表，同时在列表的顶部还有一个搜索框。</p>
-<p>看到这里想必你应该明白了，你可以使用这个搜索框来快速地找到你想要的文件，然后按下 <code>Enter</code> 键直接打开，这整个过程简单而且顺畅。</p>
-<h1 id="VS-Code-行跳转"><a href="#VS-Code-行跳转" class="headerlink" title="VS Code 行跳转"></a>VS Code 行跳转</h1><p>打开某一个文件之后，你的另外一个需求可能就是要快速跳转到这个文件的某一行。你可能会想，VS Code是不是可以像Vim那样，输入“:13”就能跳转到第13行。是的，VS Code 也提供了一种极为简单的方式来支持行跳转，你只需要按下 <code>Ctrl + g</code>，紧接着编辑器就会出现一个输入框。按下 <code>Ctrl + g</code>，调出行输入框，你会惊喜地发现，这个输入框的第一个字符就是 “ : ”，在这之后输入数字，你就能够将光标快速地移动到那一行。输入行数3，跳转到第3行。</p>
-<p>接下来我再给你介绍一个高阶组合技巧。如果你想跳转到某个文件的某一行，你只需要先按下 <code>Cmd + P</code>，输入文件名，然后在这之后加上 “:”和指定行号即可。</p>
-<h1 id="VS-Code-符号跳转"><a href="#VS-Code-符号跳转" class="headerlink" title="VS Code 符号跳转"></a>VS Code 符号跳转</h1><p>文件跳转和行跳转，是代码跳转的基本操作，也是日常编码中的高频操作。不过有的时候，你可能会希望能够立刻跳转到文件里的类定义，或者函数定义的位置。为了支持这种跳转，VS Code 提供了一套 API 给语言服务插件，它们可以分析代码，告诉 VS Code 项目或者文件里有哪些类、哪些函数或者标识符（我们把这些统称为符号）。</p>
-<p>如果要在一个文件里的符号之间跳转，你只需按下 <code>Ctrl + Shift + O</code>，就能够看到当前文件里的所有符号。</p>
-<p>通过 <code>Ctrl + T</code>，可以搜索多个文件中的符号。</p>
-<h1 id="VS-Code-定义和实现间跳转"><a href="#VS-Code-定义和实现间跳转" class="headerlink" title="VS Code 定义和实现间跳转"></a>VS Code 定义和实现间跳转</h1><p>符号跳转依托于语言插件对代码的分析，已经算得上具备一定的智能特性，但是它还是不够精确。比如说我们看到某个函数的调用，想要知道这个函数的接口定义是什么样的，它的实现细节是什么样的，光靠符号跳转，还是会不方便。我们需要的是直接跳转到定义和实现的位置，Java程序员看到这里一定会深有感触。</p>
-<p>按下 F12，就可以跳转到函数定义处，按下 <code>Ctrl + F12</code> 跳转到函数实现的位置。</p>
-<h1 id="VS-Code-跳转到引用的地方"><a href="#VS-Code-跳转到引用的地方" class="headerlink" title="VS Code 跳转到引用的地方"></a>VS Code 跳转到引用的地方</h1><p>很多时候，除了要知道一个函数或者类的定义和实现以外，你可能还希望知道它们被谁引用了，以及在哪里被引用了。这时你只需要将光标移动到函数或者类上面，然后按下 <code>Shift + F12</code>，VS Code 就会打开一个引用列表和一个内嵌的编辑器。在这个引用列表里，你选中某个引用，VS Code 就会把这个引用附近的代码展示在这个内嵌的编辑器里。</p>
-<p><code>Shift+ F12</code> 打开函数引用预览。</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html" title="极客教程">极客教程 - VSCode 教程</a></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之五、C++ 运算符</title>
-    <url>/2021/06/03/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BA%94%E3%80%81C-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p>每种语言都有类似的运算符，如同数学运算符。</p>
-<span id="more"></span>
-
-<h1 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h1><p>C++ 基本运算包括加、减、乘、除和求模运算。</p>
-<ul>
-<li>加法运算，运算符为 <code>+</code>。如 <code>4 + 20</code>。</li>
-<li>减法运算，运算符为 <code>-</code>。如 <code>20 - 3</code>。</li>
-<li>乘法运算，运算符为 <code>*</code>。如 <code>5 * 6</code>。</li>
-<li>除法运算，运算符为 <code>/</code>。如 <code>20 / 2</code>。</li>
-<li>求模运算，它等于第一个数除以第二个数后的余数，运算符为 <code>%</code>。如 <code>19 % 3</code>，结果为 1。</li>
-</ul>
-<h1 id="递增（-）与递减（–）运算符"><a href="#递增（-）与递减（–）运算符" class="headerlink" title="递增（++）与递减（–）运算符"></a>递增（++）与递减（–）运算符</h1><p>常用于循环操作中，将循环计数加 1 或减 1。这两种运算符都有两种变体，前缀版本位于操作数之前，如 <code>++a</code>，后缀版本位于操作数后面，如 <code>a++</code>。两个版本对操作数的影响是一样的，但是影响的时间不同。</p>
-<h2 id="前缀版本"><a href="#前缀版本" class="headerlink" title="前缀版本"></a>前缀版本</h2><p>前缀版本将操作数操作完成之后用于下一步运算。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; ++a;    // 先将 a 值加 1，然后使用新的值来计算表达式，这里打印值为 6</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
-
-<h2 id="后缀版本"><a href="#后缀版本" class="headerlink" title="后缀版本"></a>后缀版本</h2><p>后缀版本先使用操作数当前的值计算表达式，再将值加 1 或减 1。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using namespace std;</span><br><span class="line">int a = 5;</span><br><span class="line">cout &lt;&lt; a++;    // 先使用 a 当前值 5 计算表达式，这里打印值为 5，再将 a 的值加 1</span><br><span class="line">cout &lt;&lt; a;  // a 的值最终为 6</span><br></pre></td></tr></table></figure>
-<p><strong>Tips</strong>: 不要在同一条语句中对同一个值递增或递减多次，对这种语句，结果将是不确定的。</p>
-<h2 id="前后缀格式的效率"><a href="#前后缀格式的效率" class="headerlink" title="前后缀格式的效率"></a>前后缀格式的效率</h2><p>前缀格式和后缀格式在效率上有着微小的差别。</p>
-<p>前缀函数将值加 1，然后返回结果。后缀函数首先复制一个副本，原变量加 1，然后将复制的副本返回。对于语言内置类型和当代编译器而言，这看似不是什么问题。但对于自定义的类而言，前缀版本的效率比后缀版本高。</p>
-<h2 id="递增递减运算符和指针"><a href="#递增递减运算符和指针" class="headerlink" title="递增递减运算符和指针"></a>递增递减运算符和指针</h2><p>可以将该运算符用于指针和基本变量。运用到指针上时，将把指针的值增加或减小其指向的数据类型占用的字节数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double arr[5] = &#123;21.1, 23, 4, 54.6, 3.99&#125;;</span><br><span class="line">double *pt = arr;   // double 指针 pt 指向 arr[0]</span><br><span class="line">++pt;   // 指针值加 1，指向下一个元素 arr[1]</span><br></pre></td></tr></table></figure>
-
-<p>前缀递增、前缀递减和解除引用运算符的优先级相同，以从右到左的方式进行结合。后缀递增和后缀递减的优先级相同，但比前缀运算符的优先级高，这两个运算符以从左到右的方式进行结合。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 紧接上面 pt 指向 arr[1] 的语句</span><br><span class="line">double x = *++pt;   // double 指针 pt 先加 1，再取值，pt 指向 arr[2], x = 4</span><br><span class="line">++*pt;  // 先解除引用，把值加 1，也就是说 arr[2] 的值 4 将变为 5，pt 值不变</span><br><span class="line">(*pt)++;    // 括号优先级高，先取值，再加，即上面运算得到的 5 再加 1，arr[2] 中的值将变为 6</span><br><span class="line">x = *pt++;  // 后缀运算符的等级高，这意味着 ++ 运用在 pt 上而非 *pt，然而后缀运算符是先将复制的副本返回，所以 *pt++ 的值为 *pt，然后将 pt+1，所以 *pt++ 的值为 6，然后将指针加 1</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h1><p><code>i = i + by</code> 同等于使用组合运算符 <code>i += by</code></p>
-<p>以下为组合赋值运算符总结</p>
-<table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>作用（L 为左操作数，R 为右操作数）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>+=</td>
-<td>将 L+R 赋给 L</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>将 L-R 赋给 L</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>将 L*R 赋给 L</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>将 L/R 赋给 L</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>将 L%R 赋给 L</td>
-</tr>
-</tbody></table>
-<h1 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h1><p>逗号运算符允许将两个表达式放到 C++ 句法只允许放一个表达式的地方。逗号运算符最常见的用途是将两个或更多的表达式放到一个 for 循环表达式中。</p>
-<p>C++ 为逗号运算符提供了两个特性。首先，它确保先计算第一个表达式，然后计算第二个表达式（逗号运算符是一个顺序点），其次，逗号表达式的值是第二部分的值。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a word: &quot;</span>;</span><br><span class="line">    string word;</span><br><span class="line">    <span class="built_in">getline</span>(cin, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">int</span> i, j;   <span class="comment">// 这里不是逗号运算符，声明时逗号只是用于分隔</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>, i = word.<span class="built_in">size</span>() - <span class="number">1</span>; j &lt; i; --i, ++j)   <span class="comment">// 两次使用逗号运算符</span></span><br><span class="line">    &#123;</span><br><span class="line">        temp = word[i];</span><br><span class="line">        word[i] = word[j];</span><br><span class="line">        word[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; word &lt;&lt; <span class="string">&quot;\nDone\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>逗号运算符的优先级最低。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">carts = 17,240; // 由于优先级 (carts = 17), 240，后面部分没作用</span><br><span class="line">carts = (17,240);   // 逗号运算符的值为右边部分，所以 carts = 240</span><br></pre></td></tr></table></figure>
-
-<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><p>这里只介绍一下基本概念。</p>
-<p>如除法运算符表示了 3 种不同的运算：int 除法、float 除法和 double 除法。C++ 根据上下文（这里是操作数的类型）来确定运算符的含义。使用相同的符号进行多种操作叫作运算符重载（operator overloading）。</p>
-<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>当两个运算符作用于同一个操作数时，需要考虑先运算哪部分，这里就需要了解运算符优先级。所有的运算优先级如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt="C++ 运算优先级" title="C++ 运算符优先级"></p>
-<h1 id="运算时的类型转换"><a href="#运算时的类型转换" class="headerlink" title="运算时的类型转换"></a>运算时的类型转换</h1><p>各种算术运算涉及到的硬件编译指令都是各不相同的，因此计算机需要处理大量不同的情况，尤其对不同的类型进行运算时。为处理这种潜在的混乱，C++ 自动执行很多类型转换。</p>
-<ul>
-<li>将一种算术类型的值赋给另一种算术类型变量时，C++ 将对值进行转换。</li>
-<li>表达式中包含不同类型时，C++ 将对值进行转换。</li>
-<li>将参数传递给函数时，C++ 将对值进行转换。</li>
-</ul>
-<h2 id="初始化和赋值进行的转换"><a href="#初始化和赋值进行的转换" class="headerlink" title="初始化和赋值进行的转换"></a>初始化和赋值进行的转换</h2><p>C++ 允许将一种类型的值赋给另一种类型的变量。该值将被转换为接收变量的类型。如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">double a = 3.456;   // a 为 double 类型</span><br><span class="line">int b = a;  // 将 double 类型的值赋给 int 类型，将去掉 double 类型小数部分，所以 b 值为 3</span><br></pre></td></tr></table></figure>
-
-<p>这种类型的转换在一些情况下可能出现问题</p>
-<table>
-<thead>
-<tr>
-<th>转换</th>
-<th>潜在的问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>将较大的浮点类型转换为较小的浮点类型，如将 double 转换为 float</td>
-<td>精度（有效位数）降低，值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将浮点型转换为整型</td>
-<td>小数部分丢失，原来的值可能超出目标类型的取值范围，在这种情况下，结果将是不确定的</td>
-</tr>
-<tr>
-<td>将较大的整型转换为较小的整型，如将 long 转换为 short</td>
-<td>原来的值可能超出目标类型的取值范围，通常只复制右边的字节</td>
-</tr>
-</tbody></table>
-<p><strong>Tips:</strong> 将 0 赋给 <code>bool</code> 变量时，将被转换为 <code>false</code>，而非零值将被转换为 <code>true</code>。</p>
-<h2 id="以-方式初始化时进行的转换（C-11）"><a href="#以-方式初始化时进行的转换（C-11）" class="headerlink" title="以 { } 方式初始化时进行的转换（C++11）"></a>以 { } 方式初始化时进行的转换（C++11）</h2><p>C++ 将使用 { } 的初始化称为<strong>列表初始化</strong>（list-initialization），与前一种初始化转换方式相比，它对类型转换的要求更严格。列表初始化不允许缩窄（narrowing），也即不允许转换为无法表示该值的数据类型。例如：</p>
-<ul>
-<li>不允许浮点型转换为整型。</li>
-<li>不同的整型之间的转换或将整型转换为浮点型可能被允许，条件是编译器知道目标变量能够正常地存储赋给它的值。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const int code = 66;    // const 修饰的常量，code 值固定不可更改</span><br><span class="line">int x = 66;</span><br><span class="line">char c1 &#123;31325&#125;;    // 非法，不允许缩窄</span><br><span class="line">char c2 &#123;66&#125;;   // 合法，char 类型能处理值 66</span><br><span class="line">char c3 &#123;code&#125;; // 合法，code 为常量 66，可以被 char 处理</span><br><span class="line">char c4 &#123;x&#125;;    // 非法，区别于上一段代码，x 值虽然为 66，但编译器看来，x 是一个 int 变量，其值可能很大。编译器不会跟踪后面阶段可能发生的情况；此处列表初始化时，并不是严格要求是 const 常量，如果 &#123; &#125; 中为变量，需要求被赋值的变量类型能处理该值，例如如果 x 为 char 类型变量，这个初始化则是正确的。</span><br></pre></td></tr></table></figure>
-
-<h2 id="表达式中的转换"><a href="#表达式中的转换" class="headerlink" title="表达式中的转换"></a>表达式中的转换</h2><p>当同一个表达式中包含两种不同的算术类型时，C++ 将执行两种自动转换。首先，一些类型在出现时便会自动转换；其次，有些类型在与其他类型同时出现在表达式中时将被转换。</p>
-<h3 id="一些类型在出现时便会进行自动转换"><a href="#一些类型在出现时便会进行自动转换" class="headerlink" title="一些类型在出现时便会进行自动转换"></a>一些类型在出现时便会进行自动转换</h3><p>在计算表达式时，C++ 将 <code>bool</code>、<code>char</code>、<code>unsigned char</code>、<code>signed char</code> 和 <code>short</code> 值转换为 <code>int</code>。具体地说，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。这些转换被称为整型提升（integral promotion）。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">short chickens = 20;</span><br><span class="line">short ducks = 35;</span><br><span class="line">short fowl = chickens + ducks;  // C++ 程序取得 chickens 和 ducks 的值，并将它们转换为 int 类型，计算完后，将值转换为 short 类型赋给 fowl</span><br></pre></td></tr></table></figure>
-
-<p>还有一些其它整型提升：如果 <code>short</code> 比 <code>int</code> 短，则 <code>unsigned short</code> 类型将被转换为 <code>int</code>；如果两种类型的长度相同，则 <code>unsigned short</code> 类型将被转换为 <code>unsigned int</code>。这种规则确保了在对 <code>unsigned short</code> 进行提升时不会损失数据。</p>
-<h3 id="将不同的类型进行算术运算时，也会进行一些转换"><a href="#将不同的类型进行算术运算时，也会进行一些转换" class="headerlink" title="将不同的类型进行算术运算时，也会进行一些转换"></a>将不同的类型进行算术运算时，也会进行一些转换</h3><p>当运算涉及到两种类型时，较小的类型将被转换为较大的类型。其中规则为：</p>
-<p>long double &gt; double &gt; float &gt; 整型提升</p>
-<h2 id="传递参数时的转换"><a href="#传递参数时的转换" class="headerlink" title="传递参数时的转换"></a>传递参数时的转换</h2><p>传递参数时的类型转换通常由 C++ 函数原型控制。然而，也可以取消原型对参数传递的控制，尽管这样做并不明智。在这种情况下，C++ 将对 char 和 short 类型（signed 和 unsigned）应用整型提升。另外，为保持与传统 C 语言中大量代码的兼容性，在将参数传递给取消原型对参数控制的函数时，C++ 将 float 提升为 double。</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>C++ 允许通过强制类型转换机制显式地进行类型转换。</p>
-<h3 id="普通强制类型转换语法"><a href="#普通强制类型转换语法" class="headerlink" title="普通强制类型转换语法"></a>普通强制类型转换语法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(typeName) value    // 将 value 强制转换为 typeName 类型，如 (int) &#x27;Q&#x27;，兼容 C 语言</span><br><span class="line">typeName (value)    // 如 int (&#x27;Q&#x27;)，C++ 格式，基于面向对象的语法</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-引入的-4-个强制类型转换运算符"><a href="#C-引入的-4-个强制类型转换运算符" class="headerlink" title="C++ 引入的 4 个强制类型转换运算符"></a>C++ 引入的 4 个强制类型转换运算符</h3><p>引用的强制类型转换运算符的使用要求较为严格</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">static_cast&lt;typeName&gt; (value)   // 将 value 转换为 typeName 类型</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
+        <tag>ASPICE</tag>
       </tags>
   </entry>
   <entry>
@@ -1110,76 +1299,6 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p><code>int maxtemps[4][5];</code>   // maxtemps 是一个包含 4 个元素的数组，其中每个元素都是一个由 5 个整数组成的数组。</p>
 <h2 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h2><p>可以像类似一维数组一样初始化</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> btus[<span class="number">5</span>] = &#123;<span class="number">23</span>, <span class="number">26</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxtemps[<span class="number">4</span>][<span class="number">5</span>] =    <span class="comment">// 二维数组初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 学习之七、C++ 复合类型之结构、共用体、枚举</title>
-    <url>/2021/06/14/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%B8%83%E3%80%81C-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E4%B9%8B%E7%BB%93%E6%9E%84%E3%80%81%E5%85%B1%E7%94%A8%E4%BD%93%E3%80%81%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[<p>C++ 的结构、共用体、枚举等有一些共同之处，也有很多差别。</p>
-<span id="more"></span>
-
-<h1 id="结构-struct"><a href="#结构-struct" class="headerlink" title="结构 struct"></a>结构 struct</h1><h2 id="结构概念"><a href="#结构概念" class="headerlink" title="结构概念"></a>结构概念</h2><p>数组是存储一组相同类型的数据，如果想在一个对象中存储多种不同类型的数据呢，比如想同时存储一个人的姓名，年龄，身高，体重。</p>
-<p>结构是一种比数组更灵活的数据格式，因为同一个结构可以存储多种类型的数据。结构也是 C++ OOP (类) 的基石。</p>
-<h2 id="结构声明"><a href="#结构声明" class="headerlink" title="结构声明"></a>结构声明</h2><p>结构声明包括两步。首先，定义结构描述——它描述并标记了能够存储在结构中的各种数据类型。然后按描述创建结构变量（结构数据对象）。</p>
-<p>结构声明放置的位置决定作用范围，使用与基本类型变量一致，这将在以后讨论。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// StructDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span>   // 外部声明 <span class="title">person</span> 结构，其它函数中都可以使用，如果是某个函数内部声明，则只能该函数内部使用</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];  <span class="comment">// 成员 name</span></span><br><span class="line">    <span class="keyword">bool</span> sex;   <span class="comment">// 性别，true 表示男性</span></span><br><span class="line">    <span class="keyword">int</span> age;    <span class="comment">// 成员 age</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 成员 height: m</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 成员 weight: kg</span></span><br><span class="line">&#125;;  <span class="comment">// 注意结构声明中每个成员都以分号隔开，最后的大括号后面也要有分号</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    person xiaoming = </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Xiao Ming&quot;</span>,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="number">30</span>,</span><br><span class="line">        <span class="number">1.70</span>,</span><br><span class="line">        <span class="number">68</span></span><br><span class="line">    &#125;;  <span class="comment">// 结构初始化时，各成员初始化使用逗号隔开</span></span><br><span class="line">    <span class="comment">// 结构变量使用成员运算符（.）来访问各个成员</span></span><br><span class="line">    cout &lt;&lt; xiaoming.name &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; xiaoming.age &lt;&lt; <span class="string">&quot; years old.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;And he is &quot;</span> &lt;&lt; xiaoming.height &lt;&lt; <span class="string">&quot;m, &quot;</span> &lt;&lt; xiaoming.weight &lt;&lt; <span class="string">&quot;kg.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构类型变量初始化"><a href="#结构类型变量初始化" class="headerlink" title="结构类型变量初始化"></a>结构类型变量初始化</h2><p>定义结构后，就可以像声明基本数据类型变量一样使用结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">person teacher = </span><br><span class="line">&#123;   <span class="comment">// 一般初始化方式，成员之间使用 , 分隔</span></span><br><span class="line">    <span class="string">&quot;Xiao Zhang&quot;</span>,    <span class="comment">// name</span></span><br><span class="line">    <span class="literal">false</span>,</span><br><span class="line">    <span class="number">50</span>,     <span class="comment">// age</span></span><br><span class="line">    <span class="number">1.68</span>,   <span class="comment">// height</span></span><br><span class="line">    <span class="number">68</span>     <span class="comment">// weight，最后一个数据可以不使用 , 分隔</span></span><br><span class="line">&#125;;  <span class="comment">// 初始化最后大括号依然使用分号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;<span class="string">&quot;Xiao Zhang&quot;</span>, <span class="literal">false</span>, <span class="number">50</span>, <span class="number">1.68</span>, <span class="number">68</span>&#125;; <span class="comment">// C++11 列表初始化方式，可以省略 = 号</span></span><br><span class="line"></span><br><span class="line">person teacher &#123;&#125;;  <span class="comment">// C++11 列表初始化方式，大括号内未包含任何内容时，各个成员都将被设置为零，name 每个字节都将被设置为 0</span></span><br></pre></td></tr></table></figure>
-
-<p>可以在声明结构的同时定义出该类型的变量，或直接初始化</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book1, book2; <span class="comment">// 直接定义 book1 book2 为 book 结构类型</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> pages;</span><br><span class="line">    <span class="keyword">char</span> bookName[<span class="number">20</span>];</span><br><span class="line">&#125; book3 =       <span class="comment">// 定义出 book 结构类型变量 book3 并直接初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">200</span>,</span><br><span class="line">    <span class="string">&quot;Driving&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>还可以声明没有名称的结构类型，即匿名结构，方法是省略名称，同时定义一种结构类型和一个这种类型的变量：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>  // 没有名称的结构，匿名结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">&#125; position;     <span class="comment">// 结构变量，这种声明方法最终只能使用直接定义的变量，后面无法创建该结构的新变量</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h2><p>如上述例子中，结构中可以包含数组（如 name[20]），也可创建元素为结构的数组，方法和创建基本类型数组一样。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如创建 person 结构数组</span></span><br><span class="line">person teacher[<span class="number">3</span>] = </span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Hong&quot;</span>, <span class="literal">false</span>, <span class="number">20</span>, <span class="number">1.50</span>, <span class="number">45</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Wang&quot;</span>, <span class="literal">true</span>, <span class="number">25</span>, <span class="number">1.80</span>, <span class="number">70.2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Xiao Cheng&quot;</span>, <span class="literal">false</span>, <span class="number">18</span>, <span class="number">1.50</span>, <span class="number">43</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line">cout &lt;&lt; teracher[<span class="number">0</span>].name &lt;&lt; endl;   <span class="comment">// 像使用正常数组一样使用结构数组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="结构中的位字段"><a href="#结构中的位字段" class="headerlink" title="结构中的位字段"></a>结构中的位字段</h2><p>与 C 语言一样，C++ 也允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整数或枚举，接下来是冒号，冒号后面是一个数字，它指定了使用的位数。可以使用没有名称的字段来提供间距。每个成员都被称为位字段（bit field）。下面是一个例子：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;    <span class="comment">// 4 bits for SN value</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;   <span class="comment">// 4 bits 未使用数据，用来占位提供间距</span></span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;    <span class="comment">// valid input (1 bit)</span></span><br><span class="line">    <span class="keyword">bool</span> goodTorgle: <span class="number">1</span>; <span class="comment">// success ful torgling</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 可以像通常那样初始化这些字段，还可以使用标准的结构表示法来访问位字段：</span></span><br><span class="line">torgle_register tr = &#123; <span class="number">14</span>, <span class="literal">true</span>, <span class="literal">false</span> &#125;;   <span class="comment">// 不用在意未命名的占位字段</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (tr.goodIN)  <span class="comment">// 获得成员来进行判断</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="共用体-union"><a href="#共用体-union" class="headerlink" title="共用体 union"></a>共用体 union</h1><p>共用体（union）是一种数据格式，它能够存储不同的数据类型，但只能同时存储其中的一种类型。共用体的句法和结构相似，但含义不同。共用体的用途之一是，当数据使用两种或更多格式（但不会同时使用）时，可节省空间。另外，共用体常用于操作系统数据结构或硬件数据结构。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文件名 UnionDemo.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Goods</span>    // 定义 <span class="title">Goods</span> 结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">bool</span> type;  <span class="comment">// 结构成员 type</span></span><br><span class="line">    <span class="keyword">float</span> weight;   <span class="comment">// 结构成员 weight</span></span><br><span class="line">    <span class="keyword">float</span> height;   <span class="comment">// 结构成员 height</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">id</span>    // 结构成员 <span class="title">id</span> 是一个共用体，只能存储定义中的其中一种类型</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">double</span> d_id;</span><br><span class="line">        <span class="keyword">int</span> int_id;</span><br><span class="line">    &#125; id_var;   <span class="comment">// struct 内嵌套 union 使用时，union 需要直接定义出共用体类型的变量，否则无法正常使用</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Goods first;</span><br><span class="line">    first.type = <span class="literal">true</span>;</span><br><span class="line">    first.weight = <span class="number">1.3</span>;</span><br><span class="line">    first.height = <span class="number">0.5</span>;</span><br><span class="line">    first.id_var.d_id = <span class="number">1.6888</span>; <span class="comment">// 赋值 d_id，则此 union 内存中无 int_id</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ID is &quot;</span> &lt;&lt; first.id_var.d_id &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当共用体中一个成员被赋值后，其它成员将像不存在一样。由于共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以共用体的长度为其最大成员的长度。</p>
-<p>union 还有一种匿名类型，像匿名结构一样不需要名字，此时不需要定义该变量。此时由于共用体是匿名的，因此共用体的成员将被视为外部成员，它们的地址相同，所以不需要变量来标识。程序员负责确定当前哪个成员是活动的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">widget</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="class"><span class="keyword">union</span>   // 匿名共用体</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">long</span> id_num;</span><br><span class="line">        <span class="keyword">char</span> id_char[<span class="number">20</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">...</span><br><span class="line">widget prize;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// id_num 和 id_char 被视为 prize 的两个成员，id_num 和 id_char 地址相同</span></span><br><span class="line"><span class="keyword">if</span> (prize.type == <span class="number">1</span>)</span><br><span class="line">    cin &gt;&gt; prize.id_num;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    cin &gt;&gt; prize.id_char;</span><br></pre></td></tr></table></figure>
-
-<h1 id="枚举-enum"><a href="#枚举-enum" class="headerlink" title="枚举 enum"></a>枚举 enum</h1><p>C++ 的枚举（enum）工具提供了另一种创建符号常量的方式，这种方式可以代替 <code>const</code>。它还允许定义新类型，但必须按严格的限制进行。使用 enum 的句法与使用结构相似。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">enum spectrum</span><br><span class="line">&#123;</span><br><span class="line">    red, orange, yellow, green, blue, violet, indigo, ultraviolet</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>spectrum</code> 被称为枚举。大括号内将作为符号常量，它们对应的整数值 0 ~ 7。这些常量叫作枚举量（enumerator）。</p>
-<h2 id="枚举的特性"><a href="#枚举的特性" class="headerlink" title="枚举的特性"></a>枚举的特性</h2><ul>
-<li><p>默认情况下，将整数值赋给枚举量，第一个值为 0，第二个值为 1，依此类推。如上例中 red 值为 0，orange 值为 1。</p>
-</li>
-<li><p>在不进行强制转换的情况下，只能将定义的枚举量赋值给相应的枚举变量，如</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spectrum band;  // 定义 spectrum 类型的枚举变量 band</span><br><span class="line">band = blue;    // 合法，band 变量的值只能为定义的枚举量</span><br><span class="line">band = 2000;    // 非法，2000 不是定义的枚举量，不能赋给枚举变量</span><br></pre></td></tr></table></figure></li>
-<li><p>枚举量是整型，可被提升为 int 类型，但 int 类型不能自动转换为枚举类型。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int color = orange; // 合法，枚举量可提升为整型</span><br><span class="line">band = 3;   // 非法，int 类型不能自动转换为枚举类型</span><br><span class="line">color = 3 + red;    // 合法，red 提升为 int 类型</span><br></pre></td></tr></table></figure>
-
-<p>  但是在<strong>枚举量的取值范围内</strong>的时候，int 类型可以强制转换为枚举量。如 <code>band = spectrum(3)</code></p>
-</li>
-</ul>
-<h2 id="枚举量的值"><a href="#枚举量的值" class="headerlink" title="枚举量的值"></a>枚举量的值</h2><p>可以使用赋值运算符来显式地设置枚举量的值：</p>
-<p><code>enum bits&#123;one = 1, two = 2, four = 4, eight = 8&#125;;</code></p>
-<p>指定的值必须是整数。也可以只显式地定义其中一些枚举量的值：</p>
-<p><code>enum bigstep&#123;first, second = 100, third&#125;;</code></p>
-<p>这里，first 在默认情况下为 0。后面没有被初始化的枚举量的值将比其前面的枚举量大 1。因此 third 的值为 101。</p>
-<p>最后，可以创建多个值相同的枚举量：</p>
-<p><code>enum step&#123;zero, null = 0, one, numro_uno = 1&#125;</code></p>
-<p>其中 <code>zero</code> 和 <code>null</code> 都为 <code>0，one</code> 和 <code>numro_uno</code> 都为 1。</p>
-<h2 id="枚举的取值范围"><a href="#枚举的取值范围" class="headerlink" title="枚举的取值范围"></a>枚举的取值范围</h2><p>可以将在枚举取值范围内的整型强制转换为枚举量。</p>
-<ul>
-<li>上限。大于最大枚举量的、最小的 2 的幂，将它减去 1。如枚举量中最大值为 11，则此枚举上限为 15</li>
-<li>下限。如果枚举量最小值不小于 0，则取值范围的下限为 0，否则，采用与寻找上限方式相同的方法，但加上负号。如，假如最小的枚举量为 -6，而比它小的、最大的 2 的幂是 -8（加上负号），因此下限为 -7。</li>
-</ul>
-]]></content>
       <categories>
         <category>C++学习</category>
       </categories>
@@ -1290,65 +1409,170 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
-    <title>什么是 ASPICE</title>
-    <url>/2021/07/11/%E4%BB%80%E4%B9%88%E6%98%AF-ASPICE/</url>
-    <content><![CDATA[<p><strong>ASPICE</strong> 现在越来越多地被 OEM 和零部件供应商提及和重视，几乎成为汽车行业的通用标准，那么什么是 <strong>ASPICE</strong> 呢？</p>
+    <title>OpenWrt 编译过程</title>
+    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
 <span id="more"></span>
 
-<h1 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h1><p>ASPICE 全称是 “Automotive Software Process Improvement and Capacity Determination”，汽车软件过程改进及能力评定，是汽车行业用于评价软件开发团队的研发能力水平的模型框架。</p>
-<h2 id="CMMI"><a href="#CMMI" class="headerlink" title="CMMI"></a>CMMI</h2><p>ASPICE 模型最初是在 CMMI 基础上发展起来的。CMMI 全称是能力成熟模型集成（Capability Maturity Model Integration），是在 1994 年由美国国防部与卡内基-梅隆大学下属的软件工程研究中心以及美国国防工业协会共同开发和研制的，其目的是帮助软件企业对软件工程过程进行管理和改进，增强开发与改进能力。</p>
-<p>CMMI 基本上都采用 IDEAL 方法来进行过程改进，通过不断的分析差距、建立计划、实施行动、总结经验，来获得提升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/CMMI%20IDEAL%20%E6%A8%A1%E5%9E%8B.png" title="CMMI IDEAL 模型"></p>
-<h2 id="ASPICE-历史"><a href="#ASPICE-历史" class="headerlink" title="ASPICE 历史"></a>ASPICE 历史</h2><p>ASPICE 于 2005 年正式发布，首版为 2.0 版本，经过不断发展更新，现在最新的 ASPICE 是 2018 年发布的 3.1 版本。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2.jpg" title="ASPICE 发展历史"></p>
-<p>其实，ASPICE 是 SPICE 的一个分支 Automotive SPICE，医疗、航天等行业也制定了自己的行业 SPICE 标准。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/SPICE%20%E6%80%BB%E8%A7%88.jpg" title="SPICE 标准"></p>
-<h1 id="ASPICE-详细"><a href="#ASPICE-详细" class="headerlink" title="ASPICE 详细"></a>ASPICE 详细</h1><p>ASPICE 其实包含两部分：<strong>过程参考模型</strong>、<strong>过程评估模型</strong>。过程评估模型从过程参考模型中选择过程并增补指标，这些指标支持收集客观证据，使评估师能够根据能力维度对过程进行评定分配。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E6%A8%A1%E5%9E%8B.png" title="ASPICE 模型"></p>
-<h2 id="过程参考模型"><a href="#过程参考模型" class="headerlink" title="过程参考模型"></a>过程参考模型</h2><p>过程参考模型基于 V 模型构造，ASPICE 过程参考模型概览如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%20%E8%BF%87%E7%A8%8B%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B.png" title="ASPICE 过程参考模型"></p>
-<p>ASPICE 将过程分成 3 个组别：主要生命周期过程、组织生命周期过程、支持生命周期过程。其中主要生命周期过程是最为重要且比较难以完成的部分。在 ASPICE 中的工程过程主要有系统工程和软件工程。系统工程和软件工程在 <strong>V</strong> 模型中十分醒目，也是整个 ASPICE 的精华所在。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/V%E6%A8%A1%E5%9E%8B.png" title="V 模型"></p>
-<p>双向可追溯性和一致性是 ASPICE 特别注重的点，但这种可追溯性和一致性在项目的实操过程中，审查员一般只能以抽查的方式检测。特别是一致性，工具是很验证检查出来的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E5%8F%8C%E5%90%91%E5%8F%AF%E8%BF%BD%E6%BA%AF%E6%80%A7%E5%92%8C%E4%B8%80%E8%87%B4%E6%80%A7.png" title="双向可追溯性和一致性"></p>
-<p>因此 ASPICE 要求，需求文档需要被验证，且需要有具体的标准定义。设计文档需要被评估，且评估准则可包括质量特性如模块化、可靠性、安全性（security）和可用性等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E9%AA%8C%E8%AF%81%E5%87%86%E5%88%99%E5%92%8C%E7%AC%A6%E5%90%88%E6%80%A7.png" title="评估、验证准则和符合性"></p>
-<h2 id="过程评估模型"><a href="#过程评估模型" class="headerlink" title="过程评估模型"></a>过程评估模型</h2><p>ASPICE 将过程评估模型分为：</p>
-<blockquote>
-<ol>
-<li>过程实施指标 – 只适用于 L1<blockquote>
-<ol>
-<li>基本实践（BP）</li>
-<li>工作产品（WP）</li>
-</ol>
+<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
+<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
+
+<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
+<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
+<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
+
+<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
+<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
+<li>Target System –&gt; x86</li>
+<li>Subtarget –&gt; x64_64</li>
+<li>Target Profile –&gt; Generic x86/64</li>
+<li>Target Image<blockquote>
+<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
 </blockquote>
 </li>
-<li>过程能力指标 – 适用于 L2 ~ L5<blockquote>
-<ol>
-<li>通用实践（GP）</li>
-<li>通用资源（GR）</li>
-</ol>
+</ul>
+<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
+<li>luci-theme-argonv3</li>
+<li><strong>luci-theme-bootstrap</strong></li>
+<li>luci-theme-netgearv2</li>
+</ul>
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
+<li>luci-app-accesscontrol</li>
+<li>luci-app-adbyby-plus</li>
+<li>luci-app-adguardhome<blockquote>
+<p>Include Binary File</p>
 </blockquote>
 </li>
-</ol>
+<li>luci-app-argon-config</li>
+<li>luci-app-autoreboot</li>
+<li>luci-app-baidupcs-web</li>
+<li>luci-app-cifs-mount</li>
+<li>luci-app-ddns</li>
+<li>luci-app-diskman<blockquote>
+<p>Include btrfs-progs<br>Include lsblk</p>
 </blockquote>
-<p>评估指标与过程能力的关系如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B8%8E%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B.png" title="评估指标与过程能力"></p>
-<p>ASPICE 将层级分为六级：L0~L5。各级别过程能力的评定参考表如下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/%E7%BA%A7%E5%88%AB%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E8%AF%84%E5%AE%9A%E5%8F%82%E8%80%83%E8%A1%A8.png" title="级别过程能力评定参考表"></p>
-<h2 id="ASPICE-的不足及完善"><a href="#ASPICE-的不足及完善" class="headerlink" title="ASPICE 的不足及完善"></a>ASPICE 的不足及完善</h2><p>从 ASPICE 的名称就能看出，ASPICE 的出发点在评估软件-“软件过程改进和能力测定”，因此 ASPICE 忽略了硬件和机械工程。</p>
-<p>好在 ASPICE 加入了“插件”的概念。如图，粗体字的过程是 ASPICE 3.1 PRM/PAM 的一部分，而其它工程过程（机械工程、硬件工程）却不在 VDA QMC 授权下开发。机械工程、硬件工程需要 OEM 或者供应商自己定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zfh18/ImgHosting/pic/ASPICE%E6%8F%92%E4%BB%B6.png" title="ASPICE 插件"></p>
+</li>
+<li>luci-app-filetransfer</li>
+<li><strong>luci-app-firewall</strong></li>
+<li>luci-app-frpc</li>
+<li>luci-app-frps</li>
+<li>luci-app-gowebdav</li>
+<li>luci-app-haproxy-tcp</li>
+<li>luci-app-hd-idle</li>
+<li>luci-app-ipsec-vpnd</li>
+<li>luci-app-openclash</li>
+<li>luci-app-passwall</li>
+<li>luci-app-ramfree</li>
+<li>luci-app-rclone<blockquote>
+<p>Include rclone-webui<br>Include rclone-ng</p>
+</blockquote>
+</li>
+<li>luci-app-samba</li>
+<li>luci-app-smartdns</li>
+<li>luci-app-softethervpn</li>
+<li>luci-app-ssr-plus</li>
+<li>luci-app-ttyd</li>
+<li>luci-app-turboacc<blockquote>
+<p>Include Flow Offload<br>Include BBR CCA</p>
+</blockquote>
+</li>
+<li>luci-app-unblockmusic<blockquote>
+<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
+</blockquote>
+</li>
+<li>luci-app-upnp</li>
+<li>luci-app-usb-printer</li>
+<li>luci-app-uugamebooster</li>
+<li><del>luci-app-v2ray-server</del></li>
+<li>luci-app-vlmcsd</li>
+<li>luci-app-vsftpd</li>
+<li>luci-app-watchcat</li>
+<li>luci-app-webadmin</li>
+<li>luci-app-wol</li>
+<li>luci-app-xlnetacc</li>
+<li>luci-app-zerotier</li>
+</ul>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
+<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
+<li>ddns-scripts_aliyun</li>
+<li>v2ray-geoip</li>
+<li>v2ray-geosite</li>
+</ul>
+<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
+<li>cfdisk</li>
+</ul>
+<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
+<li>autosamba</li>
+<li>ipv6helper</li>
+</ul>
+<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
+<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
+<p><code>$ make -j1 V=s</code></p>
+<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
+<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
+<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
+<p><code>$ make -j1 V=s</code></p>
+<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
+<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://zhuanlan.zhihu.com/p/79691286" title="知乎">ASPICE在汽车行业越来越“火”，那么什么是ASPICE呢？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62139708" title="知乎">什么是 ASPICE ?</a></li>
+<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
+<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
+<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Automotive</category>
+        <category>OpenWrt</category>
       </categories>
       <tags>
-        <tag>ASPICE</tag>
+        <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown 如何转换为 Confluence</title>
+    <url>/2022/11/15/Markdown-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E4%B8%BA-Confluence/</url>
+    <content><![CDATA[<p>Confluence 是一个专业的企业知识管理与协同软件，也可以用于构建企业 wiki。 使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。Confluence 有自己的一套标记语言，如果想使用 Markdown 的话就需要转换一下。</p>
+<span id="more"></span>
+
+<h1 id="Markdown-优点"><a href="#Markdown-优点" class="headerlink" title="Markdown 优点"></a>Markdown 优点</h1><p>作为一种轻量级标记语言，Markdown 优点包括但不限于：</p>
+<ul>
+<li>纯文本，兼容性极强，可以用所有文本编辑器打开</li>
+<li>让写作者专注于文字而不是排版</li>
+<li>格式转换方便，Markdown 的文本可以轻松转换为 html、电子书</li>
+<li>Markdown 的标记语法有极好的可读性</li>
+</ul>
+<p>概括来讲，Markdown 易懂易写，但 Confluence 没有提供支持 Markdown 格式的编辑器，这对习惯于写 Markdown 文档的开发者来说是一件很苦恼的事情。</p>
+<h1 id="Markdown-转-Confluence"><a href="#Markdown-转-Confluence" class="headerlink" title="Markdown 转 Confluence"></a>Markdown 转 Confluence</h1><p>通过一个曲折的解决方法，即先将 markdown 文档转成 wiki 文档，再通过 Confluence 的 wiki 导入功能插入文档内容。</p>
+<p>Markdown -&gt; wiki -&gt; Confluence</p>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/MarkdownToWiKi.png" alt="Markdown to Confluence"></p>
+<p>将 markdown 文档转成 wiki 文档，方法有两种:</p>
+<ul>
+<li>Github 上有一个 <a href="https://github.com/chunpu/markdown2confluence">mardown 项目</a>，可将 markdown 文档转成 wiki 文档。通过 <code>npm i markdown2confluence -g</code> 安装在本地，再通过命令 <code>markdown2confluence doc.md</code> 进行转换，也可以通过该项目提供的<a href="http://chunpu.github.io/markdown2confluence/browser/">在线转换</a>进行转换。</li>
+<li>使用 Visual Studio Code，安装插件 <strong>Markdown to confluence for VSCode Extension</strong>，选择相应文件按以下步骤执行：<ul>
+<li>CMD/CTRL + Shift + P -&gt; md2confl: Convert markdown to confluence and Open window</li>
+<li>Copy text from the window</li>
+<li>Paste to the Confluence</li>
+</ul>
+</li>
+</ul>
+<p>将 markdown 文档复制粘贴到输入区即可生成对应的 wiki 文档<br>wiki -&gt; Confluence<br><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/ConfluenceImportWiKi.png" alt="WiKi To Confluence"></p>
+<p>在 Confluence 界面选择 + 号 选择插入 wiki 标记，复制上一步得到的 wiki 文件点击插入即可。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://www.cnblogs.com/cuianbing/p/15891950.html">使用 Markdown 编辑器来写 Confluence 文档</a></li>
+<li><a href="https://github.com/chunpu/markdown2confluence">markdown2confluence</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=t-nano.markdown-to-confluence-vscode">Markdown to confluence for VSCode Extension</a></li>
+<li><a href="https://markdown.com.cn/">Markdown 教程</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Confluence</tag>
       </tags>
   </entry>
   <entry>
@@ -1553,6 +1777,129 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </tags>
   </entry>
   <entry>
+    <title>AutoSAR NM 状态机总结</title>
+    <url>/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>AutoSAR NM 是 AutoSAR 软件架构默认的一种网络管理策略。AutoSAR NM 是一种分布式直接网络管理，每个节点根据网络管理帧的状态独立的控制自己的网络状态。</p>
+<span id="more"></span>
+
+<h1 id="状态机转换"><a href="#状态机转换" class="headerlink" title="状态机转换"></a>状态机转换</h1><p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_%E7%8A%B6%E6%80%81%E6%9C%BA.png" alt="AutoSAR NM 状态机" title="AutoSAR NM 状态机"></p>
+<ol>
+<li><strong>CanNm_PassiveStartup()</strong> 被动唤醒，即 DUT 收到 NM 消息</li>
+<li><strong>CanNm_NetworkRequest()</strong> DUT 主动请求网络，为本地唤醒源，RSS -&gt; NOS 时诊断请求也视为一个 <strong>CanNm_NetworkRequest()</strong></li>
+<li>当从 BSM 或 PBSM 状态由于 <strong>CanNM_NetworkRequest()</strong> 也即本地唤醒源唤醒进入 RMS， 触发即时传输机制</li>
+<li>当从 NOS 或 RSS 状态由于自身需要 <strong>RepeatMessageRequest()</strong> 请求进入 RMS，触发即时传输机制，注意收到 RMB = 1 的 NM 报文不属于自身请求，进入 RMS 但不触发即时机制。</li>
+<li>即时传输机制要求以周期 <strong>T_NM_ImmediateCycleTime</strong> 连续发 <strong>N_ImmediateNM_TIMES</strong> 帧</li>
+<li>当从 PBSM, NOS 或 RSS 进入 RMS 时要求第一帧 NM 在 <strong>T_START_NM_TX</strong> 时间内发出</li>
+<li>离开 RMS 有本地保持唤醒源时，将进入 NOS，否则释放网络进入 RSS</li>
+<li>本地唤醒后 AWB 置位为 1，直到进入 PBSM 才清除，下一次重新唤醒才会重新置位</li>
+<li>与 AWB 在 PBSM 下重置不同，wake up reason 会一直保持到 BSM 下次唤醒才会重新置位</li>
+<li>Keep wake up reason 不会保持，是动态变化的，按照唤醒源优先级 电源 &gt; 其它本地 &gt; NM Timer &gt; Diag 置位</li>
+<li>当前软件策略为所有诊断请求，包括收到其它节点的诊断报文，都会让 TBOX 保持唤醒</li>
+<li>当前软件策略为 RSS 状态下，依旧可以发出诊断报文，如与网关的认证报文</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_Control_Timing.png" alt="CAN NM Control Timing Design" title="CAN NM Control Timing Design"></p>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_message_type.png" alt="different type of message in modes of network" title="different type of message in modes of network"></p>
+<h1 id="NM-报文结构"><a href="#NM-报文结构" class="headerlink" title="NM 报文结构"></a>NM 报文结构</h1><h2 id="NM-报文字节结构"><a href="#NM-报文字节结构" class="headerlink" title="NM 报文字节结构"></a>NM 报文字节结构</h2><table>
+<thead>
+<tr>
+<th>报文字节</th>
+<th>字节内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Byte 0</td>
+<td>ECU Address</td>
+</tr>
+<tr>
+<td>Byte 1</td>
+<td>Control Bit Vector</td>
+</tr>
+<tr>
+<td>Byte 2</td>
+<td>User data 0</td>
+</tr>
+<tr>
+<td>Byte 3</td>
+<td>User data 1</td>
+</tr>
+<tr>
+<td>Byte 4</td>
+<td>User data 2</td>
+</tr>
+<tr>
+<td>Byte 5</td>
+<td>User data 3</td>
+</tr>
+<tr>
+<td>Byte 6</td>
+<td>User data 4</td>
+</tr>
+<tr>
+<td>Byte 7</td>
+<td>User data 5</td>
+</tr>
+</tbody></table>
+<h2 id="NM-报文-Byte-1-Control-Bit-Vector-结构"><a href="#NM-报文-Byte-1-Control-Bit-Vector-结构" class="headerlink" title="NM 报文 Byte 1(Control Bit Vector) 结构"></a>NM 报文 Byte 1(Control Bit Vector) 结构</h2><table>
+<thead>
+<tr>
+<th>Byte 1</th>
+<th>Control Bit Vector</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bit 0</td>
+<td>Repeat Message Request</td>
+<td>0: Repeat Message State not requested<br>1: Repeat Message State requested</td>
+</tr>
+<tr>
+<td>bit 1</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 2</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 3</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 4</td>
+<td>Active Wakeup Bit</td>
+<td>0: Node has not woken up the network(passive wakeup)<br>1: Node has woken up the network(active wakeup)</td>
+</tr>
+<tr>
+<td>bit 5</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 6</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 7</td>
+<td>Res</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a href="https://www.cnblogs.com/still-smile/p/12102413.html" title="Smah 博客">autosar 网络管理（转发）</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Automotive</category>
+      </categories>
+      <tags>
+        <tag>AutoSAR NM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ 学习之十、C++ 输入总结</title>
     <url>/2021/08/25/C-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8D%81%E3%80%81C-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>C++ 输入 <code>cin</code> 使用方式繁多，以下来总结一下至今的使用方式。</p>
@@ -1622,129 +1969,6 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
       </categories>
       <tags>
         <tag>UDS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenWrt 编译过程</title>
-    <url>/2022/03/11/OpenWrt-%E6%8F%92%E4%BB%B6%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<p>每次编译 OpenWrt 的步骤都大同小异，以下为基本步骤。</p>
-<span id="more"></span>
-
-<h1 id="拉取指定分支"><a href="#拉取指定分支" class="headerlink" title="拉取指定分支"></a>拉取指定分支</h1><p><code>$ git clone -b openwrt-18.06-k5.4 https://github.com/immortalwrt/immortalwrt</code></p>
-<h1 id="添加其它插件源"><a href="#添加其它插件源" class="headerlink" title="添加其它插件源"></a>添加其它插件源</h1><p>在拉取的分支源码根目录 feeds.conf.default 文件中添加以下两行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ src-git kenzo https://github.com/kenzok8/openwrt-packages     </span><br><span class="line">$ src-git small https://github.com/kenzok8/small</span><br></pre></td></tr></table></figure>
-
-<h1 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h1><h2 id="更改默认-IP"><a href="#更改默认-IP" class="headerlink" title="更改默认 IP"></a>更改默认 IP</h2><p>OpenWrt 默认 IP 为 192.168.1.1，如需更改为 192.168.50.20，运行如下命令：</p>
-<p><code>$ sed -i &#39;s/192.168.1.1/192.168.50.20/g&#39; package/base-files/files/bin/config_generate</code></p>
-<h1 id="更新安装-feeds-源中的软件包"><a href="#更新安装-feeds-源中的软件包" class="headerlink" title="更新安装 feeds 源中的软件包"></a>更新安装 feeds 源中的软件包</h1><p>feeds 是扩展的软件包，独立于 Open­Wrt 源码之外，所以需要单独进行拉取和更新。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
-
-<h1 id="调整-OpenWrt-系统组件"><a href="#调整-OpenWrt-系统组件" class="headerlink" title="调整 OpenWrt 系统组件"></a>调整 OpenWrt 系统组件</h1><p><code>$ make menuconfig</code></p>
-<p>将弹出菜单，选择所需要的组件。我个人所调整的组件如下：</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><ul>
-<li>Target System –&gt; x86</li>
-<li>Subtarget –&gt; x64_64</li>
-<li>Target Profile –&gt; Generic x86/64</li>
-<li>Target Image<blockquote>
-<p>squashfs<br>Build GRUB EFI image<br>Use Console Terminal<br>Build VMware image files<br>Root filesystem partition size –&gt; 600</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="LuCI"><a href="#LuCI" class="headerlink" title="LuCI"></a>LuCI</h2><h3 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h3><ul>
-<li>luci-theme-argonv3</li>
-<li><strong>luci-theme-bootstrap</strong></li>
-<li>luci-theme-netgearv2</li>
-</ul>
-<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
-<li>luci-app-accesscontrol</li>
-<li>luci-app-adbyby-plus</li>
-<li>luci-app-adguardhome<blockquote>
-<p>Include Binary File</p>
-</blockquote>
-</li>
-<li>luci-app-argon-config</li>
-<li>luci-app-autoreboot</li>
-<li>luci-app-baidupcs-web</li>
-<li>luci-app-cifs-mount</li>
-<li>luci-app-ddns</li>
-<li>luci-app-diskman<blockquote>
-<p>Include btrfs-progs<br>Include lsblk</p>
-</blockquote>
-</li>
-<li>luci-app-filetransfer</li>
-<li><strong>luci-app-firewall</strong></li>
-<li>luci-app-frpc</li>
-<li>luci-app-frps</li>
-<li>luci-app-gowebdav</li>
-<li>luci-app-haproxy-tcp</li>
-<li>luci-app-hd-idle</li>
-<li>luci-app-ipsec-vpnd</li>
-<li>luci-app-openclash</li>
-<li>luci-app-passwall</li>
-<li>luci-app-ramfree</li>
-<li>luci-app-rclone<blockquote>
-<p>Include rclone-webui<br>Include rclone-ng</p>
-</blockquote>
-</li>
-<li>luci-app-samba</li>
-<li>luci-app-smartdns</li>
-<li>luci-app-softethervpn</li>
-<li>luci-app-ssr-plus</li>
-<li>luci-app-ttyd</li>
-<li>luci-app-turboacc<blockquote>
-<p>Include Flow Offload<br>Include BBR CCA</p>
-</blockquote>
-</li>
-<li>luci-app-unblockmusic<blockquote>
-<p>UnblockNeteaseMusic Golang Version<br>UnblockNeteaseMusic NodeJS Version</p>
-</blockquote>
-</li>
-<li>luci-app-upnp</li>
-<li>luci-app-usb-printer</li>
-<li>luci-app-uugamebooster</li>
-<li><del>luci-app-v2ray-server</del></li>
-<li>luci-app-vlmcsd</li>
-<li>luci-app-vsftpd</li>
-<li>luci-app-watchcat</li>
-<li>luci-app-webadmin</li>
-<li>luci-app-wol</li>
-<li>luci-app-xlnetacc</li>
-<li>luci-app-zerotier</li>
-</ul>
-<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>Firewall &gt; ip6tables &gt; ip6tables-extra ip6tables-mod-nat</p>
-<h3 id="IP-Addresses-and-Names"><a href="#IP-Addresses-and-Names" class="headerlink" title="IP Addresses and Names"></a>IP Addresses and Names</h3><ul>
-<li>ddns-scripts_aliyun</li>
-<li>v2ray-geoip</li>
-<li>v2ray-geosite</li>
-</ul>
-<h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><h3 id="Disc"><a href="#Disc" class="headerlink" title="Disc"></a>Disc</h3><ul>
-<li>cfdisk</li>
-</ul>
-<h3 id="Extra-package"><a href="#Extra-package" class="headerlink" title="Extra package"></a>Extra package</h3><ul>
-<li>autosamba</li>
-<li>ipv6helper</li>
-</ul>
-<h1 id="预下载编译所需的软件包"><a href="#预下载编译所需的软件包" class="headerlink" title="预下载编译所需的软件包"></a>预下载编译所需的软件包</h1><p><code>$ make download -j8 V=s</code></p>
-<h1 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h1><p>如果使用 WSL/WSL2 进行编译，由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上<br><strong>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</strong></p>
-<p><code>$ make -j1 V=s</code></p>
-<h1 id="再次编译"><a href="#再次编译" class="headerlink" title="再次编译"></a>再次编译</h1><h2 id="更新系统软件包及-OpenWrt-源码"><a href="#更新系统软件包及-OpenWrt-源码" class="headerlink" title="更新系统软件包及 OpenWrt 源码"></a>更新系统软件包及 OpenWrt 源码</h2><p><code>$ sudo apt update</code><br><code>$ git pull</code></p>
-<h2 id="更新并安装-feeds-源中的软件包源码"><a href="#更新并安装-feeds-源中的软件包源码" class="headerlink" title="更新并安装 feeds 源中的软件包源码"></a>更新并安装 feeds 源中的软件包源码</h2><p><code>$ ./scripts/feeds update -a &amp;&amp; ./scripts/feeds install -a</code></p>
-<h2 id="更新配置文件"><a href="#更新配置文件" class="headerlink" title="更新配置文件"></a>更新配置文件</h2><p><code>$ make defconfig</code></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>与初次编译指令相同</p>
-<p><code>$ make -j1 V=s</code></p>
-<h2 id="编译固件位置"><a href="#编译固件位置" class="headerlink" title="编译固件位置"></a>编译固件位置</h2><p>在资源管理器地址栏输入 \wsl$ 即可访问 WSL 下的文件。以 x86_64 平台为例子，固件所在路径为：</p>
-<p><code>\\wsl$\WSL名称\home\用户名\lede\bin\targets\x86\64</code></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
-<li><a href="https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html" title="P3TERX ZONE">OpenWrt 编译步骤与命令详解教程</a></li>
-<li><a href="https://github.com/coolsnowwolf/lede" title="coolsnowwolf lede">欢迎来到 Lean 的 Openwrt 源码仓库</a></li>
-<li><a href="https://github.com/immortalwrt/immortalwrt" title="immortalwrt">Project ImmortalWrt</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>OpenWrt</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
       </tags>
   </entry>
 </search>

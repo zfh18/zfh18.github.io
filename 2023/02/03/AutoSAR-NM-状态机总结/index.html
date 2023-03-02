@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/book-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/book-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/book-16x16.png">
+  <link rel="mask-icon" href="/images/logo2.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;zfh18.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;gitalk&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:{&quot;gitalk&quot;:{&quot;order&quot;:-2},&quot;disqus&quot;:{&quot;text&quot;:&quot;Load Disqus&quot;,&quot;order&quot;:-1}},&quot;activeClass&quot;:&quot;gitalk&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="AutoSAR NM 是 AutoSAR 软件架构默认的一种网络管理策略。AutoSAR NM 是一种分布式直接网络管理，每个节点根据网络管理帧的状态独立的控制自己的网络状态。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoSAR NM 状态机总结">
+<meta property="og:url" content="https://zfh18.github.io/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="未闻驿站">
+<meta property="og:description" content="AutoSAR NM 是 AutoSAR 软件架构默认的一种网络管理策略。AutoSAR NM 是一种分布式直接网络管理，每个节点根据网络管理帧的状态独立的控制自己的网络状态。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_%E7%8A%B6%E6%80%81%E6%9C%BA.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_Control_Timing.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_message_type.png">
+<meta property="article:published_time" content="2023-02-03T02:25:56.000Z">
+<meta property="article:modified_time" content="2023-02-04T12:23:29.526Z">
+<meta property="article:author" content="未闻花名">
+<meta property="article:tag" content="AutoSAR NM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_%E7%8A%B6%E6%80%81%E6%9C%BA.png">
+
+
+<link rel="canonical" href="https://zfh18.github.io/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;zfh18.github.io&#x2F;2023&#x2F;02&#x2F;03&#x2F;AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93&#x2F;&quot;,&quot;path&quot;:&quot;2023&#x2F;02&#x2F;03&#x2F;AutoSAR-NM-状态机总结&#x2F;&quot;,&quot;title&quot;:&quot;AutoSAR NM 状态机总结&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>AutoSAR NM 状态机总结 | 未闻驿站</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">未闻驿站</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录，学习</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">18</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">状态机转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NM-%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">NM 报文结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NM-%E6%8A%A5%E6%96%87%E5%AD%97%E8%8A%82%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">NM 报文字节结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NM-%E6%8A%A5%E6%96%87-Byte-1-Control-Bit-Vector-%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">NM 报文 Byte 1(Control Bit Vector) 结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="未闻花名"
+      src="/images/pic.png">
+  <p class="site-author-name" itemprop="name">未闻花名</p>
+  <div class="site-description" itemprop="description">记录一些学习知识，汽车电子，C++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zfh18" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zfh18" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fenghua.zhou6@gmail.com" title="E-Mail → mailto:fenghua.zhou6@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zfh18.github.io/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic.png">
+      <meta itemprop="name" content="未闻花名">
+      <meta itemprop="description" content="记录一些学习知识，汽车电子，C++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="未闻驿站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AutoSAR NM 状态机总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-03 10:25:56" itemprop="dateCreated datePublished" datetime="2023-02-03T10:25:56+08:00">2023-02-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-02-04 20:23:29" itemprop="dateModified" datetime="2023-02-04T20:23:29+08:00">2023-02-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Automotive/" itemprop="url" rel="index"><span itemprop="name">Automotive</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>AutoSAR NM 是 AutoSAR 软件架构默认的一种网络管理策略。AutoSAR NM 是一种分布式直接网络管理，每个节点根据网络管理帧的状态独立的控制自己的网络状态。</p>
+<span id="more"></span>
+
+<h1 id="状态机转换"><a href="#状态机转换" class="headerlink" title="状态机转换"></a>状态机转换</h1><p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_%E7%8A%B6%E6%80%81%E6%9C%BA.png" alt="AutoSAR NM 状态机" title="AutoSAR NM 状态机"></p>
+<ol>
+<li><strong>CanNm_PassiveStartup()</strong> 被动唤醒，即 DUT 收到 NM 消息</li>
+<li><strong>CanNm_NetworkRequest()</strong> DUT 主动请求网络，为本地唤醒源，RSS -&gt; NOS 时诊断请求也视为一个 <strong>CanNm_NetworkRequest()</strong></li>
+<li>当从 BSM 或 PBSM 状态由于 <strong>CanNM_NetworkRequest()</strong> 也即本地唤醒源唤醒进入 RMS， 触发即时传输机制</li>
+<li>当从 NOS 或 RSS 状态由于自身需要 <strong>RepeatMessageRequest()</strong> 请求进入 RMS，触发即时传输机制，注意收到 RMB = 1 的 NM 报文不属于自身请求，进入 RMS 但不触发即时机制。</li>
+<li>即时传输机制要求以周期 <strong>T_NM_ImmediateCycleTime</strong> 连续发 <strong>N_ImmediateNM_TIMES</strong> 帧</li>
+<li>当从 PBSM, NOS 或 RSS 进入 RMS 时要求第一帧 NM 在 <strong>T_START_NM_TX</strong> 时间内发出</li>
+<li>离开 RMS 有本地保持唤醒源时，将进入 NOS，否则释放网络进入 RSS</li>
+<li>本地唤醒后 AWB 置位为 1，直到进入 PBSM 才清除，下一次重新唤醒才会重新置位</li>
+<li>与 AWB 在 PBSM 下重置不同，wake up reason 会一直保持到 BSM 下次唤醒才会重新置位</li>
+<li>Keep wake up reason 不会保持，是动态变化的，按照唤醒源优先级 电源 &gt; 其它本地 &gt; NM Timer &gt; Diag 置位</li>
+<li>当前软件策略为所有诊断请求，包括收到其它节点的诊断报文，都会让 TBOX 保持唤醒</li>
+<li>当前软件策略为 RSS 状态下，依旧可以发出诊断报文，如与网关的认证报文</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_Control_Timing.png" alt="CAN NM Control Timing Design" title="CAN NM Control Timing Design"></p>
+<p><img src="https://raw.githubusercontent.com/zfh18/ImgHosting/main/pic/AutoSAR_NM_message_type.png" alt="different type of message in modes of network" title="different type of message in modes of network"></p>
+<h1 id="NM-报文结构"><a href="#NM-报文结构" class="headerlink" title="NM 报文结构"></a>NM 报文结构</h1><h2 id="NM-报文字节结构"><a href="#NM-报文字节结构" class="headerlink" title="NM 报文字节结构"></a>NM 报文字节结构</h2><table>
+<thead>
+<tr>
+<th>报文字节</th>
+<th>字节内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Byte 0</td>
+<td>ECU Address</td>
+</tr>
+<tr>
+<td>Byte 1</td>
+<td>Control Bit Vector</td>
+</tr>
+<tr>
+<td>Byte 2</td>
+<td>User data 0</td>
+</tr>
+<tr>
+<td>Byte 3</td>
+<td>User data 1</td>
+</tr>
+<tr>
+<td>Byte 4</td>
+<td>User data 2</td>
+</tr>
+<tr>
+<td>Byte 5</td>
+<td>User data 3</td>
+</tr>
+<tr>
+<td>Byte 6</td>
+<td>User data 4</td>
+</tr>
+<tr>
+<td>Byte 7</td>
+<td>User data 5</td>
+</tr>
+</tbody></table>
+<h2 id="NM-报文-Byte-1-Control-Bit-Vector-结构"><a href="#NM-报文-Byte-1-Control-Bit-Vector-结构" class="headerlink" title="NM 报文 Byte 1(Control Bit Vector) 结构"></a>NM 报文 Byte 1(Control Bit Vector) 结构</h2><table>
+<thead>
+<tr>
+<th>Byte 1</th>
+<th>Control Bit Vector</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bit 0</td>
+<td>Repeat Message Request</td>
+<td>0: Repeat Message State not requested<br>1: Repeat Message State requested</td>
+</tr>
+<tr>
+<td>bit 1</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 2</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 3</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 4</td>
+<td>Active Wakeup Bit</td>
+<td>0: Node has not woken up the network(passive wakeup)<br>1: Node has woken up the network(active wakeup)</td>
+</tr>
+<tr>
+<td>bit 5</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 6</td>
+<td>Res</td>
+<td></td>
+</tr>
+<tr>
+<td>bit 7</td>
+<td>Res</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/still-smile/p/12102413.html" title="Smah 博客">autosar 网络管理（转发）</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>未闻花名
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zfh18.github.io/2023/02/03/AutoSAR-NM-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%80%BB%E7%BB%93/" title="AutoSAR NM 状态机总结">https://zfh18.github.io/2023/02/03/AutoSAR-NM-状态机总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/AutoSAR-NM/" rel="tag"><i class="fa fa-tag"></i> AutoSAR NM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/15/Markdown-%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E4%B8%BA-Confluence/" rel="prev" title="Markdown 如何转换为 Confluence">
+                  <i class="fa fa-chevron-left"></i> Markdown 如何转换为 Confluence
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div><script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">未闻花名</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">70k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:56</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{&quot;enable&quot;:true,&quot;github_id&quot;:&quot;zfh18&quot;,&quot;repo&quot;:&quot;zfh18.github.io&quot;,&quot;client_id&quot;:&quot;0aa1e30354eff985e323&quot;,&quot;client_secret&quot;:&quot;31b4e31e85764b8b967feccd6a8dbb674fcd756c&quot;,&quot;admin_user&quot;:&quot;zfh18&quot;,&quot;distraction_free_mode&quot;:true,&quot;proxy&quot;:&quot;https:&#x2F;&#x2F;cors-anywhere.azm.workers.dev&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token&quot;,&quot;language&quot;:&quot;zh-CN&quot;,&quot;js&quot;:{&quot;url&quot;:&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1.7.2&#x2F;dist&#x2F;gitalk.min.js&quot;,&quot;integrity&quot;:&quot;sha256-Pmj85ojLaPOWwRtlMJwmezB&#x2F;Qg8BzvJp5eTzvXaYAfA&#x3D;&quot;},&quot;path_md5&quot;:&quot;b23559bf97653c0e3b99335642761378&quot;}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
