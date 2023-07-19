@@ -258,8 +258,8 @@ hexo g -d   # 生成静态页面并部署发布
 <li><code>int</code> 至少与 <code>short</code> 一样长；</li>
 <li><code>long</code> 至少 32 位，且至少与 <code>int</code> 一样长；</li>
 <li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
-<li><em>Tips:</em>* 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</li>
 </ul>
+<p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// 默认为 int 类型，int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
 
 <p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度。</p>
