@@ -29,7 +29,7 @@
 <meta property="og:description" content="C++ 内置数据类型分两大类：基本数据类型和复合数据类型。本编介绍基本数据类型，又称算术（arithmetic）类型。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-17T02:21:33.000Z">
-<meta property="article:modified_time" content="2023-04-03T13:37:00.341Z">
+<meta property="article:modified_time" content="2023-07-19T14:16:41.939Z">
 <meta property="article:author" content="未闻花名">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-04-03 21:37:00" itemprop="dateModified" datetime="2023-04-03T21:37:00+08:00">2023-04-03</time>
+        <time title="修改时间：2023-07-19 22:16:41" itemprop="dateModified" datetime="2023-07-19T22:16:41+08:00">2023-07-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,15 +310,15 @@
 <h1 id="基本数据类型——整型"><a href="#基本数据类型——整型" class="headerlink" title="基本数据类型——整型"></a>基本数据类型——整型</h1><p>整型是指没有小数部分的数字，如 2, 98, -376 和 0。术语<strong>宽度</strong>（ width ）用于描述存储整数时使用的内存量。使用的内存越多，则越宽。</p>
 <p>C++ 的基本整型按宽度递增的顺序排列，分别有 <code>char</code>、<code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>，每种类型都有有符号和无符号版本，因此总共有 10 种类型可供选择。另外，ANSI/ISO C++ 还新增了一种特殊类型 <code>bool</code>。</p>
 <h2 id="数值整型"><a href="#数值整型" class="headerlink" title="数值整型"></a>数值整型</h2><p>数值型整型包括 <code>short</code>、<code>int</code>、<code>long</code> 和 C++11 新增的 <code>long long</code>。</p>
-<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现了基本字符集的相邻位组成。也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit。</p>
+<h3 id="整型宽度"><a href="#整型宽度" class="headerlink" title="整型宽度"></a>整型宽度</h3><p>概念：C++ 字节由至少能够容纳实现了基本字符集的相邻位组成，也就是说 C++ 一个字节可能意味着大于 8 bit，可能为 8，16 或 32 bit，通常一个字节为 8 bit。</p>
 <p>C++ 提供了一种灵活的标准，它确保了最小长度（从 C 语言借鉴而来）：</p>
 <ul>
 <li><code>short</code> 至少 16 位；</li>
 <li><code>int</code> 至少与 <code>short</code> 一样长；</li>
 <li><code>long</code> 至少 32 位，且至少与 <code>int</code> 一样长；</li>
 <li><code>long long</code> 至少 64 位，且至少与 <code>long</code> 一样长。</li>
+<li><em>Tips:</em>* 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</li>
 </ul>
-<p><strong>Tips:</strong> 上述 4 种整型都有一种不能存储负数值的无符号变体，其优点是可以增大变量能够存储的最大值，只需使用关键字 <code>unsigned</code> 来声明即可：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> n_short; <span class="comment">// 无符号 short 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> n_int; <span class="comment">// 无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> n_int; <span class="comment">// 默认为 int 类型，int 可省略，仍然为无符号 int 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> n_long;   <span class="comment">// 无符号 long 类型</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n_llong; <span class="comment">// 无符号 long long 类型</span></span><br></pre></td></tr></table></figure>
 
 <p>可使用运算符 <code>sizeof</code> 确定数据类型的宽度。</p>
@@ -437,9 +437,7 @@
 <h3 id="char-类型特点"><a href="#char-类型特点" class="headerlink" title="char 类型特点"></a>char 类型特点</h3><p><code>char</code> 在默认情况下<strong>既不是没有符号</strong>，<strong>也不是有符号</strong>。是否有符号由 <code>C++</code> 实现决定，这样编译器开发人员可以最大限度地将这种类型与硬件属性匹配起来。<code>char</code> 可以显示地将类型设置为 <code>signed char</code> 或 <code>unsigned char</code>:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> fodo;  <span class="comment">// 可能有符号，也可能是无符号</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> bar;  <span class="comment">// 显式定义为无符号类型</span></span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">char</span> snark;  <span class="comment">// 显式定义为有符号类型</span></span><br></pre></td></tr></table></figure>
 
-<p><code>char</code> 类型变量初始化使用单引号：<code>char c = &#39;M&#39;</code></p>
-<p>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code></p>
-<p>使用 <code>cin</code> 输入时都是读取的字符，然后强转为其它类型存储。</p>
+<p><code>char</code> 类型变量初始化使用单引号：<code>char c = &#39;M&#39;</code><br>C++ 将字符表示为整数，可以进行算术运算。如 <code>char c = &#39;M&#39; + 1;</code><br>使用 <code>cin</code> 输入时都是读取的字符，然后强转为其它类型存储。</p>
 <h3 id="char-字面值"><a href="#char-字面值" class="headerlink" title="char 字面值"></a>char 字面值</h3><ul>
 <li>以单引号括起来。如 <code>&#39;M&#39;</code>、<code>&#39;N&#39;</code>、<code>&#39;&#39;</code>、<code>&#39;5&#39;</code></li>
 <li>不能直接通过键盘输入的字符使用转义序列。如<code>&#39;\a&#39;</code>、<code>&#39;\t&#39;</code>、<code>&#39;\n&#39;</code><br>C++ 转义序列的编码</li>
@@ -525,8 +523,7 @@
 <td>0x22</td>
 </tr>
 </tbody></table>
-<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。</p>
-<p>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
+<p><strong>Tips:</strong> 应该像处理常规字符那样处理转义字符（如 <code>\n</code>）。也就是说，将它们作为字符常量时，应用单引号括起来；将它们放在字符串中时，不要使用单引号。<br>可以基于字符的八进制和十六进制编码来使用转义序列。例如 <code>Ctrl+Z</code> 的 ASCII 码为 26，对应的八进制编码为 032，十六进制编码为 0x1a。可以用下面的转义序列来表示该字符：<code>\032</code> 或 <code>\0x1a</code>。将这些编码用单引号括起，可以得到相应的字符常量。</p>
 <h3 id="char-引申-——-通用字符名"><a href="#char-引申-——-通用字符名" class="headerlink" title="char 引申 —— 通用字符名"></a>char 引申 —— 通用字符名</h3><p>C++ 实现支持基本的源字符集（可用来编写源代码的字符集），基本的执行字符集（程序执行期间可处理的字符，如换行、退格、振铃等），还有一种表示特殊字符的机制，提供扩展源字符和扩展执行字符集，它独立于任何特定的键盘，使用的是通用字符名（universal character name）。</p>
 <p>通用字符名的用法类似于转义字符。以 <code>\u</code> 后面跟 4 个十六进制位 或 <code>\U</code> 后面跟 8 个十六进制位来表示。这些十六进制位表示的是字符的 <code>ISO 10646</code> 码点（一种正在制定的国际标准，为大量的字符提供数值编码）。</p>
 <p>如果所用的实现支持扩展字符，则可以在标识符（如字符常量）和字符串中使用通用字符名。如</p>
@@ -542,16 +539,14 @@ cout &lt;&lt; &quot;Let them eat g\u00E2teau.\n&quot;;
 <pre><code>wchar_t bob = L&#39;P&#39;; // 宽字符常量
 wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 </code></pre>
-<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，<strong>无符号类型</strong>。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两种字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.</p>
-<p><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
+<h3 id="C-11-新增类型：char16-t-和-char32-t"><a href="#C-11-新增类型：char16-t-和-char32-t" class="headerlink" title="C++11 新增类型：char16_t 和 char32_t"></a>C++11 新增类型：char16_t 和 char32_t</h3><p>区别于 <code>wchar_t</code> 长度及符号由实现决定，<code>char16_t</code> 和 <code>char32_t</code> 长度分别为 16 位和 32 位，<strong>无符号类型</strong>。使用前缀 <code>u</code> 和 <code>U</code> 分别来表征这两种字符或字符串常量，如 <code>u&#39;C&#39;</code> <code>u&quot;work hard&quot;</code>，<code>U&#39;R&#39;</code> <code>U&quot;First try&quot;</code>.<br><code>char16_t</code> 和 <code>char32_t</code> 也有底层类型 —— 一种内置的整型，但底层类型可能随系统而异。</p>
 <h2 id="bool-类型"><a href="#bool-类型" class="headerlink" title="bool 类型"></a>bool 类型</h2><p>ANSI/ISO C++ 标准添加了一种名叫 <code>bool</code> 的新类型，布尔变量的值可以是 <code>true</code> 或 <code>false</code>，这两个值都可以通过提升转换为 <code>int</code> 类型，<code>true</code> 被转换为 1，<code>false</code> 被转换为 0。</p>
 <pre><code>bool is_ready = true;
 </code></pre>
 <p>任何数字值或指针值都可以被隐式转换为 bool 值。任何非零值都被转换为 <code>true</code>，而零被转换为 <code>false</code>。</p>
-<h1 id="基本数据类型-——-浮点型"><a href="#基本数据类型-——-浮点型" class="headerlink" title="基本数据类型 —— 浮点型"></a>基本数据类型 —— 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的数，它们的内部表示方法与整数有天壤之别。浮点型由于存储方式不同，没有无符号类型。</p>
-<p>有效位（significant figure）是指十进制数字中有意义的位（从第一个非零数字开始算起）。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
+<h1 id="基本数据类型-——-浮点型"><a href="#基本数据类型-——-浮点型" class="headerlink" title="基本数据类型 —— 浮点型"></a>基本数据类型 —— 浮点型</h1><p>浮点数能够表示带小数部分的数字，如 3.14159, 23.56, 0.10 等。如果数字很大，无法表示为 <code>long</code> 类型，则可以使用浮点类型表示。浮点类型能够表示非常大或非常小的数，它们的内部表示方法与整数有天壤之别。浮点型由于存储方式不同，没有无符号类型。<br>有效位（significant figure）是指十进制数字中有意义的位（从第一个非零数字开始算起）。例如，山脉高度为 14179 英尺，该数字使用了 5 个有效位，如果写成约 14000 英尺，则该有效位只有 2 位，其余的 3 位只不过是占位符而已。</p>
 <p><strong>Tips:</strong> 0.00000000035 的有效位数为 2。</p>
-<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数的最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
+<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>C++ 按有效位数和允许的指数最小范围从低到高分为 3 种浮点类型：<code>float</code>、<code>double</code>、<code>long double</code>。</p>
 <h2 id="浮点数有效位数"><a href="#浮点数有效位数" class="headerlink" title="浮点数有效位数"></a>浮点数有效位数</h2><p>事实上，<code>C</code> 和 <code>C++</code> 对于有效位数的要求如下：</p>
 <ul>
 <li><code>float</code> 至少 32 位；</li>
@@ -565,11 +560,8 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 
 <h2 id="浮点数字面值"><a href="#浮点数字面值" class="headerlink" title="浮点数字面值"></a>浮点数字面值</h2><p>在程序中书写浮点常量时，程序将把它存储为哪种浮点类型呢？</p>
 <ul>
-<li><p>默认情况下，浮点常量将存储为 <code>double</code> 类型。</p>
-<p>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</p>
-</li>
-<li><p>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
+<li>默认情况下，浮点常量将存储为 <code>double</code> 类型。<br>  如 <code>8.3 0.14 0.1e7 3.99e-5</code> 默认都是 <code>double</code> 类型</li>
+<li>使用后缀存储为指定类型。<code>float</code> 后缀为 <code>f</code> 或 <code>F</code>，<code>long double</code> 后缀为 <code>l</code> 或 <code>L</code>。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.234f  // float 常量</span><br><span class="line">2.3E20F // float 常量</span><br><span class="line">2.2L    // long double 常量</span><br><span class="line">2.2     // 默认为 double 常量</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="浮点数优缺点"><a href="#浮点数优缺点" class="headerlink" title="浮点数优缺点"></a>浮点数优缺点</h2><p>与整数相比，浮点数有两大优点。首先，它们可以表示整数之间的值。其次，由于有缩放因子，它们可以表示更大的范围。缺点方面，浮点运算的速度通常比整数运算慢，且精度将降低。</p>
 <h1 id="一些总结归纳"><a href="#一些总结归纳" class="headerlink" title="一些总结归纳"></a>一些总结归纳</h1><p>数值整型和浮点型字面值，使用后缀来表征不同类型，如 10U, 100UL 。但对于 <strong>char</strong> 类型，使用前缀来表征不同的类型，如 <code>u&#39;a&#39;</code> <code>U&#39;a&#39;</code> <code>L&#39;b&#39;</code> 。</p>
@@ -646,13 +638,13 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">71k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:57</span>
+    <span title="站点阅读时长">1:58</span>
   </span>
 </div>
 <div class="busuanzi-count">
