@@ -1085,7 +1085,7 @@ wcout &lt;&lt; L&quot;tall&quot;;   // 输出宽字符串
 <p><code>typeName arrayName[arraySize]</code></p>
 <p><strong>Tips:</strong> <code>arraySize</code> 指定元素数目，它必须是整型常数（如 10 ）或 <code>const</code> 值，也可以是常量表达式（如 <code>8*sizeof( int )</code>），即其中所有的值在编译时都是已知的。具体地说，<code>arraySize</code> 不能是变量。后面将介绍使用 <code>new</code> 运算符来避开这种限制。</p>
 <p>数组与类型是强关联的，如 <code>float f[20]</code>，<code>f</code> 的类型不是“数组”，而是“float 数组”。</p>
-<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>函数中未初始化的数组的元素值是不确定的的，这意味着元素的值为以前驻留在该内存单元中的值。只有在定义数组时才能初始化，此后就不能重新初始化了，不能将一个数组赋给另一个数组</strong></p>
+<h1 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h1><p><strong>函数中未初始化的数组的元素值是不确定的，这意味着元素的值为以前驻留在该内存单元中的值。只有在定义数组时才能初始化，此后就不能重新初始化了，不能将一个数组赋给另一个数组</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int cards[4] = &#123;3, 6, 8, 10&#125;;   // 数组列表初始化</span><br><span class="line">int hand[4];    // 数组声明</span><br><span class="line">hand[4] = &#123;5, 6, 7, 8&#125;;  // 非法，只能在上面声明的时候直接初始化，现在的 hand[4] 表示第 5 个元素</span><br><span class="line">hand = cards;   // 非法，不能将一个数组赋给另一个</span><br></pre></td></tr></table></figure>
 
 <p>几种初始化方式：</p>
